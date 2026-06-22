@@ -1,5 +1,9 @@
 # 版本记录
 
+## 部署信息
+- Gitee Pages: https://kevinduyang.gitee.io/travel/
+- CloudBase: https://travel2-travel-d4gh9ixryba74cde5.webapps.tcloudbase.com/
+
 ## v1.5 (2026-06-22)
 - 红海子重新加入D5，标记为"不推荐"并说明原因
 - D4/D5所有景点新增小红书搜索链接 + 复制搜索词按钮
