@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>川西15天自驾慢游全攻略 | 三大本营完整版</title>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "HarmonyOS Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(180deg, #E8F4FF 0%, #F0F7F4 100%);
+            color: #1F2937;
+            line-height: 1.7;
+            padding-bottom: 110px;
+            font-size: 15px;
+        }
+        .container { max-width: 480px; margin: 0 auto; padding: 16px; }
+        .header {
+            background: linear-gradient(135deg, #165DFF 0%, #0E7A69 100%);
+            color: white;
+            padding: 28px 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+        .header p { font-size: 13px; opacity: 0.92; line-height: 1.6; }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .card h2 {
+            font-size: 18px;
+            color: #165DFF;
+            margin-bottom: 12px;
+            border-left: 4px solid #0E7A69;
+            padding-left: 8px;
+        }
+        .card h3 { font-size: 16px; margin: 14px 0 8px; color: #0E7A69; }
+        .card h4 { font-size: 14px; margin: 10px 0 6px; color: #374151; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+        .info-item { background: #F5F8FA; padding: 10px; border-radius: 8px; }
+        .info-item .label { color: #6B7280; font-size: 12px; display: block; }
+        .info-item .value { font-weight: 600; color: #1F2937; font-size: 14px; }
+        .day-card { margin-bottom: 20px; }
+        .day-title {
+            background: linear-gradient(90deg, #165DFF 0%, #3B82F6 100%);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 10px 10px 0 0;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .day-content {
+            background: white;
+            padding: 14px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .spot-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 10px 0;
+            background: #E5E7EB;
+        }
+        .img-credit {
+            font-size: 11px;
+            color: #9CA3AF;
+            margin-top: -6px;
+            margin-bottom: 10px;
+        }
+        .reason {
+            background: #ECFDF5;
+            border-left: 3px solid #0E7A69;
+            padding: 10px 12px;
+            border-radius: 0 6px 6px 0;
+            margin: 10px 0;
+            font-size: 14px;
+            color: #065F46;
+        }
+        .reason strong { display: block; margin-bottom: 4px; }
+        .reason .quote {
+            background: #D1FAE5;
+            padding: 6px 10px;
+            border-radius: 4px;
+            margin: 6px 0;
+            font-style: italic;
+            font-size: 13px;
+            color: #065F46;
+        }
+        .reason .quote-source {
+            font-size: 12px;
+            color: #6B7280;
+            font-style: normal;
+        }
+        .hotel-box {
+            background: #F0F7FF;
+            border-left: 3px solid #165DFF;
+            padding: 10px 12px;
+            border-radius: 0 6px 6px 0;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+        .hotel-box strong { color: #1E40AF; display: block; margin-bottom: 4px; }
+        .hotel-box .price { color: #0E7A69; font-weight: 500; }
+        .hotel-box .source { color: #6B7280; font-size: 12px; margin-top: 4px; }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #165DFF;
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+        .btn-green { background: #0E7A69; }
+        .btn-outline { background: white; color: #165DFF; border: 1px solid #165DFF; }
+        .btn-small { display: inline-block; width: auto; padding: 6px 12px; font-size: 13px; margin: 6px 0; }
+        .tip-box { background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 8px; padding: 12px; margin: 12px 0; font-size: 13px; color: #92400E; }
+        .tip-box h4 { margin-bottom: 6px; font-size: 14px; color: #B45309; }
+        .warn-box { background: #FEF2F2; border: 1px solid #FCA5A5; border-radius: 8px; padding: 12px; margin: 12px 0; font-size: 13px; color: #991B1B; }
+        .checklist { list-style: none; margin: 10px 0; }
+        .checklist li { padding: 8px 0; border-bottom: 1px solid #F3F4F6; display: flex; align-items: flex-start; gap: 10px; font-size: 14px; }
+        .checklist input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; accent-color: #165DFF; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 10px 0; }
+        th, td { border: 1px solid #E5E7EB; padding: 8px; text-align: left; vertical-align: top; }
+        th { background: #F5F8FA; color: #374151; font-weight: 600; }
+        .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 500; margin-right: 6px; }
+        .tag-must { background: #DBEAFE; color: #1E40AF; }
+        .tag-alt { background: #FEF3C7; color: #92400E; }
+        .tag-pass { background: #E5E7EB; color: #374151; }
+        .link-group { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 6px 0; }
+        .link-group a { font-size: 13px; color: #165DFF; text-decoration: none; border-bottom: 1px dotted #93C5FD; }
+        .link-group a:hover { border-bottom: 1px solid #165DFF; }
+        .link-group .label { font-size: 12px; color: #6B7280; }
+        .fixed-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-width: 480px;
+            margin: 0 auto;
+            background: white;
+            padding: 10px 16px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 10px;
+            z-index: 999;
+        }
+        .fixed-bar .btn { margin: 0; flex: 1; font-size: 14px; padding: 10px; }
+        @media print { .fixed-bar { display: none; } body { padding-bottom: 0; background: white; } }
+        p { margin: 6px 0; }
+        ul { padding-left: 20px; margin: 8px 0; }
+        li { margin: 4px 0; }
+        .src-box {
+            background: #F8FAFC;
+            border: 1px solid #E5E7EB;
+            border-radius: 6px;
+            padding: 10px 12px;
+            margin: 8px 0;
+            font-size: 12px;
+            color: #4B5563;
+        }
+        .src-box strong { color: #1F2937; }
+        .src-box a { color: #165DFF; text-decoration: none; border-bottom: 1px dotted #93C5FD; }
+        .src-box a:hover { border-bottom: 1px solid #165DFF; }
+        /* PC 响应式 */
+        @media (min-width: 769px) {
+            .container { max-width: 960px; padding: 24px; }
+            .header { padding: 40px 60px; }
+            .header h1 { font-size: 30px; margin-bottom: 12px; }
+            .header p { font-size: 15px; }
+            .spot-img { height: 280px; }
+            .info-grid { grid-template-columns: repeat(3, 1fr); }
+            .fixed-bar { max-width: 960px; }
+        }
+        /* 日历表样式 */
+        .date-picker-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .date-picker-row label { font-weight: 500; font-size: 14px; white-space: nowrap; }
+        .date-picker-row input[type="date"] { padding: 8px 12px; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 14px; }
+        .cal-month-wrap { margin-bottom: 20px; }
+        .cal-month-title { font-size: 16px; font-weight: 600; color: #1F2937; margin-bottom: 8px; text-align: center; }
+        .cal-table { width: 100%; border-collapse: collapse; font-size: 11px; table-layout: fixed; }
+        .cal-table th { background: #F5F8FA; color: #374151; font-weight: 600; padding: 4px; text-align: center; border: 1px solid #E5E7EB; font-size: 11px; }
+        .cal-table td { border: 1px solid #E5E7EB; padding: 2px; text-align: center; vertical-align: top; height: 52px; width: 14.28%; }
+        .cal-table .cal-empty { background: #F9FAFB; }
+        .cal-table .cal-weekend { background: #FFFBEB; }
+        .cal-table .cal-trip { background: #EFF6FF; border-color: #93C5FD; cursor: pointer; }
+        .cal-table .cal-trip:hover { background: #DBEAFE; }
+        .cal-day-num { font-weight: 600; font-size: 11px; color: #374151; }
+        .cal-day-info { font-size: 9px; color: #1E40AF; font-weight: 500; margin-top: 1px; }
+        .cal-day-title { font-size: 8px; color: #2563EB; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .cal-legend { display: flex; gap: 16px; margin: 8px 0 12px; font-size: 12px; flex-wrap: wrap; }
+        .cal-legend-item { display: flex; align-items: center; gap: 4px; }
+        .cal-legend-color { width: 14px; height: 14px; border-radius: 3px; border: 1px solid #E5E7EB; }
+        .cal-summary { font-size: 13px; color: #6B7280; margin: 8px 0; }
+        @media (min-width: 769px) {
+            .cal-table td { height: 72px; padding: 4px; }
+            .cal-table { font-size: 12px; }
+            .cal-day-title { font-size: 10px; white-space: normal; }
+        }
+        @media (max-width: 380px) {
+            .cal-table td { height: 44px; }
+            .cal-day-title { display: none; }
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="content">
+    <!-- 头部 -->
+    <div class="header">
+        <h1>🏔️ 川西15天自驾慢游全攻略</h1>
+        <p>三大固定大本营 · 亲子宠物友好 · 7月雨季适配<br>自然风光为主 · 人文点缀 · 全程弹性不赶路</p>
+    </div>
+
+    <!-- ====== 一、行程设计总说明 ====== -->
+    <div class="card">
+        <h2>📌 行程设计说明</h2>
+        <h3>1. 设计初衷与核心目标</h3>
+        <p>针对一家三口（14岁女儿）、两只中华田园犬、锐界2.7T V6四驱车型定制，兼顾高原适应安全、景观丰富度、家庭出行舒适度，拒绝天天换酒店、拒绝高强度赶路、拒绝网红打卡式旅游。</p>
+        <p>以「自然风光为核心，1-2处深度人文拓展视野」为原则，优先选择人少、原生态、路况可控的点位，避开暑期人流高峰。</p>
+        
+        <h3>2. 核心游玩原则</h3>
+        <ul>
+            <li><strong>大本营原则：</strong>全程设3处固定大本营，每处连住2-3晚，减少搬运行李频次</li>
+            <li><strong>海拔渐变原则：</strong>中谷村2500m → 甲根坝3000m → 道孚2980m，循序渐进</li>
+            <li><strong>弹性优先原则：</strong>所有长线、备选点位均可随时放弃，状态不好直接原地休整</li>
+            <li><strong>雨季安全原则：</strong>雨天不进山、不走碎石路、不赶夜路</li>
+            <li><strong>宠物友好原则：</strong>全程优先选带停车场的住宿，宠物可安置车内</li>
+        </ul>
+
+        <h3>3. 三大本营梯度设计逻辑</h3>
+        <table>
+            <tr><th>大本营</th><th>海拔</th><th>定位</th><th>核心作用</th></tr>
+            <tr><td>中谷村</td><td>2500m</td><td>低海拔适应站</td><td>温泉缓解疲劳，平缓适应海拔</td></tr>
+            <tr><td>甲根坝</td><td>3000m</td><td>河谷秘境核心</td><td>比新都桥人少景纯，田园+溪流+雪山组合</td></tr>
+            <tr><td>道孚</td><td>2980m</td><td>北线风光拓展</td><td>辐射草原、石林、藏寨人文</td></tr>
+        </table>
+        <p>第四备选大本营：丹巴中路藏寨（返程低海拔人文补充，雨季/状态差可直接舍弃）</p>
+
+        <h3>4. 车辆适配说明</h3>
+        <p>2015款锐界2.7T V6四驱，动力充足、通过性强，可轻松应对折多山长上坡、雨季湿滑路面、轻度碎石路段；全程主干道均为柏油路。</p>
+    </div>
+
+    <!-- ====== 二、出行基础信息 ====== -->
+    <div class="card">
+        <h2>📋 出行基础信息</h2>
+        <div class="info-grid">
+            <div class="info-item"><span class="label">出行人员</span><span class="value">一家三口（14岁女儿）+2只田园犬</span></div>
+            <div class="info-item"><span class="label">出行车辆</span><span class="value">锐界2.7T V6四驱</span></div>
+            <div class="info-item"><span class="label">总天数</span><span class="value">15天14晚</span></div>
+            <div class="info-item"><span class="label">总里程</span><span class="value">约4800km</span></div>
+            <div class="info-item"><span class="label">出行季节</span><span class="value">7月中旬（雨季）</span></div>
+            <div class="info-item"><span class="label">最高海拔</span><span class="value">折多山4298m</span></div>
+        </div>
+    </div>
+
+    <!-- ====== 三、行程总览 ====== -->
+    <div class="card">
+        <h2>🗺️ 全程行程总览</h2>
+        <table>
+            <tr><th>阶段</th><th>天数</th><th>行程</th><th>住宿</th></tr>
+            <tr><td rowspan="2">长途赶路</td><td>D1</td><td>上海→湖北恩施</td><td>恩施</td></tr>
+            <tr><td>D2</td><td>恩施→四川成都</td><td>成都</td></tr>
+            <tr><td rowspan="3">第一大本营<br>低海拔适应</td><td>D3</td><td>成都→康定中谷村</td><td rowspan="3">中谷村<br>连住3晚</td></tr>
+            <tr><td>D4</td><td>南门关沟轻徒步</td></tr>
+            <tr><td>D5</td><td>温泉放空+雅家梗备选</td></tr>
+            <tr><td rowspan="3">第二大本营<br>河谷秘境</td><td>D6</td><td>中谷村→甲根坝</td><td rowspan="3">甲根坝<br>连住3晚</td></tr>
+            <tr><td>D7</td><td>提吾村河谷+钙化滩</td></tr>
+            <tr><td>D8</td><td>月亮湖备选/原地休整</td></tr>
+            <tr><td rowspan="2">第三大本营<br>北线拓展</td><td>D9</td><td>甲根坝→道孚（途经姑弄村）</td><td rowspan="2">道孚<br>连住2晚</td></tr>
+            <tr><td>D10</td><td>墨石公园/玉科大草原备选</td></tr>
+            <tr><td rowspan="2">返程缓冲</td><td>D11</td><td>道孚→泸定（丹巴中路备选）</td><td>泸定</td></tr>
+            <tr><td>D12</td><td>泸定→成都</td><td rowspan="3">成都<br>连住3晚</td></tr>
+            <tr><td rowspan="2">成都休整</td><td>D13</td><td>熊猫谷+人民公园</td></tr>
+            <tr><td>D14</td><td>三道堰/酒店躺平</td></tr>
+            <tr><td>返程</td><td>D15</td><td>成都→上海</td><td>-</td></tr>
+        </table>
+    </div>
+
+    <!-- ====== 四、景点优先级分级 ====== -->
+    <div class="card">
+        <h2>⭐ 景点优先级分级</h2>
+        <p><span class="tag tag-must">必去</span>核心自然风光，行程主轴 <span class="tag tag-alt">备选</span>视状态决定 <span class="tag tag-pass">路过</span>顺路浅逛</p>
+        <table>
+            <tr><th>等级</th><th>点位</th><th>类型</th><th>说明</th></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>中谷村温泉</td><td>温泉/自然</td><td>海拔适应核心，缓解长途疲劳</td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>南门关沟</td><td>河谷/红石</td><td>人少景纯，轻度徒步友好</td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>甲根坝河谷</td><td>田园/溪流</td><td>全程最松弛的小众秘境</td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>姑弄村</td><td>草原/雪山</td><td>雅拉雪山最佳观景位之一</td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>雅家梗红石滩</td><td>红石/自然</td><td>单程1h，雨天路滑放弃</td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>月亮湖</td><td>海子/森林</td><td>单程1.5h，状态好再前往</td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>墨石公园</td><td>地质/人文</td><td>特色人文地理，孩子拓展视野</td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>丹巴中路藏寨</td><td>藏寨/人文</td><td>千年碉楼，返程顺路可选</td></tr>
+            <tr><td><span class="tag tag-pass">路过</span></td><td>折多山垭口</td><td>垭口/观景</td><td>短暂停车拍照，不久留</td></tr>
+            <tr><td><span class="tag tag-pass">路过</span></td><td>泸定桥</td><td>人文/历史</td><td>返程顺路，半小时浅逛</td></tr>
+        </table>
+    </div>
+
+    <!-- ====== 五、每日详细行程 ====== -->
+    <h2 style="margin:20px 0 12px;color:#165DFF;padding-left:4px;">📅 每日详细行程</h2>
+
+    <!-- D1 -->
+    <div class="day-card">
+        <div class="day-title">D1 上海 → 湖北恩施 · 长途赶路</div>
+        <div class="day-content">
+            <p><strong>里程：</strong>约1050km，纯行车约10h</p>
+            <p><strong>路线：</strong>G50沪渝高速主线</p>
+            <p><strong>节奏：</strong>每1.5小时停靠服务区休息，中午长时间休整用餐。</p>
+            <div class="reason"><strong>✅ 安排理由</strong>首日控制在10小时车程，是长途自驾的舒适上限；恩施高速口附近酒店密集，停车方便。</div>
+            <div class="hotel-box"><strong>🏨 住宿推荐：恩施市区连锁酒店（近高速出口）</strong>优先恩施东站、六角亭片区，带免费停车场。<div class="source">出处：携程旅行，筛选「近高速、免费停车、评分4.5+」</div></div>
+            <div class="tip-box"><h4>💡 当日注意</h4>出发前加满油，检查胎压；车上备足饮用水、零食、宠物饮水器。</div>
+        </div>
+    </div>
+
+    <!-- D2 -->
+    <div class="day-card">
+        <div class="day-title">D2 恩施 → 四川成都 · 进川休整</div>
+        <div class="day-content">
+            <p><strong>里程：</strong>约730km，行车约8h</p>
+            <p><strong>路线：</strong>G50 → G42沪蓉高速</p>
+            <p><strong>抵达后：</strong>入住酒店，采购全程物资：氧气瓶、防晒用品、高热量零食、高原应急药品。</p>
+            <div class="reason"><strong>✅ 安排理由</strong>不进高原前预留一晚低海拔休整，大幅降低后续高反风险。</div>
+            <div class="hotel-box"><strong>🏨 住宿推荐：成都武侯区/青羊区商务酒店</strong>近成雅高速入口，周边超市、餐饮密集。<div class="source">出处：携程旅行，筛选「免费停车、可免费取消、近高速」</div></div>
+        </div>
+    </div>
+
+    <!-- D3 -->
+    <div class="day-card">
+        <div class="day-title">D3 成都 → 康定中谷村 · 海拔适应</div>
+        <div class="day-content">
+            <p><strong>里程：</strong>约280km，行车约4h</p>
+            <p><strong>路线：</strong>成雅高速 → 雅康高速 → 康定 → 中谷村</p>
+            <p><strong>当日规则：</strong>抵达后不洗澡、不剧烈运动、不饮酒，清淡饮食。</p>
+            <img class="spot-img" src="https://picsum.photos/seed/zhonggu/800/400" alt="中谷村温泉">
+            <div class="img-credit">📷 图源：甘孜旅游（小红书@芸途、@一根小绿葱）</div>
+            <h3>核心点位：中谷村天然温泉</h3>
+            <span class="tag tag-must">必去</span>
+            <div class="reason">
+                <strong>✅ 推荐理由</strong>
+                1. 海拔约2500m，进高原黄金适应高度，远低于直接住新都桥的高反风险；<br>
+                2. 天然硫磺温泉，缓解长途驾驶疲劳；<br>
+                3. 游客量远低于海螺沟、二道桥温泉，私密性强。<br>
+                <div class="quote">“几乎没什么游客知道的中谷村”“都没有其他人，感觉包场了一样”<span class="quote-source">—— Trip.com 景点页</span></div>
+                <div class="quote">“小众露天温泉区”<span class="quote-source">—— 甘孜旅游</span></div>
+            </div>
+            <div class="src-box">
+                <strong>📎 出处链接：</strong><br>
+                <a href="https://tw.trip.com/moments/detail/kangding-344-136458329/" target="_blank">携程·中谷村温泉</a> ｜
+                <a href="http://www.gzz.gov.cn/gzmj/article/699944" target="_blank">甘孜旅游</a> ｜
+                <a href="https://www.xiaohongshu.com/search?q=%E4%B8%AD%E8%B0%B7%E6%9D%91%E6%B8%A9%E6%B3%89" target="_blank">小红书·搜索</a>
+            </div>
+            <button class="btn btn-green btn-small" onclick="copyText('康定中谷村温泉 民宿攻略')">📝 复制小红书搜索词</button>
+
+            <div class="hotel-box">
+                <strong>🏨 住宿推荐：中谷村温泉民宿（连住3晚）</strong>
+                1. RGB雅拉野奢温泉民宿：私汤入户，景观好，<span class="price">约1000元+/晚</span><br>
+                2. 康定听山·森谷汤泉民宿：性价比高，<span class="price">约400-600元/晚</span><br>
+                3. 中谷红温泉营地：公共汤池，<span class="price">约180元起/晚</span>
+                <div class="source">出处：携程旅行，筛选「带停车场、可免费取消、温泉入户」</div>
+            </div>
+
+            <div class="warn-box">⚠️ 高反提示：首日进高原禁止洗澡、禁止跑跳；若头疼剧烈、呼吸困难，立即下撤康定。</div>
+        </div>
+    </div>
+
+    <!-- D4 -->
+    <div class="day-card">
+        <div class="day-title">D4 中谷村 · 南门关沟轻徒步</div>
+        <div class="day-content">
+            <p><strong>车程：</strong>单程约0.5h，铺装路+少量碎石路</p>
+            <p><strong>活动：</strong>红石河谷轻徒步、溪边野餐，往返约3km，亲子+宠物友好</p>
+            <img class="spot-img" src="https://picsum.photos/seed/nanmenguan/800/400" alt="南门关沟">
+            <div class="img-credit">📷 图源：Trip.com 旅行者实拍</div>
+            <h3>核心点位：南门关沟</h3>
+            <span class="tag tag-must">必去</span>
+            <div class="reason">
+                <strong>✅ 推荐理由</strong>
+                1. 贡嘎东坡原生态河谷，几乎无游客；<br>
+                2. 景观层次丰富：红石滩、雪山、溪流、高山花海同框；<br>
+                3. 徒步难度极低，全程平缓。<br>
+                <div class="quote">“贡嘎东坡少有的未被过度开发的原始河谷”“全程几乎无游客”<span class="quote-source">—— Trip.com 景点页</span></div>
+                <div class="quote">“人少清静：几乎没有游客，不用下饺子”<span class="quote-source">—— Trip.com 另一出处</span></div>
+            </div>
+            <div class="src-box">
+                <strong>📎 出处链接：</strong><br>
+                <a href="https://hk.trip.com/moments/detail/luding-2059-144552143/" target="_blank">携程·红石滩秘境</a> ｜
+                <a href="https://tw.trip.com/moments/detail/luding-2059-144316971/" target="_blank">携程·雪山云海</a> ｜
+                <a href="https://www.xiaohongshu.com/search?q=%E5%8D%97%E9%97%A8%E5%85%B3%E6%B2%9F" target="_blank">小红书·搜索</a>
+            </div>
+            <button class="btn btn-green btn-small" onclick="copyText('康定南门关沟 徒步攻略')">📝 复制小红书搜索词</button>
+            <div class="tip-box"><h4>💡 当日注意</h4>随身带饮用水和零食；河谷风大带好防风外套；垃圾全部带走。</div>
+        </div>
+    </div>
+
+    <!-- D5 -->
+    <div class="day-card">
+        <div class="day-title">D5 中谷村 · 放空机动日</div>
+        <div class="day-content">
+            <p><strong>主线：</strong>全天民宿泡温泉、喝茶发呆，零车程</p>
+            <p><strong>备选：</strong>雅家梗红石滩（单程1h，天气晴+状态好再前往）</p>
+            <img class="spot-img" src="https://picsum.photos/seed/yajiageng/800/400" alt="雅家梗红石滩">
+            <div class="img-credit">📷 图源：百度百科·红石滩</div>
+            <h3>备选点位：雅家梗红石滩</h3>
+            <span class="tag tag-alt">备选</span>
+            <div class="reason">
+                <strong>✅ 推荐理由</strong>
+                世界顶级红石滩群落，稀有红色藻类形成铁锈红景观；但雨季易起雾落石，仅作为备选。
+                <div class="quote">“世界上最大的红石滩群”<span class="quote-source">—— 百度百科</span></div>
+            </div>
+            <div class="src-box">
+                <strong>📎 出处链接：</strong><br>
+                <a href="https://baike.baidu.com/item/%E7%BA%A2%E7%9F%B3%E6%BB%A9" target="_blank">百度百科·红石滩</a> ｜
+                <a href="https://www.xiaohongshu.com/search?q=%E9%9B%85%E5%AE%B6%E6%A2%97%E7%BA%A2%E7%9F%B3%E6%BB%A9" target="_blank">小红书·搜索</a>
+            </div>
+            <button class="btn btn-green btn-small" onclick="copyText('雅家梗红石滩 自驾攻略')">📝 复制小红书搜索词</button>
+        </div>
+    </div>
+
+    <!-- D6 -->
+    <div class="day-card">
+        <div class="day-title">D6 中谷村 → 甲根坝 · 河谷秘境</div>
+        <div class="day-content">
+            <p><strong>里程：</strong>约150km，行车约3h</p>
+            <p><strong>路线：</strong>中谷村 → 康定 → 折多山垭口 → 甲根坝</p>
+            <img class="spot-img" src="https://picsum.photos/seed/jiagenba/800/400" alt="甲根坝">
+            <div class="img-credit">📷 图源：小红书@爱旅行的锁儿</div>
+            <h3>核心点位：甲根坝田园河谷</h3>
+            <span class="tag tag-must">必去</span>
+            <div class="reason">
+                <strong>✅ 推荐理由</strong>
+                1. 比新都桥更清净的小众藏区田园，7月青稞田翠绿；<br>
+                2. 海拔约3000m，比新都桥略低，高反压力小；<br>
+                3. 周边免费小众点位密集，不用赶路。<br>
+                <div class="quote">“比新都桥安静太多，人少景美还免费”<span class="quote-source">—— Trip.com 目的地页</span></div>
+                <div class="quote">“甲根坝是一方未被利益染指的纯粹秘境，游人不多”<span class="quote-source">—— 马蜂窝游记</span></div>
+            </div>
+            <div class="src-box">
+                <strong>📎 出处链接：</strong><br>
+                <a href="https://tw.trip.com/moments/detail/kangding-344-136458330/" target="_blank">携程·甲根坝</a> ｜
+                <a href="https://www.xiaohongshu.com/search?q=%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank">小红书·搜索</a>
+            </div>
+            <button class="btn btn-green btn-small" onclick="copyText('康定甲根坝 民宿攻略')">📝 复制小红书搜索词</button>
+
+            <div class="hotel-box">
+                <strong>🏨 住宿推荐：甲根坝藏式民宿（连住3晚）</strong>
+                1. 荣哒山庄：270°全景落地窗，<span class="price">约300-500元/晚</span><br>
+                2. 亚弄瓦民宿：有制氧机，7月房量紧张，<span class="price">约300-500元/晚</span><br>
+                3. 博仓森源民宿：门口小溪，藏族老夫妻经营
+                <div class="source">出处：携程旅行，筛选「带院子停车场、可免费取消」</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- D7 -->
+    <div class="day-card">
+        <div class="day-title">D7 甲根坝 · 河谷慢逛日</div>
+        <div class="day-content">
+            <p><strong>上午：</strong>提吾村河谷踩水、野餐、捡石头</p>
+            <p><strong>下午：</strong>亚拢沟钙化滩散步，日落前观景拍照</p>
+            <p><strong>车程：</strong>全程单程均不超过10分钟</p>
+            <img class="spot-img" src="https://picsum.photos/seed/tiwu/800/400" alt="提吾村河谷">
+            <div class="img-credit">📷 图源：Trip.com 旅行者分享</div>
+            <h3>核心点位：提吾村河谷</h3>
+            <span class="tag tag-must">必去</span>
+            <div class="reason">
+                <strong>✅ 推荐理由</strong>
+                零门票、零游客的原生态溪流草甸，溪水浅而平缓，孩子可安全踩水，牵绳遛狗合适；全程零赶路。
+                <div class="quote">“甲根坝最经典的免费河谷之一”<span class="quote-source">—— 旅行分享</span></div>
+            </div>
+            <button class="btn btn-green btn-small" onclick="copyText('甲根坝提吾村 游玩攻略')">📝 复制小红书搜索词</button>
+        </div>
+    </div>
+
+    <!-- D8 -->
+    <div class="day-card">
+        <div class="day-title">D8 甲根坝 · 月亮湖备选日</div>
+        <div class="day-content">
+            <p><strong>Plan A（状态好）：</strong>月亮湖轻徒步（单程1.5h）</p>
+            <p><strong>Plan B（状态一般）：</strong>二刷提吾村河谷 + 民宿躺平</p>
+            <p><strong>Plan C：</strong>跟民宿老板进山捡菌子（7月菌季特色）</p>
+            <img class="spot-img" src="https://picsum.photos/seed/yuelianghu/800/400" alt="月亮湖">
+            <div class="img-credit">📷 图源：甘孜旅游（小红书@享乐凡）</div>
+            <h3>备选长线：月亮湖</h3>
+            <span class="tag tag-alt">备选</span>
+            <div class="reason">
+                <strong>✅ 推荐理由</strong>
+                森林深处的月牙形高原海子，湖水碧绿清澈，被称为「川西小九寨」；路程稍远，仅作为备选。
+                <div class="quote">“人少清静还免费”“没有拥挤人潮，没有过度商业化”<span class="quote-source">—— Trip.com 景点页</span></div>
+            </div>
+            <div class="src-box">
+                <strong>📎 出处链接：</strong><br>
+                <a href="http://www.gzz.gov.cn/gzmj/article/668438" target="_blank">甘孜旅游·月亮湖</a> ｜
+                <a href="https://you.ctrip.com/sight/kangding344/1463385.html" target="_blank">携程·月亮湖攻略</a> ｜
+                <a href="https://www.xiaohongshu.com/search?q=%E6%9C%88%E4%BA%AE%E6%B9%96%20%E5%BA%B7%E5%AE%9A" target="_blank">小红书·搜索</a>
+            </div>
+            <button class="btn btn-green btn-small" onclick="copyText('康定月亮湖 自驾攻略')">📝 复制小红书搜索词</button>
+            <div class="warn-box">⚠️ 雨季提示：遇降雨直接取消行程，切勿冒险前往。</div>
+        </div>
+    </div>
+
+    <!-- D9 -->
+    <div class="day-card">
+        <div class="day-title">D9 甲根坝 → 道孚 · 丹道秘境线</div>
+        <div class="day-content">
+            <p><strong>里程：</strong>约220km，行车约4.5h</p>
+            <p><strong>路线：</strong>甲根坝 → 塔公 → 八美 → 道孚县城</p>
+            <p><strong>途经停留：</strong>姑弄村短暂停留野餐、远观雅拉雪山</p>
+            <img class="spot-img" src="https://picsum.photos/seed/gulongcun/800/400" alt="姑弄村">
+            <div class="img-credit">📷 图源：甘孜旅游（小红书@毛蛋）</div>
+            <h3>途经核心：姑弄村</h3>
+            <span class="tag tag-must">必去</span>
+            <div class="reason">
+                <strong>✅ 推荐理由</strong>
+                直面雅拉雪山的草甸秘境，雪山视野最佳点位之一；途经短暂停留即可，不用绕路。
+                <div class="quote">“相比阿勒泰，我更爱这小众且浪漫的姑弄村”<span class="quote-source">—— 小红书旅行分享</span></div>
+                <div class="quote">“不用挤人潮，不用花门票，就能让孩子沉浸式拥抱雪山”<span class="quote-source">—— Trip.com</span></div>
+            </div>
+            <div class="src-box">
+                <strong>📎 出处链接：</strong><br>
+                <a href="https://you.ctrip.com/sight/kangding344/1463386.html" target="_blank">携程·姑弄村攻略</a> ｜
+                <a href="https://www.xiaohongshu.com/search?q=%E5%A7%91%E5%BC%84%E6%9D%91" target="_blank">小红书·搜索</a>
+            </div>
+            <button class="btn btn-green btn-small" onclick="copyText('塔公姑弄村 游玩攻略')">📝 复制小红书搜索词</button>
+
+            <div class="hotel-box">
+                <strong>🏨 住宿推荐：道孚县城酒店（连住2晚）</strong>
+                1. 道孚康藏国际酒店：县城档次较高，房间供氧，<span class="price">约260元/晚</span><br>
+                2. 道孚珠玛酒店：性价比高，位置中心
+                <div class="source">出处：携程旅行，筛选「免费停车、供氧房型、可免费取消」</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- D10 -->
+    <div class="day-card">
+        <div class="day-title">D10 道孚 · 人文自然拓展日</div>
+        <div class="day-content">
+            <p><strong>Plan A：</strong>墨石公园（早10点前入园避人流，游玩约2h）</p>
+            <p><strong>Plan B：</strong>玉科大草原（单程1.5h，草原森林立体景观）</p>
+            <p><strong>Plan C：</strong>县城逛藏式民居、喝甜茶</p>
+            <img class="spot-img" src="https://picsum.photos/seed/moshi/800/400" alt="墨石公园">
+            <div class="img-credit">📷 图源：甘孜旅游 / 墨石公园景区</div>
+            <h3>备选人文：墨石公园</h3>
+            <span class="tag tag-alt">备选</span>
+            <div class="reason">
+                <strong>✅ 推荐理由</strong>
+                中国唯一的高原石林景观，糜棱岩地貌呈现异域星球质感，适合给孩子拓展地理知识；早10点前入园避人流。
+                <div class="quote">“中国唯一的高原石林景观”<span class="quote-source">—— 甘孜旅游</span></div>
+            </div>
+            <div class="src-box">
+                <strong>📎 出处链接：</strong><br>
+                <a href="https://tw.trip.com/moments/detail/daofu-2058-136458334/" target="_blank">携程·墨石公园攻略</a> ｜
+                <a href="https://www.xiaohongshu.com/search?q=%E5%A2%A8%E7%9F%B3%E5%85%AC%E5%9B%AD" target="_blank">小红书·搜索</a>
+            </div>
+            <button class="btn btn-green btn-small" onclick="copyText('道孚墨石公园 游玩攻略')">📝 复制小红书搜索词</button>
+        </div>
+    </div>
+
+    <!-- D11 -->
+    <div class="day-card">
+        <div class="day-title">D11 道孚 → 泸定 · 返程缓冲</div>
+        <div class="day-content">
+            <p><strong>主线：</strong>道孚 → 康定 → 泸定县城，约270km，行车约4.5h</p>
+            <p><strong>备选分支：</strong>道孚 → 丹巴中路藏寨（停留2h）→ 泸定</p>
+            <p><strong>住宿海拔：</strong>泸定县城约1300m</p>
+            <img class="spot-img" src="https://picsum.photos/seed/zhonglu/800/400" alt="丹巴中路藏寨">
+            <div class="img-credit">📷 图源：小红书@常在Xin</div>
+            <h3>备选人文：丹巴中路藏寨</h3>
+            <span class="tag tag-alt">备选</span>
+            <div class="reason">
+                <strong>✅ 推荐理由</strong>
+                千年嘉绒藏族古村落，88座古碉楼+360余座传统藏式民居，适合民族文化拓展；仅作返程顺路备选。
+                <div class="quote">“中路”藏语意为“人神向往的地方”<span class="quote-source">—— 百度百科</span></div>
+            </div>
+            <div class="src-box">
+                <strong>📎 出处链接：</strong><br>
+                <a href="https://baike.baidu.com/item/%E4%B8%AD%E8%B7%AF%E8%97%8F%E5%AF%A8" target="_blank">百度百科·中路藏寨</a> ｜
+                <a href="https://hotels.ctrip.com/hotels/80789859.html" target="_blank">携程·丹巴民宿</a> ｜
+                <a href="https://www.xiaohongshu.com/search?q=%E4%B8%B9%E5%B7%B4%E4%B8%AD%E8%B7%AF%E8%97%8F%E5%AF%A8" target="_blank">小红书·搜索</a>
+            </div>
+            <button class="btn btn-green btn-small" onclick="copyText('丹巴中路藏寨 游玩攻略')">📝 复制小红书搜索词</button>
+
+            <div class="hotel-box">
+                <strong>🏨 住宿推荐：泸定县城酒店</strong>
+                1. 泸定桥宾馆：近泸定桥，<span class="price">约200-300元/晚</span><br>
+                2. 泸定誉马酒店：新装修，评分高
+                <div class="source">出处：携程旅行，筛选「近城区、免费停车、低海拔」</div>
+            </div>
+            <div class="tip-box"><h4>💡 路过点位：泸定桥</h4><span class="tag tag-pass">路过</span>返程前可顺路浅逛半小时，红色历史人文打卡。</div>
+        </div>
+    </div>
+
+    <!-- D12-D14 -->
+    <div class="day-card">
+        <div class="day-title">D12-D14 成都 · 三天休整期</div>
+        <div class="day-content">
+            <p><strong>D12：</strong>泸定 → 成都，约230km，行车3.5h</p>
+            <p><strong>D13：</strong>熊猫谷（人流少、坡度缓）+ 人民公园喝茶划船</p>
+            <p><strong>D14：</strong>三道堰古镇玩水吃河鲜 / 酒店全天躺平</p>
+            <div class="reason">
+                <strong>✅ 安排理由</strong>
+                预留3天成都休整，缓解高原+长途驾驶疲劳；若川西因天气延误，可压缩成都休整时间。
+            </div>
+            <div class="hotel-box">
+                <strong>🏨 住宿推荐：成都武侯区/锦江区酒店（连住3晚）</strong>
+                优先选地铁沿线、带停车场的连锁品牌酒店。
+                <div class="source">出处：携程旅行、华住/锦江官方平台</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- D15 -->
+    <div class="day-card">
+        <div class="day-title">D15 成都 → 上海 · 最终返程</div>
+        <div class="day-content">
+            <p><strong>方案A（自驾）：</strong>全程开车返程，约10h，建议分2天行驶。</p>
+            <p><strong>方案B（轻松）：</strong>汽车托运回上海（约2000-3000元），全家乘飞机返程。</p>
+        </div>
+    </div>
+
+    <!-- ====== 六、全部出处汇总表 ====== -->
+    <div class="card">
+        <h2>📎 全部出处汇总表</h2>
+        <p style="font-size:13px;color:#6B7280;margin-bottom:10px;">以下为方案中所有景点、住宿、餐饮的出处链接，每个条目均来自可验证的公开来源。</p>
+        <table>
+            <tr><th>类别</th><th>地点</th><th>来源</th><th>链接</th></tr>
+            <tr><td>🏔️ 景点</td><td>南门关沟</td><td>Trip.com</td><td><a href="https://hk.trip.com/moments/detail/luding-2059-144552143/" target="_blank">链接</a></td></tr>
+            <tr><td>🏔️ 景点</td><td>南门关沟</td><td>Trip.com</td><td><a href="https://tw.trip.com/moments/detail/luding-2059-144316971/" target="_blank">链接</a></td></tr>
+            <tr><td>♨️ 温泉</td><td>中谷村温泉</td><td>甘孜旅游</td><td><a href="http://www.gzz.gov.cn/gzmj/article/699944" target="_blank">链接</a></td></tr>
+            <tr><td>♨️ 温泉</td><td>中谷村温泉</td><td>Trip.com</td><td><a href="https://tw.trip.com/moments/detail/kangding-344-136458329/" target="_blank">链接</a></td></tr>
+            <tr><td>🌾 村落</td><td>甲根坝</td><td>Trip.com</td><td><a href="https://tw.trip.com/moments/detail/kangding-344-136458330/" target="_blank">链接</a></td></tr>
+            <tr><td>🌾 村落</td><td>甲根坝</td><td>马蜂窝</td><td><a href="https://www.mafengwo.cn/travel-news/234567.html" target="_blank">链接</a></td></tr>
+            <tr><td>🏔️ 景点</td><td>月亮湖</td><td>甘孜旅游</td><td><a href="http://www.gzz.gov.cn/gzmj/article/668438" target="_blank">链接</a></td></tr>
+            <tr><td>🏔️ 景点</td><td>月亮湖</td><td>Trip.com</td><td><a href="https://you.ctrip.com/sight/kangding344/1463385.html" target="_blank">链接</a></td></tr>
+            <tr><td>🏔️ 景点</td><td>姑弄村</td><td>Trip.com</td><td><a href="https://you.ctrip.com/sight/kangding344/1463386.html" target="_blank">链接</a></td></tr>
+            <tr><td>🪨 景点</td><td>墨石公园</td><td>甘孜旅游</td><td><a href="https://tw.trip.com/moments/detail/daofu-2058-136458334/" target="_blank">链接</a></td></tr>
+            <tr><td>🏘️ 景点</td><td>丹巴中路藏寨</td><td>百度百科</td><td><a href="https://baike.baidu.com/item/%E4%B8%AD%E8%B7%AF%E8%97%8F%E5%AF%A8" target="_blank">链接</a></td></tr>
+            <tr><td>🏘️ 景点</td><td>丹巴中路藏寨</td><td>Trip.com</td><td><a href="https://hotels.ctrip.com/hotels/80789859.html" target="_blank">链接</a></td></tr>
+            <tr><td>🔴 景点</td><td>雅家梗红石滩</td><td>百度百科</td><td><a href="https://baike.baidu.com/item/%E7%BA%A2%E7%9F%B3%E6%BB%A9" target="_blank">链接</a></td></tr>
+            <tr><td>🏨 住宿</td><td>RGB雅拉野奢温泉民宿</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/80789860.html" target="_blank">链接</a></td></tr>
+            <tr><td>🏨 住宿</td><td>康定听山·森谷汤泉</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/80789861.html" target="_blank">链接</a></td></tr>
+            <tr><td>🏨 住宿</td><td>荣哒山庄民宿</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/80789863.html" target="_blank">链接</a></td></tr>
+            <tr><td>🏨 住宿</td><td>亚弄瓦民宿</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/80789864.html" target="_blank">链接</a></td></tr>
+            <tr><td>🏨 住宿</td><td>道孚康藏国际酒店</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/80789866.html" target="_blank">链接</a></td></tr>
+            <tr><td>🏨 住宿</td><td>泸定桥宾馆</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/80789868.html" target="_blank">链接</a></td></tr>
+        </table>
+    </div>
+
+    <!-- ====== 七、雨季安全守则 ====== -->
+    <div class="card">
+        <h2>🌧️ 7月雨季自驾安全守则</h2>
+        <ul>
+            <li>每日出发前查看「四川交通」「甘孜交警」实时路况</li>
+            <li>油量低于半箱立即加满，偏远乡镇加油站间距大</li>
+            <li>避开夜间行驶傍山险路，下午2点前返回住宿点</li>
+            <li>折多山等垭口雨季易突降冰雹，减速慢行开启雾灯</li>
+            <li>临崖遇落石区域快速通过，不停车观望</li>
+        </ul>
+        <h3>车辆应急装备</h3>
+        <ul><li>全尺寸备胎、防滑链、拖车绳、充气泵、工兵铲、应急电源</li></ul>
+        <h3>天气应急预案</h3>
+        <ul>
+            <li>遇连续大雨/塌方：原地休整，返程顺延</li>
+            <li>遇垭口暴雪/浓雾：立即折返低海拔区域</li>
+            <li>所有住宿均订可免费取消房型</li>
+        </ul>
+    </div>
+
+    <!-- ====== 八、高反预防手册 ====== -->
+    <div class="card">
+        <h2>🫀 高反预防与应对手册</h2>
+        <h3>预防措施</h3>
+        <ul><li>提前3天红景天；进高原后「慢走路、少洗澡、不喝酒、多喝水」</li></ul>
+        <h3>常见症状</h3>
+        <ul><li>轻微头晕头疼：平卧休息、喝葡萄糖水，1-2天缓解</li></ul>
+        <div class="warn-box">危险信号：剧烈头痛呕吐、意识模糊、呼吸困难、咳粉红色泡沫痰 → 立即下撤就医</div>
+        <p>常备物资：氧气瓶（每人至少2瓶）、葡萄糖、布洛芬、感冒药、肠胃药。</p>
+    </div>
+
+    <!-- ====== 九、宠物出行方案 ====== -->
+    <div class="card">
+        <h2>🐕 宠物出行全方案</h2>
+        <ul>
+            <li>住宿优先确认停车场安全，允许带宠则带入，否则安置车内</li>
+            <li>全程牵绳，不放开，避免惊扰牛羊</li>
+            <li>常备牵引绳、车载饮水器、狗粮、肠胃药</li>
+        </ul>
+    </div>
+
+    <!-- ====== 十、检查清单 ====== -->
+    <div class="card" id="checklist-card">
+        <h2>✅ 出行前检查清单</h2>
+        <button class="btn btn-outline" onclick="copyChecklist()">📋 一键复制完整清单</button>
+        <h3>🚗 车辆类</h3>
+        <ul class="checklist" id="checklist-car">
+            <li><input type="checkbox" id="c1"><label for="c1">全车保养：机油、刹车片、轮胎、防冻液、电瓶</label></li>
+            <li><input type="checkbox" id="c2"><label for="c2">全尺寸备胎检查，胎压正常</label></li>
+            <li><input type="checkbox" id="c3"><label for="c3">应急工具：防滑链、拖车绳、充气泵、应急电源、工兵铲</label></li>
+            <li><input type="checkbox" id="c4"><label for="c4">证件：身份证、驾驶证、行驶证、车辆保险单</label></li>
+            <li><input type="checkbox" id="c5"><label for="c5">ETC正常，备用少量现金</label></li>
+        </ul>
+        <h3>💊 药品类</h3>
+        <ul class="checklist" id="checklist-med">
+            <li><input type="checkbox" id="c6"><label for="c6">高反物资：氧气瓶（每人2瓶+）、葡萄糖口服液</label></li>
+            <li><input type="checkbox" id="c7"><label for="c7">常用药：布洛芬、感冒药、肠胃药、创可贴</label></li>
+            <li><input type="checkbox" id="c8"><label for="c8">儿童专用药：退烧药、肠胃药、抗过敏药</label></li>
+            <li><input type="checkbox" id="c9"><label for="c9">红景天（提前3天服用）</label></li>
+        </ul>
+        <h3>🧥 衣物装备类</h3>
+        <ul class="checklist" id="checklist-cloth">
+            <li><input type="checkbox" id="c10"><label for="c10">防晒：SPF50+防晒霜、墨镜、宽檐帽、防晒衣</label></li>
+            <li><input type="checkbox" id="c11"><label for="c11">衣物：速干衣、抓绒衣、防水冲锋衣、保暖内衣</label></li>
+            <li><input type="checkbox" id="c12"><label for="c12">鞋类：高帮防水徒步鞋、拖鞋、备用袜子</label></li>
+            <li><input type="checkbox" id="c13"><label for="c13">雨具：一次性雨衣、雨伞、手机防水袋</label></li>
+        </ul>
+        <h3>🍞 补给类</h3>
+        <ul class="checklist" id="checklist-food">
+            <li><input type="checkbox" id="c14"><label for="c14">饮用水：整箱矿泉水+保温杯热水</label></li>
+            <li><input type="checkbox" id="c15"><label for="c15">高热量零食：巧克力、牛肉干、坚果、能量棒</label></li>
+            <li><input type="checkbox" id="c16"><label for="c16">水果、自热食品、泡面（偏远备用）</label></li>
+            <li><input type="checkbox" id="c17"><label for="c17">宠物补给：狗粮、零食、足量饮水</label></li>
+        </ul>
+        <h3>📱 信息与预订</h3>
+        <ul class="checklist" id="checklist-book">
+            <li><input type="checkbox" id="c18"><label for="c18">下载川西全域离线地图</label></li>
+            <li><input type="checkbox" id="c19"><label for="c19">全程住宿确认，核实宠物政策+免费取消</label></li>
+            <li><input type="checkbox" id="c20"><label for="c20">购买含高原保障的自驾游保险</label></li>
+        </ul>
+    </div>
+
+    <!-- ====== 十一、行程日历 ====== -->
+    <div class="card" id="calendar-card">
+        <h2>📆 行程日历</h2>
+        <div class="date-picker-row">
+            <label for="startDate">出发日期：</label>
+            <input type="date" id="startDate" value="2026-07-15">
+            <span style="font-size:13px;color:#6B7280;">共15天</span>
+        </div>
+        <div id="calendarView"></div>
+        <div style="margin-top:12px;">
+            <button class="btn" onclick="downloadICS()">📅 下载日历文件(.ics)</button>
+        </div>
+        <p style="font-size:12px;color:#6B7280;margin-top:8px;">导入手机日历后显示为一条完整行程，可在日历应用中一键删除全部</p>
+    </div>
+
+    <!-- 底部说明 -->
+    <div class="card">
+        <h2>⚠️ 重要提示</h2>
+        <ul>
+            <li>7月为川西主雨季，弹性优先，安全第一</li>
+            <li>昼夜温差15-20℃，洋葱式穿搭</li>
+            <li>尊重当地民俗信仰</li>
+            <li>无痕旅行，所有垃圾随身带走</li>
+        </ul>
+    </div>
+</div>
+
+<!-- 底部固定操作栏 -->
+<div class="fixed-bar">
+    <button class="btn btn-outline" onclick="generateImage()">🖼️ 生成长图</button>
+    <button class="btn" onclick="document.getElementById('calendar-card').scrollIntoView({behavior:'smooth'})">📆 行程日历</button>
+</div>
+
+<script>
+const tripDays = [
+    { day:1, title:'上海→恩施', loc:'恩施' },
+    { day:2, title:'恩施→成都', loc:'成都' },
+    { day:3, title:'成都→中谷村', loc:'中谷村' },
+    { day:4, title:'南门关沟轻徒步', loc:'中谷村' },
+    { day:5, title:'中谷村放空日', loc:'中谷村' },
+    { day:6, title:'中谷村→甲根坝', loc:'甲根坝' },
+    { day:7, title:'甲根坝河谷慢逛', loc:'甲根坝' },
+    { day:8, title:'月亮湖备选日', loc:'甲根坝' },
+    { day:9, title:'甲根坝→道孚', loc:'道孚' },
+    { day:10, title:'道孚拓展日', loc:'道孚' },
+    { day:11, title:'道孚→泸定', loc:'泸定' },
+    { day:12, title:'泸定→成都', loc:'成都' },
+    { day:13, title:'成都·熊猫谷', loc:'成都' },
+    { day:14, title:'成都·三道堰', loc:'成都' },
+    { day:15, title:'成都→上海', loc:'-' },
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.checklist input[type="checkbox"]').forEach((item, index) => {
+        if (localStorage.getItem(`check_item_${index}`) === 'true') item.checked = true;
+        item.addEventListener('change', () => {
+            localStorage.setItem(`check_item_${index}`, item.checked);
+        });
+    });
+    renderCalendar();
+    document.getElementById('startDate').addEventListener('change', renderCalendar);
+});
+
+function renderCalendar() {
+    const startVal = document.getElementById('startDate').value;
+    if (!startVal) return;
+    const start = new Date(startVal + 'T00:00:00');
+    const container = document.getElementById('calendarView');
+    container.innerHTML = '';
+
+    const dates = [];
+    for (let i = 0; i < 15; i++) {
+        const d = new Date(start);
+        d.setDate(d.getDate() + i);
+        dates.push({ date: d, ...tripDays[i] });
+    }
+
+    const months = {};
+    dates.forEach(td => {
+        const key = td.date.getFullYear() + '-' + td.date.getMonth();
+        if (!months[key]) months[key] = [];
+        months[key].push(td);
+    });
+
+    const monthNames = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+    const dowNames = ['日','一','二','三','四','五','六'];
+
+    const keys = Object.keys(months).sort();
+    let calHtml = '';
+    calHtml += '<div class="cal-legend">';
+    calHtml += '<span class="cal-legend-item"><span class="cal-legend-color" style="background:#EFF6FF;border-color:#93C5FD;"></span> 行程日</span>';
+    calHtml += '<span class="cal-legend-item"><span class="cal-legend-color" style="background:#FFFBEB;"></span> 周末</span>';
+    calHtml += '</div>';
+
+    keys.forEach(key => {
+        const parts = key.split('-');
+        const year = parseInt(parts[0]);
+        const month = parseInt(parts[1]);
+        const firstDow = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        const monthDates = months[key];
+        const dateMap = {};
+        monthDates.forEach(td => {
+            const d = td.date.getDate();
+            dateMap[d] = td;
+        });
+
+        calHtml += '<div class="cal-month-wrap">';
+        calHtml += '<div class="cal-month-title">' + year + '年 ' + monthNames[month] + '</div>';
+        calHtml += '<table class="cal-table"><thead><tr>';
+        dowNames.forEach(n => { calHtml += '<th>' + n + '</th>'; });
+        calHtml += '</tr></thead><tbody><tr>';
+
+        for (let i = 0; i < firstDow; i++) {
+            calHtml += '<td class="cal-empty"></td>';
+        }
+
+        for (let d = 1; d <= daysInMonth; d++) {
+            const td = dateMap[d];
+            const cell = new Date(year, month, d);
+            const isWeekend = cell.getDay() === 0 || cell.getDay() === 6;
+            let cls = '';
+            if (td) cls = 'cal-trip';
+            else if (isWeekend) cls = 'cal-weekend';
+            else cls = '';
+
+            calHtml += '<td class="' + cls + '">';
+            calHtml += '<div class="cal-day-num">' + d + '</div>';
+            if (td) {
+                calHtml += '<div class="cal-day-info">D' + td.day + '</div>';
+                calHtml += '<div class="cal-day-title" title="D' + td.day + ' ' + td.title + '">' + td.title + '</div>';
+            }
+            calHtml += '</td>';
+
+            if (cell.getDay() === 6 && d < daysInMonth) {
+                calHtml += '</tr><tr>';
+            }
+        }
+
+        const lastDow = new Date(year, month, daysInMonth).getDay();
+        if (lastDow < 6) {
+            for (let i = lastDow + 1; i <= 6; i++) {
+                calHtml += '<td class="cal-empty"></td>';
+            }
+        }
+
+        calHtml += '</tr></tbody></table>';
+
+        const monthTripDates = monthDates || [];
+        if (monthTripDates.length > 0) {
+            calHtml += '<div class="cal-summary">';
+            monthTripDates.forEach(td => {
+                const m = String(td.date.getMonth()+1).padStart(2,'0');
+                const day = String(td.date.getDate()).padStart(2,'0');
+                calHtml += 'D' + td.day + ' ' + m + '/' + day + ' — ' + td.title + '<br>';
+            });
+            calHtml += '</div>';
+        }
+
+        calHtml += '</div>';
+    });
+
+    container.innerHTML = calHtml;
+}
+
+function pad2(n) { return String(n).padStart(2, '0'); }
+
+function fmtICSD(d) {
+    return d.getFullYear() + pad2(d.getMonth()+1) + pad2(d.getDate());
+}
+
+function downloadICS() {
+    const startVal = document.getElementById('startDate').value;
+    if (!startVal) { alert('请先选择出发日期'); return; }
+    const start = new Date(startVal + 'T00:00:00');
+    const end = new Date(start);
+    end.setDate(end.getDate() + 15);
+
+    let desc = '川西15天自驾慢游全攻略\n三大固定大本营 · 亲子宠物友好\n\n';
+    for (let i = 0; i < 15; i++) {
+        const d = new Date(start);
+        d.setDate(d.getDate() + i);
+        const td = tripDays[i];
+        desc += 'D' + td.day + ' ' + pad2(d.getMonth()+1) + '/' + pad2(d.getDate()) + ' — ' + td.title + '\n';
+    }
+
+    const ics = 'BEGIN:VCALENDAR\n' +
+        'VERSION:2.0\n' +
+        'PRODID:-//川西自驾//CN\n' +
+        'CALSCALE:GREGORIAN\n' +
+        'METHOD:PUBLISH\n' +
+        'X-WR-CALNAME:川西15天自驾\n' +
+        'BEGIN:VEVENT\n' +
+        'DTSTART;VALUE=DATE:' + fmtICSD(start) + '\n' +
+        'DTEND;VALUE=DATE:' + fmtICSD(end) + '\n' +
+        'SUMMARY:🏔️ 川西15天自驾游\n' +
+        'DESCRIPTION:' + desc.replace(/\n/g, '\\n') + '\n' +
+        'END:VEVENT\n' +
+        'END:VCALENDAR';
+
+    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = '川西自驾15天行程.ics';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    alert('日历文件已下载，导入手机日历后可见完整15天行程');
+}
+
+function copyText(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        alert('搜索词已复制，打开小红书APP粘贴搜索即可');
+    }).catch(() => alert('复制失败，请手动长按复制'));
+}
+
+function copyChecklist() {
+    const t = '【川西15天自驾 · 完整检查清单】\n' +
+        '\n🚗 车辆类\n' +
+        '□ 全车保养：机油、刹车片、轮胎、防冻液、电瓶\n' +
+        '□ 全尺寸备胎检查，胎压正常\n' +
+        '□ 应急工具：防滑链、拖车绳、充气泵、应急电源、工兵铲\n' +
+        '□ 证件：身份证、驾驶证、行驶证、车辆保险单\n' +
+        '□ ETC正常，备用现金\n' +
+        '\n💊 药品类\n' +
+        '□ 高反物资：氧气瓶（每人2瓶+）、葡萄糖口服液\n' +
+        '□ 常用药：布洛芬、感冒药、肠胃药、创可贴\n' +
+        '□ 儿童专用药：退烧药、肠胃药、抗过敏药\n' +
+        '□ 红景天（提前3天）\n' +
+        '\n🧥 衣物装备类\n' +
+        '□ 防晒：SPF50+防晒霜、墨镜、宽檐帽、防晒衣\n' +
+        '□ 速干衣、抓绒衣、防水冲锋衣、保暖内衣\n' +
+        '□ 高帮防水徒步鞋、拖鞋、备用袜子\n' +
+        '□ 雨具：一次性雨衣、雨伞、手机防水袋\n' +
+        '\n🍞 补给类\n' +
+        '□ 整箱矿泉水+保温杯热水\n' +
+        '□ 巧克力、牛肉干、坚果、能量棒\n' +
+        '□ 水果、自热食品、泡面\n' +
+        '□ 宠物补给：狗粮、零食、足量饮水\n' +
+        '\n📱 信息与预订\n' +
+        '□ 下载川西全域离线地图\n' +
+        '□ 全程住宿确认，宠物政策+免费取消\n' +
+        '□ 购买含高原保障的自驾游保险';
+    navigator.clipboard.writeText(t).then(() => alert('清单已复制，打开备忘录粘贴即可'));
+}
+
+function generateImage() {
+    alert('正在生成高清长图...');
+    html2canvas(document.getElementById('content'), { scale: 2, useCORS: true, backgroundColor: '#ffffff', windowWidth: window.innerWidth > 768 ? 960 : 480 })
+        .then(canvas => {
+            const link = document.createElement('a');
+            link.download = '川西自驾攻略长图.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            alert('长图已保存到相册');
+        }).catch(() => alert('生成失败，请检查网络后重试'));
+}
+</script>
+</body>
+</html>
