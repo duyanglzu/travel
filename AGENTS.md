@@ -5,7 +5,7 @@
 ## 文件
 
 - `index.html` — 主文件，自包含（CSS + JS 内联），无外部依赖（html2canvas + Leaflet CDN 除外）
-- `线路图.png` — 自制路线示意图，在概括卡顶部显示
+- `route-map.png` — 自制路线示意图，在概括卡顶部显示
 
 ## 关键特性
 
@@ -38,4 +38,4 @@ origin → https://gitee.com/kevinduyang/travel.git
 
 - 主文件是 `index.html`（Gitee Pages 默认入口）
 - 有图片时 git add 需加 `"线路图.png"`
-- 修改后 `git add "index.html" ["线路图.png"] && git commit -m "msg" && git push`
+- 修改后 `git add "index.html" ["route-map.png"] && git commit -m "msg" && git push`
