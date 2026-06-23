@@ -49,6 +49,11 @@
         .card summary h2 { margin-bottom: 0; }
         .card summary .arrow { font-size: 14px; color: #6B7280; transition: transform 0.2s; }
         .card details[open] summary .arrow { transform: rotate(90deg); }
+        .day-card details { border-radius: 10px; overflow: hidden; background: transparent; }
+        .day-card details summary.day-title { cursor: pointer; list-style: none; user-select: none; display: flex; justify-content: space-between; align-items: center; }
+        .day-card details summary.day-title::-webkit-details-marker { display: none; }
+        .day-card details summary.day-title .day-arrow { font-size: 14px; color: rgba(255,255,255,0.7); transition: transform 0.2s; margin-left: 8px; flex-shrink: 0; }
+        .day-card details[open] summary.day-title .day-arrow { transform: rotate(90deg); }
         .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
         .info-item { background: #F5F8FA; padding: 10px; border-radius: 8px; }
         .info-item .label { color: #6B7280; font-size: 12px; display: block; }
@@ -255,7 +260,11 @@
 
     <!-- ====== 一、全程行程概括 + 设计说明（合并） ====== -->
     <div class="card">
-        <h2>🗺️ 全程行程概括 &amp; 设计说明</h2>
+        <details>
+            <summary>
+                <h2>🗺️ 全程行程概括 &amp; 设计说明</h2>
+                <span class="arrow">▶</span>
+            </summary>
         <img src="route-map.png" alt="川西自驾线路图" style="width:100%;max-width:100%;border-radius:8px;margin:6px 0 14px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
         <div class="info-grid">
             <div class="info-item"><span class="label">时间</span><span class="value">7月中旬出发，15天往返</span></div>
@@ -330,22 +339,32 @@
 
         <h3>5. 车辆适配说明</h3>
         <p>2015款锐界2.7T V6四驱，动力充足、通过性强，可轻松应对折多山长上坡、雨季湿滑路面、轻度碎石路段；全程主干道均为柏油路。</p>
+        </details>
     </div>
 
     <!-- ====== 路线地图 ====== -->
     <div class="card">
-        <h2>🗺️ 四川段路线地图</h2>
+        <details>
+            <summary>
+                <h2>🗺️ 四川段路线地图</h2>
+                <span class="arrow">▶</span>
+            </summary>
         <div id="routeMap"></div>
         <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;font-size:12px;color:#4B5563;">
             <span><span style="display:inline-block;width:16px;height:4px;border-radius:2px;background:#1F2937;vertical-align:middle;margin-right:4px;opacity:0.6;"></span>去程（成都→泸定→中谷村→甲根坝→八美）</span>
             <span><span style="display:inline-block;width:16px;height:4px;border-radius:2px;background:#10B981;vertical-align:middle;margin-right:4px;"></span>环线返程（道孚→丹巴→四姑娘山→成都）</span>
             <span><span style="display:inline-block;width:16px;height:4px;border-radius:2px;background:#F59E0B;vertical-align:middle;margin-right:4px;"></span>日游支线</span>
         </div>
+        </details>
     </div>
 
     <!-- ====== 三、出行基础信息 ====== -->
     <div class="card">
-        <h2>📋 出行基础信息</h2>
+        <details>
+            <summary>
+                <h2>📋 出行基础信息</h2>
+                <span class="arrow">▶</span>
+            </summary>
         <div class="info-grid">
             <div class="info-item"><span class="label">出行人员</span><span class="value">一家三口（14岁女儿）+2只田园犬</span></div>
             <div class="info-item"><span class="label">出行车辆</span><span class="value">锐界2.7T V6四驱</span></div>
@@ -354,11 +373,16 @@
             <div class="info-item"><span class="label">出行季节</span><span class="value">7月中旬（雨季）</span></div>
             <div class="info-item"><span class="label">最高海拔</span><span class="value">折多山4298m</span></div>
         </div>
+        </details>
     </div>
 
     <!-- ====== 四、行程总览 ====== -->
     <div class="card">
-        <h2>🗺️ 全程行程总览</h2>
+        <details>
+            <summary>
+                <h2>🗺️ 全程行程总览</h2>
+                <span class="arrow">▶</span>
+            </summary>
         <table>
             <tr><th>阶段</th><th>天数</th><th>行程</th><th>住宿</th></tr>
             <tr><td rowspan="2">长途赶路</td><td>D1</td><td>上海→湖北宜昌/恩施</td><td>宜昌 或 恩施</td></tr>
@@ -377,6 +401,7 @@
             <tr><td>D14</td><td>三道堰/酒店躺平</td></tr>
             <tr><td>返程</td><td>D15</td><td>成都→上海</td><td>-</td></tr>
         </table>
+        </details>
     </div>
 
     <!-- ====== 五、景点优先级分级 ====== -->
@@ -416,7 +441,11 @@
 
     <!-- ====== 六、国道风景指南 ====== -->
     <div class="card">
-        <h2>🛣️ 川西自驾 · 司机视角的国道风景指南</h2>
+        <details>
+            <summary>
+                <h2>🛣️ 川西自驾 · 司机视角的国道风景指南</h2>
+                <span class="arrow">▶</span>
+            </summary>
         <p>你们的路程已覆盖川西最美的几条景观大道。以下是最值得期待的驾驶路段：</p>
         <table>
             <tr><th>国道</th><th>路段</th><th>里程</th><th>风景</th><th>驾驶特点</th></tr>
@@ -457,6 +486,7 @@
             <tr><td>G548 八美→道孚</td><td>⭐️⭐️⭐️⭐️</td><td>⭐⭐</td><td>藏寨风光密集，补给方便</td></tr>
         </table>
         <p>最值得期待的片段：上午从新都桥出发，沿S434慢慢开到塔公，雅拉雪山一路伴行，随时能停路边拍照——这才是川西自驾的真正乐趣。</p>
+        </details>
     </div>
 
     <!-- ====== 七、每日详细行程 ====== -->
@@ -464,7 +494,8 @@
 
     <!-- D1 -->
     <div class="day-card">
-        <div class="day-title">D1 上海 → 宜昌/恩施 · 长途赶路</div>
+        <details open>
+        <summary class="day-title">D1 上海 → 宜昌/恩施 · 长途赶路 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>总里程：</strong>上海→成都约1966km（G42沪蓉高速），分两天行驶</p>
             <p><strong>方案A（推荐）：</strong>宜昌落脚，约1050km，行车约10h</p>
@@ -515,11 +546,13 @@
             </div>
             <div class="tip-box"><h4>💡 当日注意</h4>出发前加满油，检查胎压；车上备足饮用水、零食、宠物饮水器。选宜昌则D2行车约900km至成都，选恩施则D2约750km更轻松。</div>
         </div>
+        </details>
     </div>
 
     <!-- D2 -->
     <div class="day-card">
-        <div class="day-title">D2 宜昌/恩施 → 四川成都 · 进川休整</div>
+        <details open>
+        <summary class="day-title">D2 宜昌/恩施 → 四川成都 · 进川休整 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>路线A（宜昌出发）：</strong>约900km，行车约9h</p>
             <p><strong>路线B（恩施出发）：</strong>约750km，行车约7.5h</p>
@@ -575,11 +608,13 @@
             </div>
             </div>
         </div>
+        </details>
     </div>
 
     <!-- D3 -->
     <div class="day-card">
-        <div class="day-title">D3 成都 → 泸定桥 → 中谷村 · 海拔适应</div>
+        <details open>
+        <summary class="day-title">D3 成都 → 泸定桥 → 中谷村 · 海拔适应 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>里程：</strong>约310km，行车约4.5h（不含游玩）</p>
             <p><strong>路线：</strong>成雅高速 → 雅康高速 → 泸定(泸定桥游玩2h) → 康定 → 中谷村</p>
@@ -676,11 +711,13 @@
                 </ul>
             </div>
         </div>
+        </details>
     </div>
 
     <!-- D4 -->
     <div class="day-card">
-        <div class="day-title">D4 中谷村 · 南门关沟轻徒步</div>
+        <details open>
+        <summary class="day-title">D4 中谷村 · 南门关沟轻徒步 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>车程：</strong>单程约0.5h，铺装路+少量碎石路</p>
             <p><strong>活动：</strong>红石河谷轻徒步、溪边野餐，往返约3km</p>
@@ -729,11 +766,13 @@
             <div class="tip-box"><h4>💡 当日注意</h4>随身带饮用水和零食；河谷风大带好防风外套；垃圾全部带走。</div>
             </div>
         </div>
+        </details>
     </div>
 
     <!-- D5 -->
     <div class="day-card">
-        <div class="day-title">D5 中谷村 · 放空机动日</div>
+        <details open>
+        <summary class="day-title">D5 中谷村 · 放空机动日 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>主线：</strong>全天民宿泡温泉、喝茶发呆，零车程</p>
             <div class="h-scroll">
@@ -788,11 +827,13 @@
             </div>
             </div>
         </div>
+        </details>
     </div>
 
     <!-- D6 -->
     <div class="day-card">
-        <div class="day-title">D6 中谷村 → 甲根坝 · 河谷秘境</div>
+        <details open>
+        <summary class="day-title">D6 中谷村 → 甲根坝 · 河谷秘境 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>里程：</strong>约150km，行车约3h</p>
             <p><strong>路线：</strong>中谷村 → 康定 → 折多山垭口 → 甲根坝</p>
@@ -917,11 +958,13 @@
                 备用方案：如遇下雨或天气突变，提前和民宿老板沟通能否临时让狗狗进大堂/走廊避雨
             </div>
         </div>
+        </details>
     </div>
 
     <!-- D7 -->
     <div class="day-card">
-        <div class="day-title">D7 甲根坝 · 河谷慢逛日</div>
+        <details open>
+        <summary class="day-title">D7 甲根坝 · 河谷慢逛日 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>上午：</strong>提吾村河谷踩水、野餐、捡石头</p>
             <p><strong>下午：</strong>亚拢沟钙化滩散步，日落前观景拍照</p>
@@ -971,11 +1014,13 @@
             </div>
             <div class="tip-box"><h4>🌅 日落时间</h4>7月中旬川西日落约20:30-20:45，建议19:30开始找机位，光线最柔和。</div>
         </div>
+        </details>
     </div>
 
     <!-- D8 -->
     <div class="day-card">
-        <div class="day-title">D8 甲根坝 · 月亮湖备选日</div>
+        <details open>
+        <summary class="day-title">D8 甲根坝 · 月亮湖备选日 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>Plan A（状态好）：</strong>月亮湖轻徒步（单程1.5h）</p>
             <p><strong>Plan B（状态一般）：</strong>二刷提吾村河谷 + 民宿躺平</p>
@@ -1046,11 +1091,13 @@
 
             <div class="warn-box">⚠️ 雨季提示：遇降雨直接取消月亮湖行程，改Plan D/E或原地休整，切勿冒险前往。</div>
         </div>
+        </details>
     </div>
 
     <!-- D9 -->
     <div class="day-card">
-        <div class="day-title">D9 甲根坝 → 道孚 · 丹道秘境线</div>
+        <details open>
+        <summary class="day-title">D9 甲根坝 → 道孚 · 丹道秘境线 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>里程：</strong>约220km，行车约4.5h</p>
             <p><strong>路线：</strong>甲根坝 → 塔公 → 八美 → 道孚县城</p>
@@ -1096,11 +1143,13 @@
             </div>
             </div>
         </div>
+        </details>
     </div>
 
     <!-- D10 -->
     <div class="day-card">
-        <div class="day-title">D10 道孚 · 人文自然拓展日</div>
+        <details open>
+        <summary class="day-title">D10 道孚 · 人文自然拓展日 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <div class="h-scroll">
             <div>
@@ -1149,11 +1198,13 @@
             </div>
             </div>
             </div>
+        </details>
     </div>
 
     <!-- D11 -->
     <div class="day-card">
-        <div class="day-title">D11 道孚/八美 → 🟢 环线返程（路过/宿丹巴自选）</div>
+        <details open>
+        <summary class="day-title">D11 道孚/八美 → 🟢 环线返程（路过/宿丹巴自选） <span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <div class="tip-box">
                 <h4>📌 决策原则</h4>
@@ -1206,11 +1257,13 @@
             <div class="tip-box"><h4>⚠️ 巴郎山路况提醒</h4>雨季翻巴郎山注意落石和云雾，出发前查「四川交通广播」公众号路况。如遇恶劣天气，建议走雅康高速绕行。</div>
             <div class="warn-box">⛽ 四姑娘山加油站：镇上有但价格偏高（约贵0.3-0.5元/升），旅游旺季排队严重。翻山前建议在丹巴或小金加满。</div>
         </div>
+        </details>
     </div>
 
     <!-- D12-D14 -->
     <div class="day-card">
-        <div class="day-title">D12-D14 成都 · 休整期</div>
+        <details open>
+        <summary class="day-title">D12-D14 成都 · 休整期 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>取决于D11的选择（路过→D11到成都 / 宿丹巴→D12到成都）：</strong></p>
             <div class="h-scroll">
@@ -1352,14 +1405,17 @@
             </div>
             </div>
         </div>
+        </details>
     </div>
 
     <!-- D15 -->
     <div class="day-card">
-        <div class="day-title">D15 成都 → 上海 · 最终返程</div>
+        <details open>
+        <summary class="day-title">D15 成都 → 上海 · 最终返程 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>方案A（自驾）：</strong>全程约1966km（G42沪蓉高速），建议分2天行驶，参考D1-D2路线反向开回。</p>
         </div>
+        </details>
     </div>
 
     <!-- ====== 七、全部出处汇总表 ====== -->
@@ -1419,7 +1475,11 @@
 
     <!-- ====== 八、雨季安全守则 ====== -->
     <div class="card">
-        <h2>🌧️ 7月雨季自驾安全守则</h2>
+        <details>
+            <summary>
+                <h2>🌧️ 7月雨季自驾安全守则</h2>
+                <span class="arrow">▶</span>
+            </summary>
         <ul>
             <li>每日出发前查看「四川交通」「甘孜交警」实时路况</li>
             <li>油量低于半箱立即加满，偏远乡镇加油站间距大</li>
@@ -1436,32 +1496,47 @@
             <li>遇垭口暴雪/浓雾：立即折返低海拔区域</li>
             <li>所有住宿均订可免费取消房型</li>
         </ul>
+        </details>
     </div>
 
     <!-- ====== 九、高反预防手册 ====== -->
     <div class="card">
-        <h2>🫀 高反预防与应对手册</h2>
+        <details>
+            <summary>
+                <h2>🫀 高反预防与应对手册</h2>
+                <span class="arrow">▶</span>
+            </summary>
         <h3>预防措施</h3>
         <ul><li>提前3天红景天；进高原后「慢走路、少洗澡、不喝酒、多喝水」</li></ul>
         <h3>常见症状</h3>
         <ul><li>轻微头晕头疼：平卧休息、喝葡萄糖水，1-2天缓解</li></ul>
         <div class="warn-box">危险信号：剧烈头痛呕吐、意识模糊、呼吸困难、咳粉红色泡沫痰 → 立即下撤就医</div>
         <p>常备物资：氧气瓶（每人至少2瓶）、葡萄糖、布洛芬、感冒药、肠胃药。</p>
+        </details>
     </div>
 
     <!-- ====== 十、宠物出行方案 ====== -->
     <div class="card">
-        <h2>🐕 宠物出行全方案</h2>
+        <details>
+            <summary>
+                <h2>🐕 宠物出行全方案</h2>
+                <span class="arrow">▶</span>
+            </summary>
         <ul>
             <li>住宿优先确认停车场安全，允许带宠则带入，否则安置车内</li>
             <li>全程牵绳，不放开，避免惊扰牛羊</li>
             <li>常备牵引绳、车载饮水器、狗粮、肠胃药</li>
         </ul>
+        </details>
     </div>
 
     <!-- ====== 十一、检查清单 ====== -->
     <div class="card" id="checklist-card">
-        <h2>✅ 出行前检查清单</h2>
+        <details>
+            <summary>
+                <h2>✅ 出行前检查清单</h2>
+                <span class="arrow">▶</span>
+            </summary>
         <button class="btn btn-outline" onclick="copyChecklist()">📋 一键复制完整清单</button>
         <h3>🚗 车辆类</h3>
         <ul class="checklist" id="checklist-car">
@@ -1498,11 +1573,16 @@
             <li><input type="checkbox" id="c19"><label for="c19">全程住宿确认，核实宠物政策+免费取消</label></li>
             <li><input type="checkbox" id="c20"><label for="c20">购买含高原保障的自驾游保险</label></li>
         </ul>
+        </details>
     </div>
 
     <!-- ====== 十二、行程日历 ====== -->
     <div class="card" id="calendar-card">
-        <h2>📆 行程日历</h2>
+        <details>
+            <summary>
+                <h2>📆 行程日历</h2>
+                <span class="arrow">▶</span>
+            </summary>
         <div class="date-picker-row">
             <label for="startDate">出发日期：</label>
             <input type="date" id="startDate" value="2026-07-15">
@@ -1513,17 +1593,23 @@
             <button class="btn" onclick="downloadICS()">📅 下载日历文件(.ics)</button>
         </div>
         <p style="font-size:12px;color:#6B7280;margin-top:8px;">导入手机日历后显示为一条完整行程，可在日历应用中一键删除全部</p>
+        </details>
     </div>
 
     <!-- 底部说明 -->
     <div class="card">
-        <h2>⚠️ 重要提示</h2>
+        <details>
+            <summary>
+                <h2>⚠️ 重要提示</h2>
+                <span class="arrow">▶</span>
+            </summary>
         <ul>
             <li>7月为川西主雨季，弹性优先，安全第一</li>
             <li>昼夜温差15-20℃，洋葱式穿搭</li>
             <li>尊重当地民俗信仰</li>
             <li>无痕旅行，所有垃圾随身带走</li>
         </ul>
+        </details>
     </div>
 </div>
 
