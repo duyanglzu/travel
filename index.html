@@ -43,6 +43,12 @@
         }
         .card h3 { font-size: 16px; margin: 14px 0 8px; color: #0E7A69; }
         .card h4 { font-size: 14px; margin: 10px 0 6px; color: #374151; }
+        .card details { margin-top: -8px; }
+        .card summary { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 10px 0; list-style: none; user-select: none; }
+        .card summary::-webkit-details-marker { display: none; }
+        .card summary h2 { margin-bottom: 0; }
+        .card summary .arrow { font-size: 14px; color: #6B7280; transition: transform 0.2s; }
+        .card details[open] summary .arrow { transform: rotate(90deg); }
         .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
         .info-item { background: #F5F8FA; padding: 10px; border-radius: 8px; }
         .info-item .label { color: #6B7280; font-size: 12px; display: block; }
@@ -375,8 +381,12 @@
 
     <!-- ====== 五、景点优先级分级 ====== -->
     <div class="card">
-        <h2>⭐ 景点优先级分级</h2>
-        <p><span class="tag tag-must">必去</span>核心自然风光，行程主轴 <span class="tag tag-alt">备选</span>视状态决定 <span class="tag tag-pass">路过</span>顺路浅逛</p>
+        <details>
+            <summary>
+                <h2>⭐ 景点优先级分级</h2>
+                <span class="arrow">▶</span>
+            </summary>
+            <p><span class="tag tag-must">必去</span>核心自然风光，行程主轴 <span class="tag tag-alt">备选</span>视状态决定 <span class="tag tag-pass">路过</span>顺路浅逛</p>
         <table>
             <tr><th>等级</th><th>点位</th><th>类型</th><th>说明</th></tr>
             <tr><td><span class="tag tag-must">必去</span></td><td>中谷村温泉</td><td>温泉/自然</td><td>海拔适应核心，缓解长途疲劳</td></tr>
@@ -401,6 +411,7 @@
             <tr><td><span class="tag tag-pass">路过</span></td><td>文殊院</td><td>寺庙/人文</td><td>红墙拍照，免费请香，游客少</td></tr>
             <tr><td><span class="tag tag-pass">路过</span></td><td>三道堰古镇</td><td>古镇/玩水</td><td>成都近郊玩水吃河鲜，亲子半日游</td></tr>
         </table>
+        </details>
     </div>
 
     <!-- ====== 六、国道风景指南 ====== -->
