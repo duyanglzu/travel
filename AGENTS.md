@@ -1,41 +1,44 @@
 # travel
 
-川西15天自驾攻略页面（甘孜州东线深度游）。单 HTML 文件项目，无构建工具/依赖。
+川西15天自驾攻略（甘孜州东线深度游）。单 HTML 文件，无构建工具。
 
-## 文件
+## 关键文件
 
-- `index.html` — 主文件，自包含（CSS + JS 内联），无外部依赖（html2canvas + Leaflet CDN 除外）
-- `route-map.png` — 自制路线示意图，在概括卡顶部显示
+- `index.html` — 唯⼀主文件，CSS+JS 内联
+- `route-map.png` — 路线图，在⾸卡顶部
+- `15天川西2.html` — 旧版本，勿动
+- `AGENTS.md`、`CHANGELOG.md`、`LICENSE` — ⽂档类
 
-## 关键特性
+## 架构速览
 
-- 响应式：PC ≥769px 960px 布局，手机/微信 ≤768px 480px 布局
-- 左右滑动：`.h-scroll` 容器子元素手机左右滑动，PC 变 2 列网格
-- 概况 + 设计说明合并为第一块卡，含路线图、三大本营表、每日 timeline、环线返程表
-- 路线地图：Leaflet + 高德瓦片，去程灰线(成都→泸定→中谷村→甲根坝→八美)，返程绿线(环线·丹巴→四姑娘山→成都)
-- D3 成都→泸定桥(游玩2h)→中谷村（顺路打卡，不走回头路）
-- D11 环线返程（路过一天到成都 或 宿丹巴轻松走）
-- 日历表：`renderCalendar()` 基于出发日期生成月历
-- ICS 下载：`downloadICS()` 单条跨15天 VEVENT
-- 清单勾选存入 `localStorage`（`check_item_N`）
-- 23条小红书链接（带完整 xsec_token）嵌入各景点出处框
-- 加油站提醒：中谷村/甲根坝/八美/四姑娘山
-- 国道风景指南卡（G318/G350/S434/G548）
-- 每个景点/酒店含高德、百度导航按钮 + 小红书搜索复制按钮
+| 层 | 说明 |
+|---|---|
+| 响应式 | PC ≥769px 960px 布局 / 手机 ≤768px 480px 布局 |
+| 外部依赖 | Leaflet 1.9.4 unpkg + html2canvas 1.4.1 jsdelivr（仅这俩 CDN） |
+| 卡片系统 | 节卡 `<div class="card"><details>`（默认折叠：景点分级表、出处汇总表） |
+| 天卡 | `<div class="day-card"><details open>`（默认展开），`.day-title` 蓝渐变，`.day-content` ⽩底 |
+| 横向滚动 | `.h-scroll` ⼦元素在手机端左右滑动，PC 端变 2 列⽹格 |
+| 交互 | 清单勾选存 `localStorage`（key: `check_item_N`）、ICS 下载 `downloadICS()`、⽇历 `renderCalendar()` |
+| 路线⾼亮 | D3 成都→泸定桥(游玩2h)→中⾕村（顺路打卡），D11 环线返程（路过⼀天到成都 / 宿丹巴轻松⾛） |
 
-## 页面结构
+## 关键命令
 
-- D1-D15 每天一个 `.day-card`，含行程、推荐理由、出处链接、住宿
-- D3/D4/D5/D6/D7/D8/D9/D10/D11 的景点/住宿用 `.h-scroll` 包裹
-- 独立卡片：行程概括+设计说明、路线地图、出行信息、行程总览、景点分级、国道指南、安全守则、高反手册、宠物方案、检查清单、日历
-- 全部图片已移除（9张 picsum 占位图）
+```powershell
+# 修改后推送（两远程）
+git add "index.html" "route-map.png" && git commit -m "msg"
+git push origin master && git push github master
+```
 
-## Git 远程
+`origin` → `git@gitee.com:kevinduyang/travel.git` (SSH)
+`github` → `git@github.com:duyanglzu/travel.git` (SSH)
 
-origin → https://gitee.com/kevinduyang/travel.git
+## 开发注意事项
 
-## 注意
-
-- 主文件是 `index.html`（Gitee Pages 默认入口）
-- 有图片时 git add 需加 `"线路图.png"`
-- 修改后 `git add "index.html" ["route-map.png"] && git commit -m "msg" && git push`
+- **只改 `index.html`**，`15天川西2.html` 是过时副本
+- 所有样式修改在 `<style>` 标签内（约 L10-255），JS 在⽂件末尾 `<script>`（约 L1478-1945）
+- 携程酒店链接格式：`https://hotels.ctrip.com/hotel/{id}`
+- ⾼德/百度导航按钮已内置，新增景点时需加两个链接
+- 加油站提醒固定在 G318/S434 ⼏个节点（中⾕村/甲根坝/⼋美/四姑娘⼭）
+- 路线地图使⽤ Leaflet + ⾼德⽡⽚（⽆ API key），去程灰线、返程绿线、⽇游⻩线
+- GitHub Pages 未激活（需 Settings → Pages → master / (root) → Save）
+- Gitee token 已撤销，只⽤ SSH
