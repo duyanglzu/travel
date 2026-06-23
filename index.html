@@ -50,7 +50,16 @@
         .card summary .arrow { font-size: 14px; color: #6B7280; transition: transform 0.2s; }
         .card details[open] summary .arrow { transform: rotate(90deg); }
         .day-card details { border-radius: 10px; overflow: hidden; background: transparent; }
-        .day-card details summary.day-title { cursor: pointer; list-style: none; user-select: none; display: flex; justify-content: space-between; align-items: center; }
+        .day-card details summary.day-title {
+            cursor: pointer; list-style: none; user-select: none;
+            display: flex; justify-content: space-between; align-items: center;
+            background: linear-gradient(90deg, #165DFF 0%, #3B82F6 100%);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 10px 10px 0 0;
+            font-weight: 600;
+            font-size: 16px;
+        }
         .day-card details summary.day-title::-webkit-details-marker { display: none; }
         .day-card details summary.day-title .day-arrow { font-size: 14px; color: rgba(255,255,255,0.7); transition: transform 0.2s; margin-left: 8px; flex-shrink: 0; }
         .day-card details[open] summary.day-title .day-arrow { transform: rotate(90deg); }
@@ -59,14 +68,6 @@
         .info-item .label { color: #6B7280; font-size: 12px; display: block; }
         .info-item .value { font-weight: 600; color: #1F2937; font-size: 14px; }
         .day-card { margin-bottom: 20px; }
-        .day-title {
-            background: linear-gradient(90deg, #165DFF 0%, #3B82F6 100%);
-            color: white;
-            padding: 10px 14px;
-            border-radius: 10px 10px 0 0;
-            font-weight: 600;
-            font-size: 16px;
-        }
         .day-content {
             background: white;
             padding: 14px;
@@ -301,9 +302,8 @@
         <p>泸定桥红色打卡 · 中谷村天然温泉低海拔适应 · 南门关沟无人河谷轻徒步 · 甲根坝田园溪流慢逛 · 姑弄村雅拉雪山观景 · 塔公草原远观 · 道孚民居藏式文化体验 · 中路藏寨碉楼星空 · 成都熊猫谷看熊猫 · 人民公园喝茶休整</p>
 
         <h3>🗺️ 每日路线走向</h3>
-            <div style="font-size:13px;line-height:2.2;">
-                <div style="color:#6B7280;">D1  上海 → 宜昌/恩施  ·  D2  宜昌/恩施 → 成都</div>
-                <div style="color:#6B7280;margin-top:2px;">【长途赶路】</div>
+        <div style="font-size:13px;line-height:2.2;">
+            <div style="background:#FFFBEB;padding:6px 10px;border-radius:8px;margin:4px 0;display:flex;justify-content:space-between;gap:8px;align-items:center;"><span>D1  上海 → 宜昌/恩施  ·  D2  宜昌/恩施 → 成都</span><span style="white-space:nowrap;flex-shrink:0;font-weight:600;color:#D97706;">【长途赶路】</span></div>
             <div style="background:#E8F4FF;padding:6px 10px;border-radius:8px;margin:4px 0;">
                 <div style="font-weight:700;font-size:12px;color:#165DFF;">━ 大本营①：中谷村 2500m（连住3晚）━</div>
                 D3  成都→泸定桥(游玩2h)→中谷村 · D4  中谷村 ←→ 南门关沟（轻徒步一日游）· D5  中谷村 ←→ 雅家梗/红海子（备选一日游）
@@ -316,16 +316,19 @@
                 <div style="font-weight:700;font-size:12px;color:#D97706;">━ 大本营③：道孚 2980m（连住2晚：D9/D10）━</div>
                 D9  甲根坝 → 道孚/八美 · D10 道孚 ←→ 墨石公园/泰宁古镇（一日游）
             </div>
-            <div style="margin:6px 0;font-weight:700;">D11 道孚/八美 → 🟢 环线返程（可路过或宿丹巴）</div>
-            <div style="padding-left:16px;">
-                <div style="padding-left:4px;font-size:12px;">├→ 路过：中路藏寨→丹巴→四姑娘山→巴郎山→<strong>成都直达</strong>，~430km/7h</div>
-                <div style="padding-left:4px;font-size:12px;">└→ 宿丹巴：中路藏寨→<strong>宿丹巴</strong>→D12翻巴郎山→成都，~120km/2h</div>
+            <div style="background:#ECFDF5;padding:6px 10px;border-radius:8px;margin:4px 0;">
+                <div style="font-weight:700;font-size:12px;color:#0E7A69;">━ 🟢 环线返程 ━</div>
+                D11 道孚/八美 → 🟢 环线返程（可路过或宿丹巴）
+                <div style="padding-left:16px;margin-top:2px;">
+                    <div style="padding-left:4px;font-size:12px;">├→ 路过：中路藏寨→丹巴→四姑娘山→巴郎山→<strong>成都直达</strong>，~430km/7h</div>
+                    <div style="padding-left:4px;font-size:12px;">└→ 宿丹巴：中路藏寨→<strong>宿丹巴</strong>→D12翻巴郎山→成都，~120km/2h</div>
+                </div>
             </div>
             <div style="background:#F3E8FF;padding:6px 10px;border-radius:8px;margin:6px 0;">
                 <div style="font-weight:700;font-size:12px;color:#7C3AED;">━ 成都休整（连住3晚）━</div>
                 D12-D14 成都 · 熊猫谷 / 人民公园 / 三道堰 / 自由活动
             </div>
-            <div>D15 成都 → 上海（返程）</div>
+            <div style="background:#F5F5F4;padding:6px 10px;border-radius:8px;margin:4px 0;">D15 成都 → 上海（返程）</div>
         </div>
         <h3>环线返程（D11 道孚/八美出发）</h3>
         <table>
