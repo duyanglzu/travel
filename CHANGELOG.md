@@ -2,6 +2,7 @@
 
 ## 部署信息
 - Gitee Pages: https://kevinduyang.gitee.io/travel/
+- GitHub Pages: https://duyanglzu.github.io/travel/
 - CloudBase: https://travel2-travel-d4gh9ixryba74cde5.webapps.tcloudbase.com/
 
 ## v1.6 (2026-06-23)
