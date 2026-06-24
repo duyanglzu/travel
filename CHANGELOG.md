@@ -5,6 +5,12 @@
 - GitHub Pages: https://duyanglzu.github.io/travel/
 - CloudBase: https://travel2-travel-d4gh9ixryba74cde5.webapps.tcloudbase.com/
 
+## v1.9 (2026-06-24)
+- 修复表格里程列与风景列文字重叠问题
+- 里程列宽度 12% → 15%，国道/里程列加 `white-space:nowrap` 防止被压缩
+- 单元格 padding 6px → 10px，添加 `word-break:break-word` 杜绝跨列溢出
+- 表头上下 padding 增加至 12px，行距压缩至 1.35
+
 ## v1.8 (2026-06-24)
 - 国道风景指南两张表格重构：删除星星改用数字评分（如 5/5）
 - 新增 `.guide-table` 统一表格样式：蓝色表头、居中文字、合理列宽分配
