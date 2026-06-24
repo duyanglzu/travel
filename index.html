@@ -1933,7 +1933,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initRouteMap();
     // Progress indicator for day nav
     const dayNavBtnsAll = document.querySelectorAll('.day-nav-btn');
-    const todayDay = 1;
+    const startVal = document.getElementById('startDate').value;
+    const todayDay = startVal ? Math.floor((new Date() - new Date(startVal)) / 86400000) + 1 : 1;
     dayNavBtnsAll.forEach(btn => {
         const dayNum = parseInt(btn.textContent.replace('D', ''));
         btn.classList.remove('past', 'future', 'current');
@@ -1954,6 +1955,8 @@ document.addEventListener('DOMContentLoaded', () => {
             routeMap.style.display = 'block';
         }, 500);
     }
+    setupCardObserver();
+    setupRippleEffects();
 });
 
 function renderCalendar() {
@@ -2353,12 +2356,6 @@ function setupRippleEffects() {
         });
     });
 }
-
-// Initialize on DOM ready
-document.addEventListener('DOMContentLoaded', function() {
-    setupCardObserver();
-    setupRippleEffects();
-});
 </script>
 <div style="text-align:center;padding:12px;font-size:12px;color:#9CA3AF;border-top:1px solid #E5E7EB;margin-top:20px;">
     镜像访问：<a href="https://travel2-travel-d4gh9ixryba74cde5.webapps.tcloudbase.com/" target="_blank" style="color:#6B7280;">CloudBase</a>
