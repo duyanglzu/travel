@@ -5,6 +5,28 @@
 - GitHub Pages: https://duyanglzu.github.io/travel/
 - CloudBase: https://travel2-travel-d4gh9ixryba74cde5.webapps.tcloudbase.com/
 
+## v1.7 (2026-06-24)
+### 性能优化
+- `html2canvas` 改为按需加载（动态创建 `<script>` + Promise），首屏不再阻塞
+- Leaflet JS 加 `defer` 属性移至 `<head>`，加载与初始化顺序对齐
+- 合并 3 处分散的 `@media (min-width: 769px)` 为单一响应式块
+
+### 代码质量
+- 提取 40+ 处重复内联样式为 CSS class（`.btn-copy`、`.nav-btns`）
+- 新增 `<meta name="description">` 提升 SEO
+
+### 用户体验
+- `alert()` 全部替换为轻量 Toast 提示（CSS 动画 + JS 定时器）
+- 生成长图新增 loading 遮罩（旋转动画 + 文字提示）
+- 默认仅展开 D1、D2 行程卡片，D3 起折叠以减少初始页面长度
+- `localStorage` 增加 try-catch 防护（隐私模式兼容）
+- 剪贴板操作增加 `navigator.clipboard` + `execCommand` 双方案 fallback
+
+### 新功能
+- 新增日程快速跳转栏（D1-D15 按钮），吸顶定位、手机端左右滑动、PC 自动平铺
+- 点击按钮平滑滚动至对应天行程，自动展开折叠的卡片
+- 滚动时实时高亮当前所在天的按钮，导航栏自动跟随滚动
+
 ## v1.6 (2026-06-23)
 - 路线重构：D3 成都→泸定桥(游玩2h)→中谷村，顺路打卡不走回头路
 - 返程简化：移除泸定线/直达型，仅保留环线（可路过或宿丹巴）
@@ -19,6 +41,12 @@
 - 日历数据更新：D3/D9/D11/D12 匹配新路线
 - 全部图片移除（9张 picsum 占位图）
 - AGENTS.md 同步更新
+- 红海子重新加入D5，标记为"不推荐"并说明原因
+- D4/D5所有景点新增小红书搜索链接 + 复制搜索词按钮
+- D3/D2/D1所有推荐酒店新增小红书搜索链接 + 复制搜索词按钮
+- 样式调整：新增 `.tag-pass` 标签样式用于"路过"标记
+
+## v1.5 (2026-06-22)
 - 红海子重新加入D5，标记为"不推荐"并说明原因
 - D4/D5所有景点新增小红书搜索链接 + 复制搜索词按钮
 - D3/D2/D1所有推荐酒店新增小红书搜索链接 + 复制搜索词按钮

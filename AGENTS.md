@@ -32,10 +32,10 @@
 
 ## Git 远程
 
-origin → https://gitee.com/kevinduyang/travel.git
+- origin → git@gitee.com:kevinduyang/travel.git (Gitee)
+- github → git@github.com:duyanglzu/travel.git (GitHub)
 
 ## 注意
 
-- 主文件是 `index.html`（Gitee Pages 默认入口）
-- 有图片时 git add 需加 `"线路图.png"`
-- 修改后 `git add "index.html" ["route-map.png"] && git commit -m "msg" && git push`
+- 主文件是 `index.html`
+- 修改后 `git add "index.html" && git commit -m "msg" && git push`

@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="川西15天自驾慢游全攻略：三大固定大本营、亲子宠物友好、7月雨季适配，甘孜州东线深度游路线规划与住宿推荐">
     <title>川西15天自驾慢游全攻略 | 三大本营完整版</title>
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "HarmonyOS Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: linear-gradient(180deg, #E8F4FF 0%, #F0F7F4 100%);
+            background:
+                radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.4) 0%, transparent 70%),
+                linear-gradient(180deg, #E0F2FE 0%, #F8FAFC 40%, #F0FDF4 100%);
             color: #1F2937;
             line-height: 1.7;
             padding-bottom: 110px;
@@ -18,7 +21,7 @@
         }
         .container { max-width: 480px; margin: 0 auto; padding: 16px; }
         .header {
-            background: linear-gradient(135deg, #165DFF 0%, #0E7A69 100%);
+            background: linear-gradient(135deg, #2563EB 0%, #0E7A69 100%);
             color: white;
             padding: 28px 20px;
             border-radius: 16px;
@@ -36,7 +39,7 @@
         }
         .card h2 {
             font-size: 18px;
-            color: #165DFF;
+            color: #2563EB;
             margin-bottom: 12px;
             border-left: 4px solid #0E7A69;
             padding-left: 8px;
@@ -53,7 +56,7 @@
         .day-card details summary.day-title {
             cursor: pointer; list-style: none; user-select: none;
             display: flex; justify-content: space-between; align-items: center;
-            background: linear-gradient(90deg, #165DFF 0%, #3B82F6 100%);
+            background: linear-gradient(90deg, #2563EB 0%, #3B82F6 100%);
             color: white;
             padding: 10px 14px;
             border-radius: 10px 10px 0 0;
@@ -67,12 +70,168 @@
         .info-item { background: #F5F8FA; padding: 10px; border-radius: 8px; }
         .info-item .label { color: #6B7280; font-size: 12px; display: block; }
         .info-item .value { font-weight: 600; color: #1F2937; font-size: 14px; }
+        .day-card, .card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        .day-card.visible, .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
         .day-card { margin-bottom: 20px; }
         .day-content {
             background: white;
             padding: 14px;
             border-radius: 0 0 10px 10px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .header {
+            background: linear-gradient(135deg, #2563EB 0%, #0E7A69 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width=\"100\" height=\"20\" viewBox=\"0 0 100 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 10 L10 0 L20 10 L30 0 L40 10 L50 0 L60 10 L70 0 L80 10 L90 0 L100 10\" fill=\"rgba(255,255,255,0.1)\"/></svg>') repeat-x;
+            background-size: 100px 20px;
+            animation: mountainMove 30s linear infinite;
+        }
+        .header h1 {
+            background: linear-gradient(90deg, #FFFFFF 0%, #E6F4FF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn-ripple {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.6);
+            transform: scale(0);
+            animation: ripple 0.6s ease-out;
+        }
+        .separator {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+            margin: 20px 0;
+        }
+        .mountain-separator {
+            background: url('data:image/svg+xml,<svg width=\"100\" height=\"20\" viewBox=\"0 0 100 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 10 L10 0 L20 10 L30 0 L40 10 L50 0 L60 10 L70 0 L80 10 L90 0 L100 10\" fill=\"#E5E7EB\"/></svg>') no-repeat center;
+            height: 20px;
+            margin: 16px 0;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes mountainMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 0; }
+        }
+        @keyframes ripple {
+            to { transform: scale(4); opacity: 0; }
+        }
+        /* Card background layering */
+        .card.card-info { background: #F8FAFC; }
+        .card.card-warning { background: #FFFBEB; border-left: 4px solid #F59E0B; }
+        /* Day phase colors */
+        .day-card[data-phase="travel"] details summary.day-title { background: linear-gradient(90deg, #64748B 0%, #94A3B8 100%); }
+        .day-card[data-phase="plateau"] details summary.day-title { background: linear-gradient(90deg, #0D9488 0%, #14B8A6 100%); }
+        .day-card[data-phase="rest"] details summary.day-title { background: linear-gradient(90deg, #F97316 0%, #FB923C 100%); }
+        /* Icon replacement */
+        .icon-replace { display: inline-block; width: 18px; height: 18px; vertical-align: middle; background-size: contain; background-repeat: no-repeat; }
+        .icon-replace.icon-mountain { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%232563EB" stroke-width="2"><path d="M8 3L1 9l3 3 4-4 4 4 3-3 3 3 3-3-7-6-4 4-4-4z"/></svg>'); }
+        .icon-replace.icon-map { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%236B7280" stroke-width="2"><path d="M3 7l6-3 6 3 6-3v13l-6 3-6-3-6 3V7z"/><path d="M9 4v13M15 7v13"/></svg>'); }
+        .icon-replace.icon-calendar { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%232563EB" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M8 14h8M8 18h8"/></svg>'); }
+        .icon-replace.icon-car { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23EF4444" stroke-width="2"><path d="M5 17h14M5 17a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2M5 17a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"/><path d="M7 12h10"/></svg>'); }
+        .icon-replace.icon-pill { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2310B981" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>'); }
+        .icon-replace.icon-clothing { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%236B7280" stroke-width="2"><path d="M6 2h12v4l-2 2v14H8V8L6 6V2z"/></svg>'); }
+        .icon-replace.icon-food { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23F59E0B" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>'); }
+        .icon-replace.icon-phone { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%232563EB" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.8 12.8 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.8 12.8 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>'); }
+        /* Card hover effects (PC only) */
+        @media (min-width: 769px) {
+            .card:hover, .day-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+                transition: all 0.3s ease;
+            }
+        }
+        /* Route map container */
+        #routeMap {
+            border: 2px dashed #D1D5DB;
+            border-radius: 12px;
+            padding: 12px;
+            background: linear-gradient(135deg, #FAFBFC, #F3F4F6);
+            position: relative;
+        }
+        #routeMap::before {
+            content: '🗺️';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 20px;
+            background: white;
+            border-radius: 50%;
+            padding: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        /* Skeleton loading */
+        .skeleton {
+            background: linear-gradient(90deg, #E5E7EB 25%, #F3F4F6 50%, #E5E7EB 75%);
+            background-size: 200% 100%;
+            animation: skeletonPulse 1.5s ease infinite;
+            border-radius: 4px;
+        }
+        @keyframes skeletonPulse {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        /* Progress indicator for day nav */
+        .day-nav-btn.past {
+            background: #2563EB;
+            color: white;
+        }
+        .day-nav-btn.future {
+            background: white;
+            color: #2563EB;
+            border: 1px solid #2563EB;
+        }
+        .day-nav-btn.current {
+            background: #2563EB;
+            color: white;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.3);
+        }
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            body { background: #0F172A; color: #E2E8F0; }
+            .card, .day-content, .fixed-bar { background: #1E293B; }
+            .card h2, .card h3 { color: #60A5FA; }
+            .day-card details summary.day-title { background: linear-gradient(90deg, #1E40AF 0%, #2563EB 100%); }
+            .info-item { background: #334155; }
+            .info-item .value { color: #E2E8F0; }
+            table, th, td { border-color: #334155; }
+            th { background: #1E293B; color: #E2E8F0; }
+            .btn-outline { background: transparent; color: #60A5FA; border-color: #60A5FA; }
+            .tip-box { background: #422006; border-color: #92400E; }
+            .warn-box { background: #450A0A; border-color: #991B1B; }
+            .reason { background: #064E3B; color: #A7F3D0; }
+            .hotel-box { background: #1E3A5F; }
+            a { color: #60A5FA; }
         }
         .reason {
             background: #ECFDF5;
@@ -100,7 +259,7 @@
         }
         .hotel-box {
             background: #F0F7FF;
-            border-left: 3px solid #165DFF;
+            border-left: 3px solid #2563EB;
             padding: 10px 12px;
             border-radius: 0 6px 6px 0;
             margin: 10px 0;
@@ -115,7 +274,7 @@
             padding: 12px;
             border: none;
             border-radius: 8px;
-            background: #165DFF;
+            background: #2563EB;
             color: white;
             font-size: 15px;
             font-weight: 500;
@@ -125,24 +284,26 @@
             cursor: pointer;
         }
         .btn-green { background: #0E7A69; }
-        .btn-outline { background: white; color: #165DFF; border: 1px solid #165DFF; }
+        .btn-outline { background: white; color: #2563EB; border: 1px solid #2563EB; }
         .btn-small { display: inline-block; width: auto; padding: 6px 12px; font-size: 13px; margin: 6px 0; }
+        .btn-copy { padding: 6px 10px; font-size: 12px; margin-top: 6px; }
+        .nav-btns { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
         .tip-box { background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 8px; padding: 12px; margin: 12px 0; font-size: 13px; color: #92400E; }
         .tip-box h4 { margin-bottom: 6px; font-size: 14px; color: #B45309; }
         .warn-box { background: #FEF2F2; border: 1px solid #FCA5A5; border-radius: 8px; padding: 12px; margin: 12px 0; font-size: 13px; color: #991B1B; }
         .checklist { list-style: none; margin: 10px 0; }
         .checklist li { padding: 8px 0; border-bottom: 1px solid #F3F4F6; display: flex; align-items: flex-start; gap: 10px; font-size: 14px; }
-        .checklist input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; accent-color: #165DFF; }
+        .checklist input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; accent-color: #2563EB; }
         table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 10px 0; }
         th, td { border: 1px solid #E5E7EB; padding: 8px; text-align: left; vertical-align: top; }
         th { background: #F5F8FA; color: #374151; font-weight: 600; }
         .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 500; margin-right: 6px; }
-        .tag-must { background: #DBEAFE; color: #1E40AF; }
-        .tag-alt { background: #FEF3C7; color: #92400E; }
-        .tag-pass { background: #E5E7EB; color: #374151; }
+        .tag-must { background: #FEF3C7; color: #92400E; }
+        .tag-alt { background: #ECFDF5; color: #065F46; }
+        .tag-pass { background: #F3F4F6; color: #6B7280; }
         .link-group { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 6px 0; }
-        .link-group a { font-size: 13px; color: #165DFF; text-decoration: none; border-bottom: 1px dotted #93C5FD; }
-        .link-group a:hover { border-bottom: 1px solid #165DFF; }
+        .link-group a { font-size: 13px; color: #2563EB; text-decoration: none; border-bottom: 1px dotted #93C5FD; }
+        .link-group a:hover { border-bottom: 1px solid #2563EB; }
         .link-group .label { font-size: 12px; color: #6B7280; }
         .fixed-bar {
             position: fixed;
@@ -173,8 +334,8 @@
             color: #4B5563;
         }
         .src-box strong { color: #1F2937; }
-        .src-box a { color: #165DFF; text-decoration: none; border-bottom: 1px dotted #93C5FD; }
-        .src-box a:hover { border-bottom: 1px solid #165DFF; }
+        .src-box a { color: #2563EB; text-decoration: none; border-bottom: 1px dotted #93C5FD; }
+        .src-box a:hover { border-bottom: 1px solid #2563EB; }
         /* PC 响应式 */
         @media (min-width: 769px) {
             .container { max-width: 960px; padding: 24px; }
@@ -183,6 +344,11 @@
             .header p { font-size: 15px; }
             .info-grid { grid-template-columns: repeat(3, 1fr); }
             .fixed-bar { max-width: 960px; }
+            .h-scroll { flex-wrap: wrap; overflow-x: visible; gap: 12px; }
+            .h-scroll > * { flex: 0 0 calc(50% - 6px); }
+            .cal-table td { height: 72px; padding: 4px; }
+            .cal-table { font-size: 12px; }
+            .cal-day-title { font-size: 10px; white-space: normal; }
         }
         /* 日历表样式 */
         .date-picker-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
@@ -205,14 +371,31 @@
         .cal-legend-color { width: 14px; height: 14px; border-radius: 3px; border: 1px solid #E5E7EB; }
         .cal-summary { font-size: 13px; color: #6B7280; margin: 8px 0; }
         @media (min-width: 769px) {
-            .cal-table td { height: 72px; padding: 4px; }
-            .cal-table { font-size: 12px; }
-            .cal-day-title { font-size: 10px; white-space: normal; }
+            /* merged into main responsive block */
         }
         @media (max-width: 380px) {
             .cal-table td { height: 44px; }
             .cal-day-title { display: none; }
         }
+        /* Toast 提示 */
+        .toast {
+            position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px);
+            background: rgba(0,0,0,0.78); color: #fff; padding: 10px 22px; border-radius: 8px;
+            font-size: 14px; z-index: 9999; opacity: 0; transition: opacity .3s, transform .3s;
+            pointer-events: none; max-width: 90%; text-align: center; line-height: 1.5;
+        }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        /* 生成长图 loading 遮罩 */
+        .loading-mask {
+            position: fixed; inset: 0; background: rgba(255,255,255,0.7); z-index: 9998;
+            display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px;
+        }
+        .loading-mask .spinner {
+            width: 36px; height: 36px; border: 3px solid #E5E7EB; border-top-color: #2563EB;
+            border-radius: 50%; animation: spin 0.8s linear infinite;
+        }
+        .loading-mask .loading-text { font-size: 14px; color: #374151; }
+        @keyframes spin { to { transform: rotate(360deg); } }
         /* 左右滑动卡片 */
         .h-scroll {
             display: flex;
@@ -232,10 +415,48 @@
         }
         .h-scroll > .hotel-box { flex: 0 0 85%; }
         @media (min-width: 769px) {
-            .h-scroll { flex-wrap: wrap; overflow-x: visible; gap: 12px; }
-            .h-scroll > * { flex: 0 0 calc(50% - 6px); }
+            /* merged into main responsive block */
         }
         #routeMap { height: 400px; border-radius: 12px; z-index: 1; }
+        /* 日程快速跳转栏 */
+        .day-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            padding: 8px 0;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+        .day-nav-inner {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 0 2px;
+        }
+        .day-nav-inner::-webkit-scrollbar { display: none; }
+        .day-nav-btn {
+            flex: 0 0 auto;
+            padding: 5px 10px;
+            border-radius: 20px;
+            border: 1px solid #D1D5DB;
+            background: #F9FAFB;
+            color: #374151;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        .day-nav-btn:hover { background: #EFF6FF; border-color: #93C5FD; color: #2563EB; }
+        .day-nav-btn.active { background: #2563EB; color: white; border-color: #2563EB; }
+        @media (min-width: 769px) {
+            .day-nav-inner { flex-wrap: wrap; overflow-x: visible; }
+        }
         .map-marker-stop div, .map-marker-start div {
             display:flex;align-items:center;justify-content:center;
             width:30px;height:30px;border-radius:50%;
@@ -244,7 +465,7 @@
             box-shadow:0 2px 6px rgba(0,0,0,0.3);
         }
         .map-marker-start div { background:#0E7A69; }
-        .map-marker-stop div { background:#165DFF; }
+        .map-marker-stop div { background:#2563EB; }
         .arrow-icon { background: none !important; border: none !important; }
         @media (max-width: 768px) {
             #routeMap { height: 300px; }
@@ -263,8 +484,27 @@
         💡 <strong>使用提示：</strong>卡片标题可点击折叠/展开 · 手机左右滑动查看更多 · 底部日历可加入手机日历 · 清单勾选自动保存
     </div>
 
+    <!-- 日程快速跳转栏 -->
+    <div class="day-nav" id="dayNav">
+        <div class="day-nav-inner">
+            <button class="day-nav-btn" data-target="day-1">D1</button>
+            <button class="day-nav-btn" data-target="day-2">D2</button>
+            <button class="day-nav-btn" data-target="day-3">D3</button>
+            <button class="day-nav-btn" data-target="day-4">D4</button>
+            <button class="day-nav-btn" data-target="day-5">D5</button>
+            <button class="day-nav-btn" data-target="day-6">D6</button>
+            <button class="day-nav-btn" data-target="day-7">D7</button>
+            <button class="day-nav-btn" data-target="day-8">D8</button>
+            <button class="day-nav-btn" data-target="day-9">D9</button>
+            <button class="day-nav-btn" data-target="day-10">D10</button>
+            <button class="day-nav-btn" data-target="day-11">D11</button>
+            <button class="day-nav-btn" data-target="day-12">D12</button>
+            <button class="day-nav-btn" data-target="day-15">D15</button>
+        </div>
+    </div>
+
     <!-- ====== 一、全程行程概括 + 设计说明（合并） ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details open>
             <summary>
                 <h2>🗺️ 全程行程概括 &amp; 设计说明</h2>
@@ -305,16 +545,21 @@
         <div style="font-size:13px;line-height:2.2;">
             <div style="background:#FFFBEB;padding:6px 10px;border-radius:8px;margin:4px 0;display:flex;justify-content:space-between;gap:8px;align-items:center;"><span>D1  上海 → 宜昌/恩施  ·  D2  宜昌/恩施 → 成都</span><span style="white-space:nowrap;flex-shrink:0;font-weight:600;color:#D97706;">【长途赶路】</span></div>
             <div style="background:#E8F4FF;padding:6px 10px;border-radius:8px;margin:4px 0;">
-                <div style="font-weight:700;font-size:12px;color:#165DFF;">━ 大本营①：中谷村 2500m（连住3晚）━</div>
-                D3  成都→泸定桥(游玩2h)→中谷村 · D4  中谷村 ←→ 南门关沟（轻徒步一日游）· D5  中谷村 ←→ 雅家梗/红海子（备选一日游）
+                <div style="font-weight:700;font-size:12px;color:#2563EB;">━ 大本营①：中谷村 2500m（连住3晚）━</div>
+                D3  成都→泸定桥(游玩2h)→中谷村<br>
+                D4  中谷村 ←→ 南门关沟（轻徒步一日游）<br>
+                D5  中谷村 ←→ 雅家梗/红海子（备选一日游）
             </div>
             <div style="background:#F0F7F4;padding:6px 10px;border-radius:8px;margin:4px 0;">
                 <div style="font-weight:700;font-size:12px;color:#0E7A69;">━ 大本营②：甲根坝 3000m（连住3晚：D6/D7/D8）━</div>
-                D6  中谷村 → 甲根坝 · D7  甲根坝 ←→ 提吾村/亚拢沟（一日游）· D8  甲根坝 ←→ 月亮湖/日泽村（一日游）
+                D6  中谷村 → 甲根坝<br>
+                D7  甲根坝 ←→ 提吾村/亚拢沟（一日游）<br>
+                D8  甲根坝 ←→ 月亮湖/日泽村（一日游）
             </div>
             <div style="background:#FFF7ED;padding:6px 10px;border-radius:8px;margin:4px 0;">
                 <div style="font-weight:700;font-size:12px;color:#D97706;">━ 大本营③：道孚 2980m（连住2晚：D9/D10）━</div>
-                D9  甲根坝 → 道孚/八美 · D10 道孚 ←→ 墨石公园/泰宁古镇（一日游）
+                D9  甲根坝 → 道孚/八美<br>
+                D10 道孚 ←→ 墨石公园/泰宁古镇（一日游）
             </div>
             <div style="background:#ECFDF5;padding:6px 10px;border-radius:8px;margin:4px 0;">
                 <div style="font-weight:700;font-size:12px;color:#0E7A69;">━ 🟢 环线返程 ━</div>
@@ -351,7 +596,7 @@
     </div>
 
     <!-- ====== 路线地图 ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details open>
             <summary>
                 <h2>🗺️ 四川段路线地图</h2>
@@ -367,7 +612,7 @@
     </div>
 
     <!-- ====== 三、出行基础信息 ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details open>
             <summary>
                 <h2>📋 出行基础信息</h2>
@@ -385,7 +630,7 @@
     </div>
 
     <!-- ====== 四、行程总览 ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details open>
             <summary>
                 <h2>🗺️ 全程行程总览</h2>
@@ -413,7 +658,7 @@
     </div>
 
     <!-- ====== 五、景点优先级分级 ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details>
             <summary>
                 <h2>⭐ 景点优先级分级</h2>
@@ -448,7 +693,7 @@
     </div>
 
     <!-- ====== 六、国道风景指南 ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details open>
             <summary>
                 <h2>🛣️ 川西自驾 · 司机视角的国道风景指南</h2>
@@ -498,10 +743,10 @@
     </div>
 
     <!-- ====== 七、每日详细行程 ====== -->
-    <h2 style="margin:20px 0 12px;color:#165DFF;padding-left:4px;">📅 每日详细行程</h2>
+    <h2 style="margin:20px 0 12px;color:#2563EB;padding-left:4px;">📅 每日详细行程</h2>
 
     <!-- D1 -->
-    <div class="day-card">
+    <div class="day-card" id="day-1" data-phase="travel">
         <details open>
         <summary class="day-title">D1 上海 → 宜昌/恩施 · 长途赶路 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -519,10 +764,10 @@
                 🚗 距G50宜昌东出口约3km，距宜昌东站4.3km<br>
                 🅿️ 免费停车场 · 118间客房 · 亚朵品质<br>
                 <span class="price">约300-400元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E5%AE%9C%E6%98%8C%E4%B8%9C%E7%AB%99%E9%91%AB%E9%BC%8E%E4%BA%9A%E6%9C%B5%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%AE%9C%E6%98%8C%E4%B8%9C%E7%AB%99%E9%91%AB%E9%BC%8E%E4%BA%9A%E6%9C%B5%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <a href="https://hotels.ctrip.com/hotels/116989452.html" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">📋 携程预订</a>
-                <button class="btn btn-green btn-small" onclick="copyText('宜昌东站鑫鼎亚朵酒店')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E5%AE%9C%E6%98%8C%E4%B8%9C%E7%AB%99%E9%91%AB%E9%BC%8E%E4%BA%9A%E6%9C%B5%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%AE%9C%E6%98%8C%E4%B8%9C%E7%AB%99%E9%91%AB%E9%BC%8E%E4%BA%9A%E6%9C%B5%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://hotels.ctrip.com/hotels/116989452.html" target="_blank" class="btn btn-small btn-outline">📋 携程预订</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('宜昌东站鑫鼎亚朵酒店')">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
                 <strong>🏨 宜昌推荐②：桔子酒店(宜昌火车东站店)</strong>
@@ -531,10 +776,10 @@
                 🚗 距G50宜昌东出口约2.5km，步行至宜昌东站约10分钟<br>
                 🅿️ 免费停车 · 健身房/洗衣房 · 楼下商超餐饮齐全<br>
                 <span class="price">约250-350元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E7%81%AB%E8%BD%A6%E4%B8%9C%E7%AB%99%E5%BA%97" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E7%81%AB%E8%BD%A6%E4%B8%9C%E7%AB%99%E5%BA%97" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <a href="https://hotels.ctrip.com/hotels/120253908.html" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">📋 携程预订</a>
-                <button class="btn btn-green btn-small" onclick="copyText('桔子酒店宜昌火车东站店')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E7%81%AB%E8%BD%A6%E4%B8%9C%E7%AB%99%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E7%81%AB%E8%BD%A6%E4%B8%9C%E7%AB%99%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://hotels.ctrip.com/hotels/120253908.html" target="_blank" class="btn btn-small btn-outline">📋 携程预订</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('桔子酒店宜昌火车东站店')">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
                 <strong>🏨 恩施推荐：桔子酒店(恩施女儿城店)</strong>
@@ -543,10 +788,10 @@
                 🚗 距G50恩施城区出口约5km，女儿城景区内<br>
                 🅿️ 免费停车 · 步行直达女儿城小吃街/剧场<br>
                 <span class="price">约280-380元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E6%81%A9%E6%96%BD%E5%A5%B3%E5%84%BF%E5%9F%8E%E5%BA%97" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E6%81%A9%E6%96%BD%E5%A5%B3%E5%84%BF%E5%9F%8E%E5%BA%97" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <a href="https://hotels.ctrip.com/hotels/118857104.html" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">📋 携程预订</a>
-                <button class="btn btn-green btn-small" onclick="copyText('桔子酒店恩施女儿城店')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E6%81%A9%E6%96%BD%E5%A5%B3%E5%84%BF%E5%9F%8E%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E6%81%A9%E6%96%BD%E5%A5%B3%E5%84%BF%E5%9F%8E%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://hotels.ctrip.com/hotels/118857104.html" target="_blank" class="btn btn-small btn-outline">📋 携程预订</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('桔子酒店恩施女儿城店')">📝 复制关键词</button>
             </div>
             </div>
             <div class="tip-box"><h4>💡 当日注意</h4>出发前加满油，检查胎压；车上备足饮用水、零食、宠物饮水器。选宜昌则D2行车约900km至成都，选恩施则D2约750km更轻松。</div>
@@ -555,7 +800,7 @@
     </div>
 
     <!-- D2 -->
-    <div class="day-card">
+    <div class="day-card" id="day-2" data-phase="travel">
         <details open>
         <summary class="day-title">D2 宜昌/恩施 → 四川成都 · 进川休整 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -577,10 +822,10 @@
                 🅿️ 免费停车 · 地铁7号线武侯大道站步行5分钟<br>
                 🏪 近大悦城、伊藤洋华堂，采购物资极方便<br>
                 <span class="price">约350-500元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E6%88%90%E9%83%BD%E5%A4%A7%E6%82%A6%E5%9F%8E%E6%AD%A6%E4%BE%AF%E5%A4%A7%E9%81%93%E5%9C%B0%E9%93%81%E7%AB%99%E4%BA%9A%E6%9C%B5X%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E6%88%90%E9%83%BD%E5%A4%A7%E6%82%A6%E5%9F%8E%E6%AD%A6%E4%BE%AF%E5%A4%A7%E9%81%93%E5%9C%B0%E9%93%81%E7%AB%99%E4%BA%9A%E6%9C%B5X%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <a href="https://hotels.ctrip.com/hotels/80979591.html" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">📋 携程预订</a>
-                <button class="btn btn-green btn-small" onclick="copyText('成都大悦城武侯大道地铁站亚朵X酒店')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E6%88%90%E9%83%BD%E5%A4%A7%E6%82%A6%E5%9F%8E%E6%AD%A6%E4%BE%AF%E5%A4%A7%E9%81%93%E5%9C%B0%E9%93%81%E7%AB%99%E4%BA%9A%E6%9C%B5X%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E6%88%90%E9%83%BD%E5%A4%A7%E6%82%A6%E5%9F%8E%E6%AD%A6%E4%BE%AF%E5%A4%A7%E9%81%93%E5%9C%B0%E9%93%81%E7%AB%99%E4%BA%9A%E6%9C%B5X%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://hotels.ctrip.com/hotels/80979591.html" target="_blank" class="btn btn-small btn-outline">📋 携程预订</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('成都大悦城武侯大道地铁站亚朵X酒店')">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
                 <strong>🏨 五星备选①：成都武侯渝江皇冠假日酒店（IHG）</strong>
@@ -590,10 +835,10 @@
                 🅿️ 免费停车 · 室内泳池 · 健身房 · 335间客房<br>
                 🏪 近龙湖金楠天街、大悦城，采购方便<br>
                 <span class="price">约600-900元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E6%B8%9D%E6%B1%9F%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E6%B8%9D%E6%B1%9F%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <a href="https://hotels.ctrip.com/hotels/72965590.html" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">📋 携程预订</a>
-                <button class="btn btn-green btn-small" onclick="copyText('成都武侯渝江皇冠假日酒店')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E6%B8%9D%E6%B1%9F%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E6%B8%9D%E6%B1%9F%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://hotels.ctrip.com/hotels/72965590.html" target="_blank" class="btn btn-small btn-outline">📋 携程预订</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('成都武侯渝江皇冠假日酒店')">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
                 <strong>🏨 五星备选②：成都武侯祠希尔顿欢朋酒店</strong>
@@ -603,10 +848,10 @@
                 🅿️ 免费停车 · 美国舒达床垫 · 彼得罗夫洗护<br>
                 🏪 近大悦城、红星美凯龙，采购物资方便<br>
                 <span class="price">约450-650元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E7%A5%9E%E4%BB%99%E6%A0%91%E5%B8%8C%E5%B0%94%E9%A1%BF%E6%AC%A2%E6%9C%8B%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E7%A5%9E%E4%BB%99%E6%A0%91%E5%B8%8C%E5%B0%94%E9%A1%BF%E6%AC%A2%E6%9C%8B%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <a href="https://www.hilton.com.cn/zh-cn/hotels/cturnhx-hampton-by-hilton-chengdu-wuhou-hongpailou" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🏨 希尔顿官网</a>
-                <button class="btn btn-green btn-small" onclick="copyText('成都武侯祠希尔顿欢朋酒店')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E7%A5%9E%E4%BB%99%E6%A0%91%E5%B8%8C%E5%B0%94%E9%A1%BF%E6%AC%A2%E6%9C%8B%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E7%A5%9E%E4%BB%99%E6%A0%91%E5%B8%8C%E5%B0%94%E9%A1%BF%E6%AC%A2%E6%9C%8B%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://www.hilton.com.cn/zh-cn/hotels/cturnhx-hampton-by-hilton-chengdu-wuhou-hongpailou" target="_blank" class="btn btn-small btn-outline">🏨 希尔顿官网</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('成都武侯祠希尔顿欢朋酒店')">📝 复制关键词</button>
             </div>
             </div>
         </div>
@@ -614,7 +859,7 @@
     </div>
 
     <!-- D3 -->
-    <div class="day-card">
+    <div class="day-card" id="day-3" data-phase="plateau">
         <details open>
         <summary class="day-title">D3 成都 → 泸定桥 → 中谷村 · 海拔适应 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -648,8 +893,8 @@
                 <div class="quote">“小众露天温泉区”<span class="quote-source">—— 甘孜旅游</span></div>
                 <br>
                 📍 康定市雅拉乡中谷村，距康定市区约40min车程<br>
-                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E4%B8%AD%E8%B0%B7%E6%9D%91" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E4%B8%AD%E8%B0%B7%E6%9D%91" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E4%B8%AD%E8%B0%B7%E6%9D%91" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E4%B8%AD%E8%B0%B7%E6%9D%91" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             <div class="src-box">
                 <strong>📎 出处链接：</strong><br>
@@ -658,7 +903,7 @@
                 <a href="https://www.xiaohongshu.com/explore/6846886b0000000021007873?xsec_token=ABBvKdvqBZYI3mpd8K4hG8uJa-WMeFWorIRBUy7bmEM3k=&xsec_source=pc_search" target="_blank">小红书·中谷村温泉</a> ｜
                 <a href="https://www.xiaohongshu.com/explore/6746ccb10000000007025fa5?xsec_token=ABXFLiRXSxvteUqymVDgfYpZblPCC7EGppNEMNnIQLoxo=&xsec_source=pc_search" target="_blank">小红书·中谷村野温泉</a>
             </div>
-            <button class="btn btn-green btn-small" onclick="copyText('康定中谷村温泉 民宿攻略')">📝 复制关键词</button>
+            <button class="btn btn-green btn-small btn-copy" onclick="copyText('康定中谷村温泉 民宿攻略')">📝 复制关键词</button>
             </div>
             </div>
             <div class="h-scroll">
@@ -668,10 +913,10 @@
                 📍 康定市雅拉乡中谷村（村内主干道旁）<br>
                 🅿️ 免费停车 · 温泉入户 · 野奢风格<br>
                 <span class="price">约1000元+/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=RGB%E9%9B%85%E6%8B%89%E9%87%8E%E5%A5%A2%E6%B8%A9%E6%B3%89%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/RGB%E9%9B%85%E6%8B%89%E9%87%8E%E5%A5%A2%E6%B8%A9%E6%B3%89%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <a href="https://hotels.ctrip.com/hotels/80599093.html" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">📋 携程</a>
-                <button class="btn btn-green btn-small" onclick="copyText('RGB雅拉野奢温泉民宿 中谷村')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=RGB%E9%9B%85%E6%8B%89%E9%87%8E%E5%A5%A2%E6%B8%A9%E6%B3%89%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/RGB%E9%9B%85%E6%8B%89%E9%87%8E%E5%A5%A2%E6%B8%A9%E6%B3%89%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://hotels.ctrip.com/hotels/80599093.html" target="_blank" class="btn btn-small btn-outline">📋 携程</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('RGB雅拉野奢温泉民宿 中谷村')">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
                 <strong>🏨 住宿推荐：康定听山·森谷汤泉民宿</strong>
@@ -679,10 +924,10 @@
                 📍 康定市雅拉乡中谷村（近村口）<br>
                 🅿️ 免费停车 · 汤泉泡池 · 宠物友好<br>
                 <span class="price">约400-600元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E5%90%AC%E5%B1%B1%C2%B7%E6%A3%AE%E8%B0%B7%E6%B1%A4%E6%B3%89%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E5%90%AC%E5%B1%B1%C2%B7%E6%A3%AE%E8%B0%B7%E6%B1%A4%E6%B3%89%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <a href="https://hotels.ctrip.com/hotels/54424704.html" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">📋 携程</a>
-                <button class="btn btn-green btn-small" onclick="copyText('康定听山森谷汤泉民宿')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E5%90%AC%E5%B1%B1%C2%B7%E6%A3%AE%E8%B0%B7%E6%B1%A4%E6%B3%89%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E5%90%AC%E5%B1%B1%C2%B7%E6%A3%AE%E8%B0%B7%E6%B1%A4%E6%B3%89%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://hotels.ctrip.com/hotels/54424704.html" target="_blank" class="btn btn-small btn-outline">📋 携程</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('康定听山森谷汤泉民宿')">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
                 <strong>🏨 住宿推荐：中谷红温泉营地</strong>
@@ -690,9 +935,9 @@
                 📍 康定市雅拉乡中谷村（村内）<br>
                 🅿️ 免费停车 · 公共温泉 · 营地风格<br>
                 <span class="price">约180元起/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E4%B8%AD%E8%B0%B7%E7%BA%A2%E6%B8%A9%E6%B3%89%E8%90%A5%E5%9C%B0" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E4%B8%AD%E8%B0%B7%E7%BA%A2%E6%B8%A9%E6%B3%89%E8%90%A5%E5%9C%B0" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <button class="btn btn-green btn-small" onclick="copyText('中谷红温泉营地')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E4%B8%AD%E8%B0%B7%E7%BA%A2%E6%B8%A9%E6%B3%89%E8%90%A5%E5%9C%B0" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E4%B8%AD%E8%B0%B7%E7%BA%A2%E6%B8%A9%E6%B3%89%E8%90%A5%E5%9C%B0" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('中谷红温泉营地')">📝 复制关键词</button>
             </div>
             </div>
 
@@ -714,7 +959,7 @@
     </div>
 
     <!-- D4 -->
-    <div class="day-card">
+    <div class="day-card" id="day-4" data-phase="plateau">
         <details open>
         <summary class="day-title">D4 中谷村 · 南门关沟轻徒步 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -733,8 +978,8 @@
                 <div class="quote">“人少清静：几乎没有游客，不用下饺子”<span class="quote-source">—— Trip.com 另一出处</span></div>
                 <br>
                 📍 康定市雅拉乡，导航「南门关沟」可达<br>
-                <a href="https://ditu.amap.com/search?query=%E5%8D%97%E9%97%A8%E5%85%B3%E6%B2%9F" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%8D%97%E9%97%A8%E5%85%B3%E6%B2%9F" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E5%8D%97%E9%97%A8%E5%85%B3%E6%B2%9F" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%8D%97%E9%97%A8%E5%85%B3%E6%B2%9F" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             <div class="warn-box">
                 ⚠️ 带狗注意：南门关沟路段有碎石坡、青苔泥地滑、瀑布边地面烫脚，多位狗主反馈狗狗脚掌易受伤甚至流血。<br>
@@ -747,7 +992,7 @@
                 <a href="https://www.xiaohongshu.com/explore/69f1a317000000003601cce0?xsec_token=ABTYprR5YF37MFbAb316wMfzekwyxaqEKfKNtaT5cts3M=&xsec_source=pc_search" target="_blank">小红书·南门关沟攻略</a> ｜
                 <a href="https://www.xiaohongshu.com/explore/69bf77f70000000021038b33?xsec_token=ABqlCs58AFRLB2kE_WY-8pErHjyThFbFREwk_IZL_5Xh4=&xsec_source=pc_search" target="_blank">小红书·南门关沟导航</a>
             </div>
-            <button class="btn btn-green btn-small" onclick="copyText('康定南门关沟 徒步攻略')">📝 复制关键词</button>
+            <button class="btn btn-green btn-small btn-copy" onclick="copyText('康定南门关沟 徒步攻略')">📝 复制关键词</button>
             </div>
             <div>
             <h3 style="margin-top:16px;">备选方案：江巴牧场</h3>
@@ -757,9 +1002,9 @@
                 S434旁小路进去的原生态草原牧场，景色比主路更美，几乎无游客。适合停车拍照、让狗狗跑一跑。<br>
                 免费 · 宠物友好 · 7月格桑花盛开<br>
                 📍 康定市S434省道旁，导航「江巴牧场」<br>
-                <a href="https://ditu.amap.com/search?query=%E6%B1%9F%E5%B7%B4%E7%89%A7%E5%9C%BA" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E6%B1%9F%E5%B7%B4%E7%89%A7%E5%9C%BA" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <button class="btn btn-green btn-small" onclick="copyText('江巴牧场 川西自驾')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E6%B1%9F%E5%B7%B4%E7%89%A7%E5%9C%BA" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E6%B1%9F%E5%B7%B4%E7%89%A7%E5%9C%BA" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('江巴牧场 川西自驾')">📝 复制关键词</button>
             </div>
             </div>
             </div>
@@ -768,7 +1013,7 @@
     </div>
 
     <!-- D5 -->
-    <div class="day-card">
+    <div class="day-card" id="day-5" data-phase="plateau">
         <details open>
         <summary class="day-title">D5 中谷村 · 放空机动日 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -782,9 +1027,9 @@
                 7月中旬正是菌子季，中谷村后山野生菌丰富。找民宿老板带路上山，亲子体验感极强，几乎无游客。<br>
                 ⚠️ 注意：不认识的菌子不要碰，只采老板确认可食用的品种。<br>
                 📍 中谷村后山（民宿老板带路）<br>
-                <a href="https://ditu.amap.com/search?query=%E4%B8%AD%E8%B0%B7%E6%9D%91" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E4%B8%AD%E8%B0%B7%E6%9D%91" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <button class="btn btn-green btn-small" onclick="copyText('中谷村采菌子 川西')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E4%B8%AD%E8%B0%B7%E6%9D%91" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E4%B8%AD%E8%B0%B7%E6%9D%91" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('中谷村采菌子 川西')">📝 复制关键词</button>
             </div>
             </div>
             <div>
@@ -797,15 +1042,15 @@
                 💡 路况好时可改去「纳梯村+囍coffee」（花海溪流+咖啡店，有餐饮配套，路况好）<br>
                 ⚠️ 网红店人多，体验看当天流量，仅作备选<br>
                 📍 康定市雅家梗，导航「雅家梗红石滩」<br>
-                <a href="https://ditu.amap.com/search?query=%E9%9B%85%E5%AE%B6%E6%A2%97%E7%BA%A2%E7%9F%B3%E6%BB%A9" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E9%9B%85%E5%AE%B6%E6%A2%97%E7%BA%A2%E7%9F%B3%E6%BB%A9" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E9%9B%85%E5%AE%B6%E6%A2%97%E7%BA%A2%E7%9F%B3%E6%BB%A9" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E9%9B%85%E5%AE%B6%E6%A2%97%E7%BA%A2%E7%9F%B3%E6%BB%A9" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             <div class="src-box">
                 <strong>📎 出处链接：</strong><br>
                 <a href="https://baike.baidu.com/item/%E7%BA%A2%E7%9F%B3%E6%BB%A9" target="_blank">百度百科·红石滩</a> ｜
                 <a href="https://www.xiaohongshu.com/explore/69a28e340000000026030525?xsec_token=ABsr3_4xrsEEfjYqCACqz3_xmoK697r7tnIQpBZEZ_9HM=&xsec_source=pc_search" target="_blank">小红书·红石滩</a>
             </div>
-            <button class="btn btn-green btn-small" onclick="copyText('雅家梗红石滩 自驾攻略')">📝 复制关键词</button>
+            <button class="btn btn-green btn-small btn-copy" onclick="copyText('雅家梗红石滩 自驾攻略')">📝 复制关键词</button>
             </div>
             <div>
             <h3>Plan C：红海子</h3>
@@ -816,9 +1061,9 @@
                 如路过康定机场时可顺路远观，不必专程前往。<br>
                 💡 替代方案：S434省道沿途有免费观景台（如朋布西村方向），随停随拍，完全免费<br>
                 📍 康定市折多山，康定机场后方<br>
-                <a href="https://ditu.amap.com/search?query=%E7%BA%A2%E6%B5%B7%E5%AD%90" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E7%BA%A2%E6%B5%B7%E5%AD%90" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <button class="btn btn-green btn-small" onclick="copyText('康定红海子 值不值得去')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E7%BA%A2%E6%B5%B7%E5%AD%90" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E7%BA%A2%E6%B5%B7%E5%AD%90" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('康定红海子 值不值得去')">📝 复制关键词</button>
             </div>
             </div>
             </div>
@@ -827,7 +1072,7 @@
     </div>
 
     <!-- D6 -->
-    <div class="day-card">
+    <div class="day-card" id="day-6" data-phase="plateau">
         <details open>
         <summary class="day-title">D6 中谷村 → 甲根坝 · 河谷秘境 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -845,8 +1090,8 @@
                 <div class="quote">“甲根坝是一方未被利益染指的纯粹秘境，游人不多”<span class="quote-source">—— 马蜂窝游记</span></div>
                 <br>
                 📍 康定市甲根坝镇<br>
-                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             <div class="src-box">
                 <strong>📎 出处链接：</strong><br>
@@ -855,7 +1100,7 @@
                 <a href="https://www.xiaohongshu.com/explore/6a3888ce0000000008033cd8?xsec_token=ABUMI5WjJh_yHrOnKq5XNRS9A6zPgjh4HnMNckIZOMnu8=&xsec_source=pc_search" target="_blank">小红书·甲根坝河谷</a> ｜
                 <a href="https://www.xiaohongshu.com/explore/6a1ae44b000000003701e3f4?xsec_token=AByLowKEAE_14Vb6F-Y-4qFz3VtWf4PimWefFlIaNvyG0=&xsec_source=pc_search" target="_blank">小红书·甲根坝野生景点</a>
             </div>
-            <button class="btn btn-green btn-small" onclick="copyText('康定甲根坝 民宿攻略')">📝 复制关键词</button>
+            <button class="btn btn-green btn-small btn-copy" onclick="copyText('康定甲根坝 民宿攻略')">📝 复制关键词</button>
 
             <div class="warn-box">
                 <strong>⛰️ 折多山垭口注意事项</strong><br>
@@ -876,9 +1121,9 @@
                 📍 甲根坝镇<br>
                 🅿️ 免费停车 · 公共区域宽敞 · 适合家庭度假<br>
                 <span class="price">咨询店家</span><br>
-                <a href="https://ditu.amap.com/search?query=%E4%B9%9D%E7%B1%B3%E9%9B%AA%E5%B1%B1%E5%8E%9F%E5%88%9B%E8%89%BA%E6%9C%AF%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E4%B9%9D%E7%B1%B3%E9%9B%AA%E5%B1%B1%E5%8E%9F%E5%88%9B%E8%89%BA%E6%9C%AF%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <button class="btn btn-green btn-small" onclick="copyText('甲根坝九米雪山原创艺术酒店')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E4%B9%9D%E7%B1%B3%E9%9B%AA%E5%B1%B1%E5%8E%9F%E5%88%9B%E8%89%BA%E6%9C%AF%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E4%B9%9D%E7%B1%B3%E9%9B%AA%E5%B1%B1%E5%8E%9F%E5%88%9B%E8%89%BA%E6%9C%AF%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('甲根坝九米雪山原创艺术酒店')">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
                 <strong>🏨 云里山居</strong>
@@ -887,9 +1132,9 @@
                 📍 甲根坝镇<br>
                 🅿️ 免费停车 · 部分房型配地暖和智能马桶 · 套房户型<br>
                 <span class="price">咨询店家</span><br>
-                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E4%BA%91%E9%87%8C%E5%B1%B1%E5%B1%85" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E4%BA%91%E9%87%8C%E5%B1%B1%E5%B1%85" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <button class="btn btn-green btn-small" onclick="copyText('甲根坝云里山居民宿')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E4%BA%91%E9%87%8C%E5%B1%B1%E5%B1%85" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E4%BA%91%E9%87%8C%E5%B1%B1%E5%B1%85" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('甲根坝云里山居民宿')">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
                 <strong>🏨 日舍</strong>
@@ -898,9 +1143,9 @@
                 📍 甲根坝镇<br>
                 🅿️ 免费停车 · 老板可提供采菌子向导服务<br>
                 <span class="price">咨询店家</span><br>
-                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%97%A5%E8%88%8D" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%97%A5%E8%88%8D" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <button class="btn btn-green btn-small" onclick="copyText('甲根坝日舍民宿')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%97%A5%E8%88%8D" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%97%A5%E8%88%8D" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('甲根坝日舍民宿')">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
                 <strong>🏨 木雅·原乡别院</strong>
@@ -909,9 +1154,9 @@
                 📍 甲根坝镇<br>
                 🅿️ 免费停车 · 院子大方便活动<br>
                 <span class="price">咨询店家</span><br>
-                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%9C%A8%E9%9B%85%E5%8E%9F%E4%B9%A1%E5%88%AB%E9%99%A2" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%9C%A8%E9%9B%85%E5%8E%9F%E4%B9%A1%E5%88%AB%E9%99%A2" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <button class="btn btn-green btn-small" onclick="copyText('甲根坝木雅原乡别院')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%9C%A8%E9%9B%85%E5%8E%9F%E4%B9%A1%E5%88%AB%E9%99%A2" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%9C%A8%E9%9B%85%E5%8E%9F%E4%B9%A1%E5%88%AB%E9%99%A2" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('甲根坝木雅原乡别院')">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
                 <strong>🏨 壹品山景度假民宿</strong>
@@ -920,9 +1165,9 @@
                 📍 甲根坝镇<br>
                 🅿️ 免费停车方便遛狗 · 老板热情送当地小吃<br>
                 <span class="price">咨询店家</span><br>
-                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E5%A3%B9%E5%93%81%E5%B1%B1%E6%99%AF%E5%BA%A6%E5%81%87%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E5%A3%B9%E5%93%81%E5%B1%B1%E6%99%AF%E5%BA%A6%E5%81%87%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
-                <button class="btn btn-green btn-small" onclick="copyText('甲根坝壹品山景度假民宿')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E5%A3%B9%E5%93%81%E5%B1%B1%E6%99%AF%E5%BA%A6%E5%81%87%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E5%A3%B9%E5%93%81%E5%B1%B1%E6%99%AF%E5%BA%A6%E5%81%87%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('甲根坝壹品山景度假民宿')">📝 复制关键词</button>
             </div>
             </div>
 
@@ -953,7 +1198,7 @@
     </div>
 
     <!-- D7 -->
-    <div class="day-card">
+    <div class="day-card" id="day-7" data-phase="plateau">
         <details open>
         <summary class="day-title">D7 甲根坝 · 河谷慢逛日 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -971,10 +1216,10 @@
                 <br>
                 📍 导航「康定提吾村」<br>
                 💡 周末人多可改去「朋布西村」（沿S434继续开15min，导航直达），无信号无商业开发，真正的世外桃源。村后小路往里走找到"我想·山居"民宿附近基本无游客。村里无餐饮，需自备干粮。<br>
-                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E6%8F%90%E6%88%91%E6%9D%91" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E6%8F%90%E6%88%91%E6%9D%91" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E6%8F%90%E6%88%91%E6%9D%91" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E6%8F%90%E6%88%91%E6%9D%91" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
-            <button class="btn btn-green btn-small" onclick="copyText('甲根坝提吾村 游玩攻略')">📝 复制关键词</button>
+            <button class="btn btn-green btn-small btn-copy" onclick="copyText('甲根坝提吾村 游玩攻略')">📝 复制关键词</button>
             </div>
             <div>
             <h3>核心点位：亚拢沟钙化滩</h3>
@@ -987,10 +1232,10 @@
                 📍 导航「甲根坝亚拢沟」<br>
                 💡 想要雅拉雪山同框可改去塔公「姑弄村」（免费开放，溪流+木桥+雪山同框）<br>
                 ⏱ 甲根坝→姑弄村驱车约1h往返2h，超出"零赶路"原则，仅天气好+时间充裕时考虑<br>
-                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E4%BA%9A%E6%8B%A2%E6%B2%9F" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E4%BA%9A%E6%8B%A2%E6%B2%9F" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E4%BA%9A%E6%8B%A2%E6%B2%9F" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E4%BA%9A%E6%8B%A2%E6%B2%9F" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
-            <button class="btn btn-green btn-small" onclick="copyText('甲根坝亚拢沟钙化滩')">📝 复制关键词</button>
+            <button class="btn btn-green btn-small btn-copy" onclick="copyText('甲根坝亚拢沟钙化滩')">📝 复制关键词</button>
             </div>
             </div>
 
@@ -1009,7 +1254,7 @@
     </div>
 
     <!-- D8 -->
-    <div class="day-card">
+    <div class="day-card" id="day-8" data-phase="plateau">
         <details open>
         <summary class="day-title">D8 甲根坝 · 月亮湖备选日 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -1029,8 +1274,8 @@
                 ⚠️ 私家车不能开到湖边，需坐8km观光车，搬装备较麻烦<br>
                 ⚠️ 观光车可能不允许带宠物，去前电话确认<br>
                 📍 导航「月亮湖」<br>
-                <a href="https://ditu.amap.com/search?query=%E6%9C%88%E4%BA%AE%E6%B9%96%20%E5%BA%B7%E5%AE%9A" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E6%9C%88%E4%BA%AE%E6%B9%96%20%E5%BA%B7%E5%AE%9A" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E6%9C%88%E4%BA%AE%E6%B9%96%20%E5%BA%B7%E5%AE%9A" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E6%9C%88%E4%BA%AE%E6%B9%96%20%E5%BA%B7%E5%AE%9A" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             <div class="src-box">
                 <strong>📎 出处链接：</strong><br>
@@ -1039,7 +1284,7 @@
                 <a href="https://www.xiaohongshu.com/explore/69cd0f5b0000000021010d00?xsec_token=ABihmU6GfEdsTR8a6ikAt0GKR1R8KAGYnkOArmSrieixA=&xsec_source=pc_search" target="_blank">小红书·月亮湖秘境</a> ｜
                 <a href="https://www.xiaohongshu.com/explore/6a0277c2000000000702d42b?xsec_token=ABXQq7s7sir3693ul9OJEjK3H7u0f4YiaiIqyN8OgdTQQ=&xsec_source=pc_search" target="_blank">小红书·月亮湖人间仙境</a>
             </div>
-            <button class="btn btn-green btn-small" onclick="copyText('康定月亮湖 自驾攻略')">📝 复制关键词</button>
+            <button class="btn btn-green btn-small btn-copy" onclick="copyText('康定月亮湖 自驾攻略')">📝 复制关键词</button>
             </div>
             <div>
             <h3>Plan B/C：二刷提吾村 / 捡菌子</h3>
@@ -1049,8 +1294,8 @@
                 二刷提吾村河谷，熟悉的地方更轻松。<br>
                 或跟民宿老板上山采菌子（7月菌季特色），亲子体验感强。<br>
                 📍 导航「康定提吾村」<br>
-                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E6%8F%90%E6%88%91%E6%9D%91" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E6%8F%90%E6%88%91%E6%9D%91" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E6%8F%90%E6%88%91%E6%9D%91" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E6%8F%90%E6%88%91%E6%9D%91" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             </div>
             <div>
@@ -1062,8 +1307,8 @@
                 狗狗可自由跑动，比月亮湖更适合雨天和带狗出行。<br>
                 免费 · 人少 · 景色不输月亮湖<br>
                 📍 导航「甲根坝日泽村」<br>
-                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%97%A5%E6%B3%BD%E6%9D%91" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%97%A5%E6%B3%BD%E6%9D%91" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%97%A5%E6%B3%BD%E6%9D%91" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%97%A5%E6%B3%BD%E6%9D%91" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             </div>
             <div>
@@ -1074,8 +1319,8 @@
                 车可直接开进村子，看云绕雅拉雪山+藏寨体验。<br>
                 ⚠️ 高尔寺垭口后段是土路，雨天路滑不建议前往。<br>
                 📍 导航「夏马龙村」<br>
-                <a href="https://ditu.amap.com/search?query=%E5%A4%8F%E9%A9%AC%E9%BE%99%E6%9D%91" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%A4%8F%E9%A9%AC%E9%BE%99%E6%9D%91" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E5%A4%8F%E9%A9%AC%E9%BE%99%E6%9D%91" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%A4%8F%E9%A9%AC%E9%BE%99%E6%9D%91" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             </div>
             </div>
@@ -1086,7 +1331,7 @@
     </div>
 
     <!-- D9 -->
-    <div class="day-card">
+    <div class="day-card" id="day-9" data-phase="plateau">
         <details open>
         <summary class="day-title">D9 甲根坝 → 道孚 · 丹道秘境线 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -1115,21 +1360,21 @@
                 <strong>📎 出处链接：</strong><br>
                 <a href="https://you.ctrip.com/sight/kangding344/1463386.html" target="_blank">携程·姑弄村攻略</a>
             </div>
-            <button class="btn btn-green btn-small" onclick="copyText('塔公姑弄村 游玩攻略')">📝 复制关键词</button>
+            <button class="btn btn-green btn-small btn-copy" onclick="copyText('塔公姑弄村 游玩攻略')">📝 复制关键词</button>
 
             <div class="h-scroll">
             <div class="hotel-box">
                 <strong>🏨 道孚康藏国际酒店</strong>
                 县城档次较高 · 房间供氧<br>
                 <span class="price">约260元/晚</span><br>
-                <a href="https://hotels.ctrip.com/hotels/80947738.html" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">📋 携程</a>
-                <button class="btn btn-green btn-small" onclick="copyText('道孚康藏国际酒店')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://hotels.ctrip.com/hotels/80947738.html" target="_blank" class="btn btn-small btn-outline">📋 携程</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('道孚康藏国际酒店')">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
                 <strong>🏨 道孚珠玛酒店</strong>
                 性价比高 · 位置中心<br>
                 <span class="price">约200-300元/晚</span><br>
-                <button class="btn btn-green btn-small" onclick="copyText('道孚珠玛酒店')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('道孚珠玛酒店')">📝 复制关键词</button>
             </div>
             </div>
         </div>
@@ -1137,7 +1382,7 @@
     </div>
 
     <!-- D10 -->
-    <div class="day-card">
+    <div class="day-card" id="day-10" data-phase="plateau">
         <details open>
         <summary class="day-title">D10 道孚 · 人文自然拓展日 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -1152,8 +1397,8 @@
                 <br>
                 💡 免费替代：导航「卡玛桥」也能拍出同款地貌，商业化程度低<br>
                 📍 道孚县八美镇<br>
-                <a href="https://ditu.amap.com/search?query=%E5%A2%A8%E7%9F%B3%E5%85%AC%E5%9B%AD" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%A2%A8%E7%9F%B3%E5%85%AC%E5%9B%AD" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E5%A2%A8%E7%9F%B3%E5%85%AC%E5%9B%AD" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%A2%A8%E7%9F%B3%E5%85%AC%E5%9B%AD" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             <div class="src-box">
                 <strong>📎 出处链接：</strong><br>
@@ -1161,7 +1406,7 @@
                 <a href="https://www.xiaohongshu.com/explore/6a37bf2c0000000015027bd4?xsec_token=ABi6Fjx93MIgRMOXU21UunSEqoBihfopLLVWOZKr0yIvQ=&xsec_source=pc_search" target="_blank">小红书·墨石公园值不值</a> ｜
                 <a href="https://www.xiaohongshu.com/explore/69e808c40000000023020b5b?xsec_token=ABmluyrYcd_K3q-QKJpNGL12HOPp4UhJmeA--vzAEXmoI=&xsec_source=pc_search" target="_blank">小红书·墨石公园避雷</a>
             </div>
-            <button class="btn btn-green btn-small" onclick="copyText('道孚墨石公园 游玩攻略')">📝 复制关键词</button>
+            <button class="btn btn-green btn-small btn-copy" onclick="copyText('道孚墨石公园 游玩攻略')">📝 复制关键词</button>
             </div>
             <div>
             <h3>Plan B：玉科大草原</h3>
@@ -1172,8 +1417,8 @@
                 人少景美，适合带狗奔跑、野餐。<br>
                 7月草原野花盛开。<br>
                 📍 导航「玉科大草原」<br>
-                <a href="https://ditu.amap.com/search?query=%E7%8E%89%E7%A7%91%E5%A4%A7%E8%8D%89%E5%8E%9F" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E7%8E%89%E7%A7%91%E5%A4%A7%E8%8D%89%E5%8E%9F" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E7%8E%89%E7%A7%91%E5%A4%A7%E8%8D%89%E5%8E%9F" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E7%8E%89%E7%A7%91%E5%A4%A7%E8%8D%89%E5%8E%9F" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             </div>
             <div>
@@ -1191,7 +1436,7 @@
     </div>
 
     <!-- D11 -->
-    <div class="day-card">
+    <div class="day-card" id="day-11" data-phase="plateau">
         <details open>
         <summary class="day-title">D11 道孚/八美 → 🟢 环线返程（路过/宿丹巴自选） <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -1230,8 +1475,8 @@
                 <div class="quote">“中路”藏语意为“人神向往的地方”<span class="quote-source">—— 百度百科</span></div>
                 <br>
                 📍 甘孜州丹巴县<br>
-                <a href="https://ditu.amap.com/search?query=%E4%B8%B9%E5%B7%B4%E4%B8%AD%E8%B7%AF%E8%97%8F%E5%AF%A8" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E4%B8%B9%E5%B7%B4%E4%B8%AD%E8%B7%AF%E8%97%8F%E5%AF%A8" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E4%B8%B9%E5%B7%B4%E4%B8%AD%E8%B7%AF%E8%97%8F%E5%AF%A8" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E4%B8%B9%E5%B7%B4%E4%B8%AD%E8%B7%AF%E8%97%8F%E5%AF%A8" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             <div class="src-box">
                 <strong>📎 出处链接：</strong><br>
@@ -1241,7 +1486,7 @@
                 <a href="https://www.xiaohongshu.com/explore/6a09d69200000000360030a4?xsec_token=AB78E4QftFQWGSs9avflgc4NDeBT_-WIvxYOrb7IKzd64=&xsec_source=pc_search" target="_blank">小红书·墨尔多神山藏寨</a> ｜
                 <a href="https://www.xiaohongshu.com/explore/69f46c3e000000001e00e999?xsec_token=ABw6zulDo62KDRgYtiSUtwKTCM5458aCZ3TBChLnuilP4=&xsec_source=pc_search" target="_blank">小红书·中路藏寨向往</a>
             </div>
-            <button class="btn btn-green btn-small" onclick="copyText('丹巴中路藏寨 游玩攻略')">📝 复制关键词</button>
+            <button class="btn btn-green btn-small btn-copy" onclick="copyText('丹巴中路藏寨 游玩攻略')">📝 复制关键词</button>
 
             <div class="tip-box"><h4>⚠️ 巴郎山路况提醒</h4>雨季翻巴郎山注意落石和云雾，出发前查「四川交通广播」公众号路况。如遇恶劣天气，建议走雅康高速绕行。</div>
             <div class="warn-box">⛽ 四姑娘山加油站：镇上有但价格偏高（约贵0.3-0.5元/升），旅游旺季排队严重。翻山前建议在丹巴或小金加满。</div>
@@ -1250,7 +1495,7 @@
     </div>
 
     <!-- D12-D14 -->
-    <div class="day-card">
+    <div class="day-card" id="day-12" data-phase="rest">
         <details open>
         <summary class="day-title">D12-D14 成都 · 休整期 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -1388,8 +1633,8 @@
             <div class="hotel-box">
                 <strong>🏨 成都武侯区/锦江区（连住）</strong>
                 优先选地铁沿线、带停车场的连锁品牌酒店。<br>
-                <a href="https://hotels.ctrip.com/" target="_blank" class="btn btn-small btn-outline" style="display:inline-block;width:auto;">📋 携程搜索</a>
-                <button class="btn btn-green btn-small" onclick="copyText('成都武侯区酒店 自驾停车')" style="display:inline-block;width:auto;padding:6px 10px;font-size:12px;margin-top:6px;">📝 复制关键词</button>
+                <a href="https://hotels.ctrip.com/" target="_blank" class="btn btn-small btn-outline">📋 携程搜索</a>
+                <button class="btn btn-green btn-small btn-copy" onclick="copyText('成都武侯区酒店 自驾停车')">📝 复制关键词</button>
                 <div class="source" style="margin-top:4px;">出处：携程旅行、华住/锦江官方平台</div>
             </div>
             </div>
@@ -1398,7 +1643,7 @@
     </div>
 
     <!-- D15 -->
-    <div class="day-card">
+    <div class="day-card" id="day-15" data-phase="travel">
         <details open>
         <summary class="day-title">D15 成都 → 上海 · 最终返程 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -1408,7 +1653,7 @@
     </div>
 
     <!-- ====== 七、全部出处汇总表 ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details>
             <summary>
                 <h2>📎 全部出处汇总表</h2>
@@ -1463,7 +1708,7 @@
     </div>
 
     <!-- ====== 八、雨季安全守则 ====== -->
-    <div class="card">
+    <div class="card card-warning">
         <details open>
             <summary>
                 <h2>🌧️ 7月雨季自驾安全守则</h2>
@@ -1489,7 +1734,7 @@
     </div>
 
     <!-- ====== 九、高反预防手册 ====== -->
-    <div class="card">
+    <div class="card card-warning">
         <details open>
             <summary>
                 <h2>🫀 高反预防与应对手册</h2>
@@ -1505,7 +1750,7 @@
     </div>
 
     <!-- ====== 十、宠物出行方案 ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details open>
             <summary>
                 <h2>🐕 宠物出行全方案</h2>
@@ -1520,7 +1765,7 @@
     </div>
 
     <!-- ====== 十一、检查清单 ====== -->
-    <div class="card" id="checklist-card">
+    <div class="card card-info" id="checklist-card">
         <details open>
             <summary>
                 <h2>✅ 出行前检查清单</h2>
@@ -1566,7 +1811,7 @@
     </div>
 
     <!-- ====== 十二、行程日历 ====== -->
-    <div class="card" id="calendar-card">
+    <div class="card card-info" id="calendar-card">
         <details open>
             <summary>
                 <h2>📆 行程日历</h2>
@@ -1586,7 +1831,7 @@
     </div>
 
     <!-- 底部说明 -->
-    <div class="card">
+    <div class="card card-warning">
         <details open>
             <summary>
                 <h2>⚠️ 重要提示</h2>
@@ -1628,15 +1873,90 @@ const tripDays = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.checklist input[type="checkbox"]').forEach((item, index) => {
-        if (localStorage.getItem(`check_item_${index}`) === 'true') item.checked = true;
-        item.addEventListener('change', () => {
-            localStorage.setItem(`check_item_${index}`, item.checked);
+    // 清单勾选 + localStorage 安全访问
+    try {
+        document.querySelectorAll('.checklist input[type="checkbox"]').forEach((item, index) => {
+            if (localStorage.getItem(`check_item_${index}`) === 'true') item.checked = true;
+            item.addEventListener('change', () => {
+                localStorage.setItem(`check_item_${index}`, item.checked);
+            });
+        });
+    } catch (e) {
+        console.warn('localStorage 不可用，清单勾选状态不会被保存', e);
+    }
+    // 默认折叠 D3 及之后的 day-card，仅展开 D1、D2
+    document.querySelectorAll('.day-card details').forEach((el, i) => {
+        if (i >= 2) el.removeAttribute('open');
+    });
+    // 日程跳转栏：点击跳转 + 滚动高亮
+    const dayNavBtns = document.querySelectorAll('.day-nav-btn');
+    dayNavBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = document.getElementById(btn.dataset.target);
+            if (!target) return;
+            // 展开目标卡片
+            const det = target.querySelector('details');
+            if (det && !det.open) det.open = true;
+            // 平滑滚动（减去吸顶栏高度）
+            const navH = document.getElementById('dayNav').offsetHeight + 8;
+            const top = target.getBoundingClientRect().top + window.scrollY - navH;
+            window.scrollTo({ top, behavior: 'smooth' });
+        });
+    });
+    // 滚动时高亮当前可见的 day
+    const dayCards = document.querySelectorAll('.day-card[id]');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            const offset = window.innerHeight * 0.3; // 视口顶部 30% 以内算“当前”
+            let activeId = '';
+            dayCards.forEach(card => {
+                if (card.getBoundingClientRect().top <= offset) activeId = card.id;
+            });
+            dayNavBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.target === activeId);
+            });
+            // 自动滚动导航栏让 active 按钮可见
+            const activeBtn = document.querySelector('.day-nav-btn.active');
+            if (activeBtn) {
+                const inner = activeBtn.closest('.day-nav-inner');
+                const scrollLeft = activeBtn.offsetLeft - inner.offsetWidth / 2 + activeBtn.offsetWidth / 2;
+                inner.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+            }
+            ticking = false;
         });
     });
     renderCalendar();
     document.getElementById('startDate').addEventListener('change', renderCalendar);
     initRouteMap();
+    // Progress indicator for day nav
+    const dayNavBtnsAll = document.querySelectorAll('.day-nav-btn');
+    const startVal = document.getElementById('startDate').value;
+    const todayDay = startVal ? Math.floor((new Date() - new Date(startVal)) / 86400000) + 1 : 1;
+    dayNavBtnsAll.forEach(btn => {
+        const dayNum = parseInt(btn.textContent.replace('D', ''));
+        btn.classList.remove('past', 'future', 'current');
+        if (dayNum < todayDay) btn.classList.add('past');
+        else if (dayNum === todayDay) btn.classList.add('current');
+        else btn.classList.add('future');
+    });
+    // Skeleton loading for map
+    const routeMap = document.getElementById('routeMap');
+    if (routeMap) {
+        const skeleton = document.createElement('div');
+        skeleton.className = 'skeleton';
+        skeleton.style.cssText = 'width:100%;height:300px;border-radius:12px;';
+        routeMap.parentNode.insertBefore(skeleton, routeMap);
+        routeMap.style.display = 'none';
+        setTimeout(() => {
+            skeleton.remove();
+            routeMap.style.display = 'block';
+        }, 500);
+    }
+    setupCardObserver();
+    setupRippleEffects();
 });
 
 function renderCalendar() {
@@ -1742,6 +2062,39 @@ function renderCalendar() {
     container.innerHTML = calHtml;
 }
 
+// ── Toast 提示（替代 alert） ──
+function toast(msg, duration = 2200) {
+    let el = document.getElementById('__toast');
+    if (!el) {
+        el = document.createElement('div');
+        el.id = '__toast';
+        el.className = 'toast';
+        document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(el._timer);
+    el._timer = setTimeout(() => el.classList.remove('show'), duration);
+}
+
+// ── 安全剪贴板（带 fallback） ──
+function safeCopy(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+    }
+    // fallback：创建临时 textarea
+    return new Promise((resolve, reject) => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.cssText = 'position:fixed;left:-9999px;top:-9999px;';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy') ? resolve() : reject(); }
+        catch (e) { reject(e); }
+        finally { document.body.removeChild(ta); }
+    });
+}
+
 function pad2(n) { return String(n).padStart(2, '0'); }
 
 function fmtICSD(d) {
@@ -1750,7 +2103,7 @@ function fmtICSD(d) {
 
 function downloadICS() {
     const startVal = document.getElementById('startDate').value;
-    if (!startVal) { alert('请先选择出发日期'); return; }
+    if (!startVal) { toast('请先选择出发日期'); return; }
     const start = new Date(startVal + 'T00:00:00');
     const end = new Date(start);
     end.setDate(end.getDate() + 15);
@@ -1784,13 +2137,13 @@ function downloadICS() {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    alert('日历文件已下载，导入手机日历后可见完整15天行程');
+    toast('日历文件已下载，导入手机日历后可见完整15天行程', 3000);
 }
 
 function copyText(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        alert('搜索词已复制，打开小红书APP粘贴搜索即可');
-    }).catch(() => alert('复制失败，请手动长按复制'));
+    safeCopy(text).then(() => {
+        toast('搜索词已复制，打开小红书APP粘贴搜索即可');
+    }).catch(() => toast('复制失败，请手动长按复制'));
 }
 
 function copyChecklist() {
@@ -1820,19 +2173,39 @@ function copyChecklist() {
         '□ 下载川西全域离线地图\n' +
         '□ 全程住宿确认，宠物政策+免费取消\n' +
         '□ 购买含高原保障的自驾游保险';
-    navigator.clipboard.writeText(t).then(() => alert('清单已复制，打开备忘录粘贴即可'));
+    safeCopy(t).then(() => toast('清单已复制，打开备忘录粘贴即可'));
 }
 
 function generateImage() {
-    alert('正在生成高清长图...');
-    html2canvas(document.getElementById('content'), { scale: 2, useCORS: true, backgroundColor: '#ffffff', windowWidth: window.innerWidth > 768 ? 960 : 480 })
+    // 显示 loading 遮罩
+    const mask = document.createElement('div');
+    mask.className = 'loading-mask';
+    mask.innerHTML = '<div class="spinner"></div><div class="loading-text">正在生成高清长图，请稍候...</div>';
+    document.body.appendChild(mask);
+
+    // 按需加载 html2canvas
+    function loadHtml2Canvas() {
+        return new Promise((resolve, reject) => {
+            if (window.html2canvas) return resolve(window.html2canvas);
+            const s = document.createElement('script');
+            s.src = 'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';
+            s.onload = () => resolve(window.html2canvas);
+            s.onerror = () => reject(new Error('html2canvas 加载失败'));
+            document.head.appendChild(s);
+        });
+    }
+
+    loadHtml2Canvas()
+        .then(fn => fn(document.getElementById('content'), { scale: 2, useCORS: true, backgroundColor: '#ffffff', windowWidth: window.innerWidth > 768 ? 960 : 480 }))
         .then(canvas => {
             const link = document.createElement('a');
             link.download = '川西自驾攻略长图.png';
             link.href = canvas.toDataURL('image/png');
             link.click();
-            alert('长图已保存到相册');
-        }).catch(() => alert('生成失败，请检查网络后重试'));
+            toast('长图已保存到相册', 3000);
+        })
+        .catch(() => toast('生成失败，请检查网络后重试', 3000))
+        .finally(() => mask.remove());
 }
 
 function initRouteMap() {
@@ -1939,8 +2312,51 @@ function initRouteMap() {
     map.fitBounds(bounds.pad(0.12));
     setTimeout(() => map.invalidateSize(), 300);
 }
+
+// Card animation observer
+const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.1
+};
+
+function setupCardObserver() {
+    const cards = document.querySelectorAll('.day-card, .card');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    cards.forEach(card => observer.observe(card));
+}
+
+// Ripple effect for buttons
+function setupRippleEffects() {
+    const buttons = document.querySelectorAll('.btn-ripple, button, .day-nav-btn');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple-effect';
+            
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${e.clientX - rect.left - size/2}px`;
+            ripple.style.top = `${e.clientY - rect.top - size/2}px`;
+            
+            button.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+}
 </script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <div style="text-align:center;padding:12px;font-size:12px;color:#9CA3AF;border-top:1px solid #E5E7EB;margin-top:20px;">
     镜像访问：<a href="https://travel2-travel-d4gh9ixryba74cde5.webapps.tcloudbase.com/" target="_blank" style="color:#6B7280;">CloudBase</a>
 </div>
