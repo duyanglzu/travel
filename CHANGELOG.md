@@ -5,6 +5,12 @@
 - GitHub Pages: https://duyanglzu.github.io/travel/
 - CloudBase: https://travel2-travel-d4gh9ixryba74cde5.webapps.tcloudbase.com/
 
+## v1.8 (2026-06-24)
+- 国道风景指南两张表格重构：删除星星改用数字评分（如 5/5）
+- 新增 `.guide-table` 统一表格样式：蓝色表头、居中文字、合理列宽分配
+- 路段/建议列加宽并左对齐，评分/里程列压缩，cell 增加 padding
+- 深色模式适配 `.guide-table` 表头和文字颜色
+
 ## v1.7 (2026-06-24)
 ### 性能优化
 - `html2canvas` 改为按需加载（动态创建 `<script>` + Promise），首屏不再阻塞
