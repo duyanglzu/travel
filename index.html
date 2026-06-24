@@ -111,7 +111,13 @@
             color: transparent;
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .stars { display: inline-flex; flex-direction: column; line-height: 1.1; }
+        .guide-table { width:100%; border-collapse:collapse; font-size:13px; margin:10px 0; table-layout:fixed; text-align:center; }
+        .guide-table th, .guide-table td { border:1px solid #E5E7EB; padding:10px 6px; vertical-align:middle; line-height:1.4; }
+        .guide-table th { background:#2563EB; color:#fff; font-weight:600; font-size:13px; }
+        .guide-table .score { font-weight:700; font-size:14px; color:#D97706; white-space:nowrap; }
+        .guide-table .score-denom { font-weight:400; color:#9CA3AF; font-size:11px; }
+        .guide-table .tl { text-align:left; }
+        .guide-table .tc { text-align:center; }
         .btn-ripple {
             position: relative;
             overflow: hidden;
@@ -516,6 +522,11 @@
             .route-timeline > div > div[style*="color:#2563EB"] { color: #60A5FA !important; }
             .route-timeline > div > div[style*="color:#0E7A69"] { color: #34D399 !important; }
             .route-timeline > div > div[style*="color:#7C3AED"] { color: #A78BFA !important; }
+            .guide-table th { background: #1E40AF; color: #E2E8F0; }
+            .guide-table th, .guide-table td { border-color: #334155; }
+            .guide-table td { color: #E2E8F0; }
+            .guide-table .score { color: #FBBF24; }
+            .guide-table .score-denom { color: #6B7280; }
             a { color: #60A5FA; }
         }
     </style>
@@ -748,12 +759,13 @@
                 <span class="arrow">▶</span>
             </summary>
         <p>你们的路程已覆盖川西最美的几条景观大道。以下是最值得期待的驾驶路段：</p>
-        <table>
+        <table class="guide-table">
+            <colgroup><col style="width:13%"><col style="width:30%"><col style="width:12%"><col style="width:11%"><col style="width:34%"></colgroup>
             <tr><th>国道</th><th>路段</th><th>里程</th><th>风景</th><th>驾驶特点</th></tr>
-            <tr><td>G318</td><td>泸定→康定→新都桥</td><td>~160km</td><td><span class="stars">⭐️⭐️⭐️⭐️⭐️</span></td><td>经典川藏线第一程，峡谷→雪山→草原渐变</td></tr>
-            <tr><td>G350</td><td>丹巴→小金→四姑娘山</td><td>~200km</td><td><span class="stars">⭐️⭐️⭐️⭐️⭐️</span></td><td>熊猫大道，河谷森林雪山立体景观</td></tr>
-            <tr><td>S434</td><td>甲根坝→新都桥→塔公</td><td>~100km</td><td><span class="stars">⭐️⭐️⭐️⭐️</span></td><td>小众秘境线，人少景美，田园雪山同框</td></tr>
-            <tr><td>G548</td><td>八美→道孚→丹巴</td><td>~150km</td><td><span class="stars">⭐️⭐️⭐️⭐️</span></td><td>藏寨碉楼群连绵，人文景观密集</td></tr>
+            <tr><td>G318</td><td class="tl">泸定→康定→新都桥</td><td>~160km</td><td><span class="score">5<span class="score-denom">/5</span></span></td><td class="tl">经典川藏线第一程，峡谷→雪山→草原渐变</td></tr>
+            <tr><td>G350</td><td class="tl">丹巴→小金→四姑娘山</td><td>~200km</td><td><span class="score">5<span class="score-denom">/5</span></span></td><td class="tl">熊猫大道，河谷森林雪山立体景观</td></tr>
+            <tr><td>S434</td><td class="tl">甲根坝→新都桥→塔公</td><td>~100km</td><td><span class="score">4<span class="score-denom">/5</span></span></td><td class="tl">小众秘境线，人少景美，田园雪山同框</td></tr>
+            <tr><td>G548</td><td class="tl">八美→道孚→丹巴</td><td>~150km</td><td><span class="score">4<span class="score-denom">/5</span></span></td><td class="tl">藏寨碉楼群连绵，人文景观密集</td></tr>
         </table>
 
         <h3>G318 国道·泸定至新都桥段（D3/D6）</h3>
@@ -779,12 +791,13 @@
         </ul>
 
         <h3>风景 vs 路况权衡</h3>
-        <table>
+        <table class="guide-table">
+            <colgroup><col style="width:33%"><col style="width:12%"><col style="width:12%"><col style="width:43%"></colgroup>
             <tr><th>路段</th><th>风景</th><th>难度</th><th>建议</th></tr>
-            <tr><td>G318 泸定→新都桥</td><td><span class="stars">⭐️⭐️⭐️⭐️⭐️</span></td><td><span class="stars">⭐⭐⭐</span></td><td>成熟路线，新手友好</td></tr>
-            <tr><td>G350 丹巴→四姑娘山</td><td><span class="stars">⭐️⭐️⭐️⭐️⭐️</span></td><td><span class="stars">⭐⭐⭐⭐</span></td><td>雨季慎走，需确认路况</td></tr>
-            <tr><td>S434 甲根坝→塔公</td><td><span class="stars">⭐️⭐️⭐️⭐️</span></td><td><span class="stars">⭐⭐</span></td><td>小众秘境，适合慢游</td></tr>
-            <tr><td>G548 八美→道孚</td><td><span class="stars">⭐️⭐️⭐️⭐️</span></td><td><span class="stars">⭐⭐</span></td><td>藏寨风光密集，补给方便</td></tr>
+            <tr><td class="tl">G318 泸定→新都桥</td><td><span class="score">5<span class="score-denom">/5</span></span></td><td><span class="score">3<span class="score-denom">/5</span></span></td><td class="tl">成熟路线，新手友好</td></tr>
+            <tr><td class="tl">G350 丹巴→四姑娘山</td><td><span class="score">5<span class="score-denom">/5</span></span></td><td><span class="score">4<span class="score-denom">/5</span></span></td><td class="tl">雨季慎走，需确认路况</td></tr>
+            <tr><td class="tl">S434 甲根坝→塔公</td><td><span class="score">4<span class="score-denom">/5</span></span></td><td><span class="score">2<span class="score-denom">/5</span></span></td><td class="tl">小众秘境，适合慢游</td></tr>
+            <tr><td class="tl">G548 八美→道孚</td><td><span class="score">4<span class="score-denom">/5</span></span></td><td><span class="score">2<span class="score-denom">/5</span></span></td><td class="tl">藏寨风光密集，补给方便</td></tr>
         </table>
         <p>最值得期待的片段：上午从新都桥出发，沿S434慢慢开到塔公，雅拉雪山一路伴行，随时能停路边拍照——这才是川西自驾的真正乐趣。</p>
         </details>
