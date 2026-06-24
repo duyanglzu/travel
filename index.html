@@ -11,7 +11,9 @@
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "HarmonyOS Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: linear-gradient(180deg, #E8F4FF 0%, #F0F7F4 100%);
+            background:
+                radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.4) 0%, transparent 70%),
+                linear-gradient(180deg, #E0F2FE 0%, #F8FAFC 40%, #F0FDF4 100%);
             color: #1F2937;
             line-height: 1.7;
             padding-bottom: 110px;
@@ -19,7 +21,7 @@
         }
         .container { max-width: 480px; margin: 0 auto; padding: 16px; }
         .header {
-            background: linear-gradient(135deg, #165DFF 0%, #0E7A69 100%);
+            background: linear-gradient(135deg, #2563EB 0%, #0E7A69 100%);
             color: white;
             padding: 28px 20px;
             border-radius: 16px;
@@ -37,7 +39,7 @@
         }
         .card h2 {
             font-size: 18px;
-            color: #165DFF;
+            color: #2563EB;
             margin-bottom: 12px;
             border-left: 4px solid #0E7A69;
             padding-left: 8px;
@@ -54,7 +56,7 @@
         .day-card details summary.day-title {
             cursor: pointer; list-style: none; user-select: none;
             display: flex; justify-content: space-between; align-items: center;
-            background: linear-gradient(90deg, #165DFF 0%, #3B82F6 100%);
+            background: linear-gradient(90deg, #2563EB 0%, #3B82F6 100%);
             color: white;
             padding: 10px 14px;
             border-radius: 10px 10px 0 0;
@@ -85,7 +87,7 @@
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         }
         .header {
-            background: linear-gradient(135deg, #165DFF 0%, #0E7A69 100%);
+            background: linear-gradient(135deg, #2563EB 0%, #0E7A69 100%);
             background-size: 200% 200%;
             animation: gradientShift 8s ease infinite;
             position: relative;
@@ -143,6 +145,94 @@
         @keyframes ripple {
             to { transform: scale(4); opacity: 0; }
         }
+        /* Card background layering */
+        .card.card-info { background: #F8FAFC; }
+        .card.card-warning { background: #FFFBEB; border-left: 4px solid #F59E0B; }
+        /* Day phase colors */
+        .day-card[data-phase="travel"] details summary.day-title { background: linear-gradient(90deg, #64748B 0%, #94A3B8 100%); }
+        .day-card[data-phase="plateau"] details summary.day-title { background: linear-gradient(90deg, #0D9488 0%, #14B8A6 100%); }
+        .day-card[data-phase="rest"] details summary.day-title { background: linear-gradient(90deg, #F97316 0%, #FB923C 100%); }
+        /* Icon replacement */
+        .icon-replace { display: inline-block; width: 18px; height: 18px; vertical-align: middle; background-size: contain; background-repeat: no-repeat; }
+        .icon-replace.icon-mountain { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%232563EB" stroke-width="2"><path d="M8 3L1 9l3 3 4-4 4 4 3-3 3 3 3-3-7-6-4 4-4-4z"/></svg>'); }
+        .icon-replace.icon-map { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%236B7280" stroke-width="2"><path d="M3 7l6-3 6 3 6-3v13l-6 3-6-3-6 3V7z"/><path d="M9 4v13M15 7v13"/></svg>'); }
+        .icon-replace.icon-calendar { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%232563EB" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M8 14h8M8 18h8"/></svg>'); }
+        .icon-replace.icon-car { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23EF4444" stroke-width="2"><path d="M5 17h14M5 17a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2M5 17a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"/><path d="M7 12h10"/></svg>'); }
+        .icon-replace.icon-pill { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2310B981" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>'); }
+        .icon-replace.icon-clothing { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%236B7280" stroke-width="2"><path d="M6 2h12v4l-2 2v14H8V8L6 6V2z"/></svg>'); }
+        .icon-replace.icon-food { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23F59E0B" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>'); }
+        .icon-replace.icon-phone { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%232563EB" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.8 12.8 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.8 12.8 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>'); }
+        /* Card hover effects (PC only) */
+        @media (min-width: 769px) {
+            .card:hover, .day-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+                transition: all 0.3s ease;
+            }
+        }
+        /* Route map container */
+        #routeMap {
+            border: 2px dashed #D1D5DB;
+            border-radius: 12px;
+            padding: 12px;
+            background: linear-gradient(135deg, #FAFBFC, #F3F4F6);
+            position: relative;
+        }
+        #routeMap::before {
+            content: '🗺️';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 20px;
+            background: white;
+            border-radius: 50%;
+            padding: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        /* Skeleton loading */
+        .skeleton {
+            background: linear-gradient(90deg, #E5E7EB 25%, #F3F4F6 50%, #E5E7EB 75%);
+            background-size: 200% 100%;
+            animation: skeletonPulse 1.5s ease infinite;
+            border-radius: 4px;
+        }
+        @keyframes skeletonPulse {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        /* Progress indicator for day nav */
+        .day-nav-btn.past {
+            background: #2563EB;
+            color: white;
+        }
+        .day-nav-btn.future {
+            background: white;
+            color: #2563EB;
+            border: 1px solid #2563EB;
+        }
+        .day-nav-btn.current {
+            background: #2563EB;
+            color: white;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.3);
+        }
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            body { background: #0F172A; color: #E2E8F0; }
+            .card, .day-content, .fixed-bar { background: #1E293B; }
+            .card h2, .card h3 { color: #60A5FA; }
+            .day-card details summary.day-title { background: linear-gradient(90deg, #1E40AF 0%, #2563EB 100%); }
+            .info-item { background: #334155; }
+            .info-item .value { color: #E2E8F0; }
+            table, th, td { border-color: #334155; }
+            th { background: #1E293B; color: #E2E8F0; }
+            .btn-outline { background: transparent; color: #60A5FA; border-color: #60A5FA; }
+            .tip-box { background: #422006; border-color: #92400E; }
+            .warn-box { background: #450A0A; border-color: #991B1B; }
+            .reason { background: #064E3B; color: #A7F3D0; }
+            .hotel-box { background: #1E3A5F; }
+            a { color: #60A5FA; }
+        }
         .reason {
             background: #ECFDF5;
             border-left: 3px solid #0E7A69;
@@ -169,7 +259,7 @@
         }
         .hotel-box {
             background: #F0F7FF;
-            border-left: 3px solid #165DFF;
+            border-left: 3px solid #2563EB;
             padding: 10px 12px;
             border-radius: 0 6px 6px 0;
             margin: 10px 0;
@@ -184,7 +274,7 @@
             padding: 12px;
             border: none;
             border-radius: 8px;
-            background: #165DFF;
+            background: #2563EB;
             color: white;
             font-size: 15px;
             font-weight: 500;
@@ -194,7 +284,7 @@
             cursor: pointer;
         }
         .btn-green { background: #0E7A69; }
-        .btn-outline { background: white; color: #165DFF; border: 1px solid #165DFF; }
+        .btn-outline { background: white; color: #2563EB; border: 1px solid #2563EB; }
         .btn-small { display: inline-block; width: auto; padding: 6px 12px; font-size: 13px; margin: 6px 0; }
         .btn-copy { padding: 6px 10px; font-size: 12px; margin-top: 6px; }
         .nav-btns { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
@@ -203,17 +293,17 @@
         .warn-box { background: #FEF2F2; border: 1px solid #FCA5A5; border-radius: 8px; padding: 12px; margin: 12px 0; font-size: 13px; color: #991B1B; }
         .checklist { list-style: none; margin: 10px 0; }
         .checklist li { padding: 8px 0; border-bottom: 1px solid #F3F4F6; display: flex; align-items: flex-start; gap: 10px; font-size: 14px; }
-        .checklist input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; accent-color: #165DFF; }
+        .checklist input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; accent-color: #2563EB; }
         table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 10px 0; }
         th, td { border: 1px solid #E5E7EB; padding: 8px; text-align: left; vertical-align: top; }
         th { background: #F5F8FA; color: #374151; font-weight: 600; }
         .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 500; margin-right: 6px; }
-        .tag-must { background: #DBEAFE; color: #1E40AF; }
-        .tag-alt { background: #FEF3C7; color: #92400E; }
-        .tag-pass { background: #E5E7EB; color: #374151; }
+        .tag-must { background: #FEF3C7; color: #92400E; }
+        .tag-alt { background: #ECFDF5; color: #065F46; }
+        .tag-pass { background: #F3F4F6; color: #6B7280; }
         .link-group { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 6px 0; }
-        .link-group a { font-size: 13px; color: #165DFF; text-decoration: none; border-bottom: 1px dotted #93C5FD; }
-        .link-group a:hover { border-bottom: 1px solid #165DFF; }
+        .link-group a { font-size: 13px; color: #2563EB; text-decoration: none; border-bottom: 1px dotted #93C5FD; }
+        .link-group a:hover { border-bottom: 1px solid #2563EB; }
         .link-group .label { font-size: 12px; color: #6B7280; }
         .fixed-bar {
             position: fixed;
@@ -244,8 +334,8 @@
             color: #4B5563;
         }
         .src-box strong { color: #1F2937; }
-        .src-box a { color: #165DFF; text-decoration: none; border-bottom: 1px dotted #93C5FD; }
-        .src-box a:hover { border-bottom: 1px solid #165DFF; }
+        .src-box a { color: #2563EB; text-decoration: none; border-bottom: 1px dotted #93C5FD; }
+        .src-box a:hover { border-bottom: 1px solid #2563EB; }
         /* PC 响应式 */
         @media (min-width: 769px) {
             .container { max-width: 960px; padding: 24px; }
@@ -301,7 +391,7 @@
             display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px;
         }
         .loading-mask .spinner {
-            width: 36px; height: 36px; border: 3px solid #E5E7EB; border-top-color: #165DFF;
+            width: 36px; height: 36px; border: 3px solid #E5E7EB; border-top-color: #2563EB;
             border-radius: 50%; animation: spin 0.8s linear infinite;
         }
         .loading-mask .loading-text { font-size: 14px; color: #374151; }
@@ -362,8 +452,8 @@
             white-space: nowrap;
             transition: all 0.2s;
         }
-        .day-nav-btn:hover { background: #EFF6FF; border-color: #93C5FD; color: #165DFF; }
-        .day-nav-btn.active { background: #165DFF; color: white; border-color: #165DFF; }
+        .day-nav-btn:hover { background: #EFF6FF; border-color: #93C5FD; color: #2563EB; }
+        .day-nav-btn.active { background: #2563EB; color: white; border-color: #2563EB; }
         @media (min-width: 769px) {
             .day-nav-inner { flex-wrap: wrap; overflow-x: visible; }
         }
@@ -375,7 +465,7 @@
             box-shadow:0 2px 6px rgba(0,0,0,0.3);
         }
         .map-marker-start div { background:#0E7A69; }
-        .map-marker-stop div { background:#165DFF; }
+        .map-marker-stop div { background:#2563EB; }
         .arrow-icon { background: none !important; border: none !important; }
         @media (max-width: 768px) {
             #routeMap { height: 300px; }
@@ -414,7 +504,7 @@
     </div>
 
     <!-- ====== 一、全程行程概括 + 设计说明（合并） ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details open>
             <summary>
                 <h2>🗺️ 全程行程概括 &amp; 设计说明</h2>
@@ -455,7 +545,7 @@
         <div style="font-size:13px;line-height:2.2;">
             <div style="background:#FFFBEB;padding:6px 10px;border-radius:8px;margin:4px 0;display:flex;justify-content:space-between;gap:8px;align-items:center;"><span>D1  上海 → 宜昌/恩施  ·  D2  宜昌/恩施 → 成都</span><span style="white-space:nowrap;flex-shrink:0;font-weight:600;color:#D97706;">【长途赶路】</span></div>
             <div style="background:#E8F4FF;padding:6px 10px;border-radius:8px;margin:4px 0;">
-                <div style="font-weight:700;font-size:12px;color:#165DFF;">━ 大本营①：中谷村 2500m（连住3晚）━</div>
+                <div style="font-weight:700;font-size:12px;color:#2563EB;">━ 大本营①：中谷村 2500m（连住3晚）━</div>
                 D3  成都→泸定桥(游玩2h)→中谷村 · D4  中谷村 ←→ 南门关沟（轻徒步一日游）· D5  中谷村 ←→ 雅家梗/红海子（备选一日游）
             </div>
             <div style="background:#F0F7F4;padding:6px 10px;border-radius:8px;margin:4px 0;">
@@ -501,7 +591,7 @@
     </div>
 
     <!-- ====== 路线地图 ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details open>
             <summary>
                 <h2>🗺️ 四川段路线地图</h2>
@@ -517,7 +607,7 @@
     </div>
 
     <!-- ====== 三、出行基础信息 ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details open>
             <summary>
                 <h2>📋 出行基础信息</h2>
@@ -535,7 +625,7 @@
     </div>
 
     <!-- ====== 四、行程总览 ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details open>
             <summary>
                 <h2>🗺️ 全程行程总览</h2>
@@ -563,7 +653,7 @@
     </div>
 
     <!-- ====== 五、景点优先级分级 ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details>
             <summary>
                 <h2>⭐ 景点优先级分级</h2>
@@ -598,7 +688,7 @@
     </div>
 
     <!-- ====== 六、国道风景指南 ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details open>
             <summary>
                 <h2>🛣️ 川西自驾 · 司机视角的国道风景指南</h2>
@@ -648,10 +738,10 @@
     </div>
 
     <!-- ====== 七、每日详细行程 ====== -->
-    <h2 style="margin:20px 0 12px;color:#165DFF;padding-left:4px;">📅 每日详细行程</h2>
+    <h2 style="margin:20px 0 12px;color:#2563EB;padding-left:4px;">📅 每日详细行程</h2>
 
     <!-- D1 -->
-    <div class="day-card" id="day-1">
+    <div class="day-card" id="day-1" data-phase="travel">
         <details open>
         <summary class="day-title">D1 上海 → 宜昌/恩施 · 长途赶路 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -705,7 +795,7 @@
     </div>
 
     <!-- D2 -->
-    <div class="day-card" id="day-2">
+    <div class="day-card" id="day-2" data-phase="travel">
         <details open>
         <summary class="day-title">D2 宜昌/恩施 → 四川成都 · 进川休整 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -764,7 +854,7 @@
     </div>
 
     <!-- D3 -->
-    <div class="day-card" id="day-3">
+    <div class="day-card" id="day-3" data-phase="plateau">
         <details open>
         <summary class="day-title">D3 成都 → 泸定桥 → 中谷村 · 海拔适应 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -864,7 +954,7 @@
     </div>
 
     <!-- D4 -->
-    <div class="day-card" id="day-4">
+    <div class="day-card" id="day-4" data-phase="plateau">
         <details open>
         <summary class="day-title">D4 中谷村 · 南门关沟轻徒步 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -918,7 +1008,7 @@
     </div>
 
     <!-- D5 -->
-    <div class="day-card" id="day-5">
+    <div class="day-card" id="day-5" data-phase="plateau">
         <details open>
         <summary class="day-title">D5 中谷村 · 放空机动日 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -977,7 +1067,7 @@
     </div>
 
     <!-- D6 -->
-    <div class="day-card" id="day-6">
+    <div class="day-card" id="day-6" data-phase="plateau">
         <details open>
         <summary class="day-title">D6 中谷村 → 甲根坝 · 河谷秘境 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -1103,7 +1193,7 @@
     </div>
 
     <!-- D7 -->
-    <div class="day-card" id="day-7">
+    <div class="day-card" id="day-7" data-phase="plateau">
         <details open>
         <summary class="day-title">D7 甲根坝 · 河谷慢逛日 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -1159,7 +1249,7 @@
     </div>
 
     <!-- D8 -->
-    <div class="day-card" id="day-8">
+    <div class="day-card" id="day-8" data-phase="plateau">
         <details open>
         <summary class="day-title">D8 甲根坝 · 月亮湖备选日 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -1236,7 +1326,7 @@
     </div>
 
     <!-- D9 -->
-    <div class="day-card" id="day-9">
+    <div class="day-card" id="day-9" data-phase="plateau">
         <details open>
         <summary class="day-title">D9 甲根坝 → 道孚 · 丹道秘境线 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -1287,7 +1377,7 @@
     </div>
 
     <!-- D10 -->
-    <div class="day-card" id="day-10">
+    <div class="day-card" id="day-10" data-phase="plateau">
         <details open>
         <summary class="day-title">D10 道孚 · 人文自然拓展日 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -1341,7 +1431,7 @@
     </div>
 
     <!-- D11 -->
-    <div class="day-card" id="day-11">
+    <div class="day-card" id="day-11" data-phase="plateau">
         <details open>
         <summary class="day-title">D11 道孚/八美 → 🟢 环线返程（路过/宿丹巴自选） <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -1400,7 +1490,7 @@
     </div>
 
     <!-- D12-D14 -->
-    <div class="day-card" id="day-12">
+    <div class="day-card" id="day-12" data-phase="rest">
         <details open>
         <summary class="day-title">D12-D14 成都 · 休整期 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -1548,7 +1638,7 @@
     </div>
 
     <!-- D15 -->
-    <div class="day-card" id="day-15">
+    <div class="day-card" id="day-15" data-phase="travel">
         <details open>
         <summary class="day-title">D15 成都 → 上海 · 最终返程 <span class="day-arrow">▶</span></summary>
         <div class="day-content">
@@ -1558,7 +1648,7 @@
     </div>
 
     <!-- ====== 七、全部出处汇总表 ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details>
             <summary>
                 <h2>📎 全部出处汇总表</h2>
@@ -1613,7 +1703,7 @@
     </div>
 
     <!-- ====== 八、雨季安全守则 ====== -->
-    <div class="card">
+    <div class="card card-warning">
         <details open>
             <summary>
                 <h2>🌧️ 7月雨季自驾安全守则</h2>
@@ -1639,7 +1729,7 @@
     </div>
 
     <!-- ====== 九、高反预防手册 ====== -->
-    <div class="card">
+    <div class="card card-warning">
         <details open>
             <summary>
                 <h2>🫀 高反预防与应对手册</h2>
@@ -1655,7 +1745,7 @@
     </div>
 
     <!-- ====== 十、宠物出行方案 ====== -->
-    <div class="card">
+    <div class="card card-info">
         <details open>
             <summary>
                 <h2>🐕 宠物出行全方案</h2>
@@ -1670,7 +1760,7 @@
     </div>
 
     <!-- ====== 十一、检查清单 ====== -->
-    <div class="card" id="checklist-card">
+    <div class="card card-info" id="checklist-card">
         <details open>
             <summary>
                 <h2>✅ 出行前检查清单</h2>
@@ -1716,7 +1806,7 @@
     </div>
 
     <!-- ====== 十二、行程日历 ====== -->
-    <div class="card" id="calendar-card">
+    <div class="card card-info" id="calendar-card">
         <details open>
             <summary>
                 <h2>📆 行程日历</h2>
@@ -1736,7 +1826,7 @@
     </div>
 
     <!-- 底部说明 -->
-    <div class="card">
+    <div class="card card-warning">
         <details open>
             <summary>
                 <h2>⚠️ 重要提示</h2>
@@ -1836,6 +1926,29 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCalendar();
     document.getElementById('startDate').addEventListener('change', renderCalendar);
     initRouteMap();
+    // Progress indicator for day nav
+    const dayNavBtnsAll = document.querySelectorAll('.day-nav-btn');
+    const todayDay = 1;
+    dayNavBtnsAll.forEach(btn => {
+        const dayNum = parseInt(btn.textContent.replace('D', ''));
+        btn.classList.remove('past', 'future', 'current');
+        if (dayNum < todayDay) btn.classList.add('past');
+        else if (dayNum === todayDay) btn.classList.add('current');
+        else btn.classList.add('future');
+    });
+    // Skeleton loading for map
+    const routeMap = document.getElementById('routeMap');
+    if (routeMap) {
+        const skeleton = document.createElement('div');
+        skeleton.className = 'skeleton';
+        skeleton.style.cssText = 'width:100%;height:300px;border-radius:12px;';
+        routeMap.parentNode.insertBefore(skeleton, routeMap);
+        routeMap.style.display = 'none';
+        setTimeout(() => {
+            skeleton.remove();
+            routeMap.style.display = 'block';
+        }, 500);
+    }
 });
 
 function renderCalendar() {
