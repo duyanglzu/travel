@@ -68,12 +68,80 @@
         .info-item { background: #F5F8FA; padding: 10px; border-radius: 8px; }
         .info-item .label { color: #6B7280; font-size: 12px; display: block; }
         .info-item .value { font-weight: 600; color: #1F2937; font-size: 14px; }
+        .day-card, .card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        .day-card.visible, .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
         .day-card { margin-bottom: 20px; }
         .day-content {
             background: white;
             padding: 14px;
             border-radius: 0 0 10px 10px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .header {
+            background: linear-gradient(135deg, #165DFF 0%, #0E7A69 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width=\"100\" height=\"20\" viewBox=\"0 0 100 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 10 L10 0 L20 10 L30 0 L40 10 L50 0 L60 10 L70 0 L80 10 L90 0 L100 10\" fill=\"rgba(255,255,255,0.1)\"/></svg>') repeat-x;
+            background-size: 100px 20px;
+            animation: mountainMove 30s linear infinite;
+        }
+        .header h1 {
+            background: linear-gradient(90deg, #FFFFFF 0%, #E6F4FF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn-ripple {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.6);
+            transform: scale(0);
+            animation: ripple 0.6s ease-out;
+        }
+        .separator {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+            margin: 20px 0;
+        }
+        .mountain-separator {
+            background: url('data:image/svg+xml,<svg width=\"100\" height=\"20\" viewBox=\"0 0 100 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 10 L10 0 L20 10 L30 0 L40 10 L50 0 L60 10 L70 0 L80 10 L90 0 L100 10\" fill=\"#E5E7EB\"/></svg>') no-repeat center;
+            height: 20px;
+            margin: 16px 0;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes mountainMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 0; }
+        }
+        @keyframes ripple {
+            to { transform: scale(4); opacity: 0; }
         }
         .reason {
             background: #ECFDF5;
@@ -2123,6 +2191,56 @@ function initRouteMap() {
     map.fitBounds(bounds.pad(0.12));
     setTimeout(() => map.invalidateSize(), 300);
 }
+
+// Card animation observer
+const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.1
+};
+
+function setupCardObserver() {
+    const cards = document.querySelectorAll('.day-card, .card');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    cards.forEach(card => observer.observe(card));
+}
+
+// Ripple effect for buttons
+function setupRippleEffects() {
+    const buttons = document.querySelectorAll('.btn-ripple, button, .day-nav-btn');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple-effect';
+            
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${e.clientX - rect.left - size/2}px`;
+            ripple.style.top = `${e.clientY - rect.top - size/2}px`;
+            
+            button.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+}
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+    setupCardObserver();
+    setupRippleEffects();
+});
 </script>
 <div style="text-align:center;padding:12px;font-size:12px;color:#9CA3AF;border-top:1px solid #E5E7EB;margin-top:20px;">
     镜像访问：<a href="https://travel2-travel-d4gh9ixryba74cde5.webapps.tcloudbase.com/" target="_blank" style="color:#6B7280;">CloudBase</a>
