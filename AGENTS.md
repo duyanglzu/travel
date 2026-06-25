@@ -5,7 +5,7 @@
 ## 文件
 
 - `index.html` — 主文件，自包含（CSS + JS 内联），无外部依赖（html2canvas + Leaflet CDN 除外）
-- `route-map.png` — 自制路线示意图，在概括卡顶部显示
+- `route-map.jpg` — 自制路线示意图，在概括卡顶部显示
 
 ## 关键特性
 
