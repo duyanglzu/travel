@@ -522,7 +522,7 @@
             /* Dark mode additions: day-nav, calendar, loading, map */
             .day-nav { background: rgba(30,41,59,0.95); border-bottom-color: #334155; }
             .cal-month-title { color: #E2E8F0; }
-            .date-picker-row input { background: #334155; color: #E2E8F0; border-color: #475569; }
+            .date-picker-row input { background: #334155; color: #E2E8F0; border: 1px solid #475569; }
             .loading-mask { background: rgba(15,23,42,0.85); }
             .loading-mask .loading-text { color: #E2E8F0; }
             #routeMap { border-color: #475569; background: linear-gradient(135deg, #1E293B, #0F172A); }
@@ -2308,7 +2308,7 @@ function generateImage() {
     }
 
     loadHtml2Canvas()
-        .then(fn => fn(document.getElementById('content'), { scale: 2, useCORS: true, backgroundColor: '#ffffff', windowWidth: window.innerWidth > 768  960 : 480 }))
+        .then(fn => fn(document.getElementById('content'), { scale: 2, useCORS: true, backgroundColor: '#ffffff', windowWidth: window.innerWidth > 768 ? 960 : 480 }))
         .then(canvas => {
             const link = document.createElement('a');
             link.download = '川西自驾攻略长图.png';
@@ -2392,7 +2392,7 @@ function initRouteMap() {
     ];
     stops.forEach(s => {
         const icon = L.divIcon({
-            className: s.start  'map-marker-start' : 'map-marker-stop',
+            className: s.start ? 'map-marker-start' : 'map-marker-stop',
             html: '<div>' + s.l + '</div>',
             iconSize:[30,30], iconAnchor:[15,15]
         });
