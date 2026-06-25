@@ -117,8 +117,8 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .guide-table { width:100%; border-collapse:collapse; font-size:13px; margin:10px 0; table-layout:fixed; text-align:center; }
-        .guide-table th, .guide-table td { border:1px solid #E5E7EB; padding:10px 10px; vertical-align:middle; line-height:1.35; word-break:break-word; overflow-wrap:break-word; }
-        .guide-table th { background:#2563EB; color:#fff; font-weight:600; font-size:13px; padding:12px 10px; }
+        .guide-table th, .guide-table td { border:1px solid #E5E7EB; padding:10px 8px; vertical-align:middle; line-height:1.35; word-break:break-word; overflow-wrap:break-word; }
+        .guide-table th { background:#2563EB; color:#fff; font-weight:600; font-size:13px; padding:12px 8px; }
         .guide-table .score { font-weight:700; font-size:14px; color:#D97706; white-space:nowrap; }
         .guide-table .score-denom { font-weight:400; color:#9CA3AF; font-size:11px; }
         .guide-table .tl { text-align:left; }
@@ -450,6 +450,8 @@
         .arrow-icon { background: none !important; border: none !important; }
         @media (max-width: 768px) {
             #routeMap { height: 300px; }
+            .guide-table { font-size: 12px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+            .guide-table th, .guide-table td { padding: 8px 6px; font-size: 12px; white-space: nowrap; }
         }
         /* Dark mode (at end to override earlier rules) */
         @media (prefers-color-scheme: dark) {
