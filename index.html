@@ -540,6 +540,7 @@
         <h1>🏔️ 川西15天自驾慢游全攻略</h1>
         <p>三大固定大本营 · 亲子宠物友好 · 7月雨季适配<br>自然风光为主 · 人文点缀 · 全程弹性不赶路</p>
     </div>
+    <div style="text-align:right;font-size:11px;color:#9CA3AF;margin:-4px 0 14px;">v2.1</div>
 
     <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px;color:#1E40AF;line-height:1.8;">
         💡 <strong>使用提示：</strong>卡片标题可点击折叠/展开 · 手机左右滑动查看更多 · 底部日历可加入手机日历 · 清单勾选自动保存
@@ -2095,15 +2096,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const dayNavBtns = document.querySelectorAll('.day-nav-btn');
     dayNavBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            const target = document.getElementById(btn.dataset.target);
-            if (!target) return;
-            // 展开目标卡片
-            const det = target.querySelector('details');
-            if (det & !det.open) det.open = true;
-            // 平滑滚动（减去吸顶栏高度）
-            const navH = document.getElementById('dayNav').offsetHeight + 8;
-            const top = target.getBoundingClientRect().top + window.scrollY - navH;
-            window.scrollTo({ top, behavior: 'smooth' });
+            const day = btn.dataset.target.replace('day-', '');
+            expandDay(parseInt(day));
         });
     });
     // 滚动时高亮当前可见的 day
@@ -2231,7 +2225,7 @@ function renderCalendar() {
             else if (isWeekend) cls = 'cal-weekend';
             else cls = '';
 
-            calHtml += '<td class="' + cls + '"' + (td ? ' role="button" aria-label="第' + td.day + '天：' + td.title + '"' : '') + '>';
+            calHtml += '<td class="' + cls + '"' + (td ? ' data-day="' + td.day + '" role="button" aria-label="第' + td.day + '天：' + td.title + '"' : '') + '>';
             calHtml += '<div class="cal-day-num">' + d + '</div>';
             if (td) {
                 calHtml += '<div class="cal-day-info">D' + td.day + '</div>';
@@ -2268,6 +2262,23 @@ function renderCalendar() {
     });
 
     container.innerHTML = calHtml;
+    container.querySelectorAll('.cal-trip').forEach(el => {
+        el.addEventListener('click', () => {
+            const day = el.dataset.day;
+            if (day) expandDay(parseInt(day));
+        });
+    });
+}
+
+function expandDay(day) {
+    document.querySelectorAll('.day-card details[open]').forEach(d => d.open = false);
+    const el = document.getElementById('day-' + day);
+    if (!el) return;
+    const det = el.querySelector('details');
+    if (det) det.open = true;
+    const navH = (document.getElementById('dayNav') || { offsetHeight: 0 }).offsetHeight + 8;
+    const top = el.getBoundingClientRect().top + window.scrollY - navH;
+    window.scrollTo({ top, behavior: 'smooth' });
 }
 
 // ── Toast 提示（替代 alert） ──
@@ -2584,8 +2595,9 @@ function setupRippleEffects() {
     });
 }
 </script>
-<div style="text-align:center;padding:12px;font-size:12px;color:#9CA3AF;border-top:1px solid #E5E7EB;margin-top:20px;">
-    镜像访问：<a href="https://travel2-travel-d4gh9ixryba74cde5.webapps.tcloudbase.com/" target="_blank" style="color:#6B7280;">CloudBase</a>
+<div style="text-align:center;padding:16px;font-size:11px;color:#9CA3AF;border-top:1px solid #E5E7EB;margin-top:20px;line-height:1.8;">
+    v2.1 · 川西15天自驾慢游攻略<br>
+    © 2026 All Rights Reserved
 </div>
 </body>
 </html>
