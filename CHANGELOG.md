@@ -5,6 +5,12 @@
 - GitHub Pages: https://duyanglzu.github.io/travel/
 - CloudBase: https://travel2-travel-d4gh9ixryba74cde5.webapps.tcloudbase.com/
 
+## v2.1 (2026-06-27)
+- 日历日期点击自动展开对应卡片，切换日期自动收起
+- 顶部 D1-D15 跳转按钮改用 `expandDay()` 统一行为
+- 新增页面顶部版本号 v2.1 显示
+- 底部替换为版权信息，移除 CloudBase 镜像地址
+
 ## v2.0 (2026-06-26)
 ### 路线重构
 - D11 双线按天气选：Plan A 丹道秘境(晴天首选) / Plan B G350熊猫大道(雨天/求稳首选)
@@ -31,6 +37,10 @@
 - AGENTS.md / CHANGELOG.md
 
 ## v1.9 (2026-06-24)
+- 日历日期点击自动展开对应卡片，切换日期自动收起
+- 顶部 D1-D15 跳转按钮改用 `expandDay()` 统一逻辑
+- 新增顶部版本号 v1.9 显示
+- 底部替换为版权信息，移除 CloudBase 镜像地址
 - 修复表格里程列与风景列文字重叠问题
 - 里程列宽度 12% → 15%，国道/里程列加 `white-space:nowrap` 防止被压缩
 - 单元格 padding 6px → 10px，添加 `word-break:break-word` 杜绝跨列溢出
