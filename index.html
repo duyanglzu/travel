@@ -94,10 +94,11 @@
         }
         .day-card { margin-bottom: 20px; }
         .day-content {
-            background: white;
+            background: rgba(255,255,255,0.85);
             padding: 14px;
             border-radius: 0 0 10px 10px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 32px rgba(79,70,229,0.08);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
         }
         .header::before {
             content: '';
@@ -164,7 +165,7 @@
         @media (min-width: 769px) {
             .card:hover, .day-card:hover {
                 transform: translateY(-3px);
-                box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+                box-shadow: 0 8px 32px rgba(79,70,229,0.15);
                 transition: all 0.3s ease;
             }
         }
@@ -294,9 +295,10 @@
             right: 0;
             max-width: 480px;
             margin: 0 auto;
-            background: white;
+            background: rgba(255,255,255,0.9);
             padding: 10px 16px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 -4px 20px rgba(79,70,229,0.1);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             display: flex;
             gap: 10px;
             z-index: 999;
