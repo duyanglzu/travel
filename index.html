@@ -2202,7 +2202,7 @@
     </div>
 
     <!-- 版本历史 -->
-    <div class="card card-info">
+    <div class="card card-info" id="changelog-card">
         <details>
             <summary>
                 <h2>📜 版本历史</h2>
@@ -2237,7 +2237,8 @@
 
 <!-- 底部固定操作栏 -->
 <div class="fixed-bar">
-    <button class="btn btn-outline" data-action="generateImage">🖼️ 生成长图</button>
+    <button class="btn" data-action="scrollToTop">⬆️ 回到顶部</button>
+    <button class="btn btn-outline" data-action="scrollToChangelog">📜 历史版本</button>
     <button class="btn" data-action="scrollToCalendar">📆 行程日历</button>
 </div>
 
@@ -2287,7 +2288,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btn.dataset.nav) { window.open(btn.dataset.nav); return; }
         if (btn.dataset.action === 'copyChecklist') { copyChecklist(); return; }
         if (btn.dataset.action === 'downloadICS') { downloadICS(); return; }
-        if (btn.dataset.action === 'generateImage') { generateImage(); return; }
+        if (btn.dataset.action === 'scrollToTop') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        if (btn.dataset.action === 'scrollToChangelog') {
+            document.getElementById('changelog-card')?.scrollIntoView({ behavior: 'smooth' });
+        }
         if (btn.dataset.action === 'scrollToCalendar') {
             document.getElementById('calendar-card').scrollIntoView({ behavior: 'smooth' });
         }
@@ -2604,40 +2610,6 @@ function copyChecklist() {
         '□ 全程住宿确认，宠物政策+免费取消\n' +
         '□ 购买含高原保障的自驾游保险';
     safeCopy(t).then(() => toast('清单已复制，打开备忘录粘贴即可'));
-}
-
-function generateImage() {
-    // 显示 loading 遮罩
-    const mask = document.createElement('div');
-    mask.className = 'loading-mask';
-    mask.innerHTML = '<div class="spinner"></div><div class="loading-text">正在生成高清长图，请稍候...</div>';
-    document.body.appendChild(mask);
-
-    // 按需加载 html2canvas
-    function loadHtml2Canvas() {
-        return new Promise((resolve, reject) => {
-            if (window.html2canvas) return resolve(window.html2canvas);
-            const s = document.createElement('script');
-            s.src = 'https://cdn.jsdelivr.net/npm/html2canvas@1.4.4/dist/html2canvas.min.js';
-            s.integrity = 'sha256-6H5VB5QyLldKH9oMFUmjxw2uWpPZETQXpCkBaDjquMs=';
-            s.crossOrigin = 'anonymous';
-            s.onload = () => resolve(window.html2canvas);
-            s.onerror = () => reject(new Error('html2canvas 加载失败'));
-            document.head.appendChild(s);
-        });
-    }
-
-    loadHtml2Canvas()
-        .then(fn => fn(document.getElementById('content'), { scale: 2, useCORS: true, backgroundColor: '#ffffff', windowWidth: window.innerWidth > 768 ? 960 : 480 }))
-        .then(canvas => {
-            const link = document.createElement('a');
-            link.download = '川西自驾攻略长图.png';
-            link.href = canvas.toDataURL('image/png');
-            link.click();
-            toast('长图已保存到相册', 3000);
-        })
-        .catch(() => toast('生成失败，请检查网络后重试', 3000))
-        .finally(() => mask.remove());
 }
 
 function waitForLeaflet(cb) {
