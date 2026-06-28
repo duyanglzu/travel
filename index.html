@@ -2281,7 +2281,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn('localStorage 不可用，清单勾选状态不会被保存', e);
     }
     // 全局事件委托：data-copy / data-nav / data-action
-    document.getElementById('content').addEventListener('click', e => {
+    document.addEventListener('click', e => {
         const btn = e.target.closest('[data-copy],[data-nav],[data-action]');
         if (!btn) return;
         if (btn.dataset.copy) { copyText(btn.dataset.copy); return; }
