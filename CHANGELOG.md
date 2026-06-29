@@ -5,6 +5,26 @@
 - GitHub Pages: https://duyanglzu.github.io/travel/
 - CloudBase: https://travel2-travel-d4gh9ixryba74cde5.webapps.tcloudbase.com/
 
+## v3.1 (2026-06-29)
+### 内容修复
+- 设计初衷："一家三口（14岁女儿）" → "两家庭（4大3小）"；另一处"14岁女儿"→"孩子们"
+- 路线时间轴日号修正：D5-D7→D4-D6，D8-D10→D7-D9，D11-D12→D10-D11，D13-D16→D12-D15
+- 删除重复D16，D14-D17描述对齐总览表
+- D10路线走向补充"途经姑弄村"
+- 地图标记修正：D3-5→D4-6，D6-8→D7-9，D9-10→D10-11，D11→D12
+- 景点分级泸定桥"D3"→"D4"
+- 总览表D15补住宿"武汉"，阶段结构合并（休整/返程/缓冲）
+- D15/D16卡片重写：固定行程（重庆→武汉→上海），删除弹性方案表
+- D1-D3路线走向改为逐行显示
+
+### 界面更新
+- 新增深色模式手动切换按钮（🌙/☀️），localStorage持久化
+- 新增favicon（🏔️ emoji SVG data URI）
+- fixed-bar替换：🖼️生成长图 → ⬆️回到顶部 / 📜历史版本 / 📆行程日历
+- 修复fixed-bar按钮点击无效（事件委托从#content改为document）
+- 版本历史卡片添加id="changelog-card"供跳转定位
+- 删除generateImage()函数及html2canvas动态加载代码
+
 ## v3.0 (2026-06-28)
 ### 路线重构（15天→17天）
 - 新增 D1 上海→宜昌（单一方案，3家酒店含高新区桔子）
