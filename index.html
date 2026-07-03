@@ -222,6 +222,8 @@
             background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
             margin: 20px 0;
         }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
@@ -530,7 +532,6 @@
             .checklist li { border-bottom-color: var(--dark-border); }
             .img-credit { color: var(--dark-text-secondary); }
             .separator { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
-            .mountain-separator { background: url("data:image/svg+xml,%3Csvg width=''480'' height=''60'' viewBox=''0 0 480 60'' xmlns=''http://www.w3.org/2000/svg''%3E%3Cpath d=''M0 55 Q40 20 80 40 T160 25 T240 45 T320 20 T400 40 L480 30 L480 60 L0 60Z'' fill=''%231E293B''/%3E%3Cpath d=''M0 60 Q60 30 120 50 T240 35 T360 50 L480 45 L480 60 L0 60Z'' fill=''%23334155'' opacity=''0.5''/%3E%3C/svg%3E") no-repeat center/cover; }
             .fixed-bar { background: rgba(15,23,42,0.95); border-top-color: var(--dark-border); }
             .nav-btn { background: var(--dark-reason-bg); color: var(--dark-primary); border-color: var(--dark-border); }
             .nav-btn.active { background: var(--dark-primary); color: white; }
@@ -563,6 +564,7 @@
             .route-map-img { opacity:0.9; }
         }
         html.dark body { background: var(--dark-bg); color: var(--dark-text); }
+        html.dark .header::after { background: linear-gradient(135deg, rgba(15,23,42,0.7) 0%, rgba(30,41,59,0.7) 100%); }
         html.dark .card, html.dark .day-content, html.dark .fixed-bar { background: var(--dark-card-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
         html.dark .card.card-info { background: var(--dark-card-bg); }
         html.dark .card.card-warning { background: var(--dark-warn-bg); border-left-color: #F59E0B; }
@@ -601,9 +603,6 @@
         html.dark .checklist li { border-bottom-color: var(--dark-border); }
         html.dark .img-credit { color: var(--dark-text-secondary); }
         html.dark .separator { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
-        html.dark .mountain-separator { background: url("data:image/svg+xml,%3Csvg width=''480'' height=''60'' viewBox=''0 0 480 60'' xmlns=''http://www.w3.org/2000/svg''%3E%3Cpath d=''M0 55 Q40 20 80 40 T160 25 T240 45 T320 20 T400 40 L480 30 L480 60 L0 60Z'' fill=''%231E293B''/%3E%3Cpath d=''M0 60 Q60 30 120 50 T240 35 T360 50 L480 45 L480 60 L0 60Z'' fill=''%23334155'' opacity=''0.5''/%3E%3C/svg%3E") no-repeat center/cover; }
-        html.dark .road-divider { background: url("data:image/svg+xml,%3Csvg width=''480'' height=''40'' viewBox=''0 0 480 40'' xmlns=''http://www.w3.org/2000/svg''%3E%3Cpath d=''M0 20 Q60 5 120 20 T240 20 T360 20 L480 20'' stroke=''%2338BDF8'' stroke-width=''3'' fill=''none'' opacity=''0.4''/%3E%3Cpath d=''M0 20 Q60 10 120 20 T240 20 T360 20 L480 20'' stroke=''%232DD4BF'' stroke-width=''1.5'' fill=''none'' opacity=''0.3'' stroke-dasharray=''6 4''/%3E%3Ccircle cx=''0'' cy=''20'' r=''3'' fill=''%2338BDF8'' opacity=''0.5''/%3E%3Ccircle cx=''480'' cy=''20'' r=''3'' fill=''%232DD4BF'' opacity=''0.5''/%3E%3C/svg%3E") no-repeat center/cover; }
-        html.dark .fixed-bar { background: rgba(15,23,42,0.95); border-top-color: var(--dark-border); }
         html.dark .nav-btn { background: var(--dark-reason-bg); color: var(--dark-primary); border-color: var(--dark-border); }
         html.dark .nav-btn.active { background: var(--dark-primary); color: white; }
         html.dark .day-nav-btn.past { background: var(--dark-primary); color: white; }
@@ -643,16 +642,14 @@
     </div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin:-4px 0 14px;">
             <div style="font-size:11px;color:#9CA3AF;">v6.0 · Made by Kevin</div>
-            <button id="themeToggle" style="background:none;border:1px solid rgba(255,255,255,0.3);border-radius:8px;color:white;padding:4px 10px;font-size:13px;cursor:pointer;white-space:nowrap;">🌙 深色</button>
+            <button id="themeToggle" style="background:var(--primary-bg);border:1px solid var(--primary-border);border-radius:8px;color:var(--primary);padding:4px 10px;font-size:13px;cursor:pointer;white-space:nowrap;">🌙 深色</button>
         </div>
 
     <div style="background:var(--primary-bg);border:1px solid var(--primary-border);border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px;color:var(--primary);line-height:1.8;">
         💡 <strong>使用提示：</strong>卡片标题可点击折叠/展开 · 手机左右滑动查看更多 · 底部日历可加入手机日历 · 清单勾选自动保存
     </div>
-    <div class="mountain-separator"></div>
 
     <!-- 日程快速跳转栏 -->
-    <div class="day-nav" id="dayNav">
         <div class="day-nav-inner">
             <button class="day-nav-btn" data-target="day-1" aria-label="跳转到第1天">D1</button>
             <button class="day-nav-btn" data-target="day-2" aria-label="跳转到第2天">D2</button>
@@ -846,11 +843,9 @@
     <div style="text-align:center;margin:-8px 0 16px;">
         <button class="btn btn-outline btn-small" data-action="scrollToHotel" style="display:inline-block;width:auto;padding:10px 24px;font-size:14px;">📋 去预订酒店 →</button>
     </div>
-    <div class="road-divider"></div>
 
     <!-- ====== 五、每日详细行程 ====== -->
     <h2 style="margin:20px 0 12px;color:var(--primary);padding-left:4px;">📅 每日详细行程</h2>
-
     <!-- D1 -->
     <div class="day-card" id="day-1" data-phase="travel">
         <details>
@@ -2090,12 +2085,10 @@
         </table>
         <p>最值得期待的片段：上午从新都桥出发，沿S434慢慢开到塔公，雅拉雪山一路伴行，随时能停路边拍照——这才是川西自驾的真正乐趣。</p>
         </details>
-    <div class="mountain-separator"></div>
     </div>
 
     <!-- ====== 九、酒店预订清单 ====== -->
     <div class="card card-info" id="hotel-section">
-        <details>
             <summary>
                 <h2>📋 酒店预订清单</h2>
                 <span class="arrow">▶</span>
