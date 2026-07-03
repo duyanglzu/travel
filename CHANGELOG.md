@@ -5,6 +5,19 @@
 - GitHub Pages: https://duyanglzu.github.io/travel/
 - CloudBase: https://travel2-travel-d4gh9ixryba74cde5.webapps.tcloudbase.com/
 
+## v5.0 (2026-07-05)
+### 页面布局重构
+- 三段式分层：行程概览（4卡）→ 每日详细行程（4卡）→ 出行准备（7卡）
+- 酒店预订快捷入口：行程总览表旁新增「去预订酒店」按钮，一键跳转酒店清单
+- 雨季安全守则 + 高反预防手册合并为「安全与健康」单卡
+- 充电指南移至出行准备段，精简概览段信息密度
+
+### Bug 修复
+- 修复 `safeCopy()` 中位与运算符 `&` 误用为逻辑与 `&&`，导致 Clipboard API 始终不走
+- 修复 `renderCalendar()` 中 `&` → `&&`（坏味道）
+- 修复 `window.open()` 缺少 `'noopener'` 属性
+- 修复 ICS 下载缺少字段转义 + `URL.revokeObjectURL()` 释放
+
 ## v3.2 (2026-07-02)
 ### 大本营① 康定（原中谷村）
 - 大本营① 住宿地由中谷村改为康定（2500m，连住3晚D4-D6）
