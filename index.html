@@ -222,18 +222,6 @@
             background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
             margin: 20px 0;
         }
-        .mountain-separator {
-            height: 60px;
-            margin: 10px 0 16px;
-            background: url("data:image/svg+xml,%3Csvg width='480' height='60' viewBox='0 0 480 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 55 Q40 20 80 40 T160 25 T240 45 T320 20 T400 40 L480 30 L480 60 L0 60Z' fill='%23E0F2FE'/%3E%3Cpath d='M0 60 Q60 30 120 50 T240 35 T360 50 L480 45 L480 60 L0 60Z' fill='%23BAE6FD' opacity='0.5'/%3E%3C/svg%3E") no-repeat center/cover;
-        }
-        .road-divider {
-            height: 40px;
-            margin: 8px 0 14px;
-            background: url("data:image/svg+xml,%3Csvg width='480' height='40' viewBox='0 0 480 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q60 5 120 20 T240 20 T360 20 L480 20' stroke='%230EA5E9' stroke-width='3' fill='none' opacity='0.3'/%3E%3Cpath d='M0 20 Q60 10 120 20 T240 20 T360 20 L480 20' stroke='%2306B6D4' stroke-width='1.5' fill='none' opacity='0.2' stroke-dasharray='6 4'/%3E%3Ccircle cx='0' cy='20' r='3' fill='%230EA5E9' opacity='0.4'/%3E%3Ccircle cx='480' cy='20' r='3' fill='%2306B6D4' opacity='0.4'/%3E%3C/svg%3E") no-repeat center/cover;
-        }
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
@@ -554,7 +542,6 @@
             .h-scroll-item { background: var(--dark-card-bg); }
             .skeleton { background: linear-gradient(90deg, var(--dark-reason-bg) 25%, var(--dark-border) 50%, var(--dark-reason-bg) 75%); }
             .card summary .arrow { color: var(--dark-text-secondary); }
-            .card details summary h2, .card details summary h3 { color: var(--dark-primary); }
             .route-timeline > div { background: var(--dark-reason-bg) !important; }
             .route-timeline > div span { color: #FBBF24 !important; }
             .route-timeline > div > div { color: var(--dark-primary) !important; }
@@ -628,7 +615,6 @@
         html.dark .skeleton { background: linear-gradient(90deg, var(--dark-reason-bg) 25%, var(--dark-border) 50%, var(--dark-reason-bg) 75%); }
         html.dark .card summary .arrow { color: var(--dark-text-secondary); }
         html.dark .card details summary h2, html.dark .card details summary h3 { color: var(--dark-primary); }
-        html.dark .day-date { opacity: 0.6; }
         html.dark .route-timeline > div { background: var(--dark-reason-bg) !important; }
         html.dark .route-timeline > div span { color: #FBBF24 !important; }
         html.dark .route-timeline > div > div { color: var(--dark-primary) !important; }
@@ -656,7 +642,7 @@
         <p>两车两家庭 · 亲子宠物友好 · 8月雨季适配<br>自然风光为主 · 人文点缀 · 全程弹性不赶路</p>
     </div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin:-4px 0 14px;">
-            <div style="font-size:11px;color:#9CA3AF;">v5.1 · Made by Kevin</div>
+            <div style="font-size:11px;color:#9CA3AF;">v6.0 · Made by Kevin</div>
             <button id="themeToggle" style="background:none;border:1px solid rgba(255,255,255,0.3);border-radius:8px;color:white;padding:4px 10px;font-size:13px;cursor:pointer;white-space:nowrap;">🌙 深色</button>
         </div>
 
@@ -677,7 +663,6 @@
             <button class="day-nav-btn" data-target="day-7" aria-label="跳转到第7天">D7</button>
             <button class="day-nav-btn" data-target="day-8" aria-label="跳转到第8天">D8</button>
             <button class="day-nav-btn" data-target="day-9" aria-label="跳转到第9天">D9</button>
-            <button class="day-nav-btn" data-target="day-10" aria-label="跳转到第10天">D10</button>
             <button class="day-nav-btn" data-target="day-11" aria-label="跳转到第11天">D11</button>
             <button class="day-nav-btn" data-target="day-12" aria-label="跳转到第12天">D12</button>
             <button class="day-nav-btn" data-target="day-13" aria-label="跳转到第13天">D13</button>
@@ -876,7 +861,6 @@
             <p><strong>路线：</strong>上海→南京→合肥→武汉→宜昌</p>
             <p><strong>节奏：</strong>每1.5小时停靠服务区休息，中午长时间休整用餐。</p>
             <div class="reason"><strong>✅ 安排理由</strong>宜昌约1050km恰好在10小时舒适上限内，城市大、配套全。晚上到宜昌早些休息，D2上午去三峡大坝。</div>
-            <div class="h-scroll">
             <div class="hotel-box">
                 <strong>🏨 桔子酒店(宜昌高新区发展大道店)</strong>
                 <span class="tag tag-must">推荐（近高速入口）</span><br>
@@ -2122,7 +2106,6 @@
         <h3 style="margin:12px 0 4px;color:var(--primary-light);">📍 宜昌 <span style="font-weight:400;font-size:12px;color:#6B7280;">D1</span></h3>
         <div class="h-scroll">
         <div class="hotel-box">
-            <strong>桔子酒店(宜昌高新区发展大道店)</strong>
             <span class="tag tag-must">推荐</span>华住集团<br>
             📍 西陵区发展大道与汕头路交叉口<br>
             💰 约250-350元/晚 · 近G42高速入口<br>
@@ -2514,6 +2497,7 @@
         <table>
             <tr><th>版本</th><th>日期</th><th>变更内容</th></tr>
             <tr><td>v5.1</td><td>2026.07.03</td><td>晴空蓝配色全面改版、CSS自定义属性重构、所有卡片默认折叠、表格左右滑动适配手机、外链安全增强、多处内容修正</td></tr>
+            <tr><td>v6.0</td><td>2026.07.03</td><td>Hero横幅背景图+Noto Serif SC标题字体+底部按钮点击展开卡片+嵌入式实景图</td></tr>
             <tr><td>v5.0</td><td>2026.07.05</td><td>页面布局三段式重构（概览→每日行程→出行准备）、安全+高反合并为单卡、酒店预订快捷入口、4项代码bug修复</td></tr>
             <tr><td>v4.0</td><td>2026.07.02</td><td>路线重构：丹巴→金小路替换（D12 道孚→金川→金小路→小金）、D11卡玛村替代墨石公园、总览表/景点表同步更新、国道G350修正</td></tr>
             <tr><td>v3.2</td><td>2026.07.02</td><td>大本营②甲根坝 D7-D9 重构：住宿全换、月亮湖砍掉（绕路+收费）、D8新增夺让村土拨鼠/亚拢沟/提吾村B线、D9改为纳梯村/捡菌子/休闲</td></tr>
@@ -3023,7 +3007,7 @@ function setupThemeToggle() {
 document.addEventListener('DOMContentLoaded', setupThemeToggle);
 </script>
 <div style="text-align:center;padding:16px;font-size:11px;color:#9CA3AF;border-top:1px solid #E5E7EB;margin-top:20px;line-height:1.8;">
-    v5.1 · 川西17天自驾慢游攻略<br>
+    v6.0 · 川西17天自驾慢游攻略<br>
     © 2026 All Rights Reserved
 </div>
 </body>
