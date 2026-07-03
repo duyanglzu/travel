@@ -95,19 +95,54 @@
         }
         .container { max-width: 480px; margin: 0 auto; padding: 16px; }
         .header {
-            background: linear-gradient(135deg, var(--header-start) 0%, var(--header-end) 100%);
-            background-size: 200% 200%;
-            animation: gradientShift 8s ease infinite;
+            position: relative;
+            overflow: hidden;
             color: white;
-            padding: 28px 20px;
+            padding: 48px 24px;
             border-radius: 16px;
             margin-bottom: 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-        .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
-        .header p { font-size: 13px; opacity: 0.92; line-height: 1.6; }
+        .header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://platform-outputs.agnes-ai.space/images/t2i/c52bbadd032e4e80bf87395fa1976392.png') center/cover no-repeat;
+            filter: brightness(0.7);
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(14,165,233,0.55) 0%, rgba(6,182,212,0.55) 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+        }
+        .header h1 {
+            position: relative;
+            z-index: 1;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        }
+        .header p {
+            position: relative;
+            z-index: 1;
+            font-size: 14px;
+            opacity: 0.95;
+            line-height: 1.7;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.25);
+            max-width: 480px;
+        }
+        .header .mountain-line {
+            display: none;
+        }
         .card {
             background: rgba(255,255,255,0.85);
             border-radius: 12px;
@@ -172,25 +207,6 @@
             box-shadow: 0 8px 32px var(--shadow);
             backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
         }
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width=\"100\" height=\"20\" viewBox=\"0 0 100 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 10 L10 0 L20 10 L30 0 L40 10 L50 0 L60 10 L70 0 L80 10 L90 0 L100 10\" fill=\"rgba(255,255,255,0.1)\"/></svg>') repeat-x;
-            background-size: 100px 20px;
-            animation: mountainMove 30s linear infinite;
-        }
-        .header h1 {
-            background: linear-gradient(90deg, #FFFFFF 0%, #E6F4FF 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .guide-table { width:100%; border-collapse:collapse; font-size:13px; margin:10px 0; table-layout:fixed; text-align:center; }
         .guide-table th, .guide-table td { border:1px solid var(--border); padding:10px 8px; vertical-align:middle; line-height:1.35; word-break:break-word; overflow-wrap:break-word; }
         .guide-table th { background:var(--primary); color:#fff; font-weight:600; font-size:13px; padding:12px 8px; }
         .guide-table .score { font-weight:700; font-size:14px; color:#D97706; white-space:nowrap; }
@@ -360,9 +376,9 @@
         /* PC 响应式 */
         @media (min-width: 769px) {
             .container { max-width: 960px; padding: 24px; }
-            .header { padding: 40px 60px; }
-            .header h1 { font-size: 30px; margin-bottom: 12px; }
-            .header p { font-size: 15px; }
+            .header { padding: 60px 60px; min-height: 320px; }
+            .header h1 { font-size: 36px; margin-bottom: 14px; }
+            .header p { font-size: 16px; }
             .info-grid { grid-template-columns: repeat(3, 1fr); }
             .fixed-bar { max-width: 960px; }
             .h-scroll { flex-wrap: wrap; overflow-x: visible; gap: 12px; }
