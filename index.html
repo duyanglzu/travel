@@ -6,6 +6,9 @@
     <meta name="description" content="川西17天自驾慢游全攻略：三大固定大本营、亲子宠物友好、7月雨季适配，甘孜州东线深度游路线规划与住宿推荐">
     <title>川西17天自驾慢游全攻略 | 三大本营完整版</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏔️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             /* 晴空蓝主色 */
@@ -126,6 +129,7 @@
         .header h1 {
             position: relative;
             z-index: 1;
+            font-family: "Noto Serif SC", serif;
             font-size: 26px;
             font-weight: 700;
             margin-bottom: 10px;
@@ -642,7 +646,7 @@
 <div class="container" id="content">
     <!-- 头部 -->
     <div class="header">
-        <h1>🏔️ 川西17天自驾慢游全攻略</h1>
+        <h1>川西17天自驾慢游全攻略</h1>
         <p>两车两家庭 · 亲子宠物友好 · 8月雨季适配<br>自然风光为主 · 人文点缀 · 全程弹性不赶路</p>
     </div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin:-4px 0 14px;">
@@ -2583,7 +2587,14 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         if (btn.dataset.action === 'scrollToChangelog') {
-            document.getElementById('changelog-card')?.scrollIntoView({ behavior: 'smooth' });
+            const sec = document.getElementById('changelog-card');
+            if (sec) {
+                const det = sec.querySelector('details');
+                if (det) det.open = true;
+                const navH = (document.getElementById('dayNav') || { offsetHeight: 0 }).offsetHeight + 12;
+                const top = sec.getBoundingClientRect().top + window.scrollY - navH;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
         }
         if (btn.dataset.action === 'scrollToHotel') {
             const sec = document.getElementById('hotel-section');
@@ -2596,7 +2607,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         if (btn.dataset.action === 'scrollToCalendar') {
-            document.getElementById('calendar-card').scrollIntoView({ behavior: 'smooth' });
+            const sec = document.getElementById('calendar-card');
+            if (sec) {
+                const det = sec.querySelector('details');
+                if (det) det.open = true;
+                const navH = (document.getElementById('dayNav') || { offsetHeight: 0 }).offsetHeight + 12;
+                const top = sec.getBoundingClientRect().top + window.scrollY - navH;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
         }
     });
     // 默认全部折叠 — 用户自行点击展开
