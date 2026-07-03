@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="川西17天自驾慢游全攻略：三大固定大本营、亲子宠物友好、7月雨季适配，甘孜州东线深度游路线规划与住宿推荐">
     <title>川西17天自驾慢游全攻略 | 三大本营完整版</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏔️</text></svg>">
@@ -18,6 +18,7 @@
             line-height: 1.7;
             padding-bottom: 110px;
             font-size: 15px;
+            -webkit-text-size-adjust: 100%; text-size-adjust: 100%;
         }
         .container { max-width: 480px; margin: 0 auto; padding: 16px; }
         .header {
@@ -123,13 +124,6 @@
         .guide-table .score-denom { font-weight:400; color:#9CA3AF; font-size:11px; }
         .guide-table .tl { text-align:left; }
         .guide-table .nw { white-space:nowrap; }
-        .ripple-effect {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.6);
-            transform: scale(0);
-            animation: ripple 0.6s ease-out;
-        }
         .separator {
             height: 2px;
             background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
@@ -148,9 +142,6 @@
         @keyframes mountainMove {
             0% { background-position: 0 0; }
             100% { background-position: 100px 0; }
-        }
-        @keyframes ripple {
-            to { transform: scale(4); opacity: 0; }
         }
         /* Card background layering */
         .card.card-info { background: rgba(255,255,255,0.85); }
@@ -582,7 +573,7 @@
         <p>两车两家庭 · 亲子宠物友好 · 8月雨季适配<br>自然风光为主 · 人文点缀 · 全程弹性不赶路</p>
     </div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin:-4px 0 14px;">
-            <div style="font-size:11px;color:#9CA3AF;">v3.0 · Made by Kevin</div>
+            <div style="font-size:11px;color:#9CA3AF;">v3.1 · Made by Kevin</div>
             <button id="themeToggle" style="background:none;border:1px solid rgba(255,255,255,0.3);border-radius:8px;color:white;padding:4px 10px;font-size:13px;cursor:pointer;white-space:nowrap;">🌙 深色</button>
         </div>
 
@@ -706,7 +697,7 @@
 
         <h3>5. 两车配置说明</h3>
         <p>🚙 锐界2.7T V6四驱（2015款）：Kevin家3人+2狗，动力充足、通过性强，可轻松应对折多山长上坡、雨季湿滑路面、轻度碎石路段。</p>
-        <p>🚗 理想L6增程SUV：另一家庭4人+2狗，增程式动力续航无忧。D2在三峡大坝时4狗全部安置在L6内开空调，确保安全舒适。</p>
+        <p>🚗 理想L6纯电SUV（51kWh/234km WLTC）：另一家庭4人+2狗，需规划沿途充电。D2在三峡大坝时4狗全部安置在L6内开空调，确保安全舒适。</p>
         <p>两家两台车编队行驶，前后照应，全程主干道均为柏油路。</p>
         </details>
     </div>
@@ -736,12 +727,37 @@
             </summary>
         <div class="info-grid">
             <div class="info-item"><span class="label">出行人员</span><span class="value">两家庭共7人 + 4只田园犬</span></div>
-            <div class="info-item"><span class="label">出行车辆</span><span class="value">锐界2.7T V6四驱 + 理想L6增程SUV</span></div>
+            <div class="info-item"><span class="label">出行车辆</span><span class="value">锐界2.7T V6四驱 + 理想L6纯电SUV（51kWh/234km）</span></div>
             <div class="info-item"><span class="label">总天数</span><span class="value">17天16晚</span></div>
             <div class="info-item"><span class="label">总里程</span><span class="value">约5000km</span></div>
             <div class="info-item"><span class="label">出行季节</span><span class="value">8月初（雨季）</span></div>
             <div class="info-item"><span class="label">最高海拔</span><span class="value">折多山4298m（D7） / 巴郎山4520m（D13）</span></div>
         </div>
+        </details>
+    </div>
+
+    <!-- ====== 充电指南 ====== -->
+    <div class="card card-info">
+        <details open>
+            <summary>
+                <h2>🔋 理想L6纯电版充电指南</h2>
+                <span class="arrow">▶</span>
+            </summary>
+            <ul style="font-size:13px;line-height:1.7;">
+                <li><strong>🔋 电池与续航：</strong>51kWh磷酸铁锂，WLTC纯电234km，75kW快充（20%→80%约20-25min）。随车充接空调插座7h满电，适合酒店过夜慢充。</li>
+                <li><strong>🏔️ 高原续航提醒：</strong>爬坡耗电高（百公里25-30kWh），下坡动能回收可反充（斯丁措→康定、四姑娘山→映秀等下山段明显）。8月夏季气温不影响电池性能。</li>
+                <li><strong>🔌 沿途快充分布：</strong>
+                    <br>• D1-D3 上海→宜昌→成都 — 全程高速服务区覆盖
+                    <br>• D4 天全服务区(20+枪)→康定驿站24枪超快充 → 康定酒店慢充过夜
+                    <br>• D5-D6 康定连住3晚 — 每晚酒店慢充即可
+                    <br>• D7-D9 甲根坝连住 — 出发前在康定/新都桥补满（新都桥摄影天堂服务区33个桩含5×600kW超充）
+                    <br>• D10-D11 道孚连住 — 道孚康藏国际酒店有蔚来目的地充电桩+渝快充液冷超充（160kW），过夜放心充
+                    <br>• <strong>⚠️ D12最关键：</strong>道孚→金川→金小路→小金全程约250km山路。金川县城快充仅60kW较慢。<strong>务必D11晚在道孚充满电</strong>，D12到四姑娘山斯古拉文旅城有理想5C超充站（理想车主即插即充优先）
+                    <br>• D13 四姑娘山→映秀→重庆 — 理想超充站满电出发，出川后高速覆盖
+                </li>
+                <li><strong>🛏️ 选住建议：</strong>优先选带充电桩的酒店（康定/道孚/四姑娘山多酒店有7kW慢充），每晚插上第二天满电出发。</li>
+                <li><strong>📱 理想App充电地图：</strong>支持沿途规划，标记超充站即插即充+积分抵扣。高速理想超充站平均间隔约79km（G42沪蓉）/105km（G65包茂），G318川藏线已贯通。</li>
+            </ul>
         </details>
     </div>
 
@@ -1038,37 +1054,40 @@
                 <span class="arrow">▶</span>
             </summary>
             <p><span class="tag tag-must">必去</span>核心自然风光，行程主轴 <span class="tag tag-alt">备选</span>视状态决定 <span class="tag tag-pass">路过</span>顺路浅逛</p>
+        <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
         <table>
-            <tr><th>等级</th><th>点位</th><th>类型</th><th>说明</th><th>行程日</th></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>雅家埂垭口</td><td>红石/雪山</td><td>877赞小众无人，红石滩+雪山倒影同框</td><td>D4</td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>机场彩虹公路</td><td>公路/雪山</td><td>S434最美公路段，贡嘎雪山正面，公路大片</td><td>D5</td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>甲根坝河谷</td><td>田园/溪流</td><td>全程最松弛的小众秘境</td><td>D7-D9</td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>提吾村</td><td>藏寨/人文</td><td>原始藏寨，宠物友好，青稞田园木栈道</td><td>D8</td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>夺让村·土拨鼠</td><td>田园/互动</td><td>B线柏油路直达，5元/人土拨鼠互动（11点前到）</td><td>D8</td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>卡玛村（免费替代墨石公园）</td><td>地质/免费</td><td>导航"卡玛桥"拍墨石同款地貌，607赞验证</td><td>D11</td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>金小路S451</td><td>公路/雪山</td><td>2026年新通景观公路，87km雪山画廊"川西小独库"</td><td>D12</td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>猫鼻梁观景台</td><td>雪山/观景</td><td>免费拍摄四姑娘山全景最佳机位</td><td>D13</td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>洪崖洞夜景</td><td>夜景/地标</td><td>千与千寻既视感，千厮门大桥拍全景</td><td>D14</td></tr>
-            <tr><td><span class="tag tag-must">推荐</span></td><td>泸定桥</td><td>人文/历史</td><td>上桥体验，桥下大渡河奔腾</td><td>D4</td></tr>
-            <tr><td><span class="tag tag-must">推荐</span></td><td>康定老城区</td><td>人文/美食</td><td>溜溜城老街+情歌广场，被低估的康定玩法</td><td>D6</td></tr>
-            <tr><td><span class="tag tag-must">推荐</span></td><td>姑弄村</td><td>草原/雪山</td><td>面朝雅拉雪山草甸，D10午餐野餐核心站</td><td>D10</td></tr>
-            <tr><td><span class="tag tag-must">推荐</span></td><td>重庆火锅</td><td>美食</td><td>来重庆必吃！推荐佩姐/周师兄/大龙火锅</td><td>D14</td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>中谷村温泉</td><td>温泉/自然</td><td>距康定49min，适合雨天泡汤放松</td><td>D5/D6</td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>迦嘎措（红海子）</td><td>湖泊/雪山</td><td>碧蓝湖泊倒映雅拉雪峰，15元/人</td><td>D5</td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>雅拉山口（4401m）</td><td>垭口/雪山</td><td>S434最高点，直面雅拉金字塔主峰（14:00后易起雾）</td><td>D5</td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>甘孜州博物馆</td><td>人文/历史</td><td>免费三层六个馆，雨天首选</td><td>D6</td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>亚拢沟钙化滩</td><td>钙化池/自然</td><td>路边直达免费，迷你小黄龙</td><td>D8</td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>泽桑拉空中花园</td><td>雪山/日落</td><td>4321m看贡嘎日落金山，仅SUV+12:00-14:00可进</td><td>D8</td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>纳梯村/捡菌子</td><td>田园/体验</td><td>7月菌季民宿老板带队上山</td><td>D9</td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>泰宁古镇</td><td>人文/休闲</td><td>藏式建筑喝甜茶，零车程发呆</td><td>D11</td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>李子坝轻轨穿楼</td><td>地标/打卡</td><td>2号线从居民楼穿过，2分钟搞定</td><td>D14</td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>磁器口古镇</td><td>古镇/小吃</td><td>千年古镇，陈麻花/毛血旺</td><td>D14</td></tr>
-            <tr><td><span class="tag tag-pass">路过</span></td><td>天全服务区</td><td>服务区/打卡</td><td>网红熊猫主题，G318标志打卡</td><td>D4</td></tr>
-            <tr><td><span class="tag tag-pass">路过</span></td><td>二郎山隧道</td><td>隧道/地标</td><td>过隧道初见雪山，川藏线第一震撼瞬间</td><td>D4</td></tr>
-            <tr><td><span class="tag tag-pass">路过</span></td><td>折多山垭口（4298m）</td><td>垭口/观景</td><td>短暂停车拍照，穿冲锋衣</td><td>D7</td></tr>
-            <tr><td><span class="tag tag-pass">路过</span></td><td>斯丁措</td><td>湖泊/雪山</td><td>彩虹路旁小海子，倒影贡嘎+飞机起降</td><td>D5</td></tr>
-            <tr><td><span class="tag tag-pass">路过</span></td><td>八美镇</td><td>小镇/补给</td><td>G548沿线，补油点</td><td>D10</td></tr>
+            <colgroup><col style="width:8%"><col style="width:22%"><col style="width:10%"><col style="width:28%"><col style="width:8%"><col style="width:24%"></colgroup>
+            <tr><th>等级</th><th>点位</th><th>类型</th><th>说明</th><th>行程日</th><th>出处</th></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>雅家埂垭口</td><td>红石/雪山</td><td>877赞小众无人，红石滩+雪山倒影同框</td><td>D4</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/687fad8a0000000010013c71" target="_blank">📕877赞</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>机场彩虹公路</td><td>公路/雪山</td><td>S434最美公路段，贡嘎雪山正面，公路大片</td><td>D5</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/689749680000000023037277" target="_blank">📕1937赞</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>甲根坝河谷</td><td>田园/溪流</td><td>全程最松弛的小众秘境</td><td>D7-D9</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a3888ce0000000008033cd8" target="_blank">📕攻略</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>提吾村</td><td>藏寨/人文</td><td>原始藏寨，宠物友好，青稞田园木栈道</td><td>D8</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a23f0d8000000000702e2c6" target="_blank">📕攻略</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>夺让村·土拨鼠</td><td>田园/互动</td><td>B线柏油路直达，5元/人土拨鼠互动（11点前到）</td><td>D8</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/68a28713000000001c037bb7" target="_blank">📕154赞</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>卡玛村（免费替代墨石公园）</td><td>地质/免费</td><td>导航"卡玛桥"拍墨石同款地貌，607赞验证</td><td>D11</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a37bf2c0000000015027bd4" target="_blank">📕攻略</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>金小路S451</td><td>公路/雪山</td><td>2026年新通景观公路，87km雪山画廊"川西小独库"</td><td>D12</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a202ed30000000008031eeb" target="_blank">📕246赞</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>猫鼻梁观景台</td><td>雪山/观景</td><td>免费拍摄四姑娘山全景最佳机位</td><td>D13</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/69b49790000000002202864c" target="_blank">📕314赞</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>洪崖洞夜景</td><td>夜景/地标</td><td>千与千寻既视感，千厮门大桥拍全景</td><td>D14</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6925cb35000000001b022cbc" target="_blank">📕4574赞</a></td></tr>
+            <tr><td><span class="tag tag-must">推荐</span></td><td>泸定桥</td><td>人文/历史</td><td>上桥体验，桥下大渡河奔腾</td><td>D4</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/695c76ce000000001a027034" target="_blank">📕630赞</a></td></tr>
+            <tr><td><span class="tag tag-must">推荐</span></td><td>康定老城区</td><td>人文/美食</td><td>溜溜城老街+情歌广场，被低估的康定玩法</td><td>D6</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a0daf2c00000000350254b2" target="_blank">📕485赞</a></td></tr>
+            <tr><td><span class="tag tag-must">推荐</span></td><td>姑弄村</td><td>草原/雪山</td><td>面朝雅拉雪山草甸，D10午餐野餐核心站</td><td>D10</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/69eca9ef00000000380341e9" target="_blank">📕780赞</a></td></tr>
+            <tr><td><span class="tag tag-must">推荐</span></td><td>重庆火锅</td><td>美食</td><td>来重庆必吃！推荐佩姐/周师兄/大龙火锅</td><td>D14</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/68b55c4e000000001c03f2ff" target="_blank">📕4875赞</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>中谷村温泉</td><td>温泉/自然</td><td>距康定49min，适合雨天泡汤放松</td><td>D5/D6</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6846886b0000000021007873" target="_blank">📕攻略</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>迦嘎措（红海子）</td><td>湖泊/雪山</td><td>碧蓝湖泊倒映雅拉雪峰，15元/人</td><td>D5</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/680e4a6e000000002300d7e6" target="_blank">📕521赞</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>雅拉山口（4401m）</td><td>垭口/雪山</td><td>S434最高点，直面雅拉金字塔主峰（14:00后易起雾）</td><td>D5</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/689749680000000023037277" target="_blank">📕1937赞</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>甘孜州博物馆</td><td>人文/历史</td><td>免费三层六个馆，雨天首选</td><td>D6</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a0daf2c00000000350254b2" target="_blank">📕485赞</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>亚拢沟钙化滩</td><td>钙化池/自然</td><td>路边直达免费，迷你小黄龙</td><td>D8</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6915991e000000000d0358d3" target="_blank">📕攻略</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>泽桑拉空中花园</td><td>雪山/日落</td><td>4321m看贡嘎日落金山，仅SUV+12:00-14:00可进</td><td>D8</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a1d78180000000037037149" target="_blank">📕602赞</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>纳梯村/捡菌子</td><td>田园/体验</td><td>7月菌季民宿老板带队上山</td><td>D9</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6838f8be000000002100baa0" target="_blank">📕735赞</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>泰宁古镇</td><td>人文/休闲</td><td>藏式建筑喝甜茶，零车程发呆</td><td>D11</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/630898e9000000001702cf12" target="_blank">📕攻略</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>李子坝轻轨穿楼</td><td>地标/打卡</td><td>2号线从居民楼穿过，2分钟搞定</td><td>D14</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/687f6e74000000000d01b810" target="_blank">📕4273赞</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>磁器口古镇</td><td>古镇/小吃</td><td>千年古镇，陈麻花/毛血旺</td><td>D14</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/698d273d000000001a025bc4" target="_blank">📕2090赞</a></td></tr>
+            <tr><td><span class="tag tag-pass">路过</span></td><td>天全服务区</td><td>服务区/打卡</td><td>网红熊猫主题，G318标志打卡</td><td>D4</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6869fee20000000012021dcb" target="_blank">📕213赞</a></td></tr>
+            <tr><td><span class="tag tag-pass">路过</span></td><td>二郎山隧道</td><td>隧道/地标</td><td>过隧道初见雪山，川藏线第一震撼瞬间</td><td>D4</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/697add40000000000b009f9b" target="_blank">📕190赞</a></td></tr>
+            <tr><td><span class="tag tag-pass">路过</span></td><td>折多山垭口（4298m）</td><td>垭口/观景</td><td>短暂停车拍照，穿冲锋衣</td><td>D7</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6976fefa000000000e00e132" target="_blank">📕1201赞</a></td></tr>
+            <tr><td><span class="tag tag-pass">路过</span></td><td>斯丁措</td><td>湖泊/雪山</td><td>彩虹路旁小海子，倒影贡嘎+飞机起降</td><td>D5</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/68880dcf000000002400b7d9" target="_blank">📕276赞</a></td></tr>
+            <tr><td><span class="tag tag-pass">路过</span></td><td>八美镇</td><td>小镇/补给</td><td>G548沿线，补油点</td><td>D10</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/687db95b000000002201dc08" target="_blank">📕158赞</a></td></tr>
         </table>
+        </div>
         </details>
     </div>
 
@@ -2411,6 +2430,7 @@
             </summary>
         <table>
             <tr><th>版本</th><th>日期</th><th>变更内容</th></tr>
+            <tr><td>v3.1</td><td>2026.07.03</td><td>景点分级表大改(增9删8+出处列)、每日出发时间规划、时间提醒/导航警告、地图换瓦片图、酒店预订卡、理想L6纯电版充电指南</td></tr>
             <tr><td>v3.0</td><td>2026.06.28</td><td>17天行程重构：新增三峡大坝、D17缓冲日；双车家庭配置；D1-D3路线调整</td></tr>
             <tr><td>v2.1</td><td>2026.06.27</td><td>夜间模式完善、表格滑动修复、版本号显示</td></tr>
             <tr><td>v2.0</td><td>2026.06.27</td><td>紫靛配色改版、dark mode、双导航按钮、小红书搜索</td></tr>
@@ -2560,7 +2580,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderDayDates();
     document.querySelectorAll('.day-card, .card').forEach(el => el.classList.add('js-ready'));
     setupCardObserver();
-    setupRippleEffects();
 });
 
 function getDateStr(day) {
@@ -2866,29 +2885,6 @@ function setupCardObserver() {
     cards.forEach(card => observer.observe(card));
 }
 
-// Ripple effect for buttons
-function setupRippleEffects() {
-    const buttons = document.querySelectorAll('.btn, .day-nav-btn');
-    
-    buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            const ripple = document.createElement('span');
-            ripple.className = 'ripple-effect';
-            
-            const rect = button.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            
-            ripple.style.width = ripple.style.height = `${size}px`;
-            ripple.style.left = `${e.clientX - rect.left - size/2}px`;
-            ripple.style.top = `${e.clientY - rect.top - size/2}px`;
-            
-            button.appendChild(ripple);
-            
-            setTimeout(() => ripple.remove(), 600);
-        });
-    });
-}
-
 // Theme toggle
 function setupThemeToggle() {
     const btn = document.getElementById('themeToggle');
@@ -2909,7 +2905,7 @@ function setupThemeToggle() {
 document.addEventListener('DOMContentLoaded', setupThemeToggle);
 </script>
 <div style="text-align:center;padding:16px;font-size:11px;color:#9CA3AF;border-top:1px solid #E5E7EB;margin-top:20px;line-height:1.8;">
-    v3.0 · 川西17天自驾慢游攻略<br>
+    v3.1 · 川西17天自驾慢游攻略<br>
     © 2026 All Rights Reserved
 </div>
 </body>
