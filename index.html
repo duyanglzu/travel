@@ -7,14 +7,87 @@
     <title>川西17天自驾慢游全攻略 | 三大本营完整版</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏔️</text></svg>">
     <style>
+        :root {
+            /* 晴空蓝主色 */
+            --primary: #0EA5E9;
+            --primary-dark: #0284C7;
+            --primary-light: #38BDF8;
+            --primary-lighter: #7DD3FC;
+            --primary-bg: #F0F9FF;
+            --primary-border: #BAE6FD;
+            /* 强调色 */
+            --accent: #06B6D4;
+            --accent-light: #CFFAFE;
+            /* 背景 */
+            --bg-body: #F8FAFC;
+            --bg-card: rgba(255,255,255,0.9);
+            --bg-highlight: #F0F9FF;
+            --bg-warn: #FFFBEB;
+            /* 文字 */
+            --text: #1E293B;
+            --text-secondary: #64748B;
+            --text-light: #94A3B8;
+            /* 边框 */
+            --border: #E2E8F0;
+            --border-light: #F1F5F9;
+            /* Header 渐变 */
+            --header-start: #0EA5E9;
+            --header-end: #06B6D4;
+            /* 行程阶段色 */
+            --phase-travel: #64748B;
+            --phase-travel-end: #94A3B8;
+            --phase-plateau: #0D9488;
+            --phase-plateau-end: #14B8A6;
+            --phase-rest: #F97316;
+            --phase-rest-end: #FB923C;
+            /* 按钮 */
+            --btn-bg: #0EA5E9;
+            --btn-text: #FFFFFF;
+            /* 标签 */
+            --tag-must-bg: #F0F9FF;
+            --tag-must-text: #0EA5E9;
+            --tag-alt-bg: #F0FDF4;
+            --tag-alt-text: #059669;
+            --tag-pass-bg: #F1F5F9;
+            --tag-pass-text: #64748B;
+            /* 盒子背景 */
+            --box-reason: #F0F9FF;
+            --box-hotel: #F0F9FF;
+            --box-source: #F8FAFC;
+            /* 阴影 */
+            --shadow: rgba(14,165,233,0.08);
+            /* 日历 */
+            --cal-trip: #E0F2FE;
+            --cal-weekend: #FFFBEB;
+            /* ===== 暗色模式变量（将在 dark 中覆盖） ===== */
+            --dark-bg: #0F172A;
+            --dark-card-bg: rgba(30,41,59,0.92);
+            --dark-card-solid: #1E293B;
+            --dark-text: #E2E8F0;
+            --dark-text-secondary: #94A3B8;
+            --dark-border: #334155;
+            --dark-primary: #38BDF8;
+            --dark-primary-dim: #7DD3FC;
+            --dark-accent: #2DD4BF;
+            --dark-warn-bg: #422006;
+            --dark-warn-text: #FDE68A;
+            --dark-warn-border: #92400E;
+            --dark-reason-bg: #1E293B;
+            --dark-phase-travel: #1E293B;
+            --dark-phase-travel-end: #334155;
+            --dark-phase-plateau: #0F766E;
+            --dark-phase-plateau-end: #0D9488;
+            --dark-phase-rest: #C2410C;
+            --dark-phase-rest-end: #EA580C;
+        }
         html, body, div, p, img, ul, li, h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; }
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "HarmonyOS Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
             background:
-                radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.5) 0%, transparent 70%),
-                linear-gradient(180deg, #EEF2FF 0%, #FAFAFA 40%, #F5F3FF 100%);
-            color: #1F2937;
+                radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.6) 0%, transparent 70%),
+                linear-gradient(180deg, var(--primary-bg) 0%, var(--bg-body) 40%, #FFFFFF 100%);
+            color: var(--text);
             line-height: 1.7;
             padding-bottom: 110px;
             font-size: 15px;
@@ -22,7 +95,7 @@
         }
         .container { max-width: 480px; margin: 0 auto; padding: 16px; }
         .header {
-            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            background: linear-gradient(135deg, var(--header-start) 0%, var(--header-end) 100%);
             background-size: 200% 200%;
             animation: gradientShift 8s ease infinite;
             color: white;
@@ -40,18 +113,18 @@
             border-radius: 12px;
             padding: 16px;
             margin-bottom: 16px;
-            box-shadow: 0 8px 32px rgba(79,70,229,0.08);
+            box-shadow: 0 8px 32px var(--shadow);
             backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
         }
         .card h2 {
             font-size: 18px;
-            color: #4F46E5;
+            color: var(--primary);
             margin-bottom: 12px;
-            border-left: 4px solid #6366F1;
+            border-left: 4px solid var(--primary-light);
             padding-left: 8px;
         }
-        .card h3 { font-size: 16px; margin: 14px 0 8px; color: #6366F1; }
-        .card h4 { font-size: 14px; margin: 10px 0 6px; color: #4F46E5; }
+        .card h3 { font-size: 16px; margin: 14px 0 8px; color: var(--primary-light); }
+        .card h4 { font-size: 14px; margin: 10px 0 6px; color: var(--primary); }
         .card details { margin-top: -8px; }
         .card summary { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 10px 0; list-style: none; user-select: none; }
         .card summary::-webkit-details-marker { display: none; }
@@ -62,7 +135,7 @@
         .day-card details summary.day-title {
             cursor: pointer; list-style: none; user-select: none;
             display: flex; justify-content: space-between; align-items: center;
-            background: linear-gradient(90deg, #4F46E5 0%, #6366F1 100%);
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
             padding: 10px 14px;
             border-radius: 10px 10px 0 0;
@@ -74,9 +147,9 @@
         .day-card details[open] summary.day-title .day-arrow { transform: rotate(90deg); }
         .day-date { font-weight: 400; font-size: 12px; opacity: 0.75; }
         .info-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 10px 0; }
-        .info-item { background: #F5F3FF; padding: 10px; border-radius: 8px; }
-        .info-item .label { color: #6B7280; font-size: 12px; display: block; }
-        .info-item .value { font-weight: 600; color: #1F2937; font-size: 14px; }
+        .info-item { background: var(--primary-bg); padding: 10px; border-radius: 8px; }
+        .info-item .label { color: var(--text-secondary); font-size: 12px; display: block; }
+        .info-item .value { font-weight: 600; color: var(--text); font-size: 14px; }
         .day-card, .card {
             opacity: 1;
             transform: none;
@@ -96,7 +169,7 @@
             background: rgba(255,255,255,0.85);
             padding: 14px;
             border-radius: 0 0 10px 10px;
-            box-shadow: 0 8px 32px rgba(79,70,229,0.08);
+            box-shadow: 0 8px 32px var(--shadow);
             backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
         }
         .header::before {
@@ -118,8 +191,8 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .guide-table { width:100%; border-collapse:collapse; font-size:13px; margin:10px 0; table-layout:fixed; text-align:center; }
-        .guide-table th, .guide-table td { border:1px solid #E5E7EB; padding:10px 8px; vertical-align:middle; line-height:1.35; word-break:break-word; overflow-wrap:break-word; }
-        .guide-table th { background:#4F46E5; color:#fff; font-weight:600; font-size:13px; padding:12px 8px; }
+        .guide-table th, .guide-table td { border:1px solid var(--border); padding:10px 8px; vertical-align:middle; line-height:1.35; word-break:break-word; overflow-wrap:break-word; }
+        .guide-table th { background:var(--primary); color:#fff; font-weight:600; font-size:13px; padding:12px 8px; }
         .guide-table .score { font-weight:700; font-size:14px; color:#D97706; white-space:nowrap; }
         .guide-table .score-denom { font-weight:400; color:#9CA3AF; font-size:11px; }
         .guide-table .tl { text-align:left; }
@@ -145,7 +218,7 @@
         }
         /* Card background layering */
         .card.card-info { background: rgba(255,255,255,0.85); }
-        .card.card-warning { background: #FFFBEB; border-left: 4px solid #F59E0B; }
+        .card.card-warning { background: var(--bg-warn); border-left: 4px solid #F59E0B; }
         /* Day phase colors */
         .day-card[data-phase="travel"] details summary.day-title { background: linear-gradient(90deg, #64748B 0%, #94A3B8 100%); }
         .day-card[data-phase="plateau"] details summary.day-title { background: linear-gradient(90deg, #0D9488 0%, #14B8A6 100%); }
@@ -154,7 +227,7 @@
         @media (min-width: 769px) {
             .card:hover, .day-card:hover {
                 transform: translateY(-3px);
-                box-shadow: 0 8px 32px rgba(79,70,229,0.15);
+                box-shadow: 0 8px 32px var(--shadow);
                 transition: all 0.3s ease;
             }
         }
@@ -173,24 +246,9 @@
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
         }
-        /* Progress indicator for day nav */
-        .day-nav-btn.past {
-            background: #4F46E5;
-            color: white;
-        }
-        .day-nav-btn.future {
-            background: white;
-            color: #4F46E5;
-            border: 1px solid #4F46E5;
-        }
-        .day-nav-btn.current {
-            background: #4F46E5;
-            color: white;
-            box-shadow: 0 0 0 3px rgba(79,70,229,0.3);
-        }
         .reason {
-            background: #F5F3FF;
-            border-left: 3px solid #6366F1;
+            background: var(--box-reason);
+            border-left: 3px solid var(--primary);
             padding: 10px 12px;
             border-radius: 0 6px 6px 0;
             margin: 10px 0;
@@ -213,15 +271,15 @@
             font-style: normal;
         }
         .hotel-box {
-            background: #F5F3FF;
-            border-left: 3px solid #4F46E5;
+            background: var(--box-reason);
+            border-left: 3px solid var(--primary);
             padding: 10px 12px;
             border-radius: 0 6px 6px 0;
             margin: 10px 0;
             font-size: 13px;
         }
-        .hotel-box strong { color: #4F46E5; display: block; margin-bottom: 4px; }
-        .hotel-box .price { color: #7C3AED; font-weight: 500; }
+        .hotel-box strong { color: var(--primary); display: block; margin-bottom: 4px; }
+        .hotel-box .price { color: var(--accent); font-weight: 500; }
         .hotel-box .source { color: #6B7280; font-size: 12px; margin-top: 4px; }
         .btn {
             display: block;
@@ -229,8 +287,8 @@
             padding: 12px;
             border: none;
             border-radius: 8px;
-            background: #4F46E5;
-            color: white;
+            background: var(--btn-bg);
+            color: var(--btn-text);
             font-size: 15px;
             font-weight: 500;
             text-align: center;
@@ -238,28 +296,27 @@
             margin: 8px 0;
             cursor: pointer;
         }
-        .btn-green { background: #7C3AED; }
-        .btn-outline { background: white; color: #4F46E5; border: 1px solid #4F46E5; }
+        .btn-green { background: var(--accent); }
+        .btn-outline { background: white; color: var(--primary); border: 1px solid var(--primary); }
         .btn-small { display: inline-block; width: auto; padding: 6px 12px; font-size: 13px; margin: 6px 0; }
         .btn-copy { padding: 6px 10px; font-size: 12px; margin-top: 6px; }
         .nav-btns { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
         .tip-box { background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 8px; padding: 12px; margin: 12px 0; font-size: 13px; color: #92400E; }
         .tip-box h4 { margin-bottom: 6px; font-size: 14px; color: #B45309; }
-        .tip-box h4 { margin-bottom: 6px; font-size: 14px; color: #B45309; }
-        .warn-box { background: #F5F3FF; border: 1px solid #C4B5FD; border-radius: 8px; padding: 12px; margin: 12px 0; font-size: 13px; color: #5B21B6; }
+        .warn-box { background: var(--primary-bg); border: 1px solid var(--primary-border); border-radius: 8px; padding: 12px; margin: 12px 0; font-size: 13px; color: #0369A1; }
         .checklist { list-style: none; margin: 10px 0; }
         .checklist li { padding: 8px 0; border-bottom: 1px solid #F3F4F6; display: flex; align-items: flex-start; gap: 10px; font-size: 14px; }
-        .checklist input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0;             accent-color: #4F46E5; }
+        .checklist input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; accent-color: var(--primary); }
         table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 10px 0; }
         th, td { border: 1px solid #E5E7EB; padding: 8px; text-align: left; vertical-align: top; }
-        th { background: #EEF2FF; color: #4F46E5; font-weight: 600; }
+        th { background: var(--primary-bg); color: var(--primary); font-weight: 600; }
         .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 500; margin-right: 6px; }
-        .tag-must { background: #EEF2FF; color: #4F46E5; }
-        .tag-alt { background: #F5F3FF; color: #7C3AED; }
-        .tag-pass { background: #F3F4F6; color: #6B7280; }
+        .tag-must { background: var(--tag-must-bg); color: var(--tag-must-text); }
+        .tag-alt { background: var(--tag-alt-bg); color: var(--tag-alt-text); }
+        .tag-pass { background: var(--tag-pass-bg); color: var(--tag-pass-text); }
         .link-group { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 6px 0; }
-        .link-group a { font-size: 13px; color: #4F46E5; text-decoration: none; border-bottom: 1px dotted #A5B4FC; }
-        .link-group a:hover { border-bottom: 1px solid #4F46E5; }
+        .link-group a { font-size: 13px; color: var(--primary); text-decoration: none; border-bottom: 1px dotted var(--primary-border); }
+        .link-group a:hover { border-bottom: 1px solid var(--primary); }
         .link-group .label { font-size: 12px; color: #6B7280; }
         .fixed-bar {
             position: fixed;
@@ -270,7 +327,7 @@
             margin: 0 auto;
             background: rgba(255,255,255,0.9);
             padding: 10px 16px;
-            box-shadow: 0 -4px 20px rgba(79,70,229,0.1);
+            box-shadow: 0 -4px 20px var(--shadow);
             backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             display: flex;
             gap: 10px;
@@ -289,8 +346,8 @@
         ul { padding-left: 20px; margin: 8px 0; }
         li { margin: 4px 0; }
         .src-box {
-            background: #F5F3FF;
-            border: 1px solid #E5E7EB;
+            background: var(--box-source);
+            border: 1px solid var(--border);
             border-radius: 6px;
             padding: 10px 12px;
             margin: 8px 0;
@@ -298,8 +355,8 @@
             color: #4B5563;
         }
         .src-box strong { color: #1F2937; }
-        .src-box a { color: #4F46E5; text-decoration: none; border-bottom: 1px dotted #A5B4FC; }
-        .src-box a:hover { border-bottom: 1px solid #4F46E5; }
+        .src-box a { color: var(--primary); text-decoration: none; border-bottom: 1px dotted var(--primary-border); }
+        .src-box a:hover { border-bottom: 1px solid var(--primary); }
         /* PC 响应式 */
         @media (min-width: 769px) {
             .container { max-width: 960px; padding: 24px; }
@@ -325,11 +382,11 @@
         .cal-table td { border: 1px solid #E5E7EB; padding: 2px; text-align: center; vertical-align: top; height: 52px; width: 14.28%; }
         .cal-table .cal-empty { background: #F9FAFB; }
         .cal-table .cal-weekend { background: #FFFBEB; }
-        .cal-table .cal-trip { background: #EEF2FF; border-color: #A5B4FC; cursor: pointer; }
+        .cal-table .cal-trip { background: var(--cal-trip); border-color: var(--primary-border); cursor: pointer; }
         .cal-table .cal-trip:hover { background: #E0E7FF; }
         .cal-day-num { font-weight: 600; font-size: 11px; color: #374151; }
-        .cal-day-info { font-size: 9px; color: #4F46E5; font-weight: 500; margin-top: 1px; }
-        .cal-day-title { font-size: 10px; color: #4F46E5; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .cal-day-info { font-size: 9px; color: var(--primary); font-weight: 500; margin-top: 1px; }
+        .cal-day-title { font-size: 10px; color: var(--primary); line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .cal-legend { display: flex; gap: 16px; margin: 8px 0 12px; font-size: 12px; flex-wrap: wrap; }
         .cal-legend-item { display: flex; align-items: center; gap: 4px; }
         .cal-legend-color { width: 14px; height: 14px; border-radius: 3px; border: 1px solid #E5E7EB; }
@@ -352,7 +409,7 @@
             display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px;
         }
         .loading-mask .spinner {
-            width: 36px; height: 36px; border: 3px solid #E5E7EB; border-top-color: #4F46E5;
+            width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--primary);
             border-radius: 50%; animation: spin 0.8s linear infinite;
         }
         .loading-mask .loading-text { font-size: 14px; color: #374151; }
@@ -409,8 +466,8 @@
             white-space: nowrap;
             transition: all 0.2s;
         }
-        .day-nav-btn:hover { background: #EEF2FF; border-color: #A5B4FC; color: #4F46E5; }
-        .day-nav-btn.active { background: #4F46E5; color: white; border-color: #4F46E5; }
+        .day-nav-btn:hover { background: var(--primary-bg); border-color: var(--primary-border); color: var(--primary); }
+        .day-nav-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
         @media (min-width: 769px) {
             .day-nav-inner { flex-wrap: wrap; overflow-x: visible; }
         }
@@ -420,149 +477,149 @@
         }
         /* Dark mode (at end to override earlier rules) */
         @media (prefers-color-scheme: dark) {
-            body { background: #1E1B2E; color: #E2E8F0; }
-            .card, .day-content, .fixed-bar { background: rgba(45,38,64,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-            .card.card-info { background: rgba(45,38,64,0.9); }
-            .card.card-warning { background: #422006; border-left-color: #F59E0B; }
-            .card h2, .card h3 { color: #A5B4FC; }
-            .card h4 { color: #C7D2FE; }
-            .day-card details summary.day-title { background: linear-gradient(90deg, #3B2E7E 0%, #5B3EAE 100%); }
-            .day-card[data-phase="travel"] details summary.day-title { background: linear-gradient(90deg, #3B2E7E 0%, #5B3EAE 100%); }
-            .day-card[data-phase="plateau"] details summary.day-title { background: linear-gradient(90deg, #0F766E 0%, #0D9488 100%); }
-            .day-card[data-phase="rest"] details summary.day-title { background: linear-gradient(90deg, #C2410C 0%, #EA580C 100%); }
-            .info-item { background: #2E1E3B; }
-            .info-item .label { color: #A5B4FC; }
-            .info-item .value { color: #E2E8F0; }
-            table, th, td { border-color: #3D2E5E; }
-            th { background: #2E1E3B; color: #A5B4FC; }
-            td { color: #E2E8F0; }
-            .btn-outline { background: transparent; color: #A5B4FC; border-color: #A5B4FC; }
-            .btn-green { background: #5B3EAE; }
+            body { background: var(--dark-bg); color: var(--dark-text); }
+            .card, .day-content, .fixed-bar { background: var(--dark-card-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+            .card.card-info { background: var(--dark-card-bg); }
+            .card.card-warning { background: var(--dark-warn-bg); border-left-color: #F59E0B; }
+            .card h2, .card h3 { color: var(--dark-primary); }
+            .card h4 { color: var(--dark-primary-dim); }
+            .day-card details summary.day-title { background: linear-gradient(90deg, var(--dark-phase-travel) 0%, var(--dark-phase-travel-end) 100%); }
+            .day-card[data-phase="travel"] details summary.day-title { background: linear-gradient(90deg, var(--dark-phase-travel) 0%, var(--dark-phase-travel-end) 100%); }
+            .day-card[data-phase="plateau"] details summary.day-title { background: linear-gradient(90deg, var(--dark-phase-plateau) 0%, var(--dark-phase-plateau-end) 100%); }
+            .day-card[data-phase="rest"] details summary.day-title { background: linear-gradient(90deg, var(--dark-phase-rest) 0%, var(--dark-phase-rest-end) 100%); }
+            .info-item { background: var(--dark-card-solid); }
+            .info-item .label { color: var(--dark-primary); }
+            .info-item .value { color: var(--dark-text); }
+            table, th, td { border-color: var(--dark-border); }
+            th { background: var(--dark-card-solid); color: var(--dark-primary); }
+            td { color: var(--dark-text); }
+            .btn-outline { background: transparent; color: var(--dark-primary); border-color: var(--dark-primary); }
+            .btn-green { background: var(--dark-primary); }
             .btn { color: white; }
-            .tip-box { background: #422006; border-color: #92400E; color: #FDE68A; }
+            .tip-box { background: var(--dark-warn-bg); border-color: var(--dark-warn-border); color: var(--dark-warn-text); }
             .tip-box h4 { color: #FBBF24; }
-            .warn-box { background: #2E1E3B; border-color: #6D3A9E; color: #DDD6FE; }
-            .reason { background: #2E1E3B; color: #DDD6FE; }
-            .reason .quote { background: #3B2E7E; border-left-color: #A78BFA; }
-            .reason .quote-source { color: #C4B5FD; }
-            .hotel-box { background: rgba(45,38,64,0.9); color: #E2E8F0; border-left-color: #A5B4FC; }
-            .hotel-box strong { color: #C7D2FE; }
-            .hotel-box .price { color: #DDD6FE; }
-            .hotel-box .source { color: #94A3B8; }
-            .src-box { background: rgba(45,38,64,0.9); border-color: #3D2E5E; color: #94A3B8; }
-            .src-box strong { color: #E2E8F0; }
-            .src-box a { color: #A5B4FC; border-bottom-color: #7C3AED; }
-            .tag-must { background: #3B2E7E; color: #DDD6FE; }
-            .tag-alt { background: #2E1E3B; color: #C4B5FD; }
+            .warn-box { background: var(--dark-card-solid); border-color: var(--dark-primary-dim); color: var(--dark-primary-dim); }
+            .reason { background: var(--dark-reason-bg); color: var(--dark-text); }
+            .reason .quote { background: var(--dark-card-solid); border-left-color: var(--dark-primary); }
+            .reason .quote-source { color: var(--dark-text-secondary); }
+            .hotel-box { background: var(--dark-card-bg); color: var(--dark-text); border-left-color: var(--dark-primary); }
+            .hotel-box strong { color: var(--dark-primary-dim); }
+            .hotel-box .price { color: var(--dark-accent); }
+            .hotel-box .source { color: var(--dark-text-secondary); }
+            .src-box { background: var(--dark-card-bg); border-color: var(--dark-border); color: var(--dark-text-secondary); }
+            .src-box strong { color: var(--dark-text); }
+            .src-box a { color: var(--dark-primary); border-bottom-color: var(--dark-border); }
+            .tag-must { background: var(--dark-card-solid); color: var(--dark-primary-dim); }
+            .tag-alt { background: var(--dark-reason-bg); color: var(--dark-accent); }
             .tag-pass { background: #374151; color: #D1D5DB; }
-            .link-group a { color: #A5B4FC; border-bottom-color: #7C3AED; }
-            .link-group .label { color: #94A3B8; }
-            .checklist li { border-bottom-color: #3D2E5E; }
-            .img-credit { color: #94A3B8; }
+            .link-group a { color: var(--dark-primary); border-bottom-color: var(--dark-border); }
+            .link-group .label { color: var(--dark-text-secondary); }
+            .checklist li { border-bottom-color: var(--dark-border); }
+            .img-credit { color: var(--dark-text-secondary); }
             .separator { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
             .mountain-separator { filter: invert(0.7); }
-            .fixed-bar { background: rgba(45,38,64,0.95); border-top-color: #3D2E5E; }
-            .nav-btn { background: #2E1E3B; color: #A5B4FC; border-color: #4A3A6E; }
-            .nav-btn.active { background: #5B3EAE; color: white; }
-            .day-nav-btn.past { background: #5B3EAE; color: white; }
-            .day-nav-btn.future { background: transparent; color: #A5B4FC; border-color: #A5B4FC; }
-            .day-nav-btn.current { background: #5B3EAE; color: white; box-shadow: 0 0 0 3px rgba(139,92,246,0.3); }
-            .toast { background: #2E1E3B; color: #E2E8F0; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
-            .loading-overlay { background: rgba(30,27,46,0.9); color: #E2E8F0; }
-            .h-scroll-item { background: rgba(45,38,64,0.9); }
-            .skeleton { background: linear-gradient(90deg, #2E1E3B 25%, #4A3A6E 50%, #2E1E3B 75%); }
-            .card summary .arrow { color: #94A3B8; }
-            .card details summary h2, .card details summary h3 { color: #A5B4FC; }
-            .route-timeline > div { background: #2E1E3B !important; }
+            .fixed-bar { background: rgba(15,23,42,0.95); border-top-color: var(--dark-border); }
+            .nav-btn { background: var(--dark-reason-bg); color: var(--dark-primary); border-color: var(--dark-border); }
+            .nav-btn.active { background: var(--dark-primary); color: white; }
+            .day-nav-btn.past { background: var(--dark-primary); color: white; }
+            .day-nav-btn.future { background: transparent; color: var(--dark-primary); border-color: var(--dark-primary); }
+            .day-nav-btn.current { background: var(--dark-primary); color: white; box-shadow: 0 0 0 3px rgba(56,189,248,0.3); }
+            .toast { background: var(--dark-reason-bg); color: var(--dark-text); box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+            .loading-overlay { background: rgba(15,23,42,0.9); color: var(--dark-text); }
+            .h-scroll-item { background: var(--dark-card-bg); }
+            .skeleton { background: linear-gradient(90deg, var(--dark-reason-bg) 25%, var(--dark-border) 50%, var(--dark-reason-bg) 75%); }
+            .card summary .arrow { color: var(--dark-text-secondary); }
+            .card details summary h2, .card details summary h3 { color: var(--dark-primary); }
+            .route-timeline > div { background: var(--dark-reason-bg) !important; }
             .route-timeline > div span { color: #FBBF24 !important; }
-            .route-timeline > div > div { color: #A5B4FC !important; }
+            .route-timeline > div > div { color: var(--dark-primary) !important; }
             .route-timeline > div > div[style*="color:#D97706"] { color: #FBBF24 !important; }
-            .route-timeline > div > div[style*="color:#4F46E5"] { color: #A5B4FC !important; }
+            .route-timeline > div > div[style*="color:#4F46E5"] { color: var(--dark-primary) !important; }
             .route-timeline > div > div[style*="color:#6366F1"] { color: #34D399 !important; }
-            .route-timeline > div > div[style*="color:#7C3AED"] { color: #A78BFA !important; }
-            .guide-table th { background: #3B2E7E; color: #E2E8F0; }
-            .guide-table th, .guide-table td { border-color: #3D2E5E; }
-            .guide-table td { color: #E2E8F0; }
+            .route-timeline > div > div[style*="color:#7C3AED"] { color: var(--dark-accent) !important; }
+            .guide-table th { background: var(--dark-card-solid); color: var(--dark-text); }
+            .guide-table th, .guide-table td { border-color: var(--dark-border); }
+            .guide-table td { color: var(--dark-text); }
             .guide-table .score { color: #FBBF24; }
-            .guide-table .score-denom { color: #6B7280; }
-            a { color: #A5B4FC; }
-            .day-nav { background: rgba(45,38,64,0.95); border-bottom-color: #3D2E5E; }
-            .cal-month-title { color: #E2E8F0; }
-            .date-picker-row input { background: #2E1E3B; color: #E2E8F0; border: 1px solid #4A3A6E; }
-            .loading-mask { background: rgba(30,27,46,0.85); }
-            .loading-mask .loading-text { color: #E2E8F0; }
+            .guide-table .score-denom { color: var(--dark-text-secondary); }
+            a { color: var(--dark-primary); }
+            .day-nav { background: rgba(15,23,42,0.95); border-bottom-color: var(--dark-border); }
+            .cal-month-title { color: var(--dark-text); }
+            .date-picker-row input { background: var(--dark-card-solid); color: var(--dark-text); border: 1px solid var(--dark-border); }
+            .loading-mask { background: rgba(15,23,42,0.85); }
+            .loading-mask .loading-text { color: var(--dark-text); }
             .route-map-img { opacity:0.9; }
         }
-        html.dark body { background: #1E1B2E; color: #E2E8F0; }
-        html.dark .card, html.dark .day-content, html.dark .fixed-bar { background: rgba(45,38,64,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        html.dark .card.card-info { background: rgba(45,38,64,0.9); }
-        html.dark .card.card-warning { background: #422006; border-left-color: #F59E0B; }
-        html.dark .card h2, html.dark .card h3 { color: #A5B4FC; }
-        html.dark .card h4 { color: #C7D2FE; }
-        html.dark .day-card details summary.day-title, html.dark .day-card[data-phase="travel"] details summary.day-title { background: linear-gradient(90deg, #3B2E7E 0%, #5B3EAE 100%); }
-        html.dark .day-card[data-phase="plateau"] details summary.day-title { background: linear-gradient(90deg, #0F766E 0%, #0D9488 100%); }
-        html.dark .day-card[data-phase="rest"] details summary.day-title { background: linear-gradient(90deg, #C2410C 0%, #EA580C 100%); }
-        html.dark .info-item { background: #2E1E3B; }
-        html.dark .info-item .label { color: #A5B4FC; }
-        html.dark .info-item .value { color: #E2E8F0; }
-        html.dark table, html.dark th, html.dark td { border-color: #3D2E5E; }
-        html.dark th { background: #2E1E3B; color: #A5B4FC; }
-        html.dark td { color: #E2E8F0; }
-        html.dark .btn-outline { background: transparent; color: #A5B4FC; border-color: #A5B4FC; }
-        html.dark .btn-green { background: #5B3EAE; }
+        html.dark body { background: var(--dark-bg); color: var(--dark-text); }
+        html.dark .card, html.dark .day-content, html.dark .fixed-bar { background: var(--dark-card-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        html.dark .card.card-info { background: var(--dark-card-bg); }
+        html.dark .card.card-warning { background: var(--dark-warn-bg); border-left-color: #F59E0B; }
+        html.dark .card h2, html.dark .card h3 { color: var(--dark-primary); }
+        html.dark .card h4 { color: var(--dark-primary-dim); }
+        html.dark .day-card details summary.day-title, html.dark .day-card[data-phase="travel"] details summary.day-title { background: linear-gradient(90deg, var(--dark-phase-travel) 0%, var(--dark-phase-travel-end) 100%); }
+        html.dark .day-card[data-phase="plateau"] details summary.day-title { background: linear-gradient(90deg, var(--dark-phase-plateau) 0%, var(--dark-phase-plateau-end) 100%); }
+        html.dark .day-card[data-phase="rest"] details summary.day-title { background: linear-gradient(90deg, var(--dark-phase-rest) 0%, var(--dark-phase-rest-end) 100%); }
+        html.dark .info-item { background: var(--dark-card-solid); }
+        html.dark .info-item .label { color: var(--dark-primary); }
+        html.dark .info-item .value { color: var(--dark-text); }
+        html.dark table, html.dark th, html.dark td { border-color: var(--dark-border); }
+        html.dark th { background: var(--dark-card-solid); color: var(--dark-primary); }
+        html.dark td { color: var(--dark-text); }
+        html.dark .btn-outline { background: transparent; color: var(--dark-primary); border-color: var(--dark-primary); }
+        html.dark .btn-green { background: var(--dark-primary); }
         html.dark .btn { color: white; }
-        html.dark .tip-box { background: #422006; border-color: #92400E; color: #FDE68A; }
+        html.dark .tip-box { background: var(--dark-warn-bg); border-color: var(--dark-warn-border); color: var(--dark-warn-text); }
         html.dark .tip-box h4 { color: #FBBF24; }
-        html.dark .warn-box { background: #2E1E3B; border-color: #6D3A9E; color: #DDD6FE; }
-        html.dark .reason { background: #2E1E3B; color: #DDD6FE; }
-        html.dark .reason .quote { background: #3B2E7E; border-left-color: #A78BFA; }
-        html.dark .reason .quote-source { color: #C4B5FD; }
-        html.dark .hotel-box { background: rgba(45,38,64,0.9); color: #E2E8F0; border-left-color: #A5B4FC; }
-        html.dark .hotel-box strong { color: #C7D2FE; }
-        html.dark .hotel-box .price { color: #DDD6FE; }
-        html.dark .hotel-box .source { color: #94A3B8; }
-        html.dark .src-box { background: rgba(45,38,64,0.9); border-color: #3D2E5E; color: #94A3B8; }
-        html.dark .src-box strong { color: #E2E8F0; }
-        html.dark .src-box a { color: #A5B4FC; border-bottom-color: #7C3AED; }
-        html.dark .tag-must { background: #3B2E7E; color: #DDD6FE; }
-        html.dark .tag-alt { background: #2E1E3B; color: #C4B5FD; }
+        html.dark .warn-box { background: var(--dark-card-solid); border-color: var(--dark-primary-dim); color: var(--dark-primary-dim); }
+        html.dark .reason { background: var(--dark-reason-bg); color: var(--dark-text); }
+        html.dark .reason .quote { background: var(--dark-card-solid); border-left-color: var(--dark-primary); }
+        html.dark .reason .quote-source { color: var(--dark-text-secondary); }
+        html.dark .hotel-box { background: var(--dark-card-bg); color: var(--dark-text); border-left-color: var(--dark-primary); }
+        html.dark .hotel-box strong { color: var(--dark-primary-dim); }
+        html.dark .hotel-box .price { color: var(--dark-accent); }
+        html.dark .hotel-box .source { color: var(--dark-text-secondary); }
+        html.dark .src-box { background: var(--dark-card-bg); border-color: var(--dark-border); color: var(--dark-text-secondary); }
+        html.dark .src-box strong { color: var(--dark-text); }
+        html.dark .src-box a { color: var(--dark-primary); border-bottom-color: var(--dark-border); }
+        html.dark .tag-must { background: var(--dark-card-solid); color: var(--dark-primary-dim); }
+        html.dark .tag-alt { background: var(--dark-reason-bg); color: var(--dark-accent); }
         html.dark .tag-pass { background: #374151; color: #D1D5DB; }
-        html.dark .link-group a { color: #A5B4FC; border-bottom-color: #7C3AED; }
-        html.dark .link-group .label { color: #94A3B8; }
-        html.dark .checklist li { border-bottom-color: #3D2E5E; }
-        html.dark .img-credit { color: #94A3B8; }
+        html.dark .link-group a { color: var(--dark-primary); border-bottom-color: var(--dark-border); }
+        html.dark .link-group .label { color: var(--dark-text-secondary); }
+        html.dark .checklist li { border-bottom-color: var(--dark-border); }
+        html.dark .img-credit { color: var(--dark-text-secondary); }
         html.dark .separator { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
         html.dark .mountain-separator { filter: invert(0.7); }
-        html.dark .fixed-bar { background: rgba(45,38,64,0.95); border-top-color: #3D2E5E; }
-        html.dark .nav-btn { background: #2E1E3B; color: #A5B4FC; border-color: #4A3A6E; }
-        html.dark .nav-btn.active { background: #5B3EAE; color: white; }
-        html.dark .day-nav-btn.past { background: #5B3EAE; color: white; }
-        html.dark .day-nav-btn.future { background: transparent; color: #A5B4FC; border-color: #A5B4FC; }
-        html.dark .day-nav-btn.current { background: #5B3EAE; color: white; box-shadow: 0 0 0 3px rgba(139,92,246,0.3); }
-        html.dark .toast { background: #2E1E3B; color: #E2E8F0; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
-        html.dark .loading-overlay { background: rgba(30,27,46,0.9); color: #E2E8F0; }
-        html.dark .h-scroll-item { background: rgba(45,38,64,0.9); }
-        html.dark .skeleton { background: linear-gradient(90deg, #2E1E3B 25%, #4A3A6E 50%, #2E1E3B 75%); }
-        html.dark .card summary .arrow { color: #94A3B8; }
-        html.dark .card details summary h2, html.dark .card details summary h3 { color: #A5B4FC; }
+        html.dark .fixed-bar { background: rgba(15,23,42,0.95); border-top-color: var(--dark-border); }
+        html.dark .nav-btn { background: var(--dark-reason-bg); color: var(--dark-primary); border-color: var(--dark-border); }
+        html.dark .nav-btn.active { background: var(--dark-primary); color: white; }
+        html.dark .day-nav-btn.past { background: var(--dark-primary); color: white; }
+        html.dark .day-nav-btn.future { background: transparent; color: var(--dark-primary); border-color: var(--dark-primary); }
+        html.dark .day-nav-btn.current { background: var(--dark-primary); color: white; box-shadow: 0 0 0 3px rgba(56,189,248,0.3); }
+        html.dark .toast { background: var(--dark-reason-bg); color: var(--dark-text); box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+        html.dark .loading-overlay { background: rgba(15,23,42,0.9); color: var(--dark-text); }
+        html.dark .h-scroll-item { background: var(--dark-card-bg); }
+        html.dark .skeleton { background: linear-gradient(90deg, var(--dark-reason-bg) 25%, var(--dark-border) 50%, var(--dark-reason-bg) 75%); }
+        html.dark .card summary .arrow { color: var(--dark-text-secondary); }
+        html.dark .card details summary h2, html.dark .card details summary h3 { color: var(--dark-primary); }
         html.dark .day-date { opacity: 0.6; }
-        html.dark .route-timeline > div { background: #2E1E3B !important; }
+        html.dark .route-timeline > div { background: var(--dark-reason-bg) !important; }
         html.dark .route-timeline > div span { color: #FBBF24 !important; }
-        html.dark .route-timeline > div > div { color: #A5B4FC !important; }
-        html.dark .guide-table th { background: #3B2E7E; color: #E2E8F0; }
-        html.dark .guide-table th, html.dark .guide-table td { border-color: #3D2E5E; }
-        html.dark .guide-table td { color: #E2E8F0; }
+        html.dark .route-timeline > div > div { color: var(--dark-primary) !important; }
+        html.dark .guide-table th { background: var(--dark-card-solid); color: var(--dark-text); }
+        html.dark .guide-table th, html.dark .guide-table td { border-color: var(--dark-border); }
+        html.dark .guide-table td { color: var(--dark-text); }
         html.dark .guide-table .score { color: #FBBF24; }
-        html.dark .guide-table .score-denom { color: #6B7280; }
-        html.dark a { color: #A5B4FC; }
-        html.dark .day-nav { background: rgba(45,38,64,0.95); border-bottom-color: #3D2E5E; }
-        html.dark .cal-month-title { color: #E2E8F0; }
-        html.dark .date-picker-row input { background: #2E1E3B; color: #E2E8F0; border: 1px solid #4A3A6E; }
-        html.dark .loading-mask { background: rgba(30,27,46,0.85); }
-        html.dark .loading-mask .loading-text { color: #E2E8F0; }
+        html.dark .guide-table .score-denom { color: var(--dark-text-secondary); }
+        html.dark a { color: var(--dark-primary); }
+        html.dark .day-nav { background: rgba(15,23,42,0.95); border-bottom-color: var(--dark-border); }
+        html.dark .cal-month-title { color: var(--dark-text); }
+        html.dark .date-picker-row input { background: var(--dark-card-solid); color: var(--dark-text); border: 1px solid var(--dark-border); }
+        html.dark .loading-mask { background: rgba(15,23,42,0.85); }
+        html.dark .loading-mask .loading-text { color: var(--dark-text); }
         
         /* 键盘焦点可见性 */
-        :focus-visible { outline: 2px solid #4F46E5; outline-offset: 2px; border-radius: 4px; }
+        :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
     </style>
 </head>
 <body>
@@ -573,11 +630,11 @@
         <p>两车两家庭 · 亲子宠物友好 · 8月雨季适配<br>自然风光为主 · 人文点缀 · 全程弹性不赶路</p>
     </div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin:-4px 0 14px;">
-            <div style="font-size:11px;color:#9CA3AF;">v5.0 · Made by Kevin</div>
+            <div style="font-size:11px;color:#9CA3AF;">v5.1 · Made by Kevin</div>
             <button id="themeToggle" style="background:none;border:1px solid rgba(255,255,255,0.3);border-radius:8px;color:white;padding:4px 10px;font-size:13px;cursor:pointer;white-space:nowrap;">🌙 深色</button>
         </div>
 
-    <div style="background:#EEF2FF;border:1px solid #C7D2FE;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px;color:#4F46E5;line-height:1.8;">
+    <div style="background:var(--primary-bg);border:1px solid var(--primary-border);border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px;color:var(--primary);line-height:1.8;">
         💡 <strong>使用提示：</strong>卡片标题可点击折叠/展开 · 手机左右滑动查看更多 · 底部日历可加入手机日历 · 清单勾选自动保存
     </div>
 
@@ -607,7 +664,7 @@
 
     <!-- ====== 一、全程行程概括 + 设计说明（合并） ====== -->
     <div class="card card-info">
-        <details open>
+        <details>
             <summary>
                 <h2>🗺️ 全程行程概括 &amp; 设计说明</h2>
                 <span class="arrow">▶</span>
@@ -647,15 +704,15 @@
 
         <h3>🗺️ 每日路线走向</h3>
         <div class="route-timeline" style="font-size:13px;line-height:2.2;">
-            <div style="background:#FFFBEB;padding:6px 10px;border-radius:8px;margin:4px 0;display:flex;justify-content:space-between;gap:8px;align-items:center;"><span>D1 上海→宜昌<br>D2 宜昌→三峡大坝<br>D3 万州/宜昌→成都</span><span style="white-space:nowrap;flex-shrink:0;font-weight:600;color:#D97706;">【长途赶路】</span></div>
+            <div style="background:#FFFBEB;padding:6px 10px;border-radius:8px;margin:4px 0;display:flex;justify-content:space-between;gap:8px;align-items:center;"><span>D1 上海→宜昌<br>D2 宜昌→三峡大坝<br>D3 万州/宜昌→成都</span></div>
              <div style="background:#E8F4FF;padding:6px 10px;border-radius:8px;margin:4px 0;">
-                <div style="font-weight:700;font-size:12px;color:#4F46E5;">━ 大本营①：康定 2500m（连住3晚：D4/D5/D6）━</div>
+                <div style="font-weight:700;font-size:12px;color:var(--primary);">━ 大本营①：康定 2500m（连住3晚：D4/D5/D6）━</div>
                 D4  成都→泸定桥→雅家埂垭口→康定<br>
                 D5  康定 ←→ S434北线（中谷村→塔公折返）<br>
                 D6  康定老城区/中谷村温泉（休整日·雨天备选博物馆）
             </div>
             <div style="background:#F0F7F4;padding:6px 10px;border-radius:8px;margin:4px 0;">
-                <div style="font-weight:700;font-size:12px;color:#6366F1;">━ 大本营②：甲根坝 3000m（连住3晚：D7/D8/D9）━</div>
+                <div style="font-weight:700;font-size:12px;color:var(--primary-light);">━ 大本营②：甲根坝 3000m（连住3晚：D7/D8/D9）━</div>
                 D7  康定 → 折多山垭口 → 甲根坝<br>
                 D8  甲根坝 ←→ 提吾村/亚拢沟/夺让村（B线深度游）<br>
                 D9  甲根坝休闲日（纳梯村/夺让村/捡菌子）
@@ -666,7 +723,7 @@
                 D11 道孚 ← 卡玛村（免费替代墨石公园·导航"卡玛桥"）
             </div>
             <div style="background:#ECFDF5;padding:6px 10px;border-radius:8px;margin:4px 0;">
-                <div style="font-weight:700;font-size:12px;color:#6366F1;">━ 🟢 环线返程·金小路新线 ━</div>
+                <div style="font-weight:700;font-size:12px;color:var(--primary-light);">━ 🟢 环线返程·金小路新线 ━</div>
                 D12 道孚 → 金川 → 金小路(S451·88km雪山画廊) → 小金<br>
                 D13 小金 → 四姑娘山(猫鼻梁) → 映秀 → 重庆(全程~560km/8h)<br>
                 D14 重庆休整 · 洪崖洞/李子坝/磁器口<br>
@@ -697,7 +754,7 @@
         <p>如果非要归类，这叫<strong>"甘孜州东线深度游"</strong>或<strong>"川西慢游线"</strong>——3个大本营连住、海拔循序渐进、每天开车少、玩得更透。</p>
 
         <h3>5. 两车配置说明</h3>
-        <p>🚙 锐界2.7T V6四驱（2015款）：Kevin家3人+2狗，动力充足、通过性强，可轻松应对折多山长上坡、雨季湿滑路面、轻度碎石路段。</p>
+        <p>🚙 锐界2.7T V6四驱（2015款）：3人+2狗，动力充足、通过性强，可轻松应对折多山长上坡、雨季湿滑路面、轻度碎石路段。</p>
         <p>🚗 理想L6纯电SUV（51kWh/234km WLTC）：另一家庭4人+2狗，需规划沿途充电。D2在三峡大坝时4狗全部安置在L6内开空调，确保安全舒适。</p>
         <p>两家两台车编队行驶，前后照应，全程主干道均为柏油路。</p>
         </details>
@@ -705,7 +762,7 @@
 
     <!-- ====== 路线地图 ====== -->
     <div class="card card-info">
-        <details open>
+        <details>
             <summary>
                 <h2>🗺️ 四川段路线地图</h2>
                 <span class="arrow">▶</span>
@@ -721,7 +778,7 @@
 
     <!-- ====== 三、出行基础信息 ====== -->
     <div class="card card-info">
-        <details open>
+        <details>
             <summary>
                 <h2>📋 出行基础信息</h2>
                 <span class="arrow">▶</span>
@@ -739,7 +796,7 @@
 
     <!-- ====== 四、行程总览 ====== -->
     <div class="card card-info">
-        <details open>
+        <details>
             <summary>
                 <h2>🗺️ 全程行程总览</h2>
                 <span class="arrow">▶</span>
@@ -775,7 +832,7 @@
     </div>
 
     <!-- ====== 五、每日详细行程 ====== -->
-    <h2 style="margin:20px 0 12px;color:#4F46E5;padding-left:4px;">📅 每日详细行程</h2>
+    <h2 style="margin:20px 0 12px;color:var(--primary);padding-left:4px;">📅 每日详细行程</h2>
 
     <!-- D1 -->
     <div class="day-card" id="day-1" data-phase="travel">
@@ -796,9 +853,9 @@
                 🚗 距G42宜昌北/夷陵出口约3km，D2出发上高速极方便<br>
                 🅿️ 免费停车 · 健身房/洗衣房 · 周边餐饮配套齐全<br>
                 <span class="price">约250-350元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E9%AB%98%E6%96%B0%E5%8C%BA%E5%8F%91%E5%B1%95%E5%A4%A7%E9%81%93%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E9%AB%98%E6%96%B0%E5%8C%BA%E5%8F%91%E5%B1%95%E5%A4%A7%E9%81%93%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
-                <a href="https://hotels.ctrip.com/hotels/126451408.html" target="_blank" class="btn btn-small btn-outline">📋 携程预订</a>
+                <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E9%AB%98%E6%96%B0%E5%8C%BA%E5%8F%91%E5%B1%95%E5%A4%A7%E9%81%93%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E9%AB%98%E6%96%B0%E5%8C%BA%E5%8F%91%E5%B1%95%E5%A4%A7%E9%81%93%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://hotels.ctrip.com/hotels/126451408.html" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程预订</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="桔子酒店宜昌高新区发展大道店">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -808,9 +865,9 @@
                 🚗 距G50宜昌东出口约3km，距宜昌东站4.3km<br>
                 🅿️ 免费停车场 · 118间客房<br>
                 <span class="price">约300-400元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E5%AE%9C%E6%98%8C%E4%B8%9C%E7%AB%99%E9%91%AB%E9%BC%8E%E4%BA%9A%E6%9C%B5%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%AE%9C%E6%98%8C%E4%B8%9C%E7%AB%99%E9%91%AB%E9%BC%8E%E4%BA%9A%E6%9C%B5%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
-                <a href="https://hotels.ctrip.com/hotels/116989452.html" target="_blank" class="btn btn-small btn-outline">📋 携程预订</a>
+                <a href="https://ditu.amap.com/search?query=%E5%AE%9C%E6%98%8C%E4%B8%9C%E7%AB%99%E9%91%AB%E9%BC%8E%E4%BA%9A%E6%9C%B5%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%AE%9C%E6%98%8C%E4%B8%9C%E7%AB%99%E9%91%AB%E9%BC%8E%E4%BA%9A%E6%9C%B5%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://hotels.ctrip.com/hotels/116989452.html" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程预订</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="宜昌东站鑫鼎亚朵酒店">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -820,9 +877,9 @@
                 🚗 距G50宜昌东出口约2.5km，步行至宜昌东站约10分钟<br>
                 🅿️ 免费停车 · 楼下商超餐饮齐全<br>
                 <span class="price">约250-350元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E7%81%AB%E8%BD%A6%E4%B8%9C%E7%AB%99%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E7%81%AB%E8%BD%A6%E4%B8%9C%E7%AB%99%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
-                <a href="https://hotels.ctrip.com/hotels/120253908.html" target="_blank" class="btn btn-small btn-outline">📋 携程预订</a>
+                <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E7%81%AB%E8%BD%A6%E4%B8%9C%E7%AB%99%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E7%81%AB%E8%BD%A6%E4%B8%9C%E7%AB%99%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://hotels.ctrip.com/hotels/120253908.html" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程预订</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="桔子酒店宜昌火车东站店">📝 复制关键词</button>
             </div>
             </div>
@@ -862,8 +919,8 @@
                 🚗 距G42万州出口约5km，大堂在万达，餐饮购物方便<br>
                 🅿️ 免费停车<br>
                 <span class="price">约200-300元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E4%B8%87%E5%B7%9E%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E4%B8%87%E5%B7%9E%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E4%B8%87%E5%B7%9E%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E4%B8%87%E5%B7%9E%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="万州桔子酒店万达广场店">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -872,8 +929,8 @@
                 📍 万州区<br>
                 🅿️ 免费停车<br>
                 <span class="price">约350-500元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E4%B8%87%E5%B7%9E%E5%B8%8C%E5%B0%94%E9%A1%BF%E6%AC%A2%E6%9C%8B%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E4%B8%87%E5%B7%9E%E5%B8%8C%E5%B0%94%E9%A1%BF%E6%AC%A2%E6%9C%8B%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E4%B8%87%E5%B7%9E%E5%B8%8C%E5%B0%94%E9%A1%BF%E6%AC%A2%E6%9C%8B%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E4%B8%87%E5%B7%9E%E5%B8%8C%E5%B0%94%E9%A1%BF%E6%AC%A2%E6%9C%8B%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="万州希尔顿欢朋酒店">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -882,8 +939,8 @@
                 📍 万州区万达广场附近<br>
                 🅿️ 免费停车<br>
                 <span class="price">约200-300元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E5%85%A8%E5%AD%A3%E9%85%92%E5%BA%97%E4%B8%87%E5%B7%9E%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%85%A8%E5%AD%A3%E9%85%92%E5%BA%97%E4%B8%87%E5%B7%9E%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E5%85%A8%E5%AD%A3%E9%85%92%E5%BA%97%E4%B8%87%E5%B7%9E%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%85%A8%E5%AD%A3%E9%85%92%E5%BA%97%E4%B8%87%E5%B7%9E%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="万州全季酒店万达广场店">📝 复制关键词</button>
             </div>
             </div>
@@ -926,9 +983,9 @@
                 🚗 武侯大道直达成雅高速入口（约3km），D4出发约10分钟上高速<br>
                 🅿️ 免费停车 · 近大悦城采购物资极方便<br>
                 <span class="price">约350-500元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E6%88%90%E9%83%BD%E5%A4%A7%E6%82%A6%E5%9F%8E%E6%AD%A6%E4%BE%AF%E5%A4%A7%E9%81%93%E5%9C%B0%E9%93%81%E7%AB%99%E4%BA%9A%E6%9C%B5X%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E6%88%90%E9%83%BD%E5%A4%A7%E6%82%A6%E5%9F%8E%E6%AD%A6%E4%BE%AF%E5%A4%A7%E9%81%93%E5%9C%B0%E9%93%81%E7%AB%99%E4%BA%9A%E6%9C%B5X%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
-                <a href="https://hotels.ctrip.com/hotels/80979591.html" target="_blank" class="btn btn-small btn-outline">📋 携程预订</a>
+                <a href="https://ditu.amap.com/search?query=%E6%88%90%E9%83%BD%E5%A4%A7%E6%82%A6%E5%9F%8E%E6%AD%A6%E4%BE%AF%E5%A4%A7%E9%81%93%E5%9C%B0%E9%93%81%E7%AB%99%E4%BA%9A%E6%9C%B5X%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E6%88%90%E9%83%BD%E5%A4%A7%E6%82%A6%E5%9F%8E%E6%AD%A6%E4%BE%AF%E5%A4%A7%E9%81%93%E5%9C%B0%E9%93%81%E7%AB%99%E4%BA%9A%E6%9C%B5X%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://hotels.ctrip.com/hotels/80979591.html" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程预订</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="成都大悦城武侯大道地铁站亚朵X酒店">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -937,9 +994,9 @@
                 📍 武侯区潮音路2号<br>
                 🚗 约10分钟上高速 · 室内泳池 · 健身房<br>
                 <span class="price">约600-900元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E6%B8%9D%E6%B1%9F%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E6%B8%9D%E6%B1%9F%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
-                <a href="https://hotels.ctrip.com/hotels/72965590.html" target="_blank" class="btn btn-small btn-outline">📋 携程预订</a>
+                <a href="https://ditu.amap.com/search?query=%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E6%B8%9D%E6%B1%9F%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E6%B8%9D%E6%B1%9F%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://hotels.ctrip.com/hotels/72965590.html" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程预订</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="成都武侯渝江皇冠假日酒店">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -948,9 +1005,9 @@
                 📍 武侯区长益路53号<br>
                 🚗 约12分钟上高速<br>
                 <span class="price">约450-650元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E7%A5%9E%E4%BB%99%E6%A0%91%E5%B8%8C%E5%B0%94%E9%A1%BF%E6%AC%A2%E6%9C%8B%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E7%A5%9E%E4%BB%99%E6%A0%91%E5%B8%8C%E5%B0%94%E9%A1%BF%E6%AC%A2%E6%9C%8B%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
-                <a href="https://www.hilton.com.cn/zh-cn/hotels/cturnhx-hampton-by-hilton-chengdu-wuhou-hongpailou" target="_blank" class="btn btn-small btn-outline">🏨 希尔顿官网</a>
+                <a href="https://ditu.amap.com/search?query=%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E7%A5%A0%E5%B8%8C%E5%B0%94%E9%A1%BF%E6%AC%A2%E6%9C%8B%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E6%88%90%E9%83%BD%E6%AD%A6%E4%BE%AF%E7%A5%9E%E4%BB%99%E6%A0%91%E5%B8%8C%E5%B0%94%E9%A1%BF%E6%AC%A2%E6%9C%8B%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://www.hilton.com.cn/zh-cn/hotels/cturnhx-hampton-by-hilton-chengdu-wuhou-hongpailou" target="_blank" rel="noopener" class="btn btn-small btn-outline">🏨 希尔顿官网</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="成都武侯祠希尔顿欢朋酒店">📝 复制关键词</button>
             </div>
             </div>
@@ -1039,12 +1096,12 @@
                 <div class="quote">"这个离康定很近的地方居然没人去！""翻遍全网几乎很少人安利""路上几乎没人没车"<span class="quote-source">—— 小红书@多多魚- 877赞</span></div>
                 <br>
                 📍 榆磨路上，导航「雅家埂垭口」<br>
-                <a href="https://ditu.amap.com/search?query=%E9%9B%85%E5%AE%B6%E5%9F%A2%E5%9F%AD%E5%8F%A3" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E9%9B%85%E5%AE%B6%E5%9F%A2%E5%9F%AD%E5%8F%A3" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E9%9B%85%E5%AE%B6%E5%9F%A2%E5%9F%AD%E5%8F%A3" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E9%9B%85%E5%AE%B6%E5%9F%A2%E5%9F%AD%E5%8F%A3" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             <div class="src-box">
                 <strong>📎 出处链接：</strong><br>
-                <a href="https://www.xiaohongshu.com/explore/687fad8a0000000010013c71" target="_blank">小红书·离康定很近没人去的地方</a>
+                <a href="https://www.xiaohongshu.com/explore/687fad8a0000000010013c71" target="_blank" rel="noopener">小红书·离康定很近没人去的地方</a>
             </div>
             <button class="btn btn-green btn-small btn-copy" data-copy="雅家埂垭口 自驾攻略">📝 复制关键词</button>
             </div>
@@ -1055,8 +1112,8 @@
                 宠物友好 · 近城 · 免费停车<br>
                 📍 康定城区<br>
                 <span class="price">性价比之选</span><br>
-                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E9%97%AE%E9%A3%8E%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E9%97%AE%E9%A3%8E%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E9%97%AE%E9%A3%8E%E6%B0%91%E5%AE%BF" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E9%97%AE%E9%A3%8E%E6%B0%91%E5%AE%BF" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="康定问风民宿">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -1064,8 +1121,8 @@
                 260r · 实测带狗友好<br>
                 📍 康定城区<br>
                 <span class="price">约260元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E5%B2%9A%E4%BA%88%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E5%B2%9A%E4%BA%88%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E5%B2%9A%E4%BA%88%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E5%B2%9A%E4%BA%88%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="康定岚予酒店">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -1112,8 +1169,8 @@
             <div class="reason">
                 碧蓝湖泊倒映雅拉雪峰，6月高山杜鹃环绕。收费15元/人，路边免费停车区也能拍到全景。<br>
                 ⚠️ 周末偏网红，建议早到。<br>
-                <a href="https://ditu.amap.com/search?query=%E8%BF%A6%E5%98%8E%E6%8E%AA" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E8%BF%A6%E5%98%8E%E6%8E%AA" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E8%BF%A6%E5%98%8E%E6%8E%AA" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E8%BF%A6%E5%98%8E%E6%8E%AA" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             </div>
             <div>
@@ -1137,9 +1194,9 @@
             </div>
             <div class="src-box">
                 <strong>📎 出处链接：</strong><br>
-                <a href="https://www.xiaohongshu.com/explore/695f6c6d00000000220313d1" target="_blank">小红书·大雪兒 S434攻略 405赞</a> ｜
-                <a href="https://www.xiaohongshu.com/explore/6a253346000000001702c12a" target="_blank">小红书·风平浪静 S434分段详解 300赞</a> ｜
-                <a href="https://www.xiaohongshu.com/explore/689749680000000023037277" target="_blank">小红书·434省道绝美公路 1937赞</a>
+                <a href="https://www.xiaohongshu.com/explore/695f6c6d00000000220313d1" target="_blank" rel="noopener">小红书·大雪兒 S434攻略 405赞</a> ｜
+                <a href="https://www.xiaohongshu.com/explore/6a253346000000001702c12a" target="_blank" rel="noopener">小红书·风平浪静 S434分段详解 300赞</a> ｜
+                <a href="https://www.xiaohongshu.com/explore/689749680000000023037277" target="_blank" rel="noopener">小红书·434省道绝美公路 1937赞</a>
             </div>
             <button class="btn btn-green btn-small btn-copy" data-copy="康定S434北线一日游 路线">📝 复制关键词</button>
             <div class="warn-box" style="border-left-color:#3B82F6;"><strong>🕐 时间提醒</strong><br>
@@ -1166,8 +1223,8 @@
             </div>
             <div class="src-box">
                 <strong>📎 出处链接：</strong><br>
-                <a href="https://www.xiaohongshu.com/explore/6a0daf2c00000000350254b2" target="_blank">小红书·康定可玩性被低估 485赞</a> ｜
-                <a href="https://www.xiaohongshu.com/explore/69b005f70000000022021486" target="_blank">小红书·本地人康定一日游 126赞</a>
+                <a href="https://www.xiaohongshu.com/explore/6a0daf2c00000000350254b2" target="_blank" rel="noopener">小红书·康定可玩性被低估 485赞</a> ｜
+                <a href="https://www.xiaohongshu.com/explore/69b005f70000000022021486" target="_blank" rel="noopener">小红书·本地人康定一日游 126赞</a>
             </div>
             <button class="btn btn-green btn-small btn-copy" data-copy="康定老城区一日游 攻略">📝 复制关键词</button>
             </div>
@@ -1178,8 +1235,8 @@
                 <strong>✅ 推荐理由</strong>
                 上午甘孜州博物馆（免费、室内，三层六个馆），下午中谷村泡温泉（下雨泡汤更爽，178赞验证）。<br>
                 📍 博物馆在康定新城，距老城7km<br>
-                <a href="https://ditu.amap.com/search?query=%E7%94%98%E5%AD%9C%E5%B7%9E%E5%8D%9A%E7%89%A9%E9%A6%86" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E7%94%98%E5%AD%9C%E5%B7%9E%E5%8D%9A%E7%89%A9%E9%A6%86" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E7%94%98%E5%AD%9C%E5%B7%9E%E5%8D%9A%E7%89%A9%E9%A6%86" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E7%94%98%E5%AD%9C%E5%B7%9E%E5%8D%9A%E7%89%A9%E9%A6%86" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             </div>
             </div>
@@ -1206,15 +1263,15 @@
                 <div class="quote">“甲根坝是一方未被利益染指的纯粹秘境，游人不多”<span class="quote-source">—— 马蜂窝游记</span></div>
                 <br>
                 📍 康定市甲根坝镇<br>
-                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             <div class="src-box">
                 <strong>📎 出处链接：</strong><br>
-                <a href="https://www.trip.com/moments/detail/kangding-344-136458330/" target="_blank">携程·甲根坝</a> ｜
-                <a href="https://www.xiaohongshu.com/explore/6a0e899c000000000803da26" target="_blank">小红书·甲根坝露营</a> ｜
-                <a href="https://www.xiaohongshu.com/explore/6a3888ce0000000008033cd8" target="_blank">小红书·甲根坝河谷</a> ｜
-                <a href="https://www.xiaohongshu.com/explore/6a1ae44b000000003701e3f4" target="_blank">小红书·甲根坝野生景点</a>
+                <a href="https://www.trip.com/moments/detail/kangding-344-136458330/" target="_blank" rel="noopener">携程·甲根坝</a> ｜
+                <a href="https://www.xiaohongshu.com/explore/6a0e899c000000000803da26" target="_blank" rel="noopener">小红书·甲根坝露营</a> ｜
+                <a href="https://www.xiaohongshu.com/explore/6a3888ce0000000008033cd8" target="_blank" rel="noopener">小红书·甲根坝河谷</a> ｜
+                <a href="https://www.xiaohongshu.com/explore/6a1ae44b000000003701e3f4" target="_blank" rel="noopener">小红书·甲根坝野生景点</a>
             </div>
             <button class="btn btn-green btn-small btn-copy" data-copy="康定甲根坝 民宿攻略">📝 复制关键词</button>
 
@@ -1239,8 +1296,8 @@
                 📍 甲根坝镇日头村（B线无管制）<br>
                 🅿️ 免费停车<br>
                 <span class="price">约400+元/晚（含双早）</span><br>
-                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E7%94%B2%E6%A0%B9%E5%9D%9D%E5%AE%97%E5%AE%AB" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E7%94%B2%E6%A0%B9%E5%9D%9D%E5%AE%97%E5%AE%AB" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E7%94%B2%E6%A0%B9%E5%9D%9D%E5%AE%97%E5%AE%AB" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E7%94%B2%E6%A0%B9%E5%9D%9D%E5%AE%97%E5%AE%AB" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="甲根坝宗宫精品民宿">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -1250,8 +1307,8 @@
                 📍 甲根坝镇提吾村一组23号（B线无管制）<br>
                 🅿️ 免费停车<br>
                 <span class="price">咨询店家</span><br>
-                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E7%94%B2%E6%A0%B9%E5%9D%9D%E5%85%B1%E6%A2%A6%E6%9E%97%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E7%94%B2%E6%A0%B9%E5%9D%9D%E5%85%B1%E6%A2%A6%E6%9E%97%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E7%94%B2%E6%A0%B9%E5%9D%9D%E5%85%B1%E6%A2%A6%E6%9E%97%E6%B0%91%E5%AE%BF" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%BA%B7%E5%AE%9A%E7%94%B2%E6%A0%B9%E5%9D%9D%E5%85%B1%E6%A2%A6%E6%9E%97%E6%B0%91%E5%AE%BF" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="甲根坝共梦林民宿">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -1261,8 +1318,8 @@
                 📍 甲根坝乡木雅村一组87号<br>
                 🅿️ 免费停车<br>
                 <span class="price">咨询店家</span><br>
-                <a href="https://ditu.amap.com/search?query=%E6%9C%A8%E9%9B%85%E9%A6%96%E5%BA%9C%E9%85%92%E5%BA%97%20%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E6%9C%A8%E9%9B%85%E9%A6%96%E5%BA%9C%E9%85%92%E5%BA%97%20%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E6%9C%A8%E9%9B%85%E9%A6%96%E5%BA%9C%E9%85%92%E5%BA%97%20%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E6%9C%A8%E9%9B%85%E9%A6%96%E5%BA%9C%E9%85%92%E5%BA%97%20%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="甲根坝木雅首府酒店">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -1272,8 +1329,8 @@
                 📍 甲根坝镇朋布西村2组10号（B线无管制）<br>
                 🅿️ 免费停车<br>
                 <span class="price">咨询店家</span><br>
-                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%88%91%E6%83%B3%E5%B1%B1%E5%B1%85" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%88%91%E6%83%B3%E5%B1%B1%E5%B1%85" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%88%91%E6%83%B3%E5%B1%B1%E5%B1%85" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%88%91%E6%83%B3%E5%B1%B1%E5%B1%85" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="甲根坝我想山居民宿">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -1283,8 +1340,8 @@
                 📍 甲根坝镇提吾村一组18号（B线无管制）<br>
                 🅿️ 免费停车<br>
                 <span class="price">咨询店家</span><br>
-                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E7%B3%AF%E8%97%8F%E5%AE%A2%E6%A0%88" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E7%B3%AF%E8%97%8F%E5%AE%A2%E6%A0%88" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%E7%B3%AF%E8%97%8F%E5%AE%A2%E6%A0%88" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E7%94%B2%E6%A0%B9%E5%9D%9D%E7%B3%AF%E8%97%8F%E5%AE%A2%E6%A0%88" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="甲根坝糯藏客栈">📝 复制关键词</button>
             </div>
             </div>
@@ -1340,7 +1397,7 @@
                 ⚠️ A线路况差（土路+炮弹坑），SUV才能走，雨天慎行<br>
             </div>
             <div class="src-box">
-                <a href="https://www.xiaohongshu.com/explore/6a1d78180000000037037149" target="_blank">小红书·空中花园602赞</a>
+                <a href="https://www.xiaohongshu.com/explore/6a1d78180000000037037149" target="_blank" rel="noopener">小红书·空中花园602赞</a>
             </div>
             <button class="btn btn-green btn-small btn-copy" data-copy="甲根坝泽桑拉空中花园 攻略">📝 复制关键词</button>
             </div>
@@ -1357,10 +1414,10 @@
 
             <div class="src-box">
                 <strong>📎 出处链接：</strong><br>
-                <a href="https://www.xiaohongshu.com/explore/68a8747f000000001d03566f" target="_blank">小红书·甲根坝村子推荐855赞</a> ｜
-                <a href="https://www.xiaohongshu.com/explore/6a2182de0000000036032776" target="_blank">小红书·甲根坝实话实说178赞</a> ｜
-                <a href="https://www.xiaohongshu.com/explore/6a368e4c000000001503f7fd" target="_blank">小红书·B线封神144赞</a> ｜
-                <a href="https://www.xiaohongshu.com/explore/6a228e5f000000002003bb16" target="_blank">小红书·景点露营总结23赞</a>
+                <a href="https://www.xiaohongshu.com/explore/68a8747f000000001d03566f" target="_blank" rel="noopener">小红书·甲根坝村子推荐855赞</a> ｜
+                <a href="https://www.xiaohongshu.com/explore/6a2182de0000000036032776" target="_blank" rel="noopener">小红书·甲根坝实话实说178赞</a> ｜
+                <a href="https://www.xiaohongshu.com/explore/6a368e4c000000001503f7fd" target="_blank" rel="noopener">小红书·B线封神144赞</a> ｜
+                <a href="https://www.xiaohongshu.com/explore/6a228e5f000000002003bb16" target="_blank" rel="noopener">小红书·景点露营总结23赞</a>
             </div>
 
             <div class="warn-box">
@@ -1409,7 +1466,7 @@
                 或去<strong>日头村</strong>溪边露营野餐（免费，开车直达）。<br>
             </div>
             <div class="src-box">
-                <a href="https://www.xiaohongshu.com/explore/6838f8be000000002100baa0" target="_blank">小红书·捡菌子735赞</a>
+                <a href="https://www.xiaohongshu.com/explore/6838f8be000000002100baa0" target="_blank" rel="noopener">小红书·捡菌子735赞</a>
             </div>
             <button class="btn btn-green btn-small btn-copy" data-copy="甲根坝捡菌子 攻略">📝 复制关键词</button>
             </div>
@@ -1425,8 +1482,8 @@
 
             <div class="src-box">
                 <strong>📎 出处链接：</strong><br>
-                <a href="https://www.xiaohongshu.com/explore/68a28713000000001c037bb7" target="_blank">小红书·土拨鼠攻略154赞</a> ｜
-                <a href="https://www.xiaohongshu.com/explore/6a0f20fb000000003501cced" target="_blank">小红书·夺让村5元拍照28赞</a>
+                <a href="https://www.xiaohongshu.com/explore/68a28713000000001c037bb7" target="_blank" rel="noopener">小红书·土拨鼠攻略154赞</a> ｜
+                <a href="https://www.xiaohongshu.com/explore/6a0f20fb000000003501cced" target="_blank" rel="noopener">小红书·夺让村5元拍照28赞</a>
             </div>
 
             <div class="tip-box">
@@ -1472,7 +1529,7 @@
             </div>
             <div class="src-box">
                 <strong>📎 出处链接：</strong><br>
-                <a href="https://you.ctrip.com/sight/kangding344/1463386.html" target="_blank">携程·姑弄村攻略</a>
+                <a href="https://you.ctrip.com/sight/kangding344/1463386.html" target="_blank" rel="noopener">携程·姑弄村攻略</a>
             </div>
             <button class="btn btn-green btn-small btn-copy" data-copy="塔公姑弄村 游玩攻略">📝 复制关键词</button>
 
@@ -1481,7 +1538,7 @@
                 <strong>🏨 道孚康藏国际酒店</strong>
                 县城档次较高 · 房间供氧<br>
                 <span class="price">约260元/晚</span><br>
-                <a href="https://hotels.ctrip.com/hotels/80947738.html" target="_blank" class="btn btn-small btn-outline">📋 携程</a>
+                <a href="https://hotels.ctrip.com/hotels/80947738.html" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="道孚康藏国际酒店">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -1514,12 +1571,12 @@
                 <div class="quote">“免费看墨石同款地貌，直接导航卡玛桥就能到谷底”<span class="quote-source">—— 小红书 607赞</span></div>
                 <br>
                 📍 导航「卡玛桥」<br>
-                <a href="https://ditu.amap.com/search?query=%E5%8D%A1%E7%8E%9B%E6%A1%A5" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%8D%A1%E7%8E%9B%E6%A1%A5" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E5%8D%A1%E7%8E%9B%E6%A1%A5" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%8D%A1%E7%8E%9B%E6%A1%A5" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
             </div>
             <div class="src-box">
                 <strong>📎 出处链接：</strong><br>
-                <a href="https://www.xiaohongshu.com/explore/6a37bf2c0000000015027bd4" target="_blank">小红书·墨石公园值不值（含卡玛桥替代方案）</a>
+                <a href="https://www.xiaohongshu.com/explore/6a37bf2c0000000015027bd4" target="_blank" rel="noopener">小红书·墨石公园值不值（含卡玛桥替代方案）</a>
             </div>
             <button class="btn btn-green btn-small btn-copy" data-copy="卡玛桥 免费墨石公园 道孚">📝 复制关键词</button>
             </div>
@@ -1582,8 +1639,8 @@
                 免费停车 · 民宿阿姨做饭菜好吃<br>
                 📍 小金县马桑村一组32号<br>
                 <span class="price">咨询店家</span><br>
-                <a href="https://ditu.amap.com/search?query=%E7%8B%AE%E5%AD%90%E5%A0%A1%C2%B7%E7%BE%8E%E5%AE%BF%E5%B0%8F%E9%87%91%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E7%8B%AE%E5%AD%90%E5%A0%A1%C2%B7%E7%BE%8E%E5%AE%BF%E5%B0%8F%E9%87%91%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E7%8B%AE%E5%AD%90%E5%A0%A1%C2%B7%E7%BE%8E%E5%AE%BF%E5%B0%8F%E9%87%91%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E7%8B%AE%E5%AD%90%E5%A0%A1%C2%B7%E7%BE%8E%E5%AE%BF%E5%B0%8F%E9%87%91%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="狮子堡美宿小金店">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -1592,8 +1649,8 @@
                 县城中心位置 · 干净整洁 · 含早餐<br>
                 免费停车 · 周边餐饮购物方便<br>
                 <span class="price">约200-300元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E5%B0%8F%E9%87%91%E5%91%88%E5%96%9C%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%B0%8F%E9%87%91%E5%91%88%E5%96%9C%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E5%B0%8F%E9%87%91%E5%91%88%E5%96%9C%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%B0%8F%E9%87%91%E5%91%88%E5%96%9C%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="小金呈喜酒店">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -1602,8 +1659,8 @@
                 县城中心黄金位置 · 星级标准设施<br>
                 免费停车 · 24h热水<br>
                 <span class="price">约200-300元/晚</span><br>
-                <a href="https://ditu.amap.com/search?query=%E5%B0%8F%E9%87%91%E5%85%89%E5%8D%8E%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://map.baidu.com/search/%E5%B0%8F%E9%87%91%E5%85%89%E5%8D%8E%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 百度</a>
+                <a href="https://ditu.amap.com/search?query=%E5%B0%8F%E9%87%91%E5%85%89%E5%8D%8E%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://map.baidu.com/search/%E5%B0%8F%E9%87%91%E5%85%89%E5%8D%8E%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="小金光华酒店">📝 复制关键词</button>
             </div>
             </div>
@@ -1646,13 +1703,13 @@
                 · ⚠️ 导航设「猫鼻梁观景台」途经点，否则直达会绕过四姑娘山
             </div>
 
-            <h4 style="margin:10px 0 6px;color:#6366F1;">分段详情</h4>
-            <table style="width:100%;font-size:12px;border-collapse:collapse;">
+            <h4 style="margin:10px 0 6px;color:var(--primary-light);">分段详情</h4>
+            <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;"><table style="width:100%;font-size:12px;border-collapse:collapse;">
                 <tr style="background:#D1FAE5;"><th style="padding:6px;text-align:left;border:1px solid #A7F3D0;">时段</th><th style="padding:6px;text-align:left;border:1px solid #A7F3D0;">路段</th><th style="padding:6px;text-align:left;border:1px solid #A7F3D0;">里程</th><th style="padding:6px;text-align:left;border:1px solid #A7F3D0;">活动</th><th style="padding:6px;text-align:left;border:1px solid #A7F3D0;">导航</th></tr>
-                <tr><td style="padding:4px 6px;border:1px solid #A7F3D0;">8:30-9:30</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">小金→四姑娘山（猫鼻梁）</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">~50km/1h</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">沿S303北上，猫鼻梁观景台免费看四姑娘山全景</td><td style="padding:4px 6px;border:1px solid #A7F3D0;"><a href="https://uri.amap.com/marker?position=103.16,30.98&name=猫鼻梁观景台&src=travel" target="_blank" class="btn btn-small btn-outline">🗺️高德</a></td></tr>
-                <tr><td style="padding:4px 6px;border:1px solid #A7F3D0;">9:30-10:00</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">猫鼻梁观景台拍照</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">—</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">拍四姑娘山全景，能见度最好的时段</td><td style="padding:4px 6px;border:1px solid #A7F3D0;"><a href="https://uri.amap.com/marker?position=103.16,30.98&name=猫鼻梁观景台&src=travel" target="_blank" class="btn btn-small btn-outline">🗺️高德</a></td></tr>
-                <tr><td style="padding:4px 6px;border:1px solid #A7F3D0;">10:00-13:00</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">四姑娘山→映秀</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">~130km/3h</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">G350熊猫大道，弯多坡陡隧道多，注意横风</td><td style="padding:4px 6px;border:1px solid #A7F3D0;"><a href="https://uri.amap.com/marker?position=103.57,31.07&name=映秀镇&src=travel" target="_blank" class="btn btn-small btn-outline">🗺️高德</a></td></tr>
-                <tr><td style="padding:4px 6px;border:1px solid #A7F3D0;">13:00-17:00</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">映秀→重庆</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">~380km/4h</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">G5013渝蓉高速，中午服务区用餐</td><td style="padding:4px 6px;border:1px solid #A7F3D0;"><a href="https://uri.amap.com/marker?position=106.55,29.58&name=重庆观音桥&src=travel" target="_blank" class="btn btn-small btn-outline">🗺️高德</a></td></tr>
+                <tr><td style="padding:4px 6px;border:1px solid #A7F3D0;">8:30-9:30</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">小金→四姑娘山（猫鼻梁）</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">~50km/1h</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">沿S303北上，猫鼻梁观景台免费看四姑娘山全景</td><td style="padding:4px 6px;border:1px solid #A7F3D0;"><a href="https://uri.amap.com/marker?position=103.16,30.98&name=猫鼻梁观景台&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️高德</a></td></tr>
+                <tr><td style="padding:4px 6px;border:1px solid #A7F3D0;">9:30-10:00</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">猫鼻梁观景台拍照</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">—</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">拍四姑娘山全景，能见度最好的时段</td><td style="padding:4px 6px;border:1px solid #A7F3D0;"><a href="https://uri.amap.com/marker?position=103.16,30.98&name=猫鼻梁观景台&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️高德</a></td></tr>
+                <tr><td style="padding:4px 6px;border:1px solid #A7F3D0;">10:00-13:00</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">四姑娘山→映秀</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">~130km/3h</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">G350熊猫大道，弯多坡陡隧道多，注意横风</td><td style="padding:4px 6px;border:1px solid #A7F3D0;"><a href="https://uri.amap.com/marker?position=103.57,31.07&name=映秀镇&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️高德</a></td></tr>
+                <tr><td style="padding:4px 6px;border:1px solid #A7F3D0;">13:00-17:00</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">映秀→重庆</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">~380km/4h</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">G5013渝蓉高速，中午服务区用餐</td><td style="padding:4px 6px;border:1px solid #A7F3D0;"><a href="https://uri.amap.com/marker?position=106.55,29.58&name=重庆观音桥&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️高德</a></td></tr>
             </table>
 
             <div class="reason">
@@ -1672,8 +1729,8 @@
                 🚗 近红旗河沟地铁站，距渝蓉高速入口约20分钟<br>
                 🅿️ 免费停车 · 华住会会员积分<br>
                 <span class="price">约200-300元/晚</span><br>
-                <a href="https://uri.amap.com/marker?position=106.55,29.58&name=汉庭酒店重庆观音桥步行街店&src=travel" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://hotels.ctrip.com/" target="_blank" class="btn btn-small btn-outline">📋 携程</a>
+                <a href="https://uri.amap.com/marker?position=106.55,29.58&name=汉庭酒店重庆观音桥步行街店&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://hotels.ctrip.com/" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="汉庭酒店重庆观音桥步行街店">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
@@ -1683,20 +1740,20 @@
                 🚗 近红旗河沟地铁站，步行可达观音桥步行街<br>
                 🅿️ 免费停车 · 亚朵摄影文化 · 深夜粥到<br>
                 <span class="price">约350-500元/晚</span><br>
-                <a href="https://uri.amap.com/marker?position=106.55,29.58&name=亚朵酒店重庆观音桥店&src=travel" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://hotels.ctrip.com/" target="_blank" class="btn btn-small btn-outline">📋 携程</a>
+                <a href="https://uri.amap.com/marker?position=106.55,29.58&name=亚朵酒店重庆观音桥店&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://hotels.ctrip.com/" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程</a>
                 <button class="btn btn-green btn-small btn-copy" data-copy="亚朵酒店重庆观音桥店">📝 复制关键词</button>
             </div>
             <div class="hotel-box">
-                <strong>🏨 重庆喜来登大酒店</strong>
-                <span class="tag tag-must">五星首选</span>万豪集团旗下<br>
-                📍 渝北区观音桥步行街<br>
-                🚗 观音桥核心商圈，地铁直达<br>
-                🅿️ 免费停车 · 室内泳池 · 健身房 · 行政酒廊<br>
-                <span class="price">约600-1000元/晚</span><br>
-                <a href="https://uri.amap.com/marker?position=106.55,29.58&name=重庆喜来登大酒店&src=travel" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-                <a href="https://hotels.ctrip.com/" target="_blank" class="btn btn-small btn-outline">📋 携程</a>
-                <button class="btn btn-green btn-small btn-copy" data-copy="重庆喜来登大酒店 观音桥">📝 复制关键词</button>
+                <strong>🏨 重庆富力凯悦酒店</strong>
+                <span class="tag tag-must">五星首选</span>凯悦集团旗下<br>
+                📍 江北区北城天街11号（观音桥步行街核心）<br>
+                🚗 观音桥核心商圈，距渝蓉高速入口约20min<br>
+                🅿️ 免费停车 · 室内泳池 · 行政酒廊<br>
+                <span class="price">约700-1200元/晚</span><br>
+                <a href="https://uri.amap.com/marker?position=106.53,29.58&name=重庆富力凯悦酒店&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://hotels.ctrip.com/" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程</a>
+                <button class="btn btn-green btn-small btn-copy" data-copy="重庆富力凯悦酒店 观音桥">📝 复制关键词</button>
             </div>
             </div>
 
@@ -1731,7 +1788,7 @@
                 建议傍晚去，亮灯后拍照最佳，从千厮门大桥上看全景。<br>
                 ⏰ 亮灯时间约18:30-22:30<br>
                 📍 渝中区嘉滨江路<br>
-                <a href="https://uri.amap.com/marker?position=106.57,29.56&name=洪崖洞&src=travel" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://uri.amap.com/marker?position=106.57,29.56&name=洪崖洞&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
             </div>
             </div>
             <div>
@@ -1740,7 +1797,7 @@
                 2号线从居民楼中穿过，重庆独有奇观。<br>
                 在楼下观景平台拍照，2分钟搞定。<br>
                 📍 渝中区李子坝正街<br>
-                <a href="https://uri.amap.com/marker?position=106.49,29.55&name=李子坝轻轨站&src=travel" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://uri.amap.com/marker?position=106.49,29.55&name=李子坝轻轨站&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
             </div>
             </div>
             <div>
@@ -1749,7 +1806,7 @@
                 千年古镇，小吃多，适合慢慢逛。<br>
                 陈麻花、毛血旺、鸡杂都是特色。<br>
                 📍 沙坪坝区磁器口大街<br>
-                <a href="https://uri.amap.com/marker?position=106.45,29.56&name=磁器口古镇&src=travel" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+                <a href="https://uri.amap.com/marker?position=106.45,29.56&name=磁器口古镇&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
             </div>
             </div>
             <div>
@@ -1868,57 +1925,59 @@
                 <span class="arrow">▶</span>
             </summary>
             <p style="font-size:13px;color:#6B7280;margin-bottom:10px;">以下为方案中所有景点、住宿的出处链接，每个条目均来自可验证的公开来源。</p>
-            <table>
+            
+        <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+        <table>
                 <tr><th>类别</th><th>地点</th><th>来源</th><th>链接</th></tr>
-                <tr><td>♨️ 景点</td><td>中谷村温泉</td><td>携程/甘孜旅游/小红书</td><td><a href="https://www.trip.com/moments/detail/kangding-344-136458329/" target="_blank">携程</a>｜<a href="http://www.gzz.gov.cn/gzmj/article/699944" target="_blank">甘孜旅游</a>｜<a href="https://www.xiaohongshu.com/explore/6846886b0000000021007873" target="_blank">小红书①</a>｜<a href="https://www.xiaohongshu.com/explore/6746ccb10000000007025fa5" target="_blank">小红书②</a></td></tr>
-<tr><td>🔴 景点</td><td>雅家埂垭口</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/687fad8a0000000010013c71" target="_blank">小红书·离康定很近没人去 877赞</a></td></tr>
-<tr><td>🛣️ 景点</td><td>S434省道北线</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/695f6c6d00000000220313d1" target="_blank">大雪兒 405赞</a>｜<a href="https://www.xiaohongshu.com/explore/6a253346000000001702c12a" target="_blank">风平浪静 300赞</a>｜<a href="https://www.xiaohongshu.com/explore/689749680000000023037277" target="_blank">1937赞</a></td></tr>
-<tr><td>🏛️ 景点</td><td>甘孜州博物馆</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/6a0daf2c00000000350254b2" target="_blank">小红书·康定被低估 485赞</a></td></tr>
-<tr><td>🏨 住宿</td><td>康定问风民宿</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/67506a8c000000000203ae21" target="_blank">小红书·住康定 679赞</a></td></tr>
-<tr><td>🏨 住宿</td><td>康定岚予酒店</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/66962b9a000000000a007723" target="_blank">小红书·带狗游川西 518赞</a></td></tr>
-<tr><td>🏨 住宿</td><td>康定听山·森谷汤泉民宿</td><td>携程/小红书</td><td><a href="https://hotels.ctrip.com/hotels/54424704.html" target="_blank">携程</a></td></tr>
+                <tr><td>♨️ 景点</td><td>中谷村温泉</td><td>携程/甘孜旅游/小红书</td><td><a href="https://www.trip.com/moments/detail/kangding-344-136458329/" target="_blank" rel="noopener">携程</a>｜<a href="http://www.gzz.gov.cn/gzmj/article/699944" target="_blank" rel="noopener">甘孜旅游</a>｜<a href="https://www.xiaohongshu.com/explore/6846886b0000000021007873" target="_blank" rel="noopener">小红书①</a>｜<a href="https://www.xiaohongshu.com/explore/6746ccb10000000007025fa5" target="_blank" rel="noopener">小红书②</a></td></tr>
+<tr><td>🔴 景点</td><td>雅家埂垭口</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/687fad8a0000000010013c71" target="_blank" rel="noopener">小红书·离康定很近没人去 877赞</a></td></tr>
+<tr><td>🛣️ 景点</td><td>S434省道北线</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/695f6c6d00000000220313d1" target="_blank" rel="noopener">大雪兒 405赞</a>｜<a href="https://www.xiaohongshu.com/explore/6a253346000000001702c12a" target="_blank" rel="noopener">风平浪静 300赞</a>｜<a href="https://www.xiaohongshu.com/explore/689749680000000023037277" target="_blank" rel="noopener">1937赞</a></td></tr>
+<tr><td>🏛️ 景点</td><td>甘孜州博物馆</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/6a0daf2c00000000350254b2" target="_blank" rel="noopener">小红书·康定被低估 485赞</a></td></tr>
+<tr><td>🏨 住宿</td><td>康定问风民宿</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/67506a8c000000000203ae21" target="_blank" rel="noopener">小红书·住康定 679赞</a></td></tr>
+<tr><td>🏨 住宿</td><td>康定岚予酒店</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/66962b9a000000000a007723" target="_blank" rel="noopener">小红书·带狗游川西 518赞</a></td></tr>
+<tr><td>🏨 住宿</td><td>康定听山·森谷汤泉民宿</td><td>携程/小红书</td><td><a href="https://hotels.ctrip.com/hotels/54424704.html" target="_blank" rel="noopener">携程</a></td></tr>
                 <tr><td>🏔️ 景点</td><td>南门关沟</td><td>携程/小红书</td><td>已从D5移出</td></tr>
-                <tr><td>🌾 景点</td><td>甲根坝河谷</td><td>携程/小红书</td><td><a href="https://www.trip.com/moments/detail/kangding-344-136458330/" target="_blank">携程</a>｜<a href="https://www.xiaohongshu.com/explore/6a0e899c000000000803da26" target="_blank">小红书①</a>｜<a href="https://www.xiaohongshu.com/explore/6a3888ce0000000008033cd8" target="_blank">小红书②</a>｜<a href="https://www.xiaohongshu.com/explore/6a1ae44b000000003701e3f4" target="_blank">小红书③</a></td></tr>
-                <tr><td>🏘️ 景点</td><td>提吾村</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/6a23f0d8000000000702e2c6" target="_blank">小红书①</a>｜<a href="https://www.xiaohongshu.com/explore/6a35041f000000000f029112" target="_blank">小红书②</a>｜<a href="https://www.xiaohongshu.com/explore/68a175a9000000001b01ccdf" target="_blank">小红书③</a></td></tr>
-                <tr><td>🏔️ 景点</td><td>亚拢沟钙化滩</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/6915991e000000000d0358d3" target="_blank">小红书①</a>｜<a href="https://www.xiaohongshu.com/explore/6476f7c70000000027011500" target="_blank">小红书②</a>｜<a href="https://www.xiaohongshu.com/explore/5f05e032000000000101c4b1" target="_blank">小红书③</a></td></tr>
+                <tr><td>🌾 景点</td><td>甲根坝河谷</td><td>携程/小红书</td><td><a href="https://www.trip.com/moments/detail/kangding-344-136458330/" target="_blank" rel="noopener">携程</a>｜<a href="https://www.xiaohongshu.com/explore/6a0e899c000000000803da26" target="_blank" rel="noopener">小红书①</a>｜<a href="https://www.xiaohongshu.com/explore/6a3888ce0000000008033cd8" target="_blank" rel="noopener">小红书②</a>｜<a href="https://www.xiaohongshu.com/explore/6a1ae44b000000003701e3f4" target="_blank" rel="noopener">小红书③</a></td></tr>
+                <tr><td>🏘️ 景点</td><td>提吾村</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/6a23f0d8000000000702e2c6" target="_blank" rel="noopener">小红书①</a>｜<a href="https://www.xiaohongshu.com/explore/6a35041f000000000f029112" target="_blank" rel="noopener">小红书②</a>｜<a href="https://www.xiaohongshu.com/explore/68a175a9000000001b01ccdf" target="_blank" rel="noopener">小红书③</a></td></tr>
+                <tr><td>🏔️ 景点</td><td>亚拢沟钙化滩</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/6915991e000000000d0358d3" target="_blank" rel="noopener">小红书①</a>｜<a href="https://www.xiaohongshu.com/explore/6476f7c70000000027011500" target="_blank" rel="noopener">小红书②</a>｜<a href="https://www.xiaohongshu.com/explore/5f05e032000000000101c4b1" target="_blank" rel="noopener">小红书③</a></td></tr>
                     <tr><td>🏔️ 景点</td><td>月亮湖</td><td>甘孜旅游/携程/小红书</td><td>已从路线移出（绕路+收费）</td></tr>
 
-                <tr><td>🏔️ 景点</td><td>姑弄村</td><td>携程/小红书</td><td><a href="https://you.ctrip.com/sight/kangding344/1463386.html" target="_blank">携程</a>｜<a href="https://www.xiaohongshu.com/search?q=%E5%A7%91%E5%BC%84%E6%9D%91" target="_blank">小红书</a></td></tr>
-                <tr><td>🪨 景点</td><td>墨石公园</td><td>携程/小红书</td><td><a href="https://www.trip.com/moments/detail/daofu-2058-136458334/" target="_blank">携程</a>｜<a href="https://www.xiaohongshu.com/explore/6a37bf2c0000000015027bd4" target="_blank">小红书①</a>｜<a href="https://www.xiaohongshu.com/explore/69e808c40000000023020b5b" target="_blank">小红书②</a></td></tr>
-                <tr><td>🪨 景点</td><td>卡玛村（免费替代墨石）</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/6a37bf2c0000000015027bd4" target="_blank">小红书·墨石公园值不值</a></td></tr>
-                <tr><td>🏔️ 景点</td><td>金小路S451</td><td>小红书/甘孜发布</td><td><a href="https://www.xiaohongshu.com/search?q=%E9%87%91%E5%B0%8F%E8%B7%AF" target="_blank">小红书搜索</a></td></tr>
-                <tr><td>🏨 住宿</td><td>狮子堡·美宿(小金店)</td><td>携程/高德</td><td><a href="https://m.ctrip.com/html5/hotel/hoteldetail/118316038.html" target="_blank">携程</a></td></tr>
-                <tr><td>🏨 住宿</td><td>小金呈喜酒店</td><td>携程</td><td><a href="https://www.trip.com/moments/detail/xiaojin-3110-145025483/" target="_blank">Trip.com笔记提及</a></td></tr>
-                <tr><td>🔴 景点</td><td>雅家埂红石滩</td><td>百度百科/小红书</td><td><a href="https://baike.baidu.com/item/%E7%BA%A2%E7%9F%B3%E6%BB%A9" target="_blank">百度百科</a>｜<a href="https://www.xiaohongshu.com/explore/69a28e340000000026030525" target="_blank">小红书</a></td></tr>
-                <tr><td>🌉 景点</td><td>泸定桥</td><td>高德/百度</td><td><a href="https://uri.amap.com/marker?position=102.23,29.92&name=%E6%B3%B8%E5%AE%9A%E6%A1%A5" target="_blank">高德</a>｜<a href="https://map.baidu.com/search/%E6%B3%B8%E5%AE%9A%E6%A1%A5" target="_blank">百度</a></td></tr>
+                <tr><td>🏔️ 景点</td><td>姑弄村</td><td>携程/小红书</td><td><a href="https://you.ctrip.com/sight/kangding344/1463386.html" target="_blank" rel="noopener">携程</a>｜<a href="https://www.xiaohongshu.com/search?q=%E5%A7%91%E5%BC%84%E6%9D%91" target="_blank" rel="noopener">小红书</a></td></tr>
+                <tr><td>🪨 景点</td><td>墨石公园</td><td>携程/小红书</td><td><a href="https://www.trip.com/moments/detail/daofu-2058-136458334/" target="_blank" rel="noopener">携程</a>｜<a href="https://www.xiaohongshu.com/explore/6a37bf2c0000000015027bd4" target="_blank" rel="noopener">小红书①</a>｜<a href="https://www.xiaohongshu.com/explore/69e808c40000000023020b5b" target="_blank" rel="noopener">小红书②</a></td></tr>
+                <tr><td>🪨 景点</td><td>卡玛村（免费替代墨石）</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/6a37bf2c0000000015027bd4" target="_blank" rel="noopener">小红书·墨石公园值不值</a></td></tr>
+                <tr><td>🏔️ 景点</td><td>金小路S451</td><td>小红书/甘孜发布</td><td><a href="https://www.xiaohongshu.com/search?q=%E9%87%91%E5%B0%8F%E8%B7%AF" target="_blank" rel="noopener">小红书搜索</a></td></tr>
+                <tr><td>🏨 住宿</td><td>狮子堡·美宿(小金店)</td><td>携程/高德</td><td><a href="https://m.ctrip.com/html5/hotel/hoteldetail/118316038.html" target="_blank" rel="noopener">携程</a></td></tr>
+                <tr><td>🏨 住宿</td><td>小金呈喜酒店</td><td>携程</td><td><a href="https://www.trip.com/moments/detail/xiaojin-3110-145025483/" target="_blank" rel="noopener">Trip.com笔记提及</a></td></tr>
+                <tr><td>🔴 景点</td><td>雅家埂红石滩</td><td>百度百科/小红书</td><td><a href="https://baike.baidu.com/item/%E7%BA%A2%E7%9F%B3%E6%BB%A9" target="_blank" rel="noopener">百度百科</a>｜<a href="https://www.xiaohongshu.com/explore/69a28e340000000026030525" target="_blank" rel="noopener">小红书</a></td></tr>
+                <tr><td>🌉 景点</td><td>泸定桥</td><td>高德/百度</td><td><a href="https://uri.amap.com/marker?position=102.23,29.92&name=%E6%B3%B8%E5%AE%9A%E6%A1%A5" target="_blank" rel="noopener">高德</a>｜<a href="https://map.baidu.com/search/%E6%B3%B8%E5%AE%9A%E6%A1%A5" target="_blank" rel="noopener">百度</a></td></tr>
                 <tr><td>🏔️ 景点</td><td>折多山垭口</td><td>经验提示</td><td>-</td></tr>
-                <tr><td>🌿 景点</td><td>江巴牧场</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E6%B1%9F%E5%B7%B4%E7%89%A7%E5%9C%BA" target="_blank">搜索</a></td></tr>
-                <tr><td>🌊 景点</td><td>红海子</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E5%BA%B7%E5%AE%9A%E7%BA%A2%E6%B5%B7%E5%AD%90" target="_blank">搜索</a></td></tr>
+                <tr><td>🌿 景点</td><td>江巴牧场</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E6%B1%9F%E5%B7%B4%E7%89%A7%E5%9C%BA" target="_blank" rel="noopener">搜索</a></td></tr>
+                <tr><td>🌊 景点</td><td>红海子</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E5%BA%B7%E5%AE%9A%E7%BA%A2%E6%B5%B7%E5%AD%90" target="_blank" rel="noopener">搜索</a></td></tr>
                 <tr><td>🏘️ 景点</td><td>日泽村</td><td>高德/百度</td><td>-</td></tr>
-                <tr><td>🌿 景点</td><td>玉科大草原</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E7%8E%89%E7%A7%91%E5%A4%A7%E8%8D%89%E5%8E%9F" target="_blank">搜索</a></td></tr>
-                <tr><td>🐼 景点</td><td>熊猫谷</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/6953b912000000001e0345cd" target="_blank">小红书①</a>｜<a href="https://www.xiaohongshu.com/explore/68bd1eb8000000001d0273df" target="_blank">小红书②</a></td></tr>
-                <tr><td>🏛️ 景点</td><td>成都博物馆</td><td>公众号</td><td><a href="https://www.xiaohongshu.com/search?q=%E6%88%90%E9%83%BD%E5%8D%9A%E7%89%A9%E9%A6%86%E9%A2%84%E7%BA%A6" target="_blank">搜索</a></td></tr>
-                <tr><td>📸 景点</td><td>东郊记忆</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E6%88%90%E9%83%BD%E4%B8%9C%E9%83%8A%E8%AE%B0%E5%BF%86" target="_blank">搜索</a></td></tr>
-                <tr><td>🍵 景点</td><td>人民公园鹤鸣茶社</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E4%BA%BA%E6%B0%91%E5%85%AC%E5%9B%AD%E9%B9%A4%E9%B8%A3%E8%8C%B6%E7%A4%BE" target="_blank">搜索</a></td></tr>
-                <tr><td>🏘️ 景点</td><td>宽窄巷子</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E5%AE%BD%E7%AA%84%E5%B7%B7%E5%AD%90%E6%94%BB%E7%95%A5" target="_blank">搜索</a></td></tr>
-                <tr><td>🛍️ 景点</td><td>太古里/IFS</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E6%88%90%E9%83%BD%E5%A4%AA%E5%8F%A4%E9%87%8C%E7%88%AC%E6%A5%BC%E7%86%8A%E7%8C%AB" target="_blank">搜索</a></td></tr>
-                <tr><td>📿 景点</td><td>文殊院</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E6%96%87%E6%AE%8A%E9%99%A2%E7%BA%A2%E5%A2%99" target="_blank">搜索</a></td></tr>
-                <tr><td>🌊 景点</td><td>三道堰古镇</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E4%B8%89%E9%81%93%E5%A0%B0%E5%8F%AF%E4%BB%A5%E7%8E%A9%E6%B0%B4" target="_blank">搜索</a></td></tr>
+                <tr><td>🌿 景点</td><td>玉科大草原</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E7%8E%89%E7%A7%91%E5%A4%A7%E8%8D%89%E5%8E%9F" target="_blank" rel="noopener">搜索</a></td></tr>
+                <tr><td>🐼 景点</td><td>熊猫谷</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/explore/6953b912000000001e0345cd" target="_blank" rel="noopener">小红书①</a>｜<a href="https://www.xiaohongshu.com/explore/68bd1eb8000000001d0273df" target="_blank" rel="noopener">小红书②</a></td></tr>
+                <tr><td>🏛️ 景点</td><td>成都博物馆</td><td>公众号</td><td><a href="https://www.xiaohongshu.com/search?q=%E6%88%90%E9%83%BD%E5%8D%9A%E7%89%A9%E9%A6%86%E9%A2%84%E7%BA%A6" target="_blank" rel="noopener">搜索</a></td></tr>
+                <tr><td>📸 景点</td><td>东郊记忆</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E6%88%90%E9%83%BD%E4%B8%9C%E9%83%8A%E8%AE%B0%E5%BF%86" target="_blank" rel="noopener">搜索</a></td></tr>
+                <tr><td>🍵 景点</td><td>人民公园鹤鸣茶社</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E4%BA%BA%E6%B0%91%E5%85%AC%E5%9B%AD%E9%B9%A4%E9%B8%A3%E8%8C%B6%E7%A4%BE" target="_blank" rel="noopener">搜索</a></td></tr>
+                <tr><td>🏘️ 景点</td><td>宽窄巷子</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E5%AE%BD%E7%AA%84%E5%B7%B7%E5%AD%90%E6%94%BB%E7%95%A5" target="_blank" rel="noopener">搜索</a></td></tr>
+                <tr><td>🛍️ 景点</td><td>太古里/IFS</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E6%88%90%E9%83%BD%E5%A4%AA%E5%8F%A4%E9%87%8C%E7%88%AC%E6%A5%BC%E7%86%8A%E7%8C%AB" target="_blank" rel="noopener">搜索</a></td></tr>
+                <tr><td>📿 景点</td><td>文殊院</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E6%96%87%E6%AE%8A%E9%99%A2%E7%BA%A2%E5%A2%99" target="_blank" rel="noopener">搜索</a></td></tr>
+                <tr><td>🌊 景点</td><td>三道堰古镇</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E4%B8%89%E9%81%93%E5%A0%B0%E5%8F%AF%E4%BB%A5%E7%8E%A9%E6%B0%B4" target="_blank" rel="noopener">搜索</a></td></tr>
                 
                 
-                <tr><td>🏨 住宿</td><td>九米雪山原创艺术酒店</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E7%94%B2%E6%A0%B9%E5%9D%9D%E4%B9%9D%E7%B1%B3%E9%9B%AA%E5%B1%B1" target="_blank">搜索</a></td></tr>
-                <tr><td>🏨 住宿</td><td>云里山居</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E7%94%B2%E6%A0%B9%E5%9D%9D%E4%BA%91%E9%87%8C%E5%B1%B1%E5%B1%85" target="_blank">搜索</a></td></tr>
-                <tr><td>🏨 住宿</td><td>木雅·原乡别院</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%9C%A8%E9%9B%85%E5%8E%9F%E4%B9%A1%E5%88%AB%E9%99%A2" target="_blank">搜索</a></td></tr>
-                <tr><td>🏨 住宿</td><td>壹品山景度假民宿</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E7%94%B2%E6%A0%B9%E5%9D%9D%E5%A3%B9%E5%93%81%E5%B1%B1%E6%99%AF" target="_blank">搜索</a></td></tr>
-                <tr><td>🏨 住宿</td><td>道孚康藏国际酒店</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/80947738.html" target="_blank">携程</a></td></tr>
+                <tr><td>🏨 住宿</td><td>九米雪山原创艺术酒店</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E7%94%B2%E6%A0%B9%E5%9D%9D%E4%B9%9D%E7%B1%B3%E9%9B%AA%E5%B1%B1" target="_blank" rel="noopener">搜索</a></td></tr>
+                <tr><td>🏨 住宿</td><td>云里山居</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E7%94%B2%E6%A0%B9%E5%9D%9D%E4%BA%91%E9%87%8C%E5%B1%B1%E5%B1%85" target="_blank" rel="noopener">搜索</a></td></tr>
+                <tr><td>🏨 住宿</td><td>木雅·原乡别院</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E7%94%B2%E6%A0%B9%E5%9D%9D%E6%9C%A8%E9%9B%85%E5%8E%9F%E4%B9%A1%E5%88%AB%E9%99%A2" target="_blank" rel="noopener">搜索</a></td></tr>
+                <tr><td>🏨 住宿</td><td>壹品山景度假民宿</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E7%94%B2%E6%A0%B9%E5%9D%9D%E5%A3%B9%E5%93%81%E5%B1%B1%E6%99%AF" target="_blank" rel="noopener">搜索</a></td></tr>
+                <tr><td>🏨 住宿</td><td>道孚康藏国际酒店</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/80947738.html" target="_blank" rel="noopener">携程</a></td></tr>
                 <tr><td>🏨 住宿</td><td>道孚珠玛酒店</td><td>高德/百度</td><td>-</td></tr>
-                <tr><td>🏨 住宿</td><td>宜昌东站鑫鼎亚朵酒店</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/116989452.html" target="_blank">携程</a></td></tr>
-                <tr><td>🏨 住宿</td><td>桔子酒店(宜昌火车东站店)</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/120253908.html" target="_blank">携程</a></td></tr>
-                <tr><td>🏨 住宿</td><td>桔子酒店(恩施女儿城店)</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/118857104.html" target="_blank">携程</a></td></tr>
-                <tr><td>🏨 住宿</td><td>成都大悦城武侯大道地铁站亚朵X酒店</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/80979591.html" target="_blank">携程</a></td></tr>
-                <tr><td>🏨 住宿</td><td>成都武侯渝江皇冠假日酒店</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/72965590.html" target="_blank">携程</a></td></tr>
-                <tr><td>🏨 住宿</td><td>成都武侯祠希尔顿欢朋酒店</td><td>希尔顿官网</td><td><a href="https://www.hilton.com.cn/zh-cn/hotels/cturnhx-hampton-by-hilton-chengdu-wuhou-hongpailou" target="_blank">希尔顿官网</a></td></tr>
-                <tr><td>🍜 美食</td><td>烤匠麻辣烤鱼 / 骆老妈蹄花 / 义学巷菜市火锅串串</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E7%83%A4%E5%8C%A0%E9%BA%BB%E8%BE%A3%E7%83%A4%E9%B1%BC" target="_blank">搜索</a></td></tr>
+                <tr><td>🏨 住宿</td><td>宜昌东站鑫鼎亚朵酒店</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/116989452.html" target="_blank" rel="noopener">携程</a></td></tr>
+                <tr><td>🏨 住宿</td><td>桔子酒店(宜昌火车东站店)</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/120253908.html" target="_blank" rel="noopener">携程</a></td></tr>
+                <tr><td>🏨 住宿</td><td>桔子酒店(恩施女儿城店)</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/118857104.html" target="_blank" rel="noopener">携程</a></td></tr>
+                <tr><td>🏨 住宿</td><td>成都大悦城武侯大道地铁站亚朵X酒店</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/80979591.html" target="_blank" rel="noopener">携程</a></td></tr>
+                <tr><td>🏨 住宿</td><td>成都武侯渝江皇冠假日酒店</td><td>携程</td><td><a href="https://hotels.ctrip.com/hotels/72965590.html" target="_blank" rel="noopener">携程</a></td></tr>
+                <tr><td>🏨 住宿</td><td>成都武侯祠希尔顿欢朋酒店</td><td>希尔顿官网</td><td><a href="https://www.hilton.com.cn/zh-cn/hotels/cturnhx-hampton-by-hilton-chengdu-wuhou-hongpailou" target="_blank" rel="noopener">希尔顿官网</a></td></tr>
+                <tr><td>🍜 美食</td><td>烤匠麻辣烤鱼 / 骆老妈蹄花 / 义学巷菜市火锅串串</td><td>小红书</td><td><a href="https://www.xiaohongshu.com/search?q=%E7%83%A4%E5%8C%A0%E9%BA%BB%E8%BE%A3%E7%83%A4%E9%B1%BC" target="_blank" rel="noopener">搜索</a></td></tr>
             </table>
         </details>
     </div>
@@ -1932,37 +1991,37 @@
             </summary>
             <p><span class="tag tag-must">必去</span>核心自然风光，行程主轴 <span class="tag tag-alt">备选</span>视状态决定 <span class="tag tag-pass">路过</span>顺路浅逛</p>
         <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
-        <table>
+        <table style="white-space:nowrap;min-width:100%;">
             <colgroup><col style="width:8%"><col style="width:22%"><col style="width:10%"><col style="width:28%"><col style="width:8%"><col style="width:24%"></colgroup>
             <tr><th>等级</th><th>点位</th><th>类型</th><th>说明</th><th>行程日</th><th>出处</th></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>雅家埂垭口</td><td>红石/雪山</td><td>877赞小众无人，红石滩+雪山倒影同框</td><td>D4</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/687fad8a0000000010013c71" target="_blank">📕877赞</a></td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>机场彩虹公路</td><td>公路/雪山</td><td>S434最美公路段，贡嘎雪山正面，公路大片</td><td>D5</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/689749680000000023037277" target="_blank">📕1937赞</a></td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>甲根坝河谷</td><td>田园/溪流</td><td>全程最松弛的小众秘境</td><td>D7-D9</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a3888ce0000000008033cd8" target="_blank">📕攻略</a></td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>提吾村</td><td>藏寨/人文</td><td>原始藏寨，宠物友好，青稞田园木栈道</td><td>D8</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a23f0d8000000000702e2c6" target="_blank">📕攻略</a></td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>夺让村·土拨鼠</td><td>田园/互动</td><td>B线柏油路直达，5元/人土拨鼠互动（11点前到）</td><td>D8</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/68a28713000000001c037bb7" target="_blank">📕154赞</a></td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>卡玛村（免费替代墨石公园）</td><td>地质/免费</td><td>导航"卡玛桥"拍墨石同款地貌，607赞验证</td><td>D11</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a37bf2c0000000015027bd4" target="_blank">📕攻略</a></td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>金小路S451</td><td>公路/雪山</td><td>2026年新通景观公路，87km雪山画廊"川西小独库"</td><td>D12</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a202ed30000000008031eeb" target="_blank">📕246赞</a></td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>猫鼻梁观景台</td><td>雪山/观景</td><td>免费拍摄四姑娘山全景最佳机位</td><td>D13</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/69b49790000000002202864c" target="_blank">📕314赞</a></td></tr>
-            <tr><td><span class="tag tag-must">必去</span></td><td>洪崖洞夜景</td><td>夜景/地标</td><td>千与千寻既视感，千厮门大桥拍全景</td><td>D14</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6925cb35000000001b022cbc" target="_blank">📕4574赞</a></td></tr>
-            <tr><td><span class="tag tag-must">推荐</span></td><td>泸定桥</td><td>人文/历史</td><td>上桥体验，桥下大渡河奔腾</td><td>D4</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/695c76ce000000001a027034" target="_blank">📕630赞</a></td></tr>
-            <tr><td><span class="tag tag-must">推荐</span></td><td>康定老城区</td><td>人文/美食</td><td>溜溜城老街+情歌广场，被低估的康定玩法</td><td>D6</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a0daf2c00000000350254b2" target="_blank">📕485赞</a></td></tr>
-            <tr><td><span class="tag tag-must">推荐</span></td><td>姑弄村</td><td>草原/雪山</td><td>面朝雅拉雪山草甸，D10午餐野餐核心站</td><td>D10</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/69eca9ef00000000380341e9" target="_blank">📕780赞</a></td></tr>
-            <tr><td><span class="tag tag-must">推荐</span></td><td>重庆火锅</td><td>美食</td><td>来重庆必吃！推荐佩姐/周师兄/大龙火锅</td><td>D14</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/68b55c4e000000001c03f2ff" target="_blank">📕4875赞</a></td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>中谷村温泉</td><td>温泉/自然</td><td>距康定49min，适合雨天泡汤放松</td><td>D5/D6</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6846886b0000000021007873" target="_blank">📕攻略</a></td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>迦嘎措（红海子）</td><td>湖泊/雪山</td><td>碧蓝湖泊倒映雅拉雪峰，15元/人</td><td>D5</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/680e4a6e000000002300d7e6" target="_blank">📕521赞</a></td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>雅拉山口（4401m）</td><td>垭口/雪山</td><td>S434最高点，直面雅拉金字塔主峰（14:00后易起雾）</td><td>D5</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/689749680000000023037277" target="_blank">📕1937赞</a></td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>甘孜州博物馆</td><td>人文/历史</td><td>免费三层六个馆，雨天首选</td><td>D6</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a0daf2c00000000350254b2" target="_blank">📕485赞</a></td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>亚拢沟钙化滩</td><td>钙化池/自然</td><td>路边直达免费，迷你小黄龙</td><td>D8</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6915991e000000000d0358d3" target="_blank">📕攻略</a></td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>泽桑拉空中花园</td><td>雪山/日落</td><td>4321m看贡嘎日落金山，仅SUV+12:00-14:00可进</td><td>D8</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a1d78180000000037037149" target="_blank">📕602赞</a></td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>纳梯村/捡菌子</td><td>田园/体验</td><td>7月菌季民宿老板带队上山</td><td>D9</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6838f8be000000002100baa0" target="_blank">📕735赞</a></td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>泰宁古镇</td><td>人文/休闲</td><td>藏式建筑喝甜茶，零车程发呆</td><td>D11</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/630898e9000000001702cf12" target="_blank">📕攻略</a></td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>李子坝轻轨穿楼</td><td>地标/打卡</td><td>2号线从居民楼穿过，2分钟搞定</td><td>D14</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/687f6e74000000000d01b810" target="_blank">📕4273赞</a></td></tr>
-            <tr><td><span class="tag tag-alt">备选</span></td><td>磁器口古镇</td><td>古镇/小吃</td><td>千年古镇，陈麻花/毛血旺</td><td>D14</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/698d273d000000001a025bc4" target="_blank">📕2090赞</a></td></tr>
-            <tr><td><span class="tag tag-pass">路过</span></td><td>天全服务区</td><td>服务区/打卡</td><td>网红熊猫主题，G318标志打卡</td><td>D4</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6869fee20000000012021dcb" target="_blank">📕213赞</a></td></tr>
-            <tr><td><span class="tag tag-pass">路过</span></td><td>二郎山隧道</td><td>隧道/地标</td><td>过隧道初见雪山，川藏线第一震撼瞬间</td><td>D4</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/697add40000000000b009f9b" target="_blank">📕190赞</a></td></tr>
-            <tr><td><span class="tag tag-pass">路过</span></td><td>折多山垭口（4298m）</td><td>垭口/观景</td><td>短暂停车拍照，穿冲锋衣</td><td>D7</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6976fefa000000000e00e132" target="_blank">📕1201赞</a></td></tr>
-            <tr><td><span class="tag tag-pass">路过</span></td><td>斯丁措</td><td>湖泊/雪山</td><td>彩虹路旁小海子，倒影贡嘎+飞机起降</td><td>D5</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/68880dcf000000002400b7d9" target="_blank">📕276赞</a></td></tr>
-            <tr><td><span class="tag tag-pass">路过</span></td><td>八美镇</td><td>小镇/补给</td><td>G548沿线，补油点</td><td>D10</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/687db95b000000002201dc08" target="_blank">📕158赞</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>雅家埂垭口</td><td>红石/雪山</td><td>877赞小众无人，红石滩+雪山倒影同框</td><td>D4</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/687fad8a0000000010013c71" target="_blank" rel="noopener">📕877赞</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>机场彩虹公路</td><td>公路/雪山</td><td>S434最美公路段，贡嘎雪山正面，公路大片</td><td>D5</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/689749680000000023037277" target="_blank" rel="noopener">📕1937赞</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>甲根坝河谷</td><td>田园/溪流</td><td>全程最松弛的小众秘境</td><td>D7-D9</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a3888ce0000000008033cd8" target="_blank" rel="noopener">📕攻略</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>提吾村</td><td>藏寨/人文</td><td>原始藏寨，宠物友好，青稞田园木栈道</td><td>D8</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a23f0d8000000000702e2c6" target="_blank" rel="noopener">📕攻略</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>夺让村·土拨鼠</td><td>田园/互动</td><td>B线柏油路直达，5元/人土拨鼠互动（11点前到）</td><td>D8</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/68a28713000000001c037bb7" target="_blank" rel="noopener">📕154赞</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>卡玛村（免费替代墨石公园）</td><td>地质/免费</td><td>导航"卡玛桥"拍墨石同款地貌，607赞验证</td><td>D11</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a37bf2c0000000015027bd4" target="_blank" rel="noopener">📕攻略</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>金小路S451</td><td>公路/雪山</td><td>2026年新通景观公路，87km雪山画廊"川西小独库"</td><td>D12</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a202ed30000000008031eeb" target="_blank" rel="noopener">📕246赞</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>猫鼻梁观景台</td><td>雪山/观景</td><td>免费拍摄四姑娘山全景最佳机位</td><td>D13</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/69b49790000000002202864c" target="_blank" rel="noopener">📕314赞</a></td></tr>
+            <tr><td><span class="tag tag-must">必去</span></td><td>洪崖洞夜景</td><td>夜景/地标</td><td>千与千寻既视感，千厮门大桥拍全景</td><td>D14</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6925cb35000000001b022cbc" target="_blank" rel="noopener">📕4574赞</a></td></tr>
+            <tr><td><span class="tag tag-must">推荐</span></td><td>泸定桥</td><td>人文/历史</td><td>上桥体验，桥下大渡河奔腾</td><td>D4</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/695c76ce000000001a027034" target="_blank" rel="noopener">📕630赞</a></td></tr>
+            <tr><td><span class="tag tag-must">推荐</span></td><td>康定老城区</td><td>人文/美食</td><td>溜溜城老街+情歌广场，被低估的康定玩法</td><td>D6</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a0daf2c00000000350254b2" target="_blank" rel="noopener">📕485赞</a></td></tr>
+            <tr><td><span class="tag tag-must">推荐</span></td><td>姑弄村</td><td>草原/雪山</td><td>面朝雅拉雪山草甸，D10午餐野餐核心站</td><td>D10</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/69eca9ef00000000380341e9" target="_blank" rel="noopener">📕780赞</a></td></tr>
+            <tr><td><span class="tag tag-must">推荐</span></td><td>重庆火锅</td><td>美食</td><td>来重庆必吃！推荐佩姐/周师兄/大龙火锅</td><td>D14</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/68b55c4e000000001c03f2ff" target="_blank" rel="noopener">📕4875赞</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>中谷村温泉</td><td>温泉/自然</td><td>距康定49min，适合雨天泡汤放松</td><td>D5/D6</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6846886b0000000021007873" target="_blank" rel="noopener">📕攻略</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>迦嘎措（红海子）</td><td>湖泊/雪山</td><td>碧蓝湖泊倒映雅拉雪峰，15元/人</td><td>D5</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/680e4a6e000000002300d7e6" target="_blank" rel="noopener">📕521赞</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>雅拉山口（4401m）</td><td>垭口/雪山</td><td>S434最高点，直面雅拉金字塔主峰（14:00后易起雾）</td><td>D5</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/689749680000000023037277" target="_blank" rel="noopener">📕1937赞</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>甘孜州博物馆</td><td>人文/历史</td><td>免费三层六个馆，雨天首选</td><td>D6</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a0daf2c00000000350254b2" target="_blank" rel="noopener">📕485赞</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>亚拢沟钙化滩</td><td>钙化池/自然</td><td>路边直达免费，迷你小黄龙</td><td>D8</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6915991e000000000d0358d3" target="_blank" rel="noopener">📕攻略</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>泽桑拉空中花园</td><td>雪山/日落</td><td>4321m看贡嘎日落金山，仅SUV+12:00-14:00可进</td><td>D8</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6a1d78180000000037037149" target="_blank" rel="noopener">📕602赞</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>纳梯村/捡菌子</td><td>田园/体验</td><td>7月菌季民宿老板带队上山</td><td>D9</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6838f8be000000002100baa0" target="_blank" rel="noopener">📕735赞</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>泰宁古镇</td><td>人文/休闲</td><td>藏式建筑喝甜茶，零车程发呆</td><td>D11</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/630898e9000000001702cf12" target="_blank" rel="noopener">📕攻略</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>李子坝轻轨穿楼</td><td>地标/打卡</td><td>2号线从居民楼穿过，2分钟搞定</td><td>D14</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/687f6e74000000000d01b810" target="_blank" rel="noopener">📕4273赞</a></td></tr>
+            <tr><td><span class="tag tag-alt">备选</span></td><td>磁器口古镇</td><td>古镇/小吃</td><td>千年古镇，陈麻花/毛血旺</td><td>D14</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/698d273d000000001a025bc4" target="_blank" rel="noopener">📕2090赞</a></td></tr>
+            <tr><td><span class="tag tag-pass">路过</span></td><td>天全服务区</td><td>服务区/打卡</td><td>网红熊猫主题，G318标志打卡</td><td>D4</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6869fee20000000012021dcb" target="_blank" rel="noopener">📕213赞</a></td></tr>
+            <tr><td><span class="tag tag-pass">路过</span></td><td>二郎山隧道</td><td>隧道/地标</td><td>过隧道初见雪山，川藏线第一震撼瞬间</td><td>D4</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/697add40000000000b009f9b" target="_blank" rel="noopener">📕190赞</a></td></tr>
+            <tr><td><span class="tag tag-pass">路过</span></td><td>折多山垭口（4298m）</td><td>垭口/观景</td><td>短暂停车拍照，穿冲锋衣</td><td>D7</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/6976fefa000000000e00e132" target="_blank" rel="noopener">📕1201赞</a></td></tr>
+            <tr><td><span class="tag tag-pass">路过</span></td><td>斯丁措</td><td>湖泊/雪山</td><td>彩虹路旁小海子，倒影贡嘎+飞机起降</td><td>D5</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/68880dcf000000002400b7d9" target="_blank" rel="noopener">📕276赞</a></td></tr>
+            <tr><td><span class="tag tag-pass">路过</span></td><td>八美镇</td><td>小镇/补给</td><td>G548沿线，补油点</td><td>D10</td><td style="white-space:nowrap"><a href="https://www.xiaohongshu.com/explore/687db95b000000002201dc08" target="_blank" rel="noopener">📕158赞</a></td></tr>
         </table>
         </div>
         </details>
@@ -1970,22 +2029,11 @@
 
     <!-- ====== 八、国道风景指南 ====== -->
     <div class="card card-info">
-        <details open>
+        <details>
             <summary>
                 <h2>🛣️ 川西自驾 · 司机视角的国道风景指南</h2>
                 <span class="arrow">▶</span>
             </summary>
-        <p>你们的路程已覆盖川西最美的几条景观大道。以下是最值得期待的驾驶路段：</p>
-        <table class="guide-table">
-            <colgroup><col style="width:10%"><col style="width:28%"><col style="width:15%"><col style="width:11%"><col style="width:36%"></colgroup>
-            <tr><th>国道</th><th>路段</th><th>里程</th><th>风景</th><th>驾驶特点</th></tr>
-            <tr><td class="nw">G318</td><td class="tl">泸定→康定→新都桥</td><td class="nw">~160km</td><td><span class="score">5<span class="score-denom">/5</span></span></td><td class="tl">经典川藏线第一程，峡谷→雪山→草原渐变</td></tr>
-            <tr><td class="nw">G350</td><td class="tl">小金→四姑娘山</td><td class="nw">~50km</td><td><span class="score">5<span class="score-denom">/5</span></span></td><td class="tl">熊猫大道东段，河谷森林雪山立体景观</td></tr>
-            <tr><td class="nw">S434</td><td class="tl">甲根坝→新都桥→塔公</td><td class="nw">~100km</td><td><span class="score">4<span class="score-denom">/5</span></span></td><td class="tl">小众秘境线，人少景美，田园雪山同框</td></tr>
-            <tr><td class="nw">G548</td><td class="tl">八美→道孚</td><td class="nw">~70km</td><td><span class="score">4<span class="score-denom">/5</span></span></td><td class="tl">藏寨碉楼群连绵，人文景观密集（全线至丹巴，本行程仅至道孚）</td></tr>
-            <tr><td class="nw">S451</td><td class="tl">金川→小金（金小路）</td><td class="nw">~88km</td><td><span class="score">5<span class="score-denom">/5</span></span></td><td class="tl">2026年通车的川西新景观公路，雪山画廊</td></tr>
-        </table>
-
         <h3>G318 国道·泸定至新都桥段（D4/D7）</h3>
         <p><strong>泸定→康定：</strong>大渡河峡谷并行，隧道桥梁多，海拔从1300m快速爬升至2500m，注意控制车速。<br>
         <strong>康定→折多山垭口：</strong>盘山路连续发卡弯，垭口可远眺贡嘎雪山，雾天能见度低需谨慎。<br>
@@ -2029,7 +2077,7 @@
 
     <!-- ====== 九、酒店预订清单 ====== -->
     <div class="card card-info" id="hotel-section">
-        <details open>
+        <details>
             <summary>
                 <h2>📋 酒店预订清单</h2>
                 <span class="arrow">▶</span>
@@ -2037,7 +2085,7 @@
         <div class="card-hint" style="font-size:12px;color:#6B7280;margin-bottom:10px;">按住宿地整理，方便统一预订。🅿️均免费停车，🐾宠物友好已标注。</div>
 
         <!-- 宜昌 D1 -->
-        <h3 style="margin:12px 0 4px;color:#6366F1;">📍 宜昌 <span style="font-weight:400;font-size:12px;color:#6B7280;">D1</span></h3>
+        <h3 style="margin:12px 0 4px;color:var(--primary-light);">📍 宜昌 <span style="font-weight:400;font-size:12px;color:#6B7280;">D1</span></h3>
         <div class="h-scroll">
         <div class="hotel-box">
             <strong>桔子酒店(宜昌高新区发展大道店)</strong>
@@ -2045,8 +2093,8 @@
             📍 西陵区发展大道与汕头路交叉口<br>
             💰 约250-350元/晚 · 近G42高速入口<br>
             🅿️ 免费停车 · 健身房/洗衣房<br>
-            <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E9%AB%98%E6%96%B0%E5%8C%BA%E5%8F%91%E5%B1%95%E5%A4%A7%E9%81%93%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-            <a href="https://hotels.ctrip.com/hotels/126451408.html" target="_blank" class="btn btn-small btn-outline">📋 携程</a>
+            <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E9%AB%98%E6%96%B0%E5%8C%BA%E5%8F%91%E5%B1%95%E5%A4%A7%E9%81%93%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+            <a href="https://hotels.ctrip.com/hotels/126451408.html" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="桔子酒店宜昌高新区发展大道店">📝 复制</button>
         </div>
         <div class="hotel-box">
@@ -2055,8 +2103,8 @@
             📍 伍家岗区伍临路33号鑫鼎大厦<br>
             💰 约300-400元/晚 · 评分4.7<br>
             🅿️ 免费停车 · 2024年开业<br>
-            <a href="https://ditu.amap.com/search?query=%E5%AE%9C%E6%98%8C%E4%B8%9C%E7%AB%99%E9%91%AB%E9%BC%8E%E4%BA%9A%E6%9C%B5%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-            <a href="https://hotels.ctrip.com/hotels/116989452.html" target="_blank" class="btn btn-small btn-outline">📋 携程</a>
+            <a href="https://ditu.amap.com/search?query=%E5%AE%9C%E6%98%8C%E4%B8%9C%E7%AB%99%E9%91%AB%E9%BC%8E%E4%BA%9A%E6%9C%B5%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+            <a href="https://hotels.ctrip.com/hotels/116989452.html" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="宜昌东站鑫鼎亚朵酒店">📝 复制</button>
         </div>
         <div class="hotel-box">
@@ -2065,14 +2113,14 @@
             📍 伍家岗区东站路东景国际B栋<br>
             💰 约250-350元/晚<br>
             🅿️ 免费停车 · 近高速入口<br>
-            <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E7%81%AB%E8%BD%A6%E4%B8%9C%E7%AB%99%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
-            <a href="https://hotels.ctrip.com/hotels/120253908.html" target="_blank" class="btn btn-small btn-outline">📋 携程</a>
+            <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E5%AE%9C%E6%98%8C%E7%81%AB%E8%BD%A6%E4%B8%9C%E7%AB%99%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+            <a href="https://hotels.ctrip.com/hotels/120253908.html" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="桔子酒店宜昌火车东站店">📝 复制</button>
         </div>
         </div>
 
         <!-- 万州 D2 -->
-        <h3 style="margin:12px 0 4px;color:#6366F1;">📍 万州 <span style="font-weight:400;font-size:12px;color:#6B7280;">D2 Plan A</span></h3>
+        <h3 style="margin:12px 0 4px;color:var(--primary-light);">📍 万州 <span style="font-weight:400;font-size:12px;color:#6B7280;">D2 Plan A</span></h3>
         <div class="h-scroll">
         <div class="hotel-box">
             <strong>桔子酒店(万达广场店)</strong>
@@ -2080,14 +2128,14 @@
             📍 万州区北滨路二段万达广场<br>
             💰 约200-300元/晚<br>
             🅿️ 免费停车 · 万达商圈<br>
-            <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E4%B8%87%E5%B7%9E%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+            <a href="https://ditu.amap.com/search?query=%E6%A1%94%E5%AD%90%E9%85%92%E5%BA%97%E4%B8%87%E5%B7%9E%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="万州桔子酒店万达广场店">📝 复制</button>
         </div>
         <div class="hotel-box">
             <strong>万州希尔顿欢朋酒店</strong>
             <span class="tag tag-must">品质</span>希尔顿集团<br>
             💰 约350-500元/晚 · 免费停车<br>
-            <a href="https://ditu.amap.com/search?query=%E4%B8%87%E5%B7%9E%E5%B8%8C%E5%B0%94%E9%A1%BF%E6%AC%A2%E6%9C%8B%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+            <a href="https://ditu.amap.com/search?query=%E4%B8%87%E5%B7%9E%E5%B8%8C%E5%B0%94%E9%A1%BF%E6%AC%A2%E6%9C%8B%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="万州希尔顿欢朋酒店">📝 复制</button>
         </div>
         <div class="hotel-box">
@@ -2099,7 +2147,7 @@
         </div>
 
         <!-- 成都 D3 -->
-        <h3 style="margin:12px 0 4px;color:#6366F1;">📍 成都 <span style="font-weight:400;font-size:12px;color:#6B7280;">D3</span></h3>
+        <h3 style="margin:12px 0 4px;color:var(--primary-light);">📍 成都 <span style="font-weight:400;font-size:12px;color:#6B7280;">D3</span></h3>
         <div class="h-scroll">
         <div class="hotel-box">
             <strong>亚朵X酒店(大悦城武侯大道地铁站店)</strong>
@@ -2107,7 +2155,7 @@
             📍 武侯区武侯大道双楠段281号<br>
             💰 约350-500元/晚 · 近成雅高速入口<br>
             🅿️ 免费停车 · 近大悦城采购方便<br>
-            <a href="https://hotels.ctrip.com/hotels/80979591.html" target="_blank" class="btn btn-small btn-outline">📋 携程</a>
+            <a href="https://hotels.ctrip.com/hotels/80979591.html" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="成都大悦城武侯大道地铁站亚朵X酒店">📝 复制</button>
         </div>
         <div class="hotel-box">
@@ -2116,7 +2164,7 @@
             📍 武侯区潮音路2号 · 评分4.8<br>
             💰 约600-900元/晚 · 室内泳池<br>
             🅿️ 免费停车 · 约10分钟上高速<br>
-            <a href="https://hotels.ctrip.com/hotels/72965590.html" target="_blank" class="btn btn-small btn-outline">📋 携程</a>
+            <a href="https://hotels.ctrip.com/hotels/72965590.html" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="成都武侯渝江皇冠假日酒店">📝 复制</button>
         </div>
         <div class="hotel-box">
@@ -2125,33 +2173,33 @@
             📍 武侯区长益路53号<br>
             💰 约450-650元/晚 · 约12分钟上高速<br>
             🅿️ 免费停车<br>
-            <a href="https://www.hilton.com.cn/zh-cn/hotels/cturnhx-hampton-by-hilton-chengdu-wuhou-hongpailou" target="_blank" class="btn btn-small btn-outline">🔗 官网</a>
+            <a href="https://www.hilton.com.cn/zh-cn/hotels/cturnhx-hampton-by-hilton-chengdu-wuhou-hongpailou" target="_blank" rel="noopener" class="btn btn-small btn-outline">🔗 官网</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="成都武侯祠希尔顿欢朋酒店">📝 复制</button>
         </div>
         </div>
 
         <!-- 康定 D4-D6 -->
-        <h3 style="margin:12px 0 4px;color:#6366F1;">📍 康定·大本营① <span style="font-weight:400;font-size:12px;color:#6B7280;">D4-D6 连住3晚</span></h3>
+        <h3 style="margin:12px 0 4px;color:var(--primary-light);">📍 康定·大本营① <span style="font-weight:400;font-size:12px;color:#6B7280;">D4-D6 连住3晚</span></h3>
         <div class="h-scroll">
         <div class="hotel-box">
             <strong>康定问风民宿</strong>
             <span class="tag tag-must">性价比之选</span>
             <span class="tag tag-alt">🐾宠物友好</span><br>
             📍 康定城区 · 免费停车<br>
-            <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E9%97%AE%E9%A3%8E%E6%B0%91%E5%AE%BF" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+            <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E9%97%AE%E9%A3%8E%E6%B0%91%E5%AE%BF" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="康定问风民宿">📝 复制</button>
         </div>
         <div class="hotel-box">
             <strong>康定岚予酒店</strong>
             <span class="tag tag-alt">🐾宠物友好</span>实测带狗<br>
             💰 约260元/晚 · 免费停车<br>
-            <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E5%B2%9A%E4%BA%88%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+            <a href="https://ditu.amap.com/search?query=%E5%BA%B7%E5%AE%9A%E5%B2%9A%E4%BA%88%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="康定岚予酒店">📝 复制</button>
         </div>
         </div>
 
         <!-- 甲根坝 D7-D9 -->
-        <h3 style="margin:12px 0 4px;color:#6366F1;">📍 甲根坝·大本营② <span style="font-weight:400;font-size:12px;color:#6B7280;">D7-D9 连住3晚</span></h3>
+        <h3 style="margin:12px 0 4px;color:var(--primary-light);">📍 甲根坝·大本营② <span style="font-weight:400;font-size:12px;color:#6B7280;">D7-D9 连住3晚</span></h3>
         <div class="h-scroll">
         <div class="hotel-box">
             <strong>宗宫·精品民宿</strong>
@@ -2192,13 +2240,13 @@
         </div>
 
         <!-- 道孚 D10-D11 -->
-        <h3 style="margin:12px 0 4px;color:#6366F1;">📍 道孚·大本营③ <span style="font-weight:400;font-size:12px;color:#6B7280;">D10-D11 连住2晚</span></h3>
+        <h3 style="margin:12px 0 4px;color:var(--primary-light);">📍 道孚·大本营③ <span style="font-weight:400;font-size:12px;color:#6B7280;">D10-D11 连住2晚</span></h3>
         <div class="h-scroll">
         <div class="hotel-box">
             <strong>道孚康藏国际酒店</strong>
             <span class="tag tag-must">推荐</span>县城档次较高<br>
             💰 约260元/晚 · 房间供氧<br>
-            <a href="https://hotels.ctrip.com/hotels/80947738.html" target="_blank" class="btn btn-small btn-outline">📋 携程</a>
+            <a href="https://hotels.ctrip.com/hotels/80947738.html" target="_blank" rel="noopener" class="btn btn-small btn-outline">📋 携程</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="道孚康藏国际酒店">📝 复制</button>
         </div>
         <div class="hotel-box">
@@ -2210,7 +2258,7 @@
         </div>
 
         <!-- 小金 D12 -->
-        <h3 style="margin:12px 0 4px;color:#6366F1;">📍 小金 <span style="font-weight:400;font-size:12px;color:#6B7280;">D12</span></h3>
+        <h3 style="margin:12px 0 4px;color:var(--primary-light);">📍 小金 <span style="font-weight:400;font-size:12px;color:#6B7280;">D12</span></h3>
         <div class="h-scroll">
         <div class="hotel-box">
             <strong>狮子堡·美宿(小金店) ⭐</strong>
@@ -2218,7 +2266,7 @@
             📍 马桑村一组32号 · 海拔2300m好睡<br>
             🐾 可携带宠物 · 民宿阿姨做饭好吃<br>
             🅿️ 免费停车 · 2024年开业<br>
-            <a href="https://ditu.amap.com/search?query=%E7%8B%AE%E5%AD%90%E5%A0%A1%C2%B7%E7%BE%8E%E5%AE%BF%E5%B0%8F%E9%87%91%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+            <a href="https://ditu.amap.com/search?query=%E7%8B%AE%E5%AD%90%E5%A0%A1%C2%B7%E7%BE%8E%E5%AE%BF%E5%B0%8F%E9%87%91%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="狮子堡美宿小金店">📝 复制</button>
         </div>
         <div class="hotel-box">
@@ -2226,7 +2274,7 @@
             <span class="tag tag-alt">县城中心</span><br>
             📍 县城中心 · 干净整洁含早餐<br>
             💰 约200-300元/晚 · 免费停车<br>
-            <a href="https://ditu.amap.com/search?query=%E5%B0%8F%E9%87%91%E5%91%88%E5%96%9C%E9%85%92%E5%BA%97" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+            <a href="https://ditu.amap.com/search?query=%E5%B0%8F%E9%87%91%E5%91%88%E5%96%9C%E9%85%92%E5%BA%97" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="小金呈喜酒店">📝 复制</button>
         </div>
         <div class="hotel-box">
@@ -2239,7 +2287,7 @@
         </div>
 
         <!-- 重庆 D13-D14 -->
-        <h3 style="margin:12px 0 4px;color:#6366F1;">📍 重庆 <span style="font-weight:400;font-size:12px;color:#6B7280;">D13-D14 连住2晚</span></h3>
+        <h3 style="margin:12px 0 4px;color:var(--primary-light);">📍 重庆 <span style="font-weight:400;font-size:12px;color:#6B7280;">D13-D14 连住2晚</span></h3>
         <div class="h-scroll">
         <div class="hotel-box">
             <strong>汉庭酒店(观音桥步行街店)</strong>
@@ -2247,7 +2295,7 @@
             📍 渝北区观音桥步行街附近<br>
             💰 约200-300元/晚 · 免费停车<br>
             🚗 近红旗河沟地铁站，上高速约20min<br>
-            <a href="https://uri.amap.com/marker?position=106.55,29.58&name=%E6%B1%89%E5%BA%AD%E9%85%92%E5%BA%97%E9%87%8D%E5%BA%86%E8%A7%82%E9%9F%B3%E6%A1%A5%E6%AD%A5%E8%A1%8C%E8%A1%97%E5%BA%97&src=travel" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+            <a href="https://uri.amap.com/marker?position=106.55,29.58&name=%E6%B1%89%E5%BA%AD%E9%85%92%E5%BA%97%E9%87%8D%E5%BA%86%E8%A7%82%E9%9F%B3%E6%A1%A5%E6%AD%A5%E8%A1%8C%E8%A1%97%E5%BA%97&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="汉庭酒店重庆观音桥步行街店">📝 复制</button>
         </div>
         <div class="hotel-box">
@@ -2256,16 +2304,16 @@
             📍 渝北区观音桥商圈<br>
             💰 约350-500元/晚 · 免费停车<br>
             🚗 步行可达观音桥步行街<br>
-            <a href="https://uri.amap.com/marker?position=106.55,29.58&name=%E4%BA%9A%E6%9C%B5%E9%85%92%E5%BA%97%E9%87%8D%E5%BA%86%E8%A7%82%E9%9F%B3%E6%A1%A5%E5%BA%97&src=travel" target="_blank" class="btn btn-small btn-outline">🗺️ 高德</a>
+            <a href="https://uri.amap.com/marker?position=106.55,29.58&name=%E4%BA%9A%E6%9C%B5%E9%85%92%E5%BA%97%E9%87%8D%E5%BA%86%E8%A7%82%E9%9F%B3%E6%A1%A5%E5%BA%97&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
             <button class="btn btn-green btn-small btn-copy" data-copy="亚朵酒店重庆观音桥店">📝 复制</button>
         </div>
         <div class="hotel-box">
-            <strong>重庆喜来登大酒店</strong>
-            <span class="tag tag-must">五星首选</span>万豪集团<br>
-            📍 观音桥步行街 · 地铁直达<br>
-            💰 约600-1000元/晚 · 室内泳池/健身房<br>
-            🅿️ 免费停车 · 行政酒廊<br>
-            <button class="btn btn-green btn-small btn-copy" data-copy="重庆喜来登大酒店 观音桥">📝 复制</button>
+            <strong>重庆富力凯悦酒店</strong>
+            <span class="tag tag-must">五星首选</span>凯悦集团<br>
+            📍 江北区北城天街11号（观音桥步行街）<br>
+            💰 约700-1200元/晚 · 室内泳池/行政酒廊
+            🅿️ 免费停车 · 地铁直达<br>
+            <button class="btn btn-green btn-small btn-copy" data-copy="重庆富力凯悦酒店 观音桥">📝 复制</button>
         </div>
         </div>
 
@@ -2281,7 +2329,7 @@
 
     <!-- ====== 安全与健康 ====== -->
     <div class="card card-warning">
-        <details open>
+        <details>
             <summary>
                 <h2>⚠️ 安全与健康</h2>
                 <span class="arrow">▶</span>
@@ -2316,7 +2364,7 @@
 
     <!-- ====== 十一、宠物出行方案 ====== -->
     <div class="card card-info">
-        <details open>
+        <details>
             <summary>
                 <h2>🐕 宠物出行全方案</h2>
                 <span class="arrow">▶</span>
@@ -2331,7 +2379,7 @@
 
     <!-- ====== 十、充电指南 ====== -->
     <div class="card card-info">
-        <details open>
+        <details>
             <summary>
                 <h2>🔋 理想L6纯电版充电指南</h2>
                 <span class="arrow">▶</span>
@@ -2356,7 +2404,7 @@
 
     <!-- ====== 十二、检查清单 ====== -->
     <div class="card card-info" id="checklist-card">
-        <details open>
+        <details>
             <summary>
                 <h2>✅ 出行前检查清单</h2>
                 <span class="arrow">▶</span>
@@ -2402,7 +2450,7 @@
 
     <!-- ====== 十三、行程日历 ====== -->
     <div class="card card-info" id="calendar-card">
-        <details open>
+        <details>
             <summary>
                 <h2>📆 行程日历</h2>
                 <span class="arrow">▶</span>
@@ -2427,8 +2475,11 @@
                 <h2>📜 版本历史</h2>
                 <span class="arrow">▶</span>
             </summary>
+        
+        <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
         <table>
             <tr><th>版本</th><th>日期</th><th>变更内容</th></tr>
+            <tr><td>v5.1</td><td>2026.07.03</td><td>晴空蓝配色全面改版、CSS自定义属性重构、所有卡片默认折叠、表格左右滑动适配手机、外链安全增强、多处内容修正</td></tr>
             <tr><td>v5.0</td><td>2026.07.05</td><td>页面布局三段式重构（概览→每日行程→出行准备）、安全+高反合并为单卡、酒店预订快捷入口、4项代码bug修复</td></tr>
             <tr><td>v4.0</td><td>2026.07.02</td><td>路线重构：丹巴→金小路替换（D12 道孚→金川→金小路→小金）、D11卡玛村替代墨石公园、总览表/景点表同步更新、国道G350修正</td></tr>
             <tr><td>v3.2</td><td>2026.07.02</td><td>大本营②甲根坝 D7-D9 重构：住宿全换、月亮湖砍掉（绕路+收费）、D8新增夺让村土拨鼠/亚拢沟/提吾村B线、D9改为纳梯村/捡菌子/休闲</td></tr>
@@ -2443,7 +2494,7 @@
 
     <!-- 底部说明 -->
     <div class="card card-warning">
-        <details open>
+        <details>
             <summary>
                 <h2>⚠️ 重要提示</h2>
                 <span class="arrow">▶</span>
@@ -2519,15 +2570,22 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('changelog-card')?.scrollIntoView({ behavior: 'smooth' });
         }
         if (btn.dataset.action === 'scrollToHotel') {
-            document.getElementById('hotel-section')?.scrollIntoView({ behavior: 'smooth' });
+            const sec = document.getElementById('hotel-section');
+            if (sec) {
+                const det = sec.querySelector('details');
+                if (det) det.open = true;
+                const navH = (document.getElementById('dayNav') || { offsetHeight: 0 }).offsetHeight + 12;
+                const top = sec.getBoundingClientRect().top + window.scrollY - navH;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
         }
         if (btn.dataset.action === 'scrollToCalendar') {
             document.getElementById('calendar-card').scrollIntoView({ behavior: 'smooth' });
         }
     });
-    // 默认展开 D1、D2，其余折叠
-    document.querySelectorAll('.day-card details').forEach((el, i) => {
-        if (i < 2) el.setAttribute('open', '');
+    // 默认全部折叠 — 用户自行点击展开
+    document.querySelectorAll('.day-card details').forEach(el => {
+        
     });
     // aria-expanded 同步 details 展开状态
     document.querySelectorAll('details').forEach(el => {
@@ -2663,7 +2721,7 @@ function renderCalendar() {
     const keys = Object.keys(months).sort();
     let calHtml = '';
     calHtml += '<div class="cal-legend">';
-    calHtml += '<span class="cal-legend-item"><span class="cal-legend-color" style="background:#EEF2FF;border-color:#A5B4FC;"></span> 行程日</span>';
+    calHtml += '<span class="cal-legend-item"><span class="cal-legend-color" style="background:var(--cal-trip);border-color:var(--primary-border);"></span> 行程日</span>';
     calHtml += '<span class="cal-legend-item"><span class="cal-legend-color" style="background:#FFFBEB;"></span> 周末</span>';
     calHtml += '</div>';
 
@@ -2917,7 +2975,7 @@ function setupThemeToggle() {
 document.addEventListener('DOMContentLoaded', setupThemeToggle);
 </script>
 <div style="text-align:center;padding:16px;font-size:11px;color:#9CA3AF;border-top:1px solid #E5E7EB;margin-top:20px;line-height:1.8;">
-    v3.1 · 川西17天自驾慢游攻略<br>
+    v5.1 · 川西17天自驾慢游攻略<br>
     © 2026 All Rights Reserved
 </div>
 </body>
