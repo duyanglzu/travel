@@ -223,9 +223,14 @@
             margin: 20px 0;
         }
         .mountain-separator {
-            background: url('data:image/svg+xml,<svg width=\"100\" height=\"20\" viewBox=\"0 0 100 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 10 L10 0 L20 10 L30 0 L40 10 L50 0 L60 10 L70 0 L80 10 L90 0 L100 10\" fill=\"#E5E7EB\"/></svg>') no-repeat center;
-            height: 20px;
-            margin: 16px 0;
+            height: 60px;
+            margin: 10px 0 16px;
+            background: url("data:image/svg+xml,%3Csvg width='480' height='60' viewBox='0 0 480 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 55 Q40 20 80 40 T160 25 T240 45 T320 20 T400 40 L480 30 L480 60 L0 60Z' fill='%23E0F2FE'/%3E%3Cpath d='M0 60 Q60 30 120 50 T240 35 T360 50 L480 45 L480 60 L0 60Z' fill='%23BAE6FD' opacity='0.5'/%3E%3C/svg%3E") no-repeat center/cover;
+        }
+        .road-divider {
+            height: 40px;
+            margin: 8px 0 14px;
+            background: url("data:image/svg+xml,%3Csvg width='480' height='40' viewBox='0 0 480 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q60 5 120 20 T240 20 T360 20 L480 20' stroke='%230EA5E9' stroke-width='3' fill='none' opacity='0.3'/%3E%3Cpath d='M0 20 Q60 10 120 20 T240 20 T360 20 L480 20' stroke='%2306B6D4' stroke-width='1.5' fill='none' opacity='0.2' stroke-dasharray='6 4'/%3E%3Ccircle cx='0' cy='20' r='3' fill='%230EA5E9' opacity='0.4'/%3E%3Ccircle cx='480' cy='20' r='3' fill='%2306B6D4' opacity='0.4'/%3E%3C/svg%3E") no-repeat center/cover;
         }
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
@@ -610,6 +615,7 @@
         html.dark .img-credit { color: var(--dark-text-secondary); }
         html.dark .separator { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
         html.dark .mountain-separator { filter: invert(0.7); }
+        html.dark .road-divider { filter: invert(0.7); }
         html.dark .fixed-bar { background: rgba(15,23,42,0.95); border-top-color: var(--dark-border); }
         html.dark .nav-btn { background: var(--dark-reason-bg); color: var(--dark-primary); border-color: var(--dark-border); }
         html.dark .nav-btn.active { background: var(--dark-primary); color: white; }
@@ -657,6 +663,7 @@
     <div style="background:var(--primary-bg);border:1px solid var(--primary-border);border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px;color:var(--primary);line-height:1.8;">
         💡 <strong>使用提示：</strong>卡片标题可点击折叠/展开 · 手机左右滑动查看更多 · 底部日历可加入手机日历 · 清单勾选自动保存
     </div>
+    <div class="mountain-separator"></div>
 
     <!-- 日程快速跳转栏 -->
     <div class="day-nav" id="dayNav">
@@ -850,6 +857,7 @@
     <div style="text-align:center;margin:-8px 0 16px;">
         <button class="btn btn-outline btn-small" data-action="scrollToHotel" style="display:inline-block;width:auto;padding:10px 24px;font-size:14px;">📋 去预订酒店 →</button>
     </div>
+    <div class="road-divider"></div>
 
     <!-- ====== 五、每日详细行程 ====== -->
     <h2 style="margin:20px 0 12px;color:var(--primary);padding-left:4px;">📅 每日详细行程</h2>
@@ -2093,6 +2101,7 @@
         </table>
         <p>最值得期待的片段：上午从新都桥出发，沿S434慢慢开到塔公，雅拉雪山一路伴行，随时能停路边拍照——这才是川西自驾的真正乐趣。</p>
         </details>
+    <div class="mountain-separator"></div>
     </div>
 
     <!-- ====== 九、酒店预订清单 ====== -->
