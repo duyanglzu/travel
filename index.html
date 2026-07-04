@@ -184,7 +184,7 @@
         .day-card details summary.day-title::-webkit-details-marker { display: none; }
         .day-card details summary.day-title .day-arrow { font-size: 14px; color: rgba(255,255,255,0.7); transition: transform 0.2s; margin-left: 8px; flex-shrink: 0; }
         .day-card details[open] summary.day-title .day-arrow { transform: rotate(90deg); }
-        .day-date { font-weight: 400; font-size: 12px; opacity: 0.75; }
+        .day-date { display: inline-block; min-width: 70px; text-align: center; margin-right: 4px; font-weight: 400; font-size: 12px; opacity: 0.75; }
         .info-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 10px 0; }
         .info-item { background: var(--primary-bg); padding: 10px; border-radius: 8px; }
         .info-item .label { color: var(--text-secondary); font-size: 12px; display: block; }
@@ -2694,13 +2694,13 @@ function renderDayDates() {
         td.appendChild(document.createTextNode(' '));
         td.appendChild(ds);
     });
-    // 日程卡片标题：day-title 开头 D1-D17
+    // 日程卡片标题：day-title 开头 D1-D17，日期右对齐显示
     document.querySelectorAll('.day-title').forEach(el => {
         if (el.querySelector('.day-date')) return;
-        const m = el.innerHTML.match(/^(D\d+)/);
+        const m = el.innerHTML.match(/^(D\d+)\s*(.*?)\s*(<span class="day-arrow">)/);
         if (!m) return;
         const day = parseInt(m[1].replace('D', ''));
-        el.innerHTML = el.innerHTML.replace(/^(D\d+)/, '$1 <span class="day-date">' + getDateStr(day) + '</span>');
+        el.innerHTML = m[1] + ' ' + m[2] + ' <span class="day-date">' + getDateStr(day) + '</span> ' + m[3];
     });
     // 酒店卡片 span（如 D1、D4-D6 连住3晚 等）
     document.querySelectorAll('#hotel-section h3 span').forEach(span => {
