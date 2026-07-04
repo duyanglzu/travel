@@ -451,15 +451,21 @@
         .day-nav {
             position: sticky;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 100;
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(6px);
             -webkit-backdrop-filter: blur(6px);
-            padding: 8px 0;
+            padding: 8px 16px;
             margin-bottom: 16px;
             border-bottom: 1px solid #E5E7EB;
         }
+            border-bottom: 1px solid #E5E7EB;
+        }
         .day-nav-inner {
+            max-width: 480px;
+            margin: 0 auto;
             display: flex;
             gap: 6px;
             overflow-x: auto;
@@ -484,7 +490,7 @@
         .day-nav-btn:hover { background: var(--primary-bg); border-color: var(--primary-border); color: var(--primary); }
         .day-nav-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
         @media (min-width: 769px) {
-            .day-nav-inner { flex-wrap: wrap; overflow-x: visible; }
+            .day-nav-inner { max-width: 960px; flex-wrap: wrap; overflow-x: visible; }
         }
         @media (max-width: 768px) {
             .guide-table { font-size: 12px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
@@ -649,6 +655,7 @@
         💡 <strong>使用提示：</strong>卡片标题可点击折叠/展开 · 手机左右滑动查看更多 · 底部日历可加入手机日历 · 清单勾选自动保存
     </div>
 
+</div>
     <!-- 日程快速跳转栏 -->
         <div class="day-nav" id="dayNav">
         <div class="day-nav-inner">
@@ -672,11 +679,13 @@
     </div>
 
 
+<div class="container" id="content">
     <!-- ====== 一、全程行程概括 + 设计说明（合并） ====== -->
     <div class="card card-info">
         <details>
             <summary>
                 <h2>🗺️ 全程行程概括 &amp; 设计说明</h2>
+
                 <span class="arrow">▶</span>
             </summary>
         <img src="route-map.jpg" alt="川西自驾线路图" loading="lazy" width="480" height="240" style="width:100%;height:auto;max-width:100%;border-radius:8px;margin:6px 0 14px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
