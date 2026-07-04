@@ -172,8 +172,9 @@
         .card details[open] summary .arrow { transform: rotate(90deg); }
         .day-card details { border-radius: 10px; overflow: hidden; background: transparent; }
         .day-card details summary.day-title {
-            cursor: pointer; list-style: none; user-select: none;
+            cursor: pointer; list-style: none;
             display: flex; justify-content: space-between; align-items: center;
+            text-align: left;
             background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
             padding: 10px 14px;
@@ -182,9 +183,11 @@
             font-size: 16px;
         }
         .day-card details summary.day-title::-webkit-details-marker { display: none; }
+        .day-num { display: inline-block; min-width: 2.6em; font-weight: 700; }
+        .day-text { flex: 1; text-align: left; margin: 0 4px; }
+        .day-date { font-size: 13px; opacity: 0.75; font-weight: 400; white-space: nowrap; margin-right: 8px; }
         .day-card details summary.day-title .day-arrow { font-size: 14px; color: rgba(255,255,255,0.7); transition: transform 0.2s; margin-left: 8px; flex-shrink: 0; }
         .day-card details[open] summary.day-title .day-arrow { transform: rotate(90deg); }
-        .day-date { display: inline-block; min-width: 70px; text-align: center; margin-right: 4px; font-weight: 400; font-size: 12px; opacity: 0.75; }
         .info-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 10px 0; }
         .info-item { background: var(--primary-bg); padding: 10px; border-radius: 8px; }
         .info-item .label { color: var(--text-secondary); font-size: 12px; display: block; }
@@ -855,7 +858,7 @@
     <!-- D1 -->
     <div class="day-card" id="day-1" data-phase="travel">
         <details>
-        <summary class="day-title">D1 上海 → 宜昌 · 长途赶路 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D1</span><span class="day-text"> 上海 → 宜昌 · 长途赶路 </span><span class="day-date">08/07</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>出发时间：</strong>11:00 · 预计到达：22:00</p>
             <p><strong>里程：</strong>约1050km（G42沪蓉高速），行车约10h</p>
@@ -907,7 +910,7 @@
     <!-- D2 -->
     <div class="day-card" id="day-2" data-phase="travel">
         <details>
-        <summary class="day-title">D2 宜昌 → 三峡大坝 → 万州/回宜昌 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D2</span><span class="day-text"> 宜昌 → 三峡大坝 → 万州/回宜昌 </span><span class="day-date">08/08</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>出发时间：</strong>11:00 · 预计到达：18:00（Plan A万州）</p>
             <p><strong>上午：</strong>11:00宜昌出发→三峡大坝（约40km/50min），游玩12:00-15:30（约3.5h）</p>
@@ -977,7 +980,7 @@
     <!-- D3 -->
     <div class="day-card" id="day-3" data-phase="travel">
         <details>
-        <summary class="day-title">D3 万州/宜昌 → 成都 · 进川采购休整 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D3</span><span class="day-text"> 万州/宜昌 → 成都 · 进川采购休整 </span><span class="day-date">08/09</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <div class="warn-box">
                 <strong>Plan A（推荐·万州出发）：</strong>11:00 万州→G42沪蓉高速→成都，约480km/5.5-6h，预计17:00到<br>
@@ -1065,7 +1068,7 @@
     <!-- D4 -->
     <div class="day-card" id="day-4" data-phase="plateau">
         <details>
-        <summary class="day-title">D4 成都 → 泸定桥 → 雅家埂 → 康定 · 海拔适应 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D4</span><span class="day-text"> 成都 → 雅家埂 → 康定 · 海拔适应 </span><span class="day-date">08/10</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>出发时间：</strong>08:00 · 预计到达：16:00</p>
             <p><strong>里程：</strong>约330km，行车约5h（不含游玩）</p>
@@ -1163,7 +1166,7 @@
         <!-- D5 -->
     <div class="day-card" id="day-5" data-phase="plateau">
         <details>
-        <summary class="day-title">D5 康定 → S434北线（中谷村·彩虹路·塔公） <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D5</span><span class="day-text"> 康定 → S434北线 · 雪山公路 </span><span class="day-date">08/11</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>出发时间：</strong>09:00 · 预计返回：16:00</p>
             <p><strong>车程：</strong>康定出发全程往返约130km/4h（边走边停）</p>
@@ -1224,7 +1227,7 @@
     <!-- D6 -->
     <div class="day-card" id="day-6" data-phase="plateau">
         <details>
-        <summary class="day-title">D6 康定休整日（老城区·博物馆·中谷村温泉） <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D6</span><span class="day-text"> 康定休整 · 老城区/博物馆/温泉 </span><span class="day-date">08/12</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>建议时间：</strong>09:30 开始活动（自然醒后出发）</p>
             <p><strong>主题：</strong>康定老城区慢逛，备选中谷村温泉/博物馆</p>
@@ -1262,7 +1265,7 @@
     <!-- D7 -->
     <div class="day-card" id="day-7" data-phase="plateau">
         <details>
-        <summary class="day-title">D7 康定 → 甲根坝 · 河谷秘境 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D7</span><span class="day-text"> 康定 → 甲根坝 · 河谷秘境 </span><span class="day-date">08/13</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>出发时间：</strong>09:00 · 预计到达：12:00</p>
             <p><strong>里程：</strong>约92km，行车约2h48min（翻折多山垭口海拔4298m）</p>
@@ -1384,7 +1387,7 @@
     <!-- D8 -->
     <div class="day-card" id="day-8" data-phase="plateau">
         <details>
-        <summary class="day-title">D8 甲根坝深度游 · 田园雪山一日 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D8</span><span class="day-text"> 甲根坝深度游 · 田园雪山一日 </span><span class="day-date">08/14</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>出发时间：</strong>09:00 出发去夺让村看土拨鼠（须11:00前到）</p>
             <div class="h-scroll">
@@ -1457,7 +1460,7 @@
     <!-- D9 -->
     <div class="day-card" id="day-9" data-phase="plateau">
         <details>
-        <summary class="day-title">D9 甲根坝休闲日 · 自由收尾 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D9</span><span class="day-text"> 甲根坝休闲日 · 自由收尾 </span><span class="day-date">08/15</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>出发时间：</strong>11:00 · 建议15:00前返回民宿整理行李</p>
             <div class="h-scroll">
@@ -1515,7 +1518,7 @@
 <!-- D10 -->
     <div class="day-card" id="day-10" data-phase="plateau">
         <details>
-        <summary class="day-title">D10 甲根坝 → 道孚 · G248景观道 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D10</span><span class="day-text"> 甲根坝 → 道孚 · G248景观道 </span><span class="day-date">08/16</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>出发时间：</strong>11:00 · 预计到达：15:00</p>
             <p><strong>里程：</strong>约172km，行车约3.5h</p>
@@ -1571,7 +1574,7 @@
     <!-- D11 -->
     <div class="day-card" id="day-11" data-phase="plateau">
         <details>
-        <summary class="day-title">D11 道孚 · 卡玛村+准备转场 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D11</span><span class="day-text"> 道孚 · 卡玛村+准备转场 </span><span class="day-date">08/17</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>出发时间：</strong>09:30 · 预计12:00回道孚午餐</p>
             <p><strong>主题：</strong>上午去卡玛村看免费墨石同款地貌，下午回道孚整理行李，为D12转场做准备。</p>
@@ -1621,7 +1624,7 @@
     <!-- D12 -->
     <div class="day-card" id="day-12" data-phase="plateau">
         <details>
-        <summary class="day-title">D12 道孚 → 金川 → 金小路 → 小金 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D12</span><span class="day-text"> 道孚 → 金川 → 金小路 → 小金 </span><span class="day-date">08/18</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>总里程：</strong>道孚→金川 255km/5h → 金小路S451 88km/1.5h → 小金县城，全程约343km/6.5h（不含游玩）</p>
             <p><strong>路线：</strong>G248沿鲜水河峡谷北上 → 金川县城午餐 → S451翻越万里城梁子 → 小金县城入住</p>
@@ -1703,7 +1706,7 @@
     <!-- D13 -->
     <div class="day-card" id="day-13" data-phase="plateau">
         <details>
-        <summary class="day-title">D13 小金 → 四姑娘山 → 映秀 → 重庆 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D13</span><span class="day-text"> 小金 → 四姑娘山 → 映秀 → 重庆 </span><span class="day-date">08/19</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>出发时间：</strong>08:30 · 预计到达：17:00</p>
             <p><strong>总里程：</strong>约560km，行车约8h（含猫鼻梁停留）</p>
@@ -1792,7 +1795,7 @@
     <!-- D14 -->
     <div class="day-card" id="day-14" data-phase="rest">
         <details>
-        <summary class="day-title">D14 重庆休整 · 彻底放松 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D14</span><span class="day-text"> 重庆休整 · 彻底放松 </span><span class="day-date">08/20</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>目的：</strong>经过D12-D13两天长途驾驶，在重庆彻底放松，为接下来两天的返程储备体力。</p>
 
@@ -1848,7 +1851,7 @@
     <!-- D15 -->
     <div class="day-card" id="day-15" data-phase="travel">
         <details>
-        <summary class="day-title">D15 重庆 → 武汉 · 长途返程第一天 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D15</span><span class="day-text"> 重庆 → 武汉 · 长途返程第一天 </span><span class="day-date">08/21</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>出发时间：</strong>09:00 · 预计到达：18:00</p>
             <p><strong>里程：</strong>约880km（G50沪渝高速），行车约9h</p>
@@ -1879,7 +1882,7 @@
     <!-- D16 -->
     <div class="day-card" id="day-16" data-phase="travel">
         <details>
-        <summary class="day-title">D16 武汉 → 上海 · 长途返程第二天 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D16</span><span class="day-text"> 武汉 → 上海 · 长途返程第二天 </span><span class="day-date">08/22</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>出发时间：</strong>09:00（避开武汉早高峰） · 预计到达：18:00</p>
             <p><strong>里程：</strong>约830km（G42沪蓉高速），行车约8-9h</p>
@@ -1912,7 +1915,7 @@
     <!-- D17 -->
     <div class="day-card" id="day-17" data-phase="travel">
         <details>
-        <summary class="day-title">D17 缓冲备用日 · 灵活安排 <span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D17</span><span class="day-text"> 缓冲备用日 · 灵活安排 </span><span class="day-date">08/23</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>用途：</strong>全程17天中的缓冲日，用于应对以下情况：</p>
             <ul>
