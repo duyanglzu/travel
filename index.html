@@ -632,6 +632,20 @@
             padding: 4px 2px 14px;
             scrollbar-width: thin;
             scrollbar-color: var(--text-muted) transparent;
+            position: relative;
+        }
+        .h-scroll::after {
+            content: '';
+            position: sticky;
+            right: -2px;
+            top: 0;
+            width: 32px;
+            min-width: 32px;
+            height: calc(100% - 18px);
+            background: linear-gradient(to right, transparent, var(--bg-body));
+            pointer-events: none;
+            flex-shrink: 0;
+            margin-left: auto;
         }
         .h-scroll::-webkit-scrollbar { height: 3px; }
         .h-scroll::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 2px; }
@@ -840,6 +854,7 @@
             .info-grid { grid-template-columns: repeat(3, 1fr); }
             .fixed-bar { max-width: 960px; }
             .h-scroll { flex-wrap: wrap; overflow-x: visible; gap: 14px; }
+            .h-scroll::after { display: none; }
             .h-scroll > * { flex: 0 0 calc(50% - 7px); }
             .cal-table td { height: 76px; padding: 4px; }
             .cal-table { font-size: 12px; }
@@ -1346,18 +1361,12 @@
             <p><strong>当日规则：</strong>抵达后不洗澡、不剧烈运动、不饮酒，清淡饮食。康定海拔2500m，与丽江相同，正常情况无高反。</p>
             <div class="h-scroll">
             <div>
-            <h3>途经 · 天全服务区</h3>
+            <h3>途经 · 天全服务区 + 二郎山隧道</h3>
             <span class="tag tag-pass">途经</span>
             <div class="reason" style="border-left-color:#8B5CF6;">
-                网红熊猫主题服务区，G318标志打卡点，适合下车活动。<br>
-                📎 小红书@撒拉哈的马里奥 679赞
-            </div>
-            </div>
-            <div>
-            <h3>途经 · 二郎山隧道</h3>
-            <span class="tag tag-pass">途经</span>
-            <div class="reason" style="border-left-color:#8B5CF6;">
-                过隧道初见雪山，川藏线第一个震撼瞬间。
+                <strong>天全服务区：</strong>网红熊猫主题，G318标志打卡点，适合下车活动。星巴克/肯德基都有。<br>
+                📎 小红书@撒拉哈的马里奥 679赞<br><br>
+                <strong>二郎山隧道：</strong>13.5km"川藏第一隧"，过隧道初见雪山，川藏线第一个震撼瞬间。
             </div>
             </div>
             <div>
@@ -1374,7 +1383,8 @@
             <div class="src-box">
                 <strong>📎 停车出处：</strong><br>
                 <a href="https://www.xiaohongshu.com/explore/69fcbc56000000001f0000fb" target="_blank" rel="noopener">小红书·苏里·皇桥宾馆5元/2h 139赞</a><br>
-                <a href="https://www.xiaohongshu.com/explore/695c76ce000000001a027034" target="_blank" rel="noopener">小红书·我啷个晓得·泸定桥避坑攻略 706赞</a>
+                <a href="https://www.xiaohongshu.com/explore/695c76ce000000001a027034" target="_blank" rel="noopener">小红书·我啷个晓得·泸定桥避坑攻略 706赞</a><br>
+                <a href="https://www.douyin.com/video/7663106951061285617" target="_blank" rel="noopener">抖音·南北两口子·皇桥宾馆5元/2h 610赞</a>
             </div>
             <div class="nav-btns">
                 <button data-nav="https://uri.amap.com/marker?position=102.23,29.92&name=泸定桥">🚗 高德导航</button>
