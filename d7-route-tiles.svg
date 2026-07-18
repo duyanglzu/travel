@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 750" width="900" height="750">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0ebe3"/>
+      <stop offset="100%" stop-color="#e8e0d0"/>
+    </linearGradient>
+    <linearGradient id="routeA" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0066cc"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="900" height="750" fill="url(#sky)" rx="8"/>
+  <!-- Tile grid lines -->
+  <g stroke="#d0c8b8" stroke-width="0.5" opacity="0.3">
+    <line x1="0" y1="75" x2="900" y2="75"/>
+    <line x1="0" y1="150" x2="900" y2="150"/>
+    <line x1="0" y1="225" x2="900" y2="225"/>
+    <line x1="0" y1="300" x2="900" y2="300"/>
+    <line x1="0" y1="375" x2="900" y2="375"/>
+    <line x1="0" y1="450" x2="900" y2="450"/>
+    <line x1="0" y1="525" x2="900" y2="525"/>
+    <line x1="0" y1="600" x2="900" y2="600"/>
+    <line x1="0" y1="675" x2="900" y2="675"/>
+    <line x1="75" y1="0" x2="75" y2="750"/>
+    <line x1="150" y1="0" x2="150" y2="750"/>
+    <line x1="225" y1="0" x2="225" y2="750"/>
+    <line x1="300" y1="0" x2="300" y2="750"/>
+    <line x1="375" y1="0" x2="375" y2="750"/>
+    <line x1="450" y1="0" x2="450" y2="750"/>
+    <line x1="525" y1="0" x2="525" y2="750"/>
+    <line x1="600" y1="0" x2="600" y2="750"/>
+    <line x1="675" y1="0" x2="675" y2="750"/>
+    <line x1="750" y1="0" x2="750" y2="750"/>
+    <line x1="825" y1="0" x2="825" y2="750"/>
+  </g>
+  <!-- Compass -->
+  <g transform="translate(830, 35)" fill="#555">
+    <polygon points="0,-20 5,-5 0,-8 -5,-5" fill="#c0392b"/>
+    <polygon points="0,20 5,5 0,8 -5,5" fill="#999"/>
+    <rect x="-2" y="-22" width="4" height="44" fill="none"/>
+    <text x="-4" y="-25" font-size="11" fill="#555" font-weight="bold">N</text>
+  </g>
+  <!-- Mountain terrain indicators -->
+  <g fill="#d8d0c0" opacity="0.35" stroke="#b8b0a0" stroke-width="0.5">
+    <!-- 折多山 area -->
+    <polygon points="500,130 530,70 560,130"/>
+    <polygon points="520,150 550,90 580,150"/>
+    <polygon points="480,120 510,60 540,120"/>
+    <!-- Mountains south of 折多山 -->
+    <polygon points="400,250 430,190 460,250"/>
+    <polygon points="350,320 380,260 410,320"/>
+    <!-- 贡嘎山脉 direction -->
+    <polygon points="200,400 230,340 260,400"/>
+    <polygon points="170,430 200,370 230,430"/>
+  </g>
+  <!-- Route line: G318 from 康定 → 折多山垭口 → continue to 新都桥 → G248 south to 甲根坝 -->
+  <polyline points="802,256 780,230 750,200 700,165 650,140 600,120 544,108 500,120 450,150 400,190 350,240 300,300 250,360 210,420 170,490 128,570"
+    fill="none" stroke="#2d6da8" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" opacity="0.85"/>
+  <!-- Route glow -->
+  <polyline points="802,256 780,230 750,200 700,165 650,140 600,120 544,108 500,120 450,150 400,190 350,240 300,300 250,360 210,420 170,490 128,570"
+    fill="none" stroke="#4a90d9" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" opacity="0.2"/>
+
+  <!-- Waypoint markers -->
+  <!-- 1. 康定 (start) 101.9569, 29.9985 -->
+  <circle cx="802" cy="256" r="10" fill="#e74c3c" stroke="#fff" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="750" y="250" font-size="14" font-weight="bold" fill="#333">① 康定（出发）</text>
+  <text x="750" y="268" font-size="11" fill="#888">海拔 2560m · 加满油出发</text>
+
+  <!-- 2. 折多山垭口 101.805146, 30.071550 -->
+  <circle cx="544" cy="108" r="10" fill="#e67e22" stroke="#fff" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="400" y="90" font-size="14" font-weight="bold" fill="#333">② 折多山垭口</text>
+  <text x="400" y="108" font-size="11" fill="#888">海拔 4298m · "康巴第一关"</text>
+  <text x="400" y="124" font-size="10" fill="#c0392b">⚠️ 风大温低，下车穿冲锋衣</text>
+
+  <!-- 3. 甲根坝镇 (destination) 101.560576, 29.844097 -->
+  <circle cx="128" cy="570" r="10" fill="#2ecc71" stroke="#fff" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="10" y="550" font-size="14" font-weight="bold" fill="#333">③ 甲根坝镇（到达）</text>
+  <text x="10" y="568" font-size="11" fill="#888">海拔 ~3200m · 大本营② 连住3晚</text>
+
+  <!-- 4. 提吾村 (共梦林民宿) 101.559620, 29.825246 -->
+  <circle cx="126" cy="608" r="7" fill="#9b59b6" stroke="#fff" stroke-width="2" filter="url(#shadow)"/>
+  <text x="10" y="640" font-size="12" font-weight="bold" fill="#333">④ 提吾村</text>
+  <text x="10" y="656" font-size="10" fill="#888">青稞田园 · 木栈道</text>
+
+  <!-- 5. 日头村 (宗宫民宿) 101.549305, 29.815426 -->
+  <circle cx="109" cy="628" r="7" fill="#f39c12" stroke="#fff" stroke-width="2" filter="url(#shadow)"/>
+  <text x="140" cy="630" font-size="12" font-weight="bold" fill="#333">⑤ 日头村 · 宗宫</text>
+  <text x="140" y="650" font-size="10" fill="#888">首选推荐民宿</text>
+
+  <!-- Title bar -->
+  <rect x="0" y="702" width="900" height="48" fill="#2c3e50" rx="0"/>
+  <text x="450" y="730" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff" font-family="sans-serif">D7 · 康定 → 折多山垭口 → 甲根坝（换大本营）</text>
+
+  <!-- Legend -->
+  <g transform="translate(580, 20)">
+    <rect x="0" y="0" width="290" height="75" fill="white" fill-opacity="0.85" rx="4" stroke="#ddd" stroke-width="1"/>
+    <text x="10" y="18" font-size="11" font-weight="bold" fill="#555">图例</text>
+    <line x1="10" y1="32" x2="40" y2="32" stroke="#2d6da8" stroke-width="3"/>
+    <text x="45" y="36" font-size="10" fill="#555">G318 → G248（行车路线）</text>
+    <circle cx="18" cy="50" r="4" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+    <text x="45" y="54" font-size="10" fill="#555">途经打卡点</text>
+    <circle cx="18" cy="66" r="4" fill="#9b59b6" stroke="#fff" stroke-width="1.5"/>
+    <text x="45" y="70" font-size="10" fill="#555">住宿村落</text>
+  </g>
+
+  <!-- Route summary info -->
+  <rect x="8" y="60" width="235" height="95" fill="white" fill-opacity="0.85" rx="4" stroke="#ddd" stroke-width="1"/>
+  <text x="16" y="79" font-size="11" font-weight="bold" fill="#333">全程 ~92km / 3h（边走边拍）</text>
+  <text x="16" y="97" font-size="10" fill="#666">G318国道 · 翻折多山垭口</text>
+  <text x="16" y="113" font-size="10" fill="#c0392b">⚠️ 早出发避午后降雨</text>
+  <text x="16" y="129" font-size="10" fill="#c0392b">⚠️ 甲根坝无加油站！！</text>
+  <text x="16" y="145" font-size="10" fill="#666">导航加途经点「牧归餐厅」避小路</text>
+</svg>
