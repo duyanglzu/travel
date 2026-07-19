@@ -1,0 +1,123 @@
+/*
+ * Theme: 手绘旅行手账风
+ * 牛皮纸质感、暖棕大地色、手写感标题、拍立得/胶带元素、温馨家庭感
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Ma+Shan+Zheng&display=swap');
+
+:root {
+    /* 主色调 — 棕褐 */
+    --primary: #7C5C3C;
+    --primary-dark: #5C4328;
+    --primary-light: #A07B52;
+    --primary-lighter: #C49A6C;
+    --primary-bg: #FBF5EB;
+    --primary-border: #E0D0B8;
+    /* 强调色 — 复古红 */
+    --accent: #C0392B;
+    --accent-light: #FDEDEC;
+    --accent-dark: #96281B;
+    /* 辅助 — 橄榄绿 */
+    --teal: #6B8E4E;
+    --teal-light: #8CB06A;
+    --teal-bg: #F0F5E8;
+    /* 背景 — 牛皮纸 */
+    --bg-body: #F5EDE0;
+    --bg-card: rgba(252,247,238,0.95);
+    --bg-highlight: #FFF9F0;
+    --bg-warn: #FFF5E0;
+    /* 文字 */
+    --text: #3E2723;
+    --text-secondary: #6D5D4E;
+    --text-light: #A09080;
+    --text-muted: #C8BBA8;
+    /* 边框 */
+    --border: #DDD0BE;
+    --border-light: #EDE4D6;
+    /* Header 渐变 — 复古暖调 */
+    --header-start: #7C5C3C;
+    --header-end: #A07B52;
+    /* 行程阶段色 */
+    --phase-travel: #8D7B68;
+    --phase-travel-end: #A89880;
+    --phase-plateau: #6B8E4E;
+    --phase-plateau-end: #8CB06A;
+    --phase-rest: #C0392B;
+    --phase-rest-end: #E06050;
+    /* 按钮 */
+    --btn-bg: #7C5C3C;
+    --btn-text: #FFFFFF;
+    /* 标签 */
+    --tag-must-bg: #F5E6D0;
+    --tag-must-text: #6B4F30;
+    --tag-alt-bg: #E8F0E0;
+    --tag-alt-text: #4A6E30;
+    --tag-pass-bg: #F0E8DC;
+    --tag-pass-text: #8D7B68;
+    --tag-booked-bg: #F5DDD5;
+    --tag-booked-text: #96281B;
+    /* 信息框 */
+    --box-reason: #FFF5E0;
+    --box-hotel: #FFF9F0;
+    --box-source: #FDF8F0;
+    /* 阴影 — 纸张感 */
+    --shadow-sm: 0 1px 2px rgba(80,60,30,0.06);
+    --shadow-md: 0 3px 10px rgba(80,60,30,0.08);
+    --shadow-lg: 0 8px 24px rgba(80,60,30,0.1);
+    --shadow-primary: 0 3px 12px rgba(124,92,60,0.15);
+    /* 日历 */
+    --cal-trip: #F5E6D0;
+    --cal-weekend: #FFF5E0;
+    /* 字体 */
+    --font-heading: "Ma Shan Zheng", "ZCOOL KuaiLe", cursive, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "HarmonyOS Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+    /* 圆角 — 略小，手工感 */
+    --card-radius: 14px;
+    --day-card-radius: 12px;
+    --header-radius: 18px;
+
+    /* ===== 深色模式 ===== */
+    --dark-bg: #1A1510;
+    --dark-card-bg: rgba(30,25,18,0.94);
+    --dark-card-solid: #2A2318;
+    --dark-text: #E8DDD0;
+    --dark-text-secondary: #A09080;
+    --dark-border: #4A3D30;
+    --dark-primary: #C49A6C;
+    --dark-primary-dim: #D8B890;
+    --dark-accent: #E87060;
+    --dark-teal: #A0C870;
+    --dark-warn-bg: #2A2010;
+    --dark-warn-text: #F0D8A0;
+    --dark-warn-border: #5C4A20;
+    --dark-reason-bg: #2A2318;
+    --dark-phase-travel: #3D3428;
+    --dark-phase-travel-end: #4A4030;
+    --dark-phase-plateau: #2A4020;
+    --dark-phase-plateau-end: #4A6A30;
+    --dark-phase-rest: #6A2820;
+    --dark-phase-rest-end: #8A3828;
+}
+
+/* 手账风结构覆盖 */
+.header { border-radius: var(--header-radius); }
+.card { border-radius: var(--card-radius); border: 1.5px dashed var(--border); }
+.day-card details summary.day-title { border-radius: var(--day-card-radius); }
+.day-content { border-radius: 0 0 var(--day-card-radius) var(--day-card-radius); border: 1.5px dashed var(--border); border-top: none; }
+
+/* 标题用手写体 */
+.header h1, .card h2 { font-family: var(--font-heading); }
+.header h1 { letter-spacing: 0.04em; }
+
+/* 左边框改为胶带装饰感 */
+.card h2 {
+    border-left: 4px solid var(--accent);
+    padding-left: 10px;
+}
+
+/* 信息框增加纸张质感 */
+.info-item {
+    background: var(--bg-highlight);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+}

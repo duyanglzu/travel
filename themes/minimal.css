@@ -1,0 +1,121 @@
+/*
+ * Theme: 极简 App 卡片风
+ * 大量留白、毛玻璃、柔和阴影、精致圆角、Apple/Airbnb 设计语言
+ */
+
+:root {
+    /* 主色调 — 冷灰蓝 */
+    --primary: #2563EB;
+    --primary-dark: #1D4ED8;
+    --primary-light: #60A5FA;
+    --primary-lighter: #93C5FD;
+    --primary-bg: #EFF6FF;
+    --primary-border: #BFDBFE;
+    /* 强调色 — 柔和靛蓝 */
+    --accent: #6366F1;
+    --accent-light: #EEF2FF;
+    --accent-dark: #4F46E5;
+    /* 辅助 — 薄荷 */
+    --teal: #10B981;
+    --teal-light: #34D399;
+    --teal-bg: #ECFDF5;
+    /* 背景 — 纯净白 */
+    --bg-body: #F8FAFC;
+    --bg-card: rgba(255,255,255,0.88);
+    --bg-highlight: #FFFFFF;
+    --bg-warn: #FFFBEB;
+    /* 文字 */
+    --text: #111827;
+    --text-secondary: #6B7280;
+    --text-light: #9CA3AF;
+    --text-muted: #D1D5DB;
+    /* 边框 */
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    /* Header 渐变 */
+    --header-start: #2563EB;
+    --header-end: #6366F1;
+    /* 行程阶段色 */
+    --phase-travel: #6B7280;
+    --phase-travel-end: #9CA3AF;
+    --phase-plateau: #10B981;
+    --phase-plateau-end: #34D399;
+    --phase-rest: #F59E0B;
+    --phase-rest-end: #FBBF24;
+    /* 按钮 */
+    --btn-bg: #2563EB;
+    --btn-text: #FFFFFF;
+    /* 标签 */
+    --tag-must-bg: #EFF6FF;
+    --tag-must-text: #1D4ED8;
+    --tag-alt-bg: #ECFDF5;
+    --tag-alt-text: #059669;
+    --tag-pass-bg: #F3F4F6;
+    --tag-pass-text: #6B7280;
+    --tag-booked-bg: #FEF2F2;
+    --tag-booked-text: #DC2626;
+    /* 信息框 */
+    --box-reason: #F9FAFB;
+    --box-hotel: #F9FAFB;
+    --box-source: #FAFAFA;
+    /* 阴影 — 极其柔和 */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.03);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.04), 0 1px 4px rgba(0,0,0,0.02);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.03);
+    --shadow-primary: 0 4px 16px rgba(37,99,235,0.12);
+    /* 日历 */
+    --cal-trip: #EFF6FF;
+    --cal-weekend: #FEF9C3;
+    /* 字体 — 系统默认，不额外加载 */
+    --font-heading: inherit;
+    --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Display", "HarmonyOS Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+    /* 圆角 — 大圆角，iOS 感 */
+    --card-radius: 20px;
+    --day-card-radius: 16px;
+    --header-radius: 28px;
+
+    /* ===== 深色模式 ===== */
+    --dark-bg: #000000;
+    --dark-card-bg: rgba(28,28,30,0.88);
+    --dark-card-solid: #1C1C1E;
+    --dark-text: #F2F2F7;
+    --dark-text-secondary: #8E8E93;
+    --dark-border: #38383A;
+    --dark-primary: #64A5F6;
+    --dark-primary-dim: #8AB4F8;
+    --dark-accent: #A78BFA;
+    --dark-teal: #5EEAD4;
+    --dark-warn-bg: #2C2006;
+    --dark-warn-text: #FDE68A;
+    --dark-warn-border: #78620E;
+    --dark-reason-bg: #1C1C1E;
+    --dark-phase-travel: #2C2C2E;
+    --dark-phase-travel-end: #3A3A3C;
+    --dark-phase-plateau: #064E3B;
+    --dark-phase-plateau-end: #059669;
+    --dark-phase-rest: #78350F;
+    --dark-phase-rest-end: #B45309;
+}
+
+/* 极简结构覆盖 */
+.header { border-radius: var(--header-radius); }
+.card {
+    border-radius: var(--card-radius);
+    border: 1px solid rgba(0,0,0,0.04);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+}
+.day-card details summary.day-title { border-radius: var(--day-card-radius); }
+.day-content {
+    border-radius: 0 0 var(--day-card-radius) var(--day-card-radius);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+}
+
+/* 去掉左边框，改用更轻的装饰 */
+.card h2 { border-left: none; padding-left: 0; color: var(--text); }
+
+/* 信息框更轻量 */
+.info-item {
+    background: var(--bg-highlight);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+}

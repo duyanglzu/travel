@@ -1,0 +1,116 @@
+/*
+ * Theme: 沉浸式旅行杂志风
+ * 全屏大图感、衬线标题、浓郁色彩、新闻杂志排版
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Playfair+Display:wght@700;900&display=swap');
+
+:root {
+    /* 主色调 — 深藏蓝，杂志封面感 */
+    --primary: #1E3A5F;
+    --primary-dark: #152A45;
+    --primary-light: #3B6B9E;
+    --primary-lighter: #5A8ABF;
+    --primary-bg: #F5F0E8;
+    --primary-border: #D4C5A9;
+    /* 强调色 — 琥珀金 */
+    --accent: #C17817;
+    --accent-light: #FFF3DC;
+    --accent-dark: #8B5A0A;
+    /* 辅助 — 深砖红 */
+    --teal: #8B4C39;
+    --teal-light: #A85D45;
+    --teal-bg: #FDF2ED;
+    /* 背景 — 温暖米白 */
+    --bg-body: #FAF7F0;
+    --bg-card: rgba(255,252,245,0.95);
+    --bg-highlight: #FFF8EE;
+    --bg-warn: #FFF8E7;
+    /* 文字 — 墨色系 */
+    --text: #1A1A1A;
+    --text-secondary: #5C5347;
+    --text-light: #9C8E7C;
+    --text-muted: #C9BDA8;
+    /* 边框 */
+    --border: #E5D9C3;
+    --border-light: #F0EAE0;
+    /* Header 渐变 — 深邃杂志封面 */
+    --header-start: #1E3A5F;
+    --header-end: #2C5282;
+    /* 行程阶段色 */
+    --phase-travel: #5C5347;
+    --phase-travel-end: #8B7D6B;
+    --phase-plateau: #2D6A4F;
+    --phase-plateau-end: #40916C;
+    --phase-rest: #8B4C39;
+    --phase-rest-end: #A85D45;
+    /* 按钮 */
+    --btn-bg: #1E3A5F;
+    --btn-text: #FFFFFF;
+    /* 标签 */
+    --tag-must-bg: #F0E6D2;
+    --tag-must-text: #5C4A2E;
+    --tag-alt-bg: #E8F0E4;
+    --tag-alt-text: #2D5A3A;
+    --tag-pass-bg: #F0EAE0;
+    --tag-pass-text: #7A6E5E;
+    --tag-booked-bg: #F5E0D0;
+    --tag-booked-text: #8B3A1A;
+    /* 信息框 */
+    --box-reason: #FAF3E0;
+    --box-hotel: #F5F0E8;
+    --box-source: #FDF8F0;
+    /* 阴影 — 更有质感 */
+    --shadow-sm: 0 1px 3px rgba(30,20,10,0.08), 0 1px 2px rgba(30,20,10,0.04);
+    --shadow-md: 0 4px 16px rgba(30,20,10,0.08), 0 2px 6px rgba(30,20,10,0.04);
+    --shadow-lg: 0 12px 40px rgba(30,20,10,0.1), 0 4px 12px rgba(30,20,10,0.05);
+    --shadow-primary: 0 4px 14px rgba(30,58,95,0.2);
+    /* 日历 */
+    --cal-trip: #F0E6D2;
+    --cal-weekend: #FFF3DC;
+    /* 字体 */
+    --font-heading: "Noto Serif SC", "Playfair Display", Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "HarmonyOS Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+    /* 圆角 — 更方正，杂志版式感 */
+    --card-radius: 12px;
+    --day-card-radius: 10px;
+    --header-radius: 16px;
+
+    /* ===== 深色模式 ===== */
+    --dark-bg: #0F0E0C;
+    --dark-card-bg: rgba(26,24,20,0.94);
+    --dark-card-solid: #1C1A16;
+    --dark-text: #E8E0D0;
+    --dark-text-secondary: #A09585;
+    --dark-border: #3D3830;
+    --dark-primary: #7EB8DA;
+    --dark-primary-dim: #A0CCE4;
+    --dark-accent: #E8B86D;
+    --dark-teal: #D4956A;
+    --dark-warn-bg: #2A1F0E;
+    --dark-warn-text: #F0D89A;
+    --dark-warn-border: #5C4020;
+    --dark-reason-bg: #1C1A16;
+    --dark-phase-travel: #2A2520;
+    --dark-phase-travel-end: #3D3830;
+    --dark-phase-plateau: #1A3A2A;
+    --dark-phase-plateau-end: #2D6A4F;
+    --dark-phase-rest: #5C3020;
+    --dark-phase-rest-end: #8B4C39;
+}
+
+/* 杂志风结构覆盖 */
+.header { border-radius: var(--header-radius); }
+.card { border-radius: var(--card-radius); }
+.day-card details summary.day-title { border-radius: var(--day-card-radius); }
+.day-content { border-radius: 0 0 var(--day-card-radius) var(--day-card-radius); }
+
+/* 标题用衬线体 */
+.header h1, .card h2, .card h3 { font-family: var(--font-heading); }
+.header h1 { letter-spacing: 0.06em; font-weight: 900; }
+
+/* 左边框装饰改为双线杂志风 */
+.card h2 { border-left: 3px double var(--primary); padding-left: 12px; }
+
+/* 信息框更有质感 */
+.info-item { border: 1px solid var(--border); background: var(--bg-highlight); }

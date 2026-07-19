@@ -1,0 +1,97 @@
+/*
+ * Theme: 默认蓝调 (Original)
+ * 当前 index.html 的原始配色方案
+ */
+
+:root {
+    /* 主色调 — 更清新的蓝 */
+    --primary: #0284C7;
+    --primary-dark: #0369A1;
+    --primary-light: #38BDF8;
+    --primary-lighter: #7DD3FC;
+    --primary-bg: #F0F9FF;
+    --primary-border: #BAE6FD;
+    /* 强调色 — 暖橙呼应川西阳光 */
+    --accent: #F59E0B;
+    --accent-light: #FEF3C7;
+    --accent-dark: #D97706;
+    /* 辅助青绿 */
+    --teal: #0D9488;
+    --teal-light: #14B8A6;
+    --teal-bg: #F0FDF4;
+    /* 背景 */
+    --bg-body: #F1F5F9;
+    --bg-card: rgba(255,255,255,0.92);
+    --bg-highlight: #F8FAFC;
+    --bg-warn: #FFFBEB;
+    /* 文字 */
+    --text: #0F172A;
+    --text-secondary: #475569;
+    --text-light: #94A3B8;
+    --text-muted: #CBD5E1;
+    /* 边框 */
+    --border: #E2E8F0;
+    --border-light: #F1F5F9;
+    /* Header 渐变 */
+    --header-start: #0284C7;
+    --header-end: #06B6D4;
+    /* 行程阶段色 */
+    --phase-travel: #64748B;
+    --phase-travel-end: #94A3B8;
+    --phase-plateau: #0D9488;
+    --phase-plateau-end: #14B8A6;
+    --phase-rest: #EA580C;
+    --phase-rest-end: #FB923C;
+    /* 按钮 */
+    --btn-bg: #0284C7;
+    --btn-text: #FFFFFF;
+    /* 标签 */
+    --tag-must-bg: #E0F2FE;
+    --tag-must-text: #0369A1;
+    --tag-alt-bg: #F0FDF4;
+    --tag-alt-text: #15803D;
+    --tag-pass-bg: #F1F5F9;
+    --tag-pass-text: #64748B;
+    --tag-booked-bg: #FEE2E2;
+    --tag-booked-text: #DC2626;
+    /* 信息框 */
+    --box-reason: #EFF6FF;
+    --box-hotel: #EFF6FF;
+    --box-source: #F8FAFC;
+    /* 阴影 */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+    --shadow-primary: 0 4px 14px rgba(2,132,199,0.15);
+    /* 日历 */
+    --cal-trip: #E0F2FE;
+    --cal-weekend: #FFFBEB;
+    /* ===== 深色模式变量 ===== */
+    --dark-bg: #0B1120;
+    --dark-card-bg: rgba(15,23,42,0.92);
+    --dark-card-solid: #1E293B;
+    --dark-text: #E2E8F0;
+    --dark-text-secondary: #94A3B8;
+    --dark-border: #334155;
+    --dark-primary: #38BDF8;
+    --dark-primary-dim: #7DD3FC;
+    --dark-accent: #FBBF24;
+    --dark-teal: #2DD4BF;
+    --dark-warn-bg: #422006;
+    --dark-warn-text: #FDE68A;
+    --dark-warn-border: #92400E;
+    --dark-reason-bg: #1E293B;
+    --dark-phase-travel: #334155;
+    --dark-phase-travel-end: #475569;
+    --dark-phase-plateau: #0F766E;
+    --dark-phase-plateau-end: #0D9488;
+    --dark-phase-rest: #C2410C;
+    --dark-phase-rest-end: #EA580C;
+}
+
+/* 字体 & 圆角 — 默认风格不做额外覆盖 */
+/* --font-heading: inherit; */
+/* --font-body: inherit; */
+/* --card-radius: 16px; */
+/* --day-card-radius: 14px; */
+/* --header-radius: 20px; */

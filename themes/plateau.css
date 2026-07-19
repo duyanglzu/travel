@@ -1,0 +1,118 @@
+/*
+ * Theme: 高原风光沉浸风
+ * 雪山/草甸/藏寨色彩、深绿-金-白、高反差、大气的自然感
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&display=swap');
+
+:root {
+    /* 主色调 — 高原深绿 */
+    --primary: #166534;
+    --primary-dark: #14532D;
+    --primary-light: #22C55E;
+    --primary-lighter: #4ADE80;
+    --primary-bg: #F0FDF4;
+    --primary-border: #BBF7D0;
+    /* 强调色 — 日落金 */
+    --accent: #D97706;
+    --accent-light: #FEF3C7;
+    --accent-dark: #B45309;
+    /* 辅助 — 雪山灰蓝 */
+    --teal: #0E7490;
+    --teal-light: #06B6D4;
+    --teal-bg: #ECFEFF;
+    /* 背景 — 清新高原空气感 */
+    --bg-body: #F0FDF4;
+    --bg-card: rgba(255,255,255,0.90);
+    --bg-highlight: #F7FEE7;
+    --bg-warn: #FFFBEB;
+    /* 文字 */
+    --text: #1C1917;
+    --text-secondary: #44403C;
+    --text-light: #78716C;
+    --text-muted: #A8A29E;
+    /* 边框 */
+    --border: #D6D3D1;
+    --border-light: #E7E5E4;
+    /* Header 渐变 — 日出金绿 */
+    --header-start: #166534;
+    --header-end: #0E7490;
+    /* 行程阶段色 — 匹配海拔/景观 */
+    --phase-travel: #44403C;
+    --phase-travel-end: #78716C;
+    --phase-plateau: #166534;
+    --phase-plateau-end: #22C55E;
+    --phase-rest: #D97706;
+    --phase-rest-end: #F59E0B;
+    /* 按钮 */
+    --btn-bg: #166534;
+    --btn-text: #FFFFFF;
+    /* 标签 */
+    --tag-must-bg: #DCFCE7;
+    --tag-must-text: #166534;
+    --tag-alt-bg: #ECFDF5;
+    --tag-alt-text: #0E7490;
+    --tag-pass-bg: #F5F5F4;
+    --tag-pass-text: #78716C;
+    --tag-booked-bg: #FEF3C7;
+    --tag-booked-text: #B45309;
+    /* 信息框 */
+    --box-reason: #F0FDF4;
+    --box-hotel: #F7FEE7;
+    --box-source: #FAFAF9;
+    /* 阴影 — 自然光感 */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 14px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 32px rgba(0,0,0,0.08);
+    --shadow-primary: 0 4px 14px rgba(22,101,52,0.15);
+    /* 日历 */
+    --cal-trip: #DCFCE7;
+    --cal-weekend: #FEF3C7;
+    /* 字体 */
+    --font-heading: "Noto Serif SC", Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "HarmonyOS Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+    /* 圆角 — 自然柔和 */
+    --card-radius: 16px;
+    --day-card-radius: 14px;
+    --header-radius: 20px;
+
+    /* ===== 深色模式 — 星空高原夜 ===== */
+    --dark-bg: #0C1A0C;
+    --dark-card-bg: rgba(12,30,12,0.92);
+    --dark-card-solid: #162816;
+    --dark-text: #E8F0E8;
+    --dark-text-secondary: #8BA88B;
+    --dark-border: #2A4030;
+    --dark-primary: #4ADE80;
+    --dark-primary-dim: #86EFAC;
+    --dark-accent: #FBBF24;
+    --dark-teal: #22D3EE;
+    --dark-warn-bg: #2A1F06;
+    --dark-warn-text: #FDE68A;
+    --dark-warn-border: #5C4A10;
+    --dark-reason-bg: #162816;
+    --dark-phase-travel: #1A2A1A;
+    --dark-phase-travel-end: #2A3A2A;
+    --dark-phase-plateau: #0A3A1A;
+    --dark-phase-plateau-end: #166534;
+    --dark-phase-rest: #6A3A06;
+    --dark-phase-rest-end: #A85806;
+}
+
+/* 高原风结构覆盖 */
+.header { border-radius: var(--header-radius); }
+.card { border-radius: var(--card-radius); }
+.day-card details summary.day-title { border-radius: var(--day-card-radius); }
+.day-content { border-radius: 0 0 var(--day-card-radius) var(--day-card-radius); }
+
+/* 标题用衬线体 */
+.header h1, .card h2 { font-family: var(--font-heading); }
+
+/* 左边框用绿色调 */
+.card h2 { border-left-color: var(--primary); }
+
+/* 信息框增加自然感 */
+.info-item {
+    background: var(--bg-highlight);
+    border: 1px solid var(--border-light);
+}
