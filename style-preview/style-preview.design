@@ -1,0 +1,65 @@
+{
+  "data": [
+    {
+      "id": "image-001",
+      "title": "沉浸式旅行杂志风",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1784428700000,
+      "canvasData": {
+        "x": 0,
+        "y": 0
+      },
+      "devMetadata": {
+        "imageSrc": "assets/style-magazine-travel.jpg"
+      }
+    },
+    {
+      "id": "image-002",
+      "title": "极简 App 卡片风",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1784428700000,
+      "canvasData": {
+        "x": 620,
+        "y": 0
+      },
+      "devMetadata": {
+        "imageSrc": "assets/style-minimal-app.jpg"
+      }
+    },
+    {
+      "id": "image-003",
+      "title": "手绘旅行手账风",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1784428700000,
+      "canvasData": {
+        "x": 1240,
+        "y": 0
+      },
+      "devMetadata": {
+        "imageSrc": "assets/style-journal-handdrawn.jpg"
+      }
+    },
+    {
+      "id": "image-004",
+      "title": "高原风光沉浸风",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1784428700000,
+      "canvasData": {
+        "x": 1860,
+        "y": 0
+      },
+      "devMetadata": {
+        "imageSrc": "assets/style-plateau-immersive.jpg"
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": true,
+    "deviceType": "freeSize",
+    "projectName": "川西攻略 — 设计风格样图"
+  }
+}

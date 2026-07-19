@@ -14,6 +14,8 @@
 - **agent-reach 技能** — 搜索小红书、抖音获取实时用户攻略、路线验证、住宿评价
 - **高德地图 MCP** — `amap_search_place` 查POI/坐标，`amap_nav` 路线规划，`amap_optimize_route` 多点顺路排序
 - **百度地图 MCP** — `baidu_search_place` 查POI/坐标，`baidu_nav` 路线规划，`baidu_optimize_route` 多点顺路排序
+  > ⚠️ 百度API并发数不能超过3个，需串行或分批调用
+- **高德地图 MCP** — `amap_search_place` 查POI/坐标，`amap_nav` 路线规划，`amap_optimize_route` 多点顺路排序
 
 所有酒店/景点推荐均需通过高德/百度可搜到，并经小红书验证后加入出处表。
 
