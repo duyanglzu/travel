@@ -7,6 +7,16 @@
 - `index.html` — 主文件，自包含（CSS + JS 内联），无外部依赖
 - `route-map.jpg` — 自制路线示意图，在概括卡顶部显示
 
+## 调研工作流
+
+本项目内容调研依赖以下工具链：
+
+- **agent-reach 技能** — 搜索小红书、抖音获取实时用户攻略、路线验证、住宿评价
+- **高德地图 MCP** — `amap_search_place` 查POI/坐标，`amap_nav` 路线规划，`amap_optimize_route` 多点顺路排序
+- **百度地图 MCP** — `baidu_search_place` 查POI/坐标，`baidu_nav` 路线规划，`baidu_optimize_route` 多点顺路排序
+
+所有酒店/景点推荐均需通过高德/百度可搜到，并经小红书验证后加入出处表。
+
 ## 关键特性
 
 - 响应式：PC ≥769px 960px 布局，手机/微信 ≤768px 480px 布局

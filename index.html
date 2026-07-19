@@ -381,17 +381,6 @@
             box-shadow: var(--shadow-md);
         }
 
-        /* ========== Skeleton Loading ========== */
-        .skeleton {
-            background: linear-gradient(90deg, #E5E7EB 25%, #F3F4F6 50%, #E5E7EB 75%);
-            background-size: 200% 100%;
-            animation: skeletonPulse 1.5s ease infinite;
-            border-radius: 4px;
-        }
-        @keyframes skeletonPulse {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
 
         /* ========== Reason Box ========== */
         .reason {
@@ -595,7 +584,7 @@
 
         /* ========== Print ========== */
         @media print {
-            .fixed-bar, .day-nav, .skeleton, .btn, .btn-copy, .btn-small, .btn-outline, .btn-green, .route-map-img, .day-nav-btn, [data-copy], [data-nav], [data-action] { display: none !important; }
+            .fixed-bar, .day-nav, .btn, .btn-copy, .btn-small, .btn-outline, .btn-green, .route-map-img, .day-nav-btn, [data-copy], [data-nav], [data-action] { display: none !important; }
             body { padding-bottom: 0; background: white; }
             .day-card details, .card details { display: block !important; }
             .day-card, .card { opacity: 1 !important; transform: none !important; break-inside: avoid; }
@@ -873,77 +862,6 @@
         }
 
         /* ========== Dark Mode ========== */
-        @media (prefers-color-scheme: dark) {
-            body { background: var(--dark-bg); color: var(--dark-text); }
-            .card, .day-content, .fixed-bar { background: var(--dark-card-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-            .card.card-info { background: var(--dark-card-bg); }
-            .card.card-warning { background: var(--dark-warn-bg); border-left-color: var(--accent); }
-            .card h2, .card h3 { color: var(--dark-primary); }
-            .card h4 { color: var(--dark-text-secondary); }
-            .day-card details summary.day-title { background: linear-gradient(135deg, var(--dark-phase-travel) 0%, var(--dark-phase-travel-end) 100%); }
-            .day-card[data-phase="travel"] details summary.day-title { background: linear-gradient(135deg, var(--dark-phase-travel) 0%, var(--dark-phase-travel-end) 100%); }
-            .day-card[data-phase="plateau"] details summary.day-title { background: linear-gradient(135deg, var(--dark-phase-plateau) 0%, var(--dark-phase-plateau-end) 100%); }
-            .day-card[data-phase="rest"] details summary.day-title { background: linear-gradient(135deg, var(--dark-phase-rest) 0%, var(--dark-phase-rest-end) 100%); }
-            .info-item { background: var(--dark-card-solid); border-color: var(--dark-border); }
-            .info-item .label { color: var(--dark-primary); }
-            .info-item .value { color: var(--dark-text); }
-            table, th, td { border-color: var(--dark-border); }
-            th { background: var(--dark-card-solid); color: var(--dark-primary); }
-            td { color: var(--dark-text); }
-            .btn-outline { background: transparent; color: var(--dark-primary); border-color: var(--dark-primary); }
-            .btn-green { background: var(--dark-teal); }
-            .btn { color: white; }
-            .tip-box { background: var(--dark-warn-bg); border-color: var(--dark-warn-border); color: var(--dark-warn-text); }
-            .tip-box h4 { color: var(--dark-accent); }
-            .warn-box { background: var(--dark-card-solid); border-color: var(--dark-primary-dim); color: var(--dark-primary-dim); }
-            .reason { background: var(--dark-reason-bg); color: var(--dark-text); }
-            .reason .quote { background: var(--dark-card-solid); border-left-color: var(--dark-primary); }
-            .reason .quote-source { color: var(--dark-text-secondary); }
-            .hotel-box { background: var(--dark-card-bg); color: var(--dark-text); border-left-color: var(--dark-primary); }
-            .hotel-box strong { color: var(--dark-primary-dim); }
-            .hotel-box .price { color: var(--dark-accent); }
-            .hotel-box .source { color: var(--dark-text-secondary); }
-            .src-box { background: var(--dark-card-bg); border-color: var(--dark-border); color: var(--dark-text-secondary); }
-            .src-box strong { color: var(--dark-text); }
-            .src-box a { color: var(--dark-primary); border-bottom-color: var(--dark-border); }
-            .tag-must { background: var(--dark-card-solid); color: var(--dark-primary-dim); }
-            .tag-alt { background: var(--dark-reason-bg); color: var(--dark-teal); }
-            .tag-pass { background: #374151; color: #D1D5DB; }
-            .tag-booked { background: #7F1D1D; color: #FCA5A5; }
-            .link-group a { color: var(--dark-primary); border-bottom-color: var(--dark-border); }
-            .link-group .label { color: var(--dark-text-secondary); }
-            .checklist li { border-bottom-color: var(--dark-border); }
-            .separator { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
-            .fixed-bar { background: rgba(11,17,32,0.95); border-top-color: var(--dark-border); }
-            .nav-btn { background: var(--dark-reason-bg); color: var(--dark-primary); border-color: var(--dark-border); }
-            .nav-btn.active { background: var(--dark-primary); color: white; }
-            .day-nav-btn { background: var(--dark-card-solid); color: var(--dark-text-secondary); border-color: var(--dark-border); }
-            .day-nav-btn:hover { background: var(--dark-card-bg); border-color: var(--dark-primary); color: var(--dark-primary); }
-            .day-nav-btn.active { background: var(--dark-primary); color: white; border-color: var(--dark-primary); box-shadow: 0 0 0 3px rgba(56,189,248,0.25); }
-            .toast { background: rgba(30,41,59,0.92); color: var(--dark-text); box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
-            .loading-overlay { background: rgba(11,17,32,0.9); color: var(--dark-text); }
-            .skeleton { background: linear-gradient(90deg, var(--dark-reason-bg) 25%, var(--dark-border) 50%, var(--dark-reason-bg) 75%); }
-            .card summary .arrow { color: var(--dark-text-secondary); }
-            .route-timeline > div { background: var(--dark-reason-bg) !important; }
-            .route-timeline > div span { color: var(--dark-accent) !important; }
-            .route-timeline > div > div { color: var(--dark-primary) !important; }
-            .guide-table th { background: var(--dark-card-solid); color: var(--dark-text); }
-            .guide-table th, .guide-table td { border-color: var(--dark-border); }
-            .guide-table td { color: var(--dark-text); }
-            .guide-table .score { color: var(--dark-accent); }
-            .guide-table .score-denom { color: var(--dark-text-secondary); }
-            a { color: var(--dark-primary); }
-            .day-nav { background: rgba(11,17,32,0.95); border-bottom-color: var(--dark-border); }
-            .cal-month-title { color: var(--dark-text); }
-            .date-picker-row input { background: var(--dark-card-solid); color: var(--dark-text); border: 1px solid var(--dark-border); }
-            .loading-mask { background: rgba(11,17,32,0.85); }
-            .loading-mask .loading-text { color: var(--dark-text); }
-            .route-map-img { opacity: 0.85; }
-            .cal-table .cal-trip { background: #1E3A5F; }
-            .cal-table .cal-trip:hover { background: #1E4A7F; }
-            .cal-table .cal-weekend { background: #3D3520; }
-            .cal-table .cal-empty { background: var(--dark-bg); }
-        }
         html.dark body { background: var(--dark-bg); color: var(--dark-text); }
         html.dark .header::after { background: linear-gradient(180deg, rgba(11,17,32,0.4) 0%, rgba(15,23,42,0.6) 50%, rgba(11,17,32,0.8) 100%); }
         html.dark .card, html.dark .day-content, html.dark .fixed-bar { background: var(--dark-card-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
@@ -991,7 +909,6 @@
         html.dark .day-nav-btn.active { background: var(--dark-primary); color: white; border-color: var(--dark-primary); box-shadow: 0 0 0 3px rgba(56,189,248,0.25); }
         html.dark .toast { background: rgba(30,41,59,0.92); color: var(--dark-text); box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
         html.dark .loading-overlay { background: rgba(11,17,32,0.9); color: var(--dark-text); }
-        html.dark .skeleton { background: linear-gradient(90deg, var(--dark-reason-bg) 25%, var(--dark-border) 50%, var(--dark-reason-bg) 75%); }
         html.dark .card summary .arrow { color: var(--dark-text-secondary); }
         html.dark .card details summary h2, html.dark .card details summary h3 { color: var(--dark-primary); }
         html.dark .route-timeline > div { background: var(--dark-reason-bg) !important; }
@@ -1027,7 +944,7 @@
         <p>两车两家庭 · 亲子宠物友好 · 8月雨季适配<br>自然风光为主 · 人文点缀 · 全程弹性不赶路</p>
     </div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin:-4px 0 14px;">
-            <div style="font-size:11px;color:#9CA3AF;">v6.1 · Made by Kevin</div>
+            <div id="versionTop" style="font-size:11px;color:#9CA3AF;"></div>
             <button id="themeToggle" style="background:var(--primary-bg);border:1px solid var(--primary-border);border-radius:8px;color:var(--primary);padding:4px 10px;font-size:13px;cursor:pointer;white-space:nowrap;">🌙 深色</button>
         </div>
 
@@ -1145,7 +1062,7 @@
         <h3>4. 这条路线不算经典"川西小环线"</h3>
         <p>经典川西小环线为成都→四姑娘山(阿坝)→丹巴→新都桥→成都，需跨越甘孜和阿坝两州。本行程聚焦甘孜州东线，刻意没有硬凑环线：</p>
         <ul>
-            <li><strong>减少翻垭口：</strong>巴郎山4520m、折多山4298m雨季风险高，对14岁孩子挑战大</li>
+            <li><strong>减少翻垭口：</strong>巴朗山4520m、折多山4298m雨季风险高，对14岁孩子挑战大</li>
             <li><strong>住宿海拔可控：</strong>全程≤3000m，而小环线新都桥3300m+，高反概率更低</li>
             <li><strong>不赶路：</strong>小环线每天6-8h车程；本行程每天≤4h，符合亲子节奏</li>
         </ul>
@@ -1529,9 +1446,9 @@
             <div class="h-scroll">
             <div>
             <h3>核心 · 迦嘎措（红海子）</h3>
-            <span class="tag tag-alt">备选</span>
+            <span class="tag tag-must">推荐</span>
             <div class="reason">
-                碧蓝湖泊倒映雅拉雪峰，海拔4200m，6月高山杜鹃环绕。收费15元/人，路边免费停车区也能拍到全景。<br>
+                碧蓝湖泊倒映雅拉雪峰，海拔4200m，夏季高山杜鹃环绕。收费15元/人，路边免费停车区也能拍到全景。<br>
                 ⚠️ 非常吃天气——晴天绝美阴天劝退。周末偏网红，建议早到。<br>
                 <a href="https://ditu.amap.com/search?query=%E8%BF%A6%E5%98%8E%E6%8E%AA" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
                 <a href="https://map.baidu.com/search/%E8%BF%A6%E5%98%8E%E6%8E%AA" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
@@ -1640,7 +1557,7 @@
         <div class="day-content">
             <p><strong>出发时间：</strong>09:00 · 预计到达：12:00</p>
             <p><strong>里程：</strong>约92km，行车约2h48min（翻折多山垭口海拔4298m）</p>
-            <p><strong>路线：</strong>康定 → 折多山垭口 → 甲根坝</p>
+            <p><strong>路线：</strong>康定 → 折多山垭口（G318国道） → 甲根坝</p>
              <p><strong>建议：</strong>早出发避午后降雨，锐界四驱无压力。折多山气温比康定低10℃，下车拍照穿冲锋衣。<br>
              <span style="color:#c0392b;">⛽ 甲根坝无加油站！最近加油站在康定/新都桥，康定出发前务必加满。</span></p>
              <div class="warn-box" style="border-left-color:#F59E0B;"><strong>⚠️ 甲根坝导航提醒</strong><br>
@@ -1769,29 +1686,59 @@
             <p><strong>出发时间：</strong>09:00 出发去夺让村看土拨鼠（须11:00前到）</p>
             <div class="h-scroll">
             <div>
-            <h3>☀️ Plan A（推荐）：B线柏油路一日游</h3>
-            <span class="tag tag-must">推荐</span>
-            <div class="reason">
-                <strong>✅ 推荐理由</strong>
-                全程S248国道柏油路，轿车无压力；串联提吾村、夺让村、亚拢沟，一天不赶。<br>
-                <strong>行程：</strong><br>
-                🕐 早 → <strong>夺让村</strong>看土拨鼠（11点前到，晚了吃饱就不出来了）<br>
-                🕐 上午 → <strong>亚拢沟钙化滩</strong>（11km/39min，路边直达免费玩，迷你小黄龙）<br>
-                🕐 午 → 回甲根坝镇吃饭<br>
-                🕐 下午 → <strong>提吾村</strong>青稞田园木栈道（5元/人）+ <strong>日头村</strong>溯溪玩水（6km/12min）<br>
-                🕐 傍晚 → <strong>popo cafe</strong> 藏式青稞拿铁收尾<br>
-            </div>
+              <h3>☀️ Plan A（推荐）：B线柏油路 · 村落田园远眺贡嘎</h3>
+              <span class="tag tag-must">推荐</span>
+              <div class="reason">
+                  <strong>✅ 推荐理由</strong>
+                  全程柏油路，轿车无压力；沿G248南向深入山谷，沿途多个村落+田园可远眺贡嘎，以雪山为背景出片。<br>
+                  <strong>🚩 终点：日头村（B线最南端）→ 原路折返民宿</strong><br>
+                  <strong>行程（甲根坝↺B线南向环返）：</strong><br>
+                   🕐 早 → <strong>夺让村</strong>看土拨鼠（11km/20min南，11点前到）
+                   <a href="https://ditu.amap.com/search?query=%E5%A4%BA%E8%AE%A9%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                    <a href="https://map.baidu.com/search/%E5%A4%BA%E8%AE%A9%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a><br>
+                  🕐 上午 → <strong>亚拢沟钙化滩</strong>（再往南5km，路边直达免费玩，迷你小黄龙）
+                   <a href="https://ditu.amap.com/search?query=%E4%BA%9A%E6%8B%A2%E6%B2%9F%E9%92%99%E5%8C%96%E6%BB%A9" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                    <a href="https://map.baidu.com/search/%E4%BA%9A%E6%8B%A2%E6%B2%9F%E9%92%99%E5%8C%96%E6%BB%A9" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a><br>
+                  🕐 午 → 回甲根坝镇吃饭<br>
+                  🕐 下午 → <strong>提吾村</strong>青稞田园木栈道（5元/人，登山步道远眺贡嘎）
+                   <a href="https://ditu.amap.com/search?query=%E6%8F%90%E5%90%BE%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                    <a href="https://map.baidu.com/search/%E6%8F%90%E5%90%BE%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>
+                    — <strong>日头村</strong>溯溪玩水（路边贡嘎雪山机位）
+                   <a href="https://ditu.amap.com/search?query=%E6%97%A5%E5%A4%B4%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                    <a href="https://map.baidu.com/search/%E6%97%A5%E5%A4%B4%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a><br>
+                  🕐 傍晚 → 回民宿休息<br>
+                  <strong>📷 贡嘎观景点：</strong>提吾村木栈道（田园+雪山）/ 日头村公路边（溪流+雪山）
+              </div>
             </div>
             <div>
-            <h3>🏔️ Plan B（晴天SUV）：A线空中花园</h3>
-            <span class="tag tag-alt">备选</span>
-            <div class="reason">
-                <strong>✅ 推荐理由</strong>
-                泽桑拉空中花园（海拔4321m），360°眺望贡嘎群峰，日落金山绝美。<br>
-                💰 清洁费20元/人（60岁以上10元），SUV可上，轿车不行<br>
-                ⏰ 管制时间：12:00-14:00黄金2小时可进，之后随时可出<br>
-                ⚠️ A线路况差（土路+炮弹坑），SUV才能走，雨天慎行<br>
-            </div>
+              <h3>🏔️ Plan B（晴天SUV）：A线东向 · 空中花园直对贡嘎</h3>
+              <span class="tag tag-alt">备选</span>
+              <div class="reason">
+                  <strong>✅ 推荐理由</strong>
+                  泽桑拉空中花园（海拔4321m），360°直面贡嘎群峰无遮挡，日落金山绝美。<br>
+                  <strong>🚩 终点：泽桑拉空中花园（A线最东端）→ 下山经扎日村回民宿</strong><br>
+                  <strong>行程（甲根坝↺A线东向环返）：</strong><br>
+                   🕐 7:00前过卡点 → <strong>扎日村·树夏咖啡</strong>（6km/10min，清晨光线最好）
+                    <a href="https://ditu.amap.com/search?query=%E6%89%8E%E6%97%A5%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                    <a href="https://map.baidu.com/search/%E6%89%8E%E6%97%A5%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a><br>
+                   🕐 7:30 → <strong>梅朵垭口</strong>（扎日村旁，轿车可达，30元/人，俯瞰甲根坝河谷全景）
+                    <a href="https://ditu.amap.com/search?query=%E6%A2%85%E6%9C%B5%E5%9E%AD%E5%8F%A3" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                    <a href="https://map.baidu.com/search/%E6%A2%85%E6%9C%B5%E5%9E%AD%E5%8F%A3" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a><br>
+                   🕐 8:00 → <strong>日车村·松顿尼吉</strong>（再往东6km，溪边森林，出片高）
+                    <a href="https://ditu.amap.com/search?query=%E6%97%A5%E8%BD%A6%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                    <a href="https://map.baidu.com/search/%E6%97%A5%E8%BD%A6%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a><br>
+                   🕐 9:00 → <strong>泽桑拉空中花园</strong>（SUV上山7km土路约20min，4321m直面贡嘎群峰）
+                    <a href="https://ditu.amap.com/search?query=%E6%B3%BD%E6%A1%91%E6%8B%89%E7%A9%BA%E4%B8%AD%E8%8A%B1%E5%9B%AD" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                    <a href="https://map.baidu.com/search/%E6%B3%BD%E6%A1%91%E6%8B%89%E7%A9%BA%E4%B8%AD%E8%8A%B1%E5%9B%AD" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a><br>
+                  🕐 11:00 → 下山，过卡点不限时，回镇午饭<br>
+                   🕐 下午 → <strong>popo cafe</strong>或<strong>树夏咖啡</strong>青稞拿铁收尾（扎日村，A线上）
+                    <a href="https://ditu.amap.com/search?query=%E7%94%B2%E6%A0%B9%E5%9D%9D%20popo%20cafe" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ popo cafe·高德</a>
+                    <a href="https://map.baidu.com/search/popo%20cafe%20%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ popo cafe·百度</a><br>
+                  💰 空中花园清洁费20元/人（60岁以上10元）｜梅朵垭口30元/人<br>
+                  🌲 <strong>木雅措</strong>（额外A线点位，SUV可达，需多绕30min，时间充裕可加）<br>
+                  ⚠️ A线路况差（土路+炮弹坑），SUV才能走，雨天慎行；梅朵垭口轿车可上<br>
+                  <strong>📷 贡嘎观景点：</strong>泽桑拉空中花园（360°主景台，无人机友好）/ 梅朵垭口（甲根坝全景+贡嘎）/ 日车村溪边（雪山+溪流倒影）
+              </div>
             <div class="src-box">
                 <a href="https://www.xiaohongshu.com/explore/6a1d78180000000037037149" target="_blank" rel="noopener">小红书·空中花园602赞</a>
             </div>
@@ -1802,8 +1749,16 @@
             <span class="tag tag-alt">备选</span>
             <div class="reason">
                 <strong>✅ 推荐</strong>
-                上午去<strong>提吾村</strong>轻游（1.4km），民宿手工体验（编织/石头彩绘）。<br>
-                雨停了去<strong>提弄村</strong>河边露营区（40元/顶帐篷，溪边树林清静），或<strong>日头村</strong>溯溪。<br>
+                 上午去<strong>提吾村</strong>轻游（1.4km）
+                   <a href="https://ditu.amap.com/search?query=%E6%8F%90%E5%90%BE%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                    <a href="https://map.baidu.com/search/%E6%8F%90%E5%90%BE%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>，
+                   民宿手工体验（编织/石头彩绘）。<br>
+                  雨停了去<strong>提弄村</strong>河边露营区（40元/顶帐篷，溪边树林清静）
+                    <a href="https://ditu.amap.com/search?query=%E6%8F%90%E5%BC%84%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                    <a href="https://map.baidu.com/search/%E6%8F%90%E5%BC%84%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>，
+                   或<strong>日头村</strong>溯溪
+                   <a href="https://ditu.amap.com/search?query=%E6%97%A5%E5%A4%B4%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                    <a href="https://map.baidu.com/search/%E6%97%A5%E5%A4%B4%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>。<br>
             </div>
             </div>
             </div>
@@ -1813,18 +1768,19 @@
                 <a href="https://www.xiaohongshu.com/explore/68a8747f000000001d03566f" target="_blank" rel="noopener">小红书·甲根坝村子推荐855赞</a> ｜
                 <a href="https://www.xiaohongshu.com/explore/6a2182de0000000036032776" target="_blank" rel="noopener">小红书·甲根坝实话实说178赞</a> ｜
                 <a href="https://www.xiaohongshu.com/explore/6a368e4c000000001503f7fd" target="_blank" rel="noopener">小红书·B线封神144赞</a> ｜
-                <a href="https://www.xiaohongshu.com/explore/6a228e5f000000002003bb16" target="_blank" rel="noopener">小红书·景点露营总结23赞</a>
+                <a href="https://www.xiaohongshu.com/explore/6a228e5f000000002003bb16" target="_blank" rel="noopener">小红书·景点露营总结23赞</a> ｜
+                <a href="https://www.xiaohongshu.com/explore/6a5b419f000000001d022099?xsec_token=ABOh-I0cljwjbTsc7ujQJm4-EYNhuV6gmB8rIgFZ8lCFw=" target="_blank" rel="noopener">小红书·甲根坝最新实况（A/B线+限行）</a>
             </div>
 
             <div class="warn-box">
                 <strong>⚠️ 甲根坝A/B线说明</strong><br>
                 甲根坝分A/B两线：<br>
-                <strong>A线</strong>（雅哈垭口方向·S569省道）：含日泽村、立泽村、亚弄村、空中花园。<br>
-                 &nbsp;&nbsp;⏰ 限时通行：8:00前 / 12:00-14:00 / 18:00后可进，出村不限。<br>
-                 &nbsp;&nbsp;🛣️ 土路+炮弹坑，仅SUV，雨天慎行。<br>
-                <strong>B线</strong>（莲花湖方向·G248国道）：含提吾村、夺让村、日头村、朋布西村。<br>
-                 &nbsp;&nbsp;✅ 全程柏油路，轿车无压力，无管制。<br>
-                💡 <strong>Plan A走B线</strong>（省心不踩坑），Plan B走A线（仅晴天SUV）。
+                 <strong>A线</strong>（雅哈垭口方向·S569省道）：含扎日村、日车村、空中花园、木雅措。<br>
+                  &nbsp;&nbsp;⏰ 限时通行：8:00前 / 12:00-14:00 / 19:00后可进，出村不限。<br>
+                  &nbsp;&nbsp;🛣️ 全程约10km炮弹坑土路，仅SUV，雨天慎行。<br>
+                 <strong>B线</strong>（莲花湖方向·G248国道）：含提吾村、夺让村、日头村、纳梯村。<br>
+                  &nbsp;&nbsp;✅ 全程柏油路，轿车无压力，无管制。<br>
+                 💡 <strong>Plan A走B线</strong>（省心不踩坑），Plan B走A线（仅晴天SUV）。
             </div>
 
             <div class="tip-box">
@@ -1839,17 +1795,22 @@
         <details>
         <summary class="day-title"><span class="day-num">D9</span><span class="day-text"> 甲根坝休闲日 · 自由收尾 </span><span class="day-date">08/15</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
-            <p><strong>出发时间：</strong>11:00 · 建议15:00前返回民宿整理行李</p>
+             <p><strong>出发时间：</strong>11:00 · 建议15:00前返回民宿整理行李</p>
+             <p><strong>🍄 松茸季提示：</strong>离开前可在甲根坝镇上买新鲜松茸带走（约80-120元/斤），找民宿或餐厅加工尝鲜。</p>
             <div class="h-scroll">
             <div>
             <h3>☀️ Plan A（推荐）：纳梯村/夺让村方向</h3>
             <span class="tag tag-must">推荐</span>
             <div class="reason">
-                <strong>✅ 推荐理由</strong>
-                轻松收尾，不赶路。走B线G248往南到夺让村/纳梯村方向，漫山野花、可遇土拨鼠。<br>
-                夺让村山坡（5元/人）人少花多，拍照绝美。<br>
-                下午回民宿整理行李，为明天转场道孚做准备。<br>
-                📍 导航「甲根坝夺让村」或「罗布林情缘民宿」（纳梯村）<br>
+                 <strong>✅ 推荐理由</strong>
+                 轻松收尾，不赶路。走B线G248往南到夺让村/纳梯村方向，漫山野花、可遇土拨鼠。<br>
+                 夺让村山坡（5元/人）人少花多，拍照绝美
+                  <a href="https://ditu.amap.com/search?query=%E5%A4%BA%E8%AE%A9%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                  <a href="https://map.baidu.com/search/%E5%A4%BA%E8%AE%A9%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>。<br>
+                 下午回民宿整理行李，为明天转场道孚做准备。<br>
+                 📍 导航「甲根坝夺让村」或「罗布林情缘民宿」（纳梯村）
+                  <a href="https://ditu.amap.com/search?query=%E7%BD%97%E5%B8%83%E6%9E%97%E6%83%85%E7%BC%98%E6%B0%91%E5%AE%BF%20%E7%94%B2%E6%A0%B9%E5%9D%9D" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 罗布林·高德</a>
+                  <a href="https://map.baidu.com/search/%E7%BD%97%E5%B8%83%E6%9E%97%E6%83%85%E7%BC%98%E6%B0%91%E5%AE%BF" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 罗布林·百度</a><br>
             </div>
             </div>
             <div>
@@ -1859,7 +1820,9 @@
                 <strong>✅ 推荐理由</strong>
                 8月菌季，民宿老板可带队上山捡菌子（牛肝菌/羊肚菌）。亲子体验感强。<br>
                 <div class="quote">“甲根坝7个羊肚菌窝子免费带捡”<span class="quote-source">—— 小红书735赞</span></div>
-                或去<strong>日头村</strong>溪边露营野餐（免费，开车直达）。<br>
+                 或去<strong>日头村</strong>溪边露营野餐（免费，开车直达）
+                  <a href="https://ditu.amap.com/search?query=%E6%97%A5%E5%A4%B4%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 高德</a>
+                  <a href="https://map.baidu.com/search/%E6%97%A5%E5%A4%B4%E6%9D%91" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️ 百度</a>。<br>
             </div>
             <div class="src-box">
                 <a href="https://www.xiaohongshu.com/explore/6838f8be000000002100baa0" target="_blank" rel="noopener">小红书·捡菌子735赞</a>
@@ -1911,7 +1874,6 @@
                 <tr><td style="padding:4px 6px;border:1px solid #FDE68A;">14:30-16:00</td><td>八美→道孚县城</td><td>G548沿途藏寨风光，入住</td></tr>
             </table>
 
-            <div class="tip-box" style="margin:8px 0;"><strong>💡 D12预告：</strong>D12走金小路S451（道孚→金川→金小路→小金），全程343km/6.5h，川西收官亮点。详见D12卡片。</div>
             <div class="warn-box">
                 <strong>⚠️ 丹道秘境雨季高风险</strong><br>
                 8月雨季丹道秘境（多杰玉崇垭口段）为炮弹坑+碎石路，党岭至丹巴段有涉水路段和落石风险。<br>
@@ -1997,7 +1959,7 @@
     <!-- D11 -->
     <div class="day-card" id="day-11" data-phase="plateau">
         <details>
-        <summary class="day-title"><span class="day-num">D11</span><span class="day-text"> 道孚 · 玉科草原 + 卡玛村 </span><span class="day-date">08/17</span><span class="day-arrow">▶</span></summary>
+        <summary class="day-title"><span class="day-num">D11</span><span class="day-text"> 道孚 · 玉科草原 + 灵雀寺 </span><span class="day-date">08/17</span><span class="day-arrow">▶</span></summary>
         <div class="day-content">
             <p><strong>里程：</strong>道孚↔玉科草原 128km往返 / 道孚↔卡玛村 30min</p>
 
@@ -2007,7 +1969,7 @@
             <span class="tag tag-must">推荐</span>
             <div class="reason">
                 <strong>✅ 推荐理由</strong>
-                被称"康巴阿勒泰"的立体草原景观，7月野花盛开，人少景美。<br>
+                被称"康巴阿勒泰"的立体草原景观，夏季野花盛开，人少景美。<br>
                 适合带狗奔跑、野餐，沿路雪山草甸交相辉映。<br>
                 单程64km/76min，全程柏油路，轿车无压力。<br>
                 上午出发玩到下午回来，节奏舒适。<br>
@@ -2047,8 +2009,9 @@
                 ① 整理行李，明天D12转场里程较长（道孚→金川 255km/5h）<br>
                 ② 确认油箱余量，道孚县城加满油<br>
                 ③ 下载离线地图（道孚→金川→小金沿途G248部分段信号弱）<br>
-                ④ 提前查好金川午餐点
+                 ④ 提前查好金川午餐点
             </div>
+            <div class="tip-box" style="border-left-color:#8B5CF6;"><strong>💡 D12预告：</strong>D12走金小路S451（道孚→金川→金小路→小金），全程343km/6.5h，川西收官亮点。详见<a href="#day-12" style="color:#2563EB;text-decoration:underline;">D12卡片</a>。</div>
         </div>
         </details>
     </div>
@@ -2151,17 +2114,32 @@
                 · <strong>11:00前过巴郎山</strong>（午后起雾高发）<br>
                 · 全程约560km，每2小时进服务区让狗狗活动<br>
                 · 四姑娘山→映秀段G350弯多坡陡，隧道多光线变化大，注意减速<br>
-                · ⚠️ 导航设「猫鼻梁观景台」途经点，否则直达会绕过四姑娘山
+                · ⚠️ 导航设「猫鼻梁观景台」途经点，否则直达会绕过四姑娘山<br>
+                · 🚽 猫鼻梁观景台无厕所，出发前去趟洗手间<br>
+                · 🅿️ 观景台车位有限，9:30到相对充裕
             </div>
 
             <h4 style="margin:10px 0 6px;color:var(--primary-light);">分段详情</h4>
             <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;"><table style="width:100%;font-size:12px;border-collapse:collapse;">
                 <tr style="background:#D1FAE5;"><th style="padding:6px;text-align:left;border:1px solid #A7F3D0;">时段</th><th style="padding:6px;text-align:left;border:1px solid #A7F3D0;">路段</th><th style="padding:6px;text-align:left;border:1px solid #A7F3D0;">里程</th><th style="padding:6px;text-align:left;border:1px solid #A7F3D0;">活动</th><th style="padding:6px;text-align:left;border:1px solid #A7F3D0;">导航</th></tr>
-                <tr><td style="padding:4px 6px;border:1px solid #A7F3D0;">8:30-9:30</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">小金→四姑娘山（猫鼻梁）</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">~50km/1h</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">沿S303北上，猫鼻梁观景台免费看四姑娘山全景</td><td style="padding:4px 6px;border:1px solid #A7F3D0;"><a href="https://uri.amap.com/marker?position=103.16,30.98&name=猫鼻梁观景台&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️高德</a></td></tr>
-                <tr><td style="padding:4px 6px;border:1px solid #A7F3D0;">9:30-10:00</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">猫鼻梁观景台拍照</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">—</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">拍四姑娘山全景，能见度最好的时段</td><td style="padding:4px 6px;border:1px solid #A7F3D0;"><a href="https://uri.amap.com/marker?position=103.16,30.98&name=猫鼻梁观景台&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️高德</a></td></tr>
+                <tr><td style="padding:4px 6px;border:1px solid #A7F3D0;">8:30-9:30</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">小金→四姑娘山（猫鼻梁）</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">~50km/1h</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">沿S303北上，猫鼻梁观景台免费看四姑娘山全景</td><td style="padding:4px 6px;border:1px solid #A7F3D0;"><a href="https://uri.amap.com/marker?position=103.16,30.98&name=猫鼻梁观景台&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️高德</a> <a href="https://map.baidu.com/search/%E7%8C%AB%E9%BC%BB%E6%A2%81%E8%A7%82%E6%99%AF%E5%8F%B0" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️百度</a></td></tr>
+                <tr><td style="padding:4px 6px;border:1px solid #A7F3D0;">9:30-10:00</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">猫鼻梁观景台拍照</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">—</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">拍四姑娘山全景，能见度最好的时段</td><td style="padding:4px 6px;border:1px solid #A7F3D0;"><a href="https://uri.amap.com/marker?position=103.16,30.98&name=猫鼻梁观景台&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️高德</a> <a href="https://map.baidu.com/search/%E7%8C%AB%E9%BC%BB%E6%A2%81%E8%A7%82%E6%99%AF%E5%8F%B0" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️百度</a></td></tr>
                 <tr><td style="padding:4px 6px;border:1px solid #A7F3D0;">10:00-13:00</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">四姑娘山→映秀</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">~130km/3h</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">G350熊猫大道，弯多坡陡隧道多，注意横风</td><td style="padding:4px 6px;border:1px solid #A7F3D0;"><a href="https://uri.amap.com/marker?position=103.57,31.07&name=映秀镇&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️高德</a></td></tr>
                 <tr><td style="padding:4px 6px;border:1px solid #A7F3D0;">13:00-17:00</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">映秀→重庆</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">~380km/4h</td><td style="padding:4px 6px;border:1px solid #A7F3D0;">G5013渝蓉高速，中午服务区用餐</td><td style="padding:4px 6px;border:1px solid #A7F3D0;"><a href="https://uri.amap.com/marker?position=106.55,29.58&name=重庆观音桥&src=travel" target="_blank" rel="noopener" class="btn btn-small btn-outline">🗺️高德</a></td></tr>
             </table>
+
+            <div class="reason">
+                <strong>💡 猫鼻梁观景台·免费看四姑娘山全景</strong><br>
+                📍 导航「猫鼻梁观景台」，G350熊猫大道旁，下车即到<br>
+                ⏱️ 停留20-30分钟足够，上午9:30-10:00能见度最好<br>
+                🆓 唯一免费且能看完四座雪峰（幺妹峰6250m）的观景点<br>
+                🚽 观景台无厕所，小金出发前去一趟<br>
+                🅿️ 车位有限，9:30到相对充裕，停上坡平台视野更好<br>
+                🧥 海拔约3500m，风大，备件外套<br>
+                <a href="https://www.xiaohongshu.com/search_result/6a4a5477000000000f01d82d?xsec_token=AB_85Or3JlHRU0nn3dpavGhDKHSd6oFNcRApYlT4W5dig=&xsec_source=" target="_blank" rel="noopener">📕 猫鼻梁实况·7月</a>
+                <a href="https://www.xiaohongshu.com/search_result/69b49790000000002202864c?xsec_token=AB39UjIT-QnQkPpFwQzSUUBmPWjlyAnJLia-cn9-wHh-0=&xsec_source=" target="_blank" rel="noopener">📕 四姑娘山观景台全攻略·332赞</a>
+                <a href="https://www.xiaohongshu.com/search_result/69b2b973000000001b015d19?xsec_token=ABIHbInig66o8jj_H51yx3oBhqiCAGsXyidwcdGUsqRyc=&xsec_source=" target="_blank" rel="noopener">📕 不进景区看四姑娘山·318赞</a>
+            </div>
 
             <div class="reason">
                 <strong>💡 D13行程要点</strong><br>
@@ -2708,7 +2686,7 @@
             <strong>重庆富力凯悦酒店</strong>
             <span class="tag tag-must">五星首选</span>凯悦集团<br>
             📍 江北区北城天街11号（观音桥步行街）<br>
-            💰 约700-1200元/晚 · 室内泳池/行政酒廊
+            💰 约700-1200元/晚 · 室内泳池/行政酒廊<br>
             🅿️ 免费停车 · 地铁直达<br>
             <button class="btn btn-green btn-small btn-copy" data-copy="重庆富力凯悦酒店 观音桥">📝 复制</button>
         </div>
@@ -2750,7 +2728,7 @@
         </ul>
 
         <h3>🪰 高反预防与应对手册</h3>
-<h3>预防措施</h3>
+        <h4>预防措施</h4>
         <ul><li>提前3天红景天；进高原后「慢走路、少洗澡、不喝酒、多喝水」</li></ul>
         <h3>常见症状</h3>
         <ul><li>轻微头晕头疼：平卧休息、喝葡萄糖水，1-2天缓解</li></ul>
@@ -2876,6 +2854,7 @@
         <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
         <table>
             <tr><th>版本</th><th>日期</th><th>变更内容</th></tr>
+            <tr><td>v7</td><td>2026.07.19</td><td>D7-G318明确标注、D8甲根坝A/B线重写(限行修正+popo cafe/梅朵垭口/木雅措)、D9松茸+导航按钮、D12金小路分段导航(途经万里城梁子)、D13猫鼻梁免费观景详情、版本号统一为JS变量</td></tr>
             <tr><td>v6.2</td><td>2026.07.16</td><td>全站视觉美化：更大圆角(16px)、更柔和阴影、更清晰字体层级、暖橙点缀色、标签/按钮/表格全面优化</td></tr>
             <tr><td>v6.0</td><td>2026.07.03</td><td>Hero横幅背景图+Noto Serif SC标题字体+底部按钮点击展开卡片+嵌入式实景图</td></tr>
             <tr><td>v5.1</td><td>2026.07.03</td><td>晴空蓝配色全面改版、CSS自定义属性重构、所有卡片默认折叠、表格左右滑动适配手机、外链安全增强、多处内容修正</td></tr>
@@ -2995,10 +2974,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.scrollTo({ top, behavior: 'smooth' });
             }
         }
-    });
-    // 默认全部折叠 — 用户自行点击展开
-    document.querySelectorAll('.day-card details').forEach(el => {
-        
     });
     // aria-expanded 同步 details 展开状态
     document.querySelectorAll('details').forEach(el => {
@@ -3409,9 +3384,12 @@ function setupThemeToggle() {
     });
 }
 document.addEventListener('DOMContentLoaded', setupThemeToggle);
+const VER = 'v7';
+document.getElementById('versionTop').textContent = VER + ' · Made by Kevin';
+document.getElementById('versionFooter').textContent = VER + ' · 川西17天自驾慢游攻略';
 </script>
 <div style="text-align:center;padding:16px;font-size:11px;color:#9CA3AF;border-top:1px solid #E5E7EB;margin-top:20px;line-height:1.8;">
-    v6.2 · 川西17天自驾慢游攻略<br>
+    <span id="versionFooter"></span><br>
     © 2026 All Rights Reserved
 </div>
 </body>
