@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="川西17天自驾慢游全攻略：三大固定大本营、亲子宠物友好、8月雨季适配，甘孜州东线深度游路线规划与住宿推荐">
     <title>川西17天自驾慢游全攻略 | 方案一 · 完整环线</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏔️</text></svg>">
+    <link rel="icon" href="assets/icon-compass.jpg">>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
@@ -288,10 +288,41 @@
         .theme-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
         .dark-toggle-btn { background: var(--bg-highlight); border: 1.5px solid var(--border); border-radius: 8px; color: var(--text-secondary); padding: 3px 8px; font-size: 12px; cursor: pointer; white-space: nowrap; transition: all 0.15s ease; line-height: 1.6; }
         .dark-toggle-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* Back Bar */
+        .back-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 0;
+            margin-bottom: 8px;
+        }
+        .back-bar a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.15s ease;
+        }
+        .back-bar a:hover { color: var(--primary); }
+        .back-bar a svg {
+            width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .back-bar .sep {
+            width: 1px; height: 14px; background: var(--border); }
+        .back-bar .page-title {
+            font-size: 12px; color: var(--text-light); font-weight: 400; }
     </style>
 </head>
 <body>
 <div class="container" id="content">
+    <div class="back-bar">
+        <a href="index.html"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>返回</a>
+        <div class="sep"></div>
+        <span class="page-title">完整环线</span>
+    </div>
     <!-- 头部 -->
     <div class="header">
         <h1>川西17天自驾慢游全攻略</h1>

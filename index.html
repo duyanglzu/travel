@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="旅行攻略合集 - 川西、新疆、西藏等自驾路线规划">
     <title>旅行攻略合集 | Kevin's Travel</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
+    <link rel="icon" href="assets/icon-compass.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link id="themeCSS" rel="stylesheet" href="themes/default.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,198 +17,55 @@
             font-family: -apple-system, BlinkMacSystemFont, "HarmonyOS Sans", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
             background: var(--bg-body);
             color: var(--text);
-            line-height: 1.75;
-            font-size: 15px;
-        }
-
-        .container {
-            max-width: 480px;
-            margin: 0 auto;
-            padding: 16px;
-        }
-
-        @media (min-width: 769px) {
-            .container { max-width: 960px; padding: 32px; }
-        }
-
-        /* Hero Header */
-        .header {
-            position: relative;
-            overflow: hidden;
-            color: white;
-            padding: 48px 24px 40px;
-            border-radius: 20px;
-            margin-bottom: 24px;
-            text-align: center;
-            min-height: 260px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(6,182,212,0.8), rgba(59,130,246,0.9));
-            z-index: 0;
-        }
-
-        .header h1 {
-            position: relative;
-            z-index: 1;
-            font-family: "Noto Serif SC", serif;
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            text-shadow: 0 2px 16px rgba(0,0,0,0.4);
-        }
-
-        .header p {
-            position: relative;
-            z-index: 1;
-            font-size: 14px;
-            opacity: 0.95;
-            text-shadow: 0 1px 8px rgba(0,0,0,0.3);
-        }
-
-        /* Destination Cards */
-        .dest-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid rgba(255,255,255,0.6);
-            transition: all 0.2s ease;
-        }
-
-        .dest-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-2px);
-        }
-
-        @media (min-width: 769px) {
-            .dest-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                gap: 20px;
-            }
-        }
-
-        .dest-card h2 {
-            font-size: 20px;
-            color: var(--primary);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .dest-card h3 {
-            font-size: 16px;
-            margin: 12px 0 8px;
-            color: var(--text-secondary);
-        }
-
-        .dest-card p {
-            font-size: 14px;
-            color: var(--text-secondary);
             line-height: 1.6;
-            margin-bottom: 8px;
+            font-size: 15px;
+            min-height: 100vh;
         }
 
-        .route-list {
-            list-style: none;
-            padding: 0;
-            margin: 12px 0;
-        }
-
-        .route-list li {
-            padding: 12px 16px;
-            margin: 8px 0;
-            background: var(--primary-bg);
-            border-radius: 12px;
+        /* ===== Top Bar ===== */
+        .top-bar {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 16px 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            cursor: pointer;
-            transition: all 0.15s ease;
-            border: 1px solid var(--primary-border);
         }
 
-        .route-list li:hover {
-            background: var(--primary-border);
-            transform: translateX(4px);
+        @media (min-width: 769px) {
+            .top-bar { padding: 20px 32px 0; }
         }
 
-        .route-list li a {
-            flex: 1;
-            text-decoration: none;
-            color: var(--text);
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .route-name {
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        .route-meta {
+        .brand {
             font-size: 12px;
             color: var(--text-light);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
         }
 
-        .route-badge {
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            background: var(--primary);
-            color: white;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        .route-badge.hot {
-            background: #EF4444;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 24px 16px;
-            font-size: 12px;
-            color: var(--text-light);
-            border-top: 1px solid var(--border);
-            margin-top: 40px;
-        }
-
-        /* Theme buttons */
         .theme-bar {
             display: flex;
-            gap: 6px;
+            gap: 5px;
             align-items: center;
             flex-wrap: wrap;
             justify-content: flex-end;
         }
 
         .theme-btn {
-            background: var(--primary-bg);
-            border: 1.5px solid var(--primary-border);
-            border-radius: 8px;
-            color: var(--primary);
-            padding: 3px 8px;
-            font-size: 12px;
+            background: transparent;
+            border: 1.5px solid var(--border);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            padding: 4px 10px;
+            font-size: 11px;
             cursor: pointer;
             white-space: nowrap;
-            transition: all 0.15s ease;
+            transition: all 0.2s ease;
+            font-family: inherit;
         }
 
-        .theme-btn:hover { background: var(--primary-border); }
+        .theme-btn:hover { border-color: var(--primary); color: var(--primary); }
         .theme-btn.active {
             background: var(--primary);
             color: #fff;
@@ -216,80 +73,584 @@
         }
 
         .dark-toggle-btn {
-            background: var(--bg-highlight);
+            background: transparent;
             border: 1.5px solid var(--border);
-            border-radius: 8px;
+            border-radius: 20px;
             color: var(--text-secondary);
-            padding: 3px 8px;
-            font-size: 12px;
+            padding: 4px 10px;
+            font-size: 11px;
             cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .dark-toggle-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* ===== Hero — Full Bleed ===== */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            color: white;
+            padding: 48px 24px 56px;
+            margin: 12px 0 0 0;
+            text-align: center;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 769px) {
+            .hero { padding: 72px 48px 88px; min-height: 320px; }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('assets/hero-sichuan.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(2,6,23,0.3) 0%, rgba(2,6,23,0.7) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 960px;
+            width: 100%;
+        }
+
+        .hero-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            margin-bottom: 18px;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .hero-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (min-width: 769px) {
+            .hero-icon { width: 56px; height: 56px; margin-bottom: 24px; }
+        }
+
+        .hero h1 {
+            font-family: "Noto Serif SC", serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        @media (min-width: 769px) {
+            .hero h1 { font-size: 38px; margin-bottom: 14px; }
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== Content Area — wider than 480px on mobile ===== */
+        .content-area {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 28px 20px 32px;
+        }
+
+        @media (min-width: 769px) {
+            .content-area { padding: 36px 32px 48px; }
+        }
+
+        /* ===== Section Label ===== */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .section-label-dot {
+            width: 4px;
+            height: 18px;
+            border-radius: 2px;
+            background: var(--primary);
+        }
+
+        .section-label-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+        }
+
+        /* ===== Destination Card (outer) ===== */
+        .dest-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: all 0.25s ease;
+        }
+
+        @media (min-width: 769px) {
+            .dest-card { padding: 28px; border-radius: 24px; }
+        }
+
+        .dest-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .dest-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+
+        .dest-card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .dest-card-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dest-card-icon.sichuan {
+            background: linear-gradient(135deg, #DBEAFE, #E0F2FE);
+        }
+
+        .dark .dest-card-icon.sichuan {
+            background: linear-gradient(135deg, #1E3A5F, #0C4A6E);
+        }
+
+        .dest-card h2 {
+            font-size: 17px;
+            color: var(--text);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .dest-card-desc {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            padding-left: 48px;
+        }
+
+        /* ===== Route Swipe Carousel (mobile) / Grid (PC) ===== */
+        .dest-grid {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 4px;
+            margin: 0 -20px;
+            padding-left: 20px;
+            padding-right: 48px;
+        }
+
+        .dest-grid::-webkit-scrollbar { display: none; }
+
+        .dest-grid > .route-card {
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            width: calc(100% - 40px);
+            min-width: 280px;
+        }
+
+        /* Only 1 card visible → show peek of next */
+        .dest-grid > .route-card + .route-card {
+            margin-left: 0;
+        }
+
+        @media (min-width: 769px) {
+            .dest-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+                overflow: visible;
+                scroll-snap-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .dest-grid > .route-card {
+                width: auto;
+                scroll-snap-align: none;
+            }
+        }
+
+        /* ===== Swipe Dots ===== */
+        .swipe-dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .swipe-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--border);
+            transition: all 0.25s ease;
+        }
+
+        .swipe-dot.active {
+            background: var(--primary);
+            width: 18px;
+            border-radius: 3px;
+        }
+
+        @media (min-width: 769px) {
+            .swipe-dots { display: none; }
+        }
+
+        /* ===== Route Card — Horizontal layout ===== */
+        .route-card {
+            background: var(--bg-highlight);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .route-card:hover {
+            border-color: var(--primary-border);
+            box-shadow: var(--shadow-primary, 0 4px 14px rgba(2,132,199,0.12));
+            transform: translateY(-2px);
+        }
+
+        .route-card a {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+            color: var(--text);
+            padding: 14px 16px;
+        }
+
+        /* Thumbnail */
+        .route-thumb {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 769px) {
+            .route-thumb { width: 100px; height: 100px; border-radius: 12px; }
+        }
+
+        .route-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .route-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .route-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .route-name {
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 1.4;
+            color: var(--text);
+        }
+
+        .route-arrow {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--primary-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .route-arrow svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--primary);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .route-card:hover .route-arrow {
+            background: var(--primary);
+        }
+
+        .route-card:hover .route-arrow svg {
+            stroke: white;
+        }
+
+        .route-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+
+        .route-tags {
+            display: flex;
+            gap: 5px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .route-tag {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .route-tag.main {
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+
+        .route-tag.parallel {
+            background: var(--primary-bg);
+            color: var(--primary-dark, var(--primary));
+        }
+
+        .route-tag.info {
+            background: var(--bg-body);
+            color: var(--text-light);
+        }
+
+        .dark .route-tag.main {
+            background: #7F1D1D;
+            color: #FCA5A5;
+        }
+
+        .dark .route-tag.info {
+            background: #1E293B;
+        }
+
+        /* ===== Future Destinations — lightweight inline ===== */
+        .future-section {
+            padding: 8px 0 0;
+        }
+
+        .future-text {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .future-chips {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 4px;
+        }
+
+        .future-chips::-webkit-scrollbar { display: none; }
+
+        .future-chip {
+            flex-shrink: 0;
+            font-size: 12px;
+            color: var(--text-secondary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
             white-space: nowrap;
             transition: all 0.15s ease;
         }
 
-        .dark-toggle-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .future-chip:hover {
+            border-color: var(--primary-border);
+            color: var(--primary);
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            text-align: center;
+            padding: 20px 20px 0;
+            font-size: 11px;
+            color: var(--text-light);
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .footer-divider {
+            width: 32px;
+            height: 2px;
+            background: var(--border);
+            border-radius: 1px;
+            margin: 0 auto 12px;
+        }
     </style>
 </head>
 <body>
-    <div class="container" id="content">
-        <div class="header">
-            <h1>🗺️ 旅行攻略合集</h1>
-            <p>我的自驾路线规划 · 持续更新中</p>
+    <!-- Top bar with brand + theme -->
+    <div class="top-bar">
+        <div class="brand">Kevin's Travel</div>
+        <div class="theme-bar" id="themeBar">
+            <button class="theme-btn active" data-theme="default">默认蓝调</button>
+            <button class="theme-btn" data-theme="magazine">杂志风</button>
+            <button class="theme-btn" data-theme="minimal">极简风</button>
+            <button class="theme-btn" data-theme="journal">手账风</button>
+            <button class="theme-btn" data-theme="plateau">高原风</button>
+            <button class="dark-toggle-btn" id="darkToggle">深色</button>
+        </div>
+    </div>
+
+    <!-- Hero — full bleed, no container -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-icon"><img src="assets/icon-compass.jpg" alt=""></div>
+            <h1>旅行攻略合集</h1>
+            <p class="hero-subtitle">自驾路线规划 · 实用攻略 · 持续更新</p>
+        </div>
+    </div>
+
+    <!-- Content area -->
+    <div class="content-area">
+        <!-- Section: Active Routes -->
+        <div class="section-label">
+            <div class="section-label-dot"></div>
+            <div class="section-label-text">在途计划</div>
         </div>
 
-        <div style="display:flex;justify-content:space-between;align-items:center;margin:-4px 0 16px;">
-            <div style="font-size:11px;color:#9CA3AF;">Kevin's Travel Plans</div>
-            <div class="theme-bar" id="themeBar">
-                <button class="theme-btn active" data-theme="default">默认蓝调</button>
-                <button class="theme-btn" data-theme="magazine">杂志风</button>
-                <button class="theme-btn" data-theme="minimal">极简风</button>
-                <button class="theme-btn" data-theme="journal">手账风</button>
-                <button class="theme-btn" data-theme="plateau">高原风</button>
-                <button class="dark-toggle-btn" id="darkToggle">🌙 深色</button>
-            </div>
-        </div>
-
-        <!-- 四川方向 -->
+        <!-- Sichuan Section -->
         <div class="dest-card">
-            <h2>🏔️ 四川线路</h2>
-            <p>川西高原自驾攻略，适合家庭亲子出行</p>
-            
+            <div class="dest-card-header">
+                <div class="dest-card-icon sichuan"><img src="assets/icon-sichuan.jpg" alt=""></div>
+                <h2>四川 · 川西高原</h2>
+            </div>
+            <p class="dest-card-desc">甘孜州东线深度游，适合家庭亲子出行</p>
+
             <div class="dest-grid">
-                <!-- 川西卡片 -->
-                <div class="dest-card" style="margin:0;">
-                    <h3>川西17天自驾</h3>
-                    <p><strong>V8.0 版本</strong> · 两车两家 · 甘孜州东线深度游</p>
-                    <ul class="route-list">
-                        <li>
-                            <a href="west-sichuan.html">
-                                <span class="route-name">方案一 · 完整环线</span>
-                                <span class="route-meta">17天 · 成都-康定-甲根坝-道孚-金川-四姑娘山-重庆</span>
-                            </a>
-                            <span class="route-badge hot">主力</span>
-                        </li>
-                        <li>
-                            <a href="paired-trip.html">
-                                <span class="route-name">方案二 · 双方并行</span>
-                                <span class="route-meta">D1-D8 同行 · D9 分开 · 适合临时加入</span>
-                            </a>
-                            <span class="route-badge">并行</span>
-                        </li>
-                    </ul>
+                <div class="route-card">
+                    <a href="west-sichuan.html">
+                        <div class="route-thumb">
+                            <img src="assets/hero-sichuan.jpg" alt="川西环线">
+                        </div>
+                        <div class="route-info">
+                            <div class="route-card-top">
+                                <span class="route-name">完整环线</span>
+                                <div class="route-arrow">
+                                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </div>
+                            </div>
+                            <div class="route-meta">17天 · 成都-康定-甲根坝-道孚-金川-四姑娘山-重庆</div>
+                            <div class="route-tags">
+                                <span class="route-tag main">主力方案</span>
+                                <span class="route-tag info">两车两家</span>
+                                <span class="route-tag info">V8.0</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="route-card">
+                    <a href="paired-trip.html">
+                        <div class="route-thumb">
+                            <img src="assets/hero-sichuan.jpg" alt="并行方案">
+                        </div>
+                        <div class="route-info">
+                            <div class="route-card-top">
+                                <span class="route-name">双方并行</span>
+                                <div class="route-arrow">
+                                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </div>
+                            </div>
+                            <div class="route-meta">D1-D8 同行 · D9 起分开 · 适合临时加入</div>
+                            <div class="route-tags">
+                                <span class="route-tag parallel">并行方案</span>
+                                <span class="route-tag info">灵活组合</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
+            <div class="swipe-dots" id="swipeDots">
+                <div class="swipe-dot active"></div>
+                <div class="swipe-dot"></div>
+            </div>
         </div>
 
-        <!-- 后续扩展区域 -->
-        <div class="dest-card" style="opacity: 0.6;">
-            <h2>📍 更多目的地</h2>
-            <p>新疆 · 西藏 · 云南 · 西北...</p>
-            <p style="font-size: 13px;">* 正在规划中</p>
+        <!-- Section: Future — lightweight -->
+        <div class="section-label">
+            <div class="section-label-dot" style="background: var(--border);"></div>
+            <div class="section-label-text" style="color: var(--text-light);">规划中</div>
         </div>
 
-        <div class="footer">
-            <span id="versionTop">v8.0</span><br>
-            © 2026 Kevin's Travel
+        <div class="future-section">
+            <p class="future-text">更多目的地正在规划：独库公路、阿里大环线、滇西北、青甘环线...</p>
+            <div class="future-chips">
+                <span class="future-chip">独库公路</span>
+                <span class="future-chip">阿里大环线</span>
+                <span class="future-chip">滇西北</span>
+                <span class="future-chip">青甘环线</span>
+                <span class="future-chip">川藏南线</span>
+                <span class="future-chip">环洱海</span>
+            </div>
         </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-divider"></div>
+        <span id="versionTop">v8.0</span> · © 2026 Kevin's Travel
     </div>
 
     <script>
@@ -311,7 +672,7 @@
 
             function applyDark(isDark) {
                 html.classList.toggle('dark', isDark);
-                darkBtn.textContent = isDark ? '☀️ 浅色' : '🌙 深色';
+                darkBtn.textContent = isDark ? '浅色' : '深色';
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
             }
 
@@ -329,7 +690,25 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', setupThemeSystem);
+        document.addEventListener('DOMContentLoaded', function() {
+            setupThemeSystem();
+            setupSwipeDots();
+        });
+
+        function setupSwipeDots() {
+            var grid = document.querySelector('.dest-grid');
+            var dots = document.querySelectorAll('#swipeDots .swipe-dot');
+            if (!grid || dots.length === 0) return;
+
+            grid.addEventListener('scroll', function() {
+                var cardWidth = grid.scrollWidth / grid.children.length;
+                var idx = Math.round(grid.scrollLeft / cardWidth);
+                dots.forEach(function(d, i) {
+                    d.classList.toggle('active', i === idx);
+                });
+            });
+        }
+    }
     </script>
 </body>
 </html>
