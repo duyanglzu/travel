@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="川西17天自驾慢游全攻略：三大固定大本营、亲子宠物友好、8月雨季适配，甘孜州东线深度游路线规划与住宿推荐">
+    <title>川西17天自驾慢游全攻略 | 方案一 · 完整环线</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏔️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+    <link id="themeCSS" rel="stylesheet" href="themes/default.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "HarmonyOS Sans", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+            background: var(--bg-body);
+            color: var(--text);
+            line-height: 1.75;
+            padding-bottom: 110px;
+            font-size: 15px;
+        }
+
+        .container { max-width: 480px; margin: 0 auto; padding: 16px; }
+
+        @media (min-width: 769px) {
+            .container { max-width: 960px; padding: 28px 32px; }
+            .card, .day-card { margin-left: 10px; margin-right: 10px; }
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            overflow: hidden;
+            color: white;
+            padding: 48px 24px 40px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(6,182,212,0.8), rgba(59,130,246,0.9));
+            z-index: 0;
+        }
+        .header h1 { position: relative; z-index: 1; font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+        .header p { position: relative; z-index: 1; font-size: 14px; opacity: 0.95; }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+        .card:hover { box-shadow: var(--shadow-lg); }
+        .card h2 { font-size: 18px; color: var(--primary); margin-bottom: 14px; border-left: 4px solid var(--primary); padding-left: 10px; }
+        .card h3 { font-size: 16px; margin: 16px 0 8px; color: var(--text); font-weight: 700; }
+
+        /* Day Cards */
+        .day-card { margin-bottom: 20px; }
+        .day-card details { border-radius: 14px; overflow: hidden; background: transparent; }
+        .day-card details summary.day-title {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            padding: 14px 16px;
+            border-radius: 14px;
+            min-height: 52px;
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+        }
+        .day-card details[open] summary.day-title { border-radius: 14px 14px 0 0; }
+        .day-num { display: inline-block; min-width: 2.8em; font-weight: 800; font-size: 15px; opacity: 0.9; }
+        .day-text { flex: 1; text-align: left; margin: 0 6px; font-size: 15px; line-height: 1.4; }
+        .day-date { font-size: 12px; opacity: 0.7; font-weight: 400; white-space: nowrap; margin-right: 8px; }
+
+        .day-content {
+            background: var(--bg-card);
+            padding: 18px 16px;
+            min-height: 60px;
+            border-radius: 0 0 14px 14px;
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.5);
+            border-top: none;
+        }
+
+        /* Info Grid */
+        .info-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin: 12px 0; }
+        .info-item { background: var(--primary-bg); padding: 12px 14px; border-radius: 10px; border: 1px solid var(--primary-border); }
+        .info-item .label { color: var(--text-light); font-size: 12px; display: block; margin-bottom: 4px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        .info-item .value { font-weight: 600; color: var(--text); font-size: 14px; line-height: 1.6; }
+
+        /* Guide Table */
+        .guide-table th, .guide-table td { border: 1px solid var(--border); padding: 10px 8px; vertical-align: middle; line-height: 1.4; word-break: break-word; overflow-wrap: break-word; }
+        .guide-table th { background: var(--primary); color: #fff; font-weight: 600; font-size: 13px; padding: 12px 8px; }
+        .guide-table .score { font-weight: 700; font-size: 14px; color: var(--accent-dark); white-space: nowrap; }
+        .guide-table .tl { text-align: left; }
+        .guide-table .nw { white-space: nowrap; }
+
+        /* Separator */
+        .separator { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 24px 0; }
+
+        /* Card variant backgrounds */
+        .card.card-info { background: var(--bg-card); }
+        .card.card-warning { background: var(--bg-warn); border-left: 4px solid var(--accent); }
+
+        /* Day phase colors */
+        .day-card[data-phase="travel"] details summary.day-title { background: linear-gradient(135deg, #64748B 0%, #94A3B8 100%); }
+        .day-card[data-phase="plateau"] details summary.day-title { background: linear-gradient(135deg, #0D9488 0%, #14B8A6 100%); }
+        .day-card[data-phase="rest"] details summary.day-title { background: linear-gradient(135deg, #EA580C 0%, #FB923C 100%); }
+
+        /* Route Map */
+        .route-map-img { width: 100%; height: auto; border-radius: 14px; box-shadow: var(--shadow-md); }
+
+        /* Reason Box */
+        .reason { background: var(--box-reason); border-left: 3px solid var(--primary); padding: 12px 14px; border-radius: 0 8px 8px 0; margin: 12px 0; font-size: 14px; color: var(--text); line-height: 1.7; }
+        .reason strong { display: block; margin-bottom: 4px; color: var(--primary-dark); }
+        .reason .quote { background: #D1FAE5; padding: 8px 12px; border-radius: 6px; margin: 8px 0; font-style: italic; font-size: 13px; color: #065F46; }
+        .reason .quote-source { font-size: 12px; color: #6B7280; font-style: normal; display: block; margin-top: 4px; }
+
+        /* Hotel Box */
+        .hotel-box { background: var(--box-hotel); border-left: 3px solid var(--primary); padding: 12px 14px; border-radius: 0 8px 8px 0; margin: 10px 0; font-size: 13px; line-height: 1.7; }
+        .hotel-box strong { color: var(--primary-dark); display: block; margin-bottom: 4px; font-size: 14px; }
+        .hotel-box .price { color: var(--accent-dark); font-weight: 600; }
+        .hotel-box .source { color: var(--text-light); font-size: 12px; margin-top: 4px; }
+
+        /* Buttons */
+        .btn { display: block; width: 100%; padding: 12px 16px; border: none; border-radius: 10px; background: var(--btn-bg); color: var(--btn-text); font-size: 15px; font-weight: 600; text-align: center; text-decoration: none; margin: 8px 0; cursor: pointer; transition: all 0.15s ease; box-shadow: var(--shadow-sm); }
+        .btn:active { transform: scale(0.97); }
+        .btn-green { background: var(--teal); }
+        .btn-outline { background: white; color: var(--primary); border: 1.5px solid var(--primary); box-shadow: none; }
+        .btn-small { display: inline-block; width: auto; padding: 7px 14px; font-size: 13px; margin: 4px 4px 4px 0; border-radius: 8px; }
+        .btn-copy { padding: 7px 12px; font-size: 12px; }
+        .nav-btns { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+
+        /* Tip / Warn Boxes */
+        .tip-box { background: var(--bg-warn); border: 1px solid #FCD34D; border-radius: 10px; padding: 14px; margin: 14px 0; font-size: 13px; color: #92400E; line-height: 1.7; }
+        .tip-box h4 { margin-bottom: 6px; font-size: 14px; color: #B45309; font-weight: 700; }
+        .warn-box { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 10px; padding: 14px; margin: 14px 0; font-size: 13px; color: var(--warn-text); line-height: 1.7; }
+        .warn-box strong { display: block; margin-bottom: 6px; color: var(--warn-heading); font-weight: 700; }
+
+        /* Source Box */
+        .src-box { background: var(--box-source); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 10px 0; font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+        .src-box strong { color: var(--text); }
+        .src-box a { color: var(--primary); text-decoration: none; border-bottom: 1px dotted var(--primary-border); }
+        .src-box a:hover { border-bottom: 1px solid var(--primary); }
+
+        /* Horizontal Scroll */
+        .h-scroll { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 4px 2px 14px; scrollbar-width: thin; scrollbar-color: var(--text-muted) transparent; position: relative; }
+        .h-scroll::after { content: ''; position: sticky; right: -2px; top: 0; width: 32px; min-width: 32px; height: calc(100% - 18px); background: linear-gradient(to right, transparent, var(--bg-body)); pointer-events: none; flex-shrink: 0; margin-left: auto; }
+        .h-scroll::-webkit-scrollbar { height: 3px; }
+        .h-scroll::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 2px; }
+        .h-scroll > * { flex: 0 0 85%; scroll-snap-align: start; min-width: 0; }
+        .h-scroll > .hotel-box { flex: 0 0 85%; }
+
+        /* Day Navigation */
+        .day-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 8px 0; margin-bottom: 16px; border-bottom: 1px solid var(--border-light); box-shadow: var(--shadow-sm); }
+        .day-nav-inner { max-width: 480px; margin: 0 auto; display: flex; gap: 5px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 16px; }
+        .day-nav-inner::-webkit-scrollbar { display: none; }
+        .day-nav-btn { flex: 0 0 auto; padding: 6px 11px; border-radius: 20px; border: 1.5px solid var(--border); background: white; color: var(--text-secondary); font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s ease; }
+        .day-nav-btn:hover { background: var(--primary-bg); border-color: var(--primary); color: var(--primary); }
+        .day-nav-btn.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: var(--shadow-primary); }
+
+        /* Tags */
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-right: 6px; margin-bottom: 4px; }
+        .tag-must { background: var(--tag-must-bg); color: var(--tag-must-text); }
+        .tag-alt { background: var(--tag-alt-bg); color: var(--tag-alt-text); }
+        .tag-pass { background: var(--tag-pass-bg); color: var(--tag-pass-text); }
+        .tag-booked { background: var(--tag-booked-bg); color: var(--tag-booked-text); }
+
+        /* Link Group */
+        .link-group { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 8px 0; }
+        .link-group a { font-size: 13px; color: var(--primary); text-decoration: none; border-bottom: 1px dotted var(--primary-border); transition: border-color 0.15s; }
+        .link-group a:hover { border-bottom: 1px solid var(--primary); }
+        .link-group .label { font-size: 12px; color: var(--text-light); }
+
+        /* Fixed Bottom Bar */
+        .fixed-bar { position: fixed; bottom: 0; left: 0; right: 0; max-width: 480px; margin: 0 auto; background: rgba(255,255,255,0.92); padding: 12px 16px; box-shadow: 0 -4px 20px rgba(0,0,0,0.06); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: flex; gap: 10px; z-index: 999; border-top: 1px solid var(--border-light); }
+        .fixed-bar .btn { margin: 0; flex: 1; font-size: 13px; padding: 10px 8px; border-radius: 10px; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+        th, td { border: 1px solid var(--border); padding: 10px 8px; text-align: left; vertical-align: top; }
+        th { background: var(--primary-bg); color: var(--primary-dark); font-weight: 700; font-size: 13px; }
+        td { color: var(--text); line-height: 1.6; }
+
+        /* Checklist */
+        .checklist { list-style: none; margin: 10px 0; }
+        .checklist li { padding: 10px 0; border-bottom: 1px solid var(--border-light); display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.6; }
+        .checklist li:last-child { border-bottom: none; }
+        .checklist input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; accent-color: var(--primary); cursor: pointer; }
+
+        /* Print */
+        @media print {
+            .fixed-bar, .day-nav, .btn, .btn-copy, .btn-small, .btn-outline, .btn-green, .route-map-img, .day-nav-btn { display: none !important; }
+            body { padding-bottom: 0; background: white; }
+            .day-card details, .card details { display: block !important; }
+        }
+
+        /* PC Responsive */
+        @media (min-width: 769px) {
+            .info-grid { grid-template-columns: repeat(3, 1fr); }
+            .fixed-bar { max-width: 960px; }
+            .h-scroll { flex-wrap: wrap; overflow-x: visible; gap: 14px; }
+            .h-scroll::after { display: none; }
+            .h-scroll > * { flex: 0 0 calc(50% - 7px); }
+            .day-nav-inner { max-width: 960px; flex-wrap: wrap; overflow-x: visible; padding: 0; gap: 6px; justify-content: center; }
+        }
+
+        /* Mobile tweaks */
+        @media (max-width: 768px) {
+            .guide-table { font-size: 12px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+            .guide-table th, .guide-table td { padding: 8px 6px; font-size: 12px; white-space: nowrap; }
+        }
+
+        /* Dark Mode */
+        html.dark body { background: var(--dark-bg); color: var(--dark-text); }
+        html.dark .card, html.dark .day-content, html.dark .fixed-bar { background: var(--dark-card-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        html.dark .card.card-info { background: var(--dark-card-bg); }
+        html.dark .card.card-warning { background: var(--dark-warn-bg); border-left-color: var(--accent); }
+        html.dark .card h2, html.dark .card h3 { color: var(--dark-primary); }
+        html.dark .day-card[data-phase="travel"] details summary.day-title { background: linear-gradient(135deg, var(--dark-phase-travel) 0%, var(--dark-phase-travel-end) 100%); }
+        html.dark .day-card[data-phase="plateau"] details summary.day-title { background: linear-gradient(135deg, var(--dark-phase-plateau) 0%, var(--dark-phase-plateau-end) 100%); }
+        html.dark .day-card[data-phase="rest"] details summary.day-title { background: linear-gradient(135deg, var(--dark-phase-rest) 0%, var(--dark-phase-rest-end) 100%); }
+        html.dark .info-item { background: var(--dark-card-solid); border-color: var(--dark-border); }
+        html.dark .info-item .label { color: var(--dark-primary); }
+        html.dark .info-item .value { color: var(--dark-text); }
+        html.dark .btn-outline { background: transparent; color: var(--dark-primary); border-color: var(--dark-primary); }
+        html.dark .btn-green { background: var(--dark-teal); }
+        html.dark .btn { color: white; }
+        html.dark .tip-box { background: var(--dark-warn-bg); border-color: var(--dark-warn-border); color: var(--dark-warn-text); }
+        html.dark .warn-box { background: var(--dark-card-solid); border-color: var(--dark-primary-dim); color: var(--dark-primary-dim); }
+        html.dark .reason { background: var(--dark-reason-bg); color: var(--dark-text); }
+        html.dark .reason .quote { background: var(--dark-card-solid); border-left-color: var(--dark-primary); }
+        html.dark .hotel-box { background: var(--dark-card-bg); color: var(--dark-text); border-left-color: var(--dark-primary); }
+        html.dark .hotel-box strong { color: var(--dark-primary-dim); }
+        html.dark .src-box { background: var(--dark-card-bg); border-color: var(--dark-border); color: var(--text-secondary); }
+        html.dark .nav-btn { background: var(--dark-reason-bg); color: var(--dark-primary); border-color: var(--dark-border); }
+        html.dark .nav-btn.active { background: var(--dark-primary); color: white; }
+        html.dark .day-nav { background: rgba(11,17,32,0.95); border-bottom-color: var(--dark-border); }
+        html.dark .day-nav-btn { background: var(--dark-card-solid); color: var(--dark-text-secondary); border-color: var(--dark-border); }
+        html.dark .day-nav-btn:hover { background: var(--dark-card-bg); border-color: var(--dark-primary); color: var(--dark-primary); }
+        html.dark .day-nav-btn.active { background: var(--dark-primary); color: white; border-color: var(--dark-primary); }
+        html.dark .tag-must { background: var(--dark-card-solid); color: var(--dark-primary-dim); }
+        html.dark .tag-alt { background: var(--dark-reason-bg); color: var(--dark-teal); }
+        html.dark .tag-pass { background: #374151; color: #D1D5DB; }
+        html.dark .tag-booked { background: #7F1D1D; color: #FCA5A5; }
+        html.dark .guide-table th { background: var(--dark-card-solid); color: var(--dark-text); }
+        html.dark .guide-table th, html.dark .guide-table td { border-color: var(--dark-border); }
+        html.dark .guide-table td { color: var(--dark-text); }
+        html.dark a { color: var(--dark-primary); }
+        html.dark .day-content { box-shadow: none; border: 1px solid #E5E7EB; }
+        html.dark .separator { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+
+        /* Focus visible */
+        :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
+
+        /* Theme system variables */
+        .header { border-radius: var(--header-radius, 20px); }
+        .card { border-radius: var(--card-radius, 16px); }
+        .day-card details summary.day-title { border-radius: var(--day-card-radius, 14px); }
+        .day-content { border-radius: 0 0 var(--day-card-radius, 14px) var(--day-card-radius, 14px); }
+        .header h1 { font-family: var(--font-heading, "Noto Serif SC", serif); }
+        .card h2 { font-family: var(--font-heading, inherit); }
+        body { font-family: var(--font-body, -apple-system, BlinkMacSystemFont, "HarmonyOS Sans", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif); }
+
+        /* Theme bar */
+        .theme-bar { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+        .theme-btn { background: var(--primary-bg); border: 1.5px solid var(--primary-border); border-radius: 8px; color: var(--primary); padding: 3px 8px; font-size: 12px; cursor: pointer; white-space: nowrap; transition: all 0.15s ease; line-height: 1.6; }
+        .theme-btn:hover { background: var(--primary-border); }
+        .theme-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        .dark-toggle-btn { background: var(--bg-highlight); border: 1.5px solid var(--border); border-radius: 8px; color: var(--text-secondary); padding: 3px 8px; font-size: 12px; cursor: pointer; white-space: nowrap; transition: all 0.15s ease; line-height: 1.6; }
+        .dark-toggle-btn:hover { border-color: var(--primary); color: var(--primary); }
+    </style>
+</head>
+<body>
+<div class="container" id="content">
+    <!-- 头部 -->
+    <div class="header">
+        <h1>川西17天自驾慢游全攻略</h1>
+        <p>两车两家 · 亲子宠物友好 · 8月雨季适配<br>自然风光为主 · 人文点缀 · 全程弹性不赶路</p>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;margin:-4px 0 14px;">
+        <div style="font-size:11px;color:#9CA3AF;">v7 · Made by Kevin</div>
+        <div class="theme-bar" id="themeBar">
+            <button class="theme-btn active" data-theme="default">默认蓝调</button>
+            <button class="theme-btn" data-theme="magazine">杂志风</button>
+            <button class="theme-btn" data-theme="minimal">极简风</button>
+            <button class="theme-btn" data-theme="journal">手账风</button>
+            <button class="theme-btn" data-theme="plateau">高原风</button>
+            <button class="dark-toggle-btn" id="darkToggle">🌙 深色</button>
+        </div>
+    </div>
+
+    <div style="background:var(--primary-bg);border:1px solid var(--primary-border);border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px;color:var(--primary);line-height:1.8;">
+        💡 <strong>使用提示：</strong>卡片标题可点击折叠/展开 · 手机左右滑动查看更多 · 底部日历可加入手机日历 · 清单勾选自动保存
+    </div>
+
+    <!-- 日程快速跳转栏 -->
+    <div class="day-nav" id="dayNav">
+        <div class="day-nav-inner">
+            <button class="day-nav-btn" data-target="day-1">D1</button>
+            <button class="day-nav-btn" data-target="day-2">D2</button>
+            <button class="day-nav-btn" data-target="day-3">D3</button>
+            <button class="day-nav-btn" data-target="day-4">D4</button>
+            <button class="day-nav-btn" data-target="day-5">D5</button>
+            <button class="day-nav-btn" data-target="day-6">D6</button>
+            <button class="day-nav-btn" data-target="day-7">D7</button>
+            <button class="day-nav-btn" data-target="day-8">D8</button>
+            <button class="day-nav-btn" data-target="day-9">D9</button>
+            <button class="day-nav-btn" data-target="day-10">D10</button>
+            <button class="day-nav-btn" data-target="day-11">D11</button>
+            <button class="day-nav-btn" data-target="day-12">D12</button>
+            <button class="day-nav-btn" data-target="day-13">D13</button>
+            <button class="day-nav-btn" data-target="day-14">D14</button>
+            <button class="day-nav-btn" data-target="day-15">D15</button>
+            <button class="day-nav-btn" data-target="day-16">D16</button>
+            <button class="day-nav-btn" data-target="day-17">D17</button>
+        </div>
+    </div>
+
+    <!-- 一、全程行程概括 + 设计说明 -->
+    <div class="card card-info">
+        <details open>
+            <summary>
+                <h2>🗺️ 全程行程概括 & 设计说明</h2>
+                <span class="arrow">▶</span>
+            </summary>
+            
+            <img src="route-map.jpg" alt="川西自驾线路图" class="route-map-img">
+            
+            <div class="info-grid">
+                <div class="info-item"><span class="label">时间</span><span class="value">8月X日出发，17天往返</span></div>
+                <div class="info-item"><span class="label">路线</span><span class="value">上海→宜昌→成都→康定(3晚)→甲根坝(3晚)→道孚(2晚)→金川→四姑娘山→重庆(2晚)→武汉→上海</span></div>
+                <div class="info-item"><span class="label">总里程</span><span class="value">~3000km</span></div>
+            </div>
+
+            <h3>1. 设计初衷</h3>
+            <p>针对家庭（2大2小）+ 宠物犬出行，兼顾高原适应安全、景观丰富度、家庭出行舒适度。以「自然风光为核心，1-2处深度人文拓展视野」为原则。</p>
+
+            <h3>2. 核心原则</h3>
+            <ul>
+                <li><strong>大本营原则：</strong>3处固定大本营，每处连住2-3晚</li>
+                <li><strong>海拔渐变：</strong>康定2500m → 甲根坝3000m → 道孚2980m</li>
+                <li><strong>弹性优先：</strong>所有长线随时可放弃</li>
+                <li><strong>雨季安全：</strong>雨天不进山、不走碎石路、不赶夜路</li>
+                <li><strong>宠物友好：</strong>优先选带停车场的住宿</li>
+            </ul>
+
+            <h3>3. 三大本营梯度</h3>
+            <table>
+                <tr><th>大本营</th><th>海拔</th><th>定位</th><th>核心作用</th></tr>
+                <tr><td>康定</td><td>2500m</td><td>低海拔适应</td><td>辐射S434北线+榆磨路东南线</td></tr>
+                <tr><td>甲根坝</td><td>3000m</td><td>河谷秘境</td><td>比新都桥人少景纯，田园溪流雪山</td></tr>
+                <tr><td>道孚</td><td>2980m</td><td>北线拓展</td><td>辐射草原、石林、藏寨人文</td></tr>
+            </table>
+
+            <h3>4. 每日路线走向</h3>
+            <div class="route-timeline" style="font-size:13px;line-height:2.2;">
+                <div style="background:#F0F7F4;padding:8px 12px;border-radius:8px;margin:4px 0;">
+                    <div style="font-weight:700;font-size:12px;color:var(--primary);">大本营①：康定 2500m（D4-D6）</div>
+                    D4 成都→泸定桥→雅家埂→康定<br>
+                    D5 康定 ←→ S434北线<br>
+                    D6 康定休整（老城区/博物馆/温泉）
+                </div>
+                <div style="background:#F0F7F4;padding:8px 12px;border-radius:8px;margin:4px 0;">
+                    <div style="font-weight:700;font-size:12px;color:var(--primary);">大本营②：甲根坝 3000m（D7-D9）</div>
+                    D7 康定→甲根坝<br>
+                    D8 提吾村/亚拢沟/夺让村<br>
+                    D9 纳梯村/捡菌子/休闲
+                </div>
+                <div style="background:#FFF7ED;padding:8px 12px;border-radius:8px;margin:4px 0;">
+                    <div style="font-weight:700;font-size:12px;color:#D97706;">大本营③：道孚 2980m（D10-D11）</div>
+                    D10 甲根坝→八美→道孚<br>
+                    D11 玉科草原一日游 + 灵雀寺
+                </div>
+                <div style="background:#ECFDF5;padding:8px 12px;border-radius:8px;margin:4px 0;">
+                    <div style="font-weight:700;font-size:12px;color:var(--primary);">环线返程 · 金小路新线</div>
+                    D12 道孚→金川→金小路S451→四姑娘山<br>
+                    D13 四姑娘山→猫鼻梁→映秀→重庆<br>
+                    D14 重庆休整（洪崖洞/李子坝/磁器口）<br>
+                    D15 重庆→武汉<br>
+                    D16 武汉→上海<br>
+                    D17 缓冲备用日
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- 二、行程总览表 -->
+    <div class="card card-info">
+        <details>
+            <summary>
+                <h2>📅 全程行程总览</h2>
+                <span class="arrow">▶</span>
+            </summary>
+            <table>
+                <tr><th>阶段</th><th>天数</th><th>行程</th><th>住宿</th></tr>
+                <tr><td rowspan="2">赶路</td><td>D1</td><td>上海→武汉</td><td>武汉</td></tr>
+                <tr><td>D2</td><td>武汉→宜昌</td><td>宜昌</td></tr>
+                <tr><td>休息</td><td>D3</td><td>成都休整采购</td><td>成都</td></tr>
+                <tr><td rowspan="3">康定大本营</td><td>D4</td><td>成都→泸定桥→康定</td><td rowspan="3">康定(3晚)</td></tr>
+                <tr><td>D5</td><td>S434北线一日游</td></tr>
+                <tr><td>D6</td><td>康定休整日</td></tr>
+                <tr><td rowspan="3">甲根坝大本营</td><td>D7</td><td>康定→甲根坝</td><td rowspan="3">甲根坝(3晚)</td></tr>
+                <tr><td>D8</td><td>提吾村/亚拢沟/夺让村</td></tr>
+                <tr><td>D9</td><td>纳梯村/捡菌子/休闲</td></tr>
+                <tr><td rowspan="2">道孚大本营</td><td>D10</td><td>甲根坝→八美→道孚</td><td rowspan="2">道孚(2晚)</td></tr>
+                <tr><td>D11</td><td>玉科草原 + 灵雀寺</td></tr>
+                <tr><td>金小路</td><td>D12</td><td>道孚→金川→小金→四姑娘山</td><td>四姑娘山</td></tr>
+                <tr><td>返程</td><td>D13-D17</td><td>四姑娘山→重庆→武汉→上海</td><td>-</td></tr>
+            </table>
+        </details>
+    </div>
+
+    <!-- 三、景点分级表 -->
+    <div class="card card-info">
+        <details>
+            <summary>
+                <h2>⭐ 景点分级与推荐</h2>
+                <span class="arrow">▶</span>
+            </summary>
+            <table>
+                <tr><th>等级</th><th>景点</th><th>类型</th><th>推荐天数</th></tr>
+                <tr><td><span class="tag tag-must">必去</span></td><td>泸定桥</td><td>人文/历史</td><td>D4</td></tr>
+                <tr><td><span class="tag tag-must">必去</span></td><td>雅家埂垭口</td><td>红石/雪山</td><td>D4</td></tr>
+                <tr><td><span class="tag tag-must">必去</span></td><td>机场彩虹公路</td><td>公路/雪山</td><td>D5</td></tr>
+                <tr><td><span class="tag tag-must">必去</span></td><td>甲根坝河谷</td><td>田园/溪流</td><td>D7-D9</td></tr>
+                <tr><td><span class="tag tag-must">必去</span></td><td>提吾村</td><td>藏寨/人文</td><td>D8</td></tr>
+                <tr><td><span class="tag tag-must">必去</span></td><td>夺让村·土拨鼠</td><td>田园/互动</td><td>D8</td></tr>
+                <tr><td><span class="tag tag-must">必去</span></td><td>卡玛村</td><td>地质/免费</td><td>D11</td></tr>
+                <tr><td><span class="tag tag-must">必去</span></td><td>金小路S451</td><td>公路/雪山</td><td>D12</td></tr>
+                <tr><td><span class="tag tag-must">必去</span></td><td>猫鼻梁观景台</td><td>雪山/观景</td><td>D13</td></tr>
+                <tr><td><span class="tag tag-must">必去</span></td><td>洪崖洞夜景</td><td>夜景/地标</td><td>D14</td></tr>
+                <tr><td><span class="tag tag-alt">备选</span></td><td>中谷村温泉</td><td>温泉/自然</td><td>D5/D6</td></tr>
+                <tr><td><span class="tag tag-alt">备选</span></td><td>迦嘎措</td><td>湖泊/雪山</td><td>D5</td></tr>
+                <tr><td><span class="tag tag-alt">备选</span></td><td>亚拢沟钙化滩</td><td>钙化池/自然</td><td>D8</td></tr>
+                <tr><td><span class="tag tag-alt">备选</span></td><td>泽桑拉空中花园</td><td>雪山/日落</td><td>D8</td></tr>
+                <tr><td><span class="tag tag-alt">备选</span></td><td>纳梯村/捡菌子</td><td>田园/体验</td><td>D9</td></tr>
+                <tr><td><span class="tag tag-alt">备选</span></td><td>玉科草原</td><td>草原/自然</td><td>D11</td></tr>
+                <tr><td><span class="tag tag-pass">路过</span></td><td>天全服务区</td><td>服务区</td><td>D4</td></tr>
+                <tr><td><span class="tag tag-pass">路过</span></td><td>二郎山隧道</td><td>隧道/地标</td><td>D4</td></tr>
+                <tr><td><span class="tag tag-pass">路过</span></td><td>折多山垭口</td><td>垭口/观景</td><td>D7</td></tr>
+            </table>
+        </details>
+    </div>
+
+    <!-- 四、每日详细行程 -->
+    <h2 style="margin:20px 0 12px;color:var(--primary);padding-left:4px;">📅 每日详细行程</h2>
+
+    <!-- D1 -->
+    <div class="day-card" id="day-1" data-phase="travel">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D1</span>
+                <span class="day-text">上海 → 武汉 · 长途赶路</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>出发时间：</strong>11:00 · 预计到达：21:00</p>
+                <p><strong>总里程：</strong>~800km（G42沪蓉高速），行车约9-10h</p>
+                <p><strong>节奏：</strong>每2.5小时停靠服务区，中午长时间休整</p>
+                <div class="reason"><strong>💡 安排理由</strong>武汉是理想中转站，城市配套齐全。晚上到武汉早些休息，D2上午继续出发。</div>
+            </div>
+        </details>
+    </div>
+
+    <!-- D2 -->
+    <div class="day-card" id="day-2" data-phase="travel">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D2</span>
+                <span class="day-text">武汉 → 宜昌 · 继续赶路</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>出发时间：</strong>10:00 · 预计到达：17:00</p>
+                <p><strong>总里程：</strong>~300km（G42沪蓉高速），行车约3.5h</p>
+                <p><strong>节奏：</strong>上午轻松出发，下午到达后休整</p>
+            </div>
+        </details>
+    </div>
+
+    <!-- D3 -->
+    <div class="day-card" id="day-3" data-phase="rest">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D3</span>
+                <span class="day-text">武汉 → 成都 · 高速赶路</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>出发时间：</strong>08:00 · 预计到达：20:00</p>
+                <p><strong>总里程：</strong>~1000km（G50沪渝高速转G42），行车约11-12h</p>
+                <p><strong>注意：</strong>当天非常累，建议两人轮流开</p>
+            </div>
+        </details>
+    </div>
+
+    <!-- D4 -->
+    <div class="day-card" id="day-4" data-phase="travel">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D4</span>
+                <span class="day-text">成都 → 泸定桥 → 雅家埂垭口 → 康定</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>出发时间：</strong>09:00 · 预计到达：17:00</p>
+                <p><strong>总里程：</strong>~300km</p>
+                <p><strong>上午：</strong>成都出发 → G5京昆高速 → 天全服务区（网红熊猫主题）→ 泸定桥（游玩2h）</p>
+                <p><strong>下午：</strong>泸定 → 榆磨路 → 雅家埂垭口（红石滩+雪山倒影）→ 翻越二郎山隧道 → 康定</p>
+                
+                <div class="reason"><strong>📋 当日亮点</strong>泸定桥红色打卡 + 雅家埂垭口红石滩罕见景观，初见川西震撼感。</div>
+
+                <h3>📍 关键节点</h3>
+                <table>
+                    <tr><th>节点</th><th>类型</th><th>时间</th></tr>
+                    <tr><td>天全服务区</td><td><span class="tag tag-pass">路过</span></td><td>11:00</td></tr>
+                    <tr><td>泸定桥</td><td><span class="tag tag-must">必去</span></td><td>12:00-14:00</td></tr>
+                    <tr><td>雅家埂垭口</td><td><span class="tag tag-must">必去</span></td><td>15:00-16:00</td></tr>
+                    <tr><td>康定入住</td><td>住宿</td><td>17:00+</td></tr>
+                </table>
+            </div>
+        </details>
+    </div>
+
+    <!-- D5 -->
+    <div class="day-card" id="day-5" data-phase="plateau">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D5</span>
+                <span class="day-text">康定 ←→ S434北线 · 雪山公路一日游</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>活动范围：</strong>康定 → S434北线 → 康定（往返约120km）</p>
+                <p><strong>重点体验：</strong>机场彩虹公路、斯丁措、嘉塘草原、迦嘎措（红海子）、雅拉山口</p>
+                <p><strong>备选：</strong>中谷村温泉</p>
+
+                <div class="reason"><strong>📋 推荐路线</strong>康定出发 → S434北线（机场彩虹公路，贡嘎雪山正面）→ 斯丁措（彩虹路旁小海子）→ 嘉塘草原（远眺贡嘎）→ 迦嘎措（碧蓝湖泊倒影雅拉雪峰）→ 雅拉山口（4401m最高点）→ 返回康定</div>
+
+                <h3>📍 关键节点</h3>
+                <table>
+                    <tr><th>节点</th><th>类型</th><th>时间</th></tr>
+                    <tr><td>机场彩虹公路</td><td><span class="tag tag-must">必去</span></td><td>10:00</td></tr>
+                    <tr><td>斯丁措</td><td><span class="tag tag-pass">路过</span></td><td>11:00</td></tr>
+                    <tr><td>嘉塘草原</td><td>自然</td><td>12:00</td></tr>
+                    <tr><td>迦嘎措</td><td><span class="tag tag-alt">备选</span></td><td>14:00</td></tr>
+                    <tr><td>雅拉山口</td><td><span class="tag tag-alt">备选</span></td><td>15:00</td></tr>
+                    <tr><td>中谷村温泉</td><td><span class="tag tag-alt">备选</span></td><td>17:00</td></tr>
+                </table>
+            </div>
+        </details>
+    </div>
+
+    <!-- D6 -->
+    <div class="day-card" id="day-6" data-phase="rest">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D6</span>
+                <span class="day-text">康定休整日 · 老城漫步</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>活动范围：</strong>康定市区及周边</p>
+                <p><strong>重点体验：</strong>康定老城区、情歌广场、甘孜州博物馆</p>
+                <p><strong>备选：</strong>中谷村温泉</p>
+
+                <div class="reason"><strong>📋 推荐理由</strong>经过D4/D5的连续驾驶，今天轻松休整。康定老城区被低估，溜溜城老街+情歌广场很有氛围。博物馆免费三层六个馆，雨天首选。</div>
+
+                <h3>📍 关键节点</h3>
+                <table>
+                    <tr><th>节点</th><th>类型</th><th>时间</th></tr>
+                    <tr><td>康定老城区</td><td><span class="tag tag-must">推荐</span></td><td>10:00-12:00</td></tr>
+                    <tr><td>情歌广场</td><td>人文</td><td>14:00</td></tr>
+                    <tr><td>甘孜州博物馆</td><td><span class="tag tag-alt">备选</span></td><td>15:00-17:00</td></tr>
+                    <tr><td>中谷村温泉</td><td><span class="tag tag-alt">备选</span></td><td>18:00</td></tr>
+                </table>
+            </div>
+        </details>
+    </div>
+
+    <!-- D7 -->
+    <div class="day-card" id="day-7" data-phase="travel">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D7</span>
+                <span class="day-text">康定 → 折多山 → 甲根坝</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>出发时间：</strong>09:00 · 预计到达：12:00</p>
+                <p><strong>总里程：</strong>~130km</p>
+                <p><strong>路线：</strong>康定 → G318 → 折多山垭口（4298m，短暂拍照）→ S434 → 新都桥 → 甲根坝</p>
+
+                <div class="reason"><strong>📋 当日亮点</strong>折多山是康巴第一关，4298m垭口穿风马旗。S434新都桥段被称为"摄影天堂"，但今天主要目标是到达甲根坝建立大本营。</div>
+
+                <h3>📍 关键节点</h3>
+                <table>
+                    <tr><th>节点</th><th>类型</th><th>时间</th></tr>
+                    <tr><td>折多山垭口</td><td><span class="tag tag-pass">路过</span></td><td>10:00</td></tr>
+                    <tr><td>新都桥</td><td>经过</td><td>11:00</td></tr>
+                    <tr><td>甲根坝入住</td><td>住宿</td><td>12:00+</td></tr>
+                </table>
+            </div>
+        </details>
+    </div>
+
+    <!-- D8 -->
+    <div class="day-card" id="day-8" data-phase="plateau">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D8</span>
+                <span class="day-text">甲根坝周边深度游 · B线</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>活动范围：</strong>甲根坝 → 提吾村 → 亚拢沟 → 夺让村</p>
+                <p><strong>重点体验：</strong>原始藏寨、钙化池、土拨鼠互动、田园风光</p>
+
+                <div class="reason"><strong>📋 推荐路线</strong>上午提吾村（原始藏寨+青稞田园木栈道）→ 午餐甲根坝 → 下午亚拢沟（路边直达钙化滩，迷你小黄龙）→ 傍晚夺让村（土拨鼠互动，5元/人，11点前到）</div>
+
+                <h3>📍 关键节点</h3>
+                <table>
+                    <tr><th>节点</th><th>类型</th><th>时间</th></tr>
+                    <tr><td>提吾村</td><td><span class="tag tag-must">必去</span></td><td>10:00</td></tr>
+                    <tr><td>甲根坝午餐</td><td>美食</td><td>12:00</td></tr>
+                    <tr><td>亚拢沟</td><td><span class="tag tag-alt">备选</span></td><td>14:00</td></tr>
+                    <tr><td>夺让村·土拨鼠</td><td><span class="tag tag-must">必去</span></td><td>16:00</td></tr>
+                    <tr><td>泽桑拉空中花园</td><td><span class="tag tag-alt">备选</span></td><td>17:00</td></tr>
+                </table>
+            </div>
+        </details>
+    </div>
+
+    <!-- D9 -->
+    <div class="day-card" id="day-9" data-phase="rest">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D9</span>
+                <span class="day-text">甲根坝休闲日 · 纳梯村/捡菌子</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>活动范围：</strong>甲根坝周边</p>
+                <p><strong>重点体验：</strong>纳梯村、捡菌子、田园散步</p>
+                <p><strong>8月特别推荐：</strong>跟民宿老板上山捡菌子！</p>
+
+                <div class="reason"><strong>📋 推荐理由</strong>在甲根坝连住3晚，最后半天彻底放松。8月菌季是本地特色体验，小朋友一定会喜欢。</div>
+
+                <h3>📍 关键节点</h3>
+                <table>
+                    <tr><th>节点</th><th>类型</th><th>时间</th></tr>
+                    <tr><td>纳梯村</td><td><span class="tag tag-alt">备选</span></td><td>10:00</td></tr>
+                    <tr><td>捡菌子体验</td><td><span class="tag tag-alt">备选</span></td><td>14:00</td></tr>
+                    <tr><td>甲根坝河边散步</td><td>休闲</td><td>16:00</td></tr>
+                </table>
+            </div>
+        </details>
+    </div>
+
+    <!-- D10 -->
+    <div class="day-card" id="day-10" data-phase="travel">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D10</span>
+                <span class="day-text">甲根坝 → 姑弄村 → 八美 → 道孚</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>出发时间：</strong>09:00 · 预计到达：17:00</p>
+                <p><strong>总里程：</strong>~200km</p>
+                <p><strong>路线：</strong>甲根坝 → 姑弄村（午餐野餐）→ G548 → 八美镇 → 墨石公园/惠远寺/泰宁古镇 → 道孚</p>
+
+                <div class="reason"><strong>📋 当日亮点</strong>姑弄村是雅拉雪山观景核心站，面朝草甸背靠雪山。下午顺游八美三景（墨石公园异域星球、惠远寺古建、泰宁古镇喝甜茶）。</div>
+
+                <h3>📍 关键节点</h3>
+                <table>
+                    <tr><th>节点</th><th>类型</th><th>时间</th></tr>
+                    <tr><td>姑弄村</td><td><span class="tag tag-must">推荐</span></td><td>10:30-12:00</td></tr>
+                    <tr><td>八美镇</td><td><span class="tag tag-pass">路过</span></td><td>13:00</td></tr>
+                    <tr><td>墨石公园</td><td><span class="tag tag-pass">路过</span></td><td>14:00</td></tr>
+                    <tr><td>惠远寺</td><td><span class="tag tag-alt">备选</span></td><td>15:00</td></tr>
+                    <tr><td>泰宁古镇</td><td><span class="tag tag-alt">备选</span></td><td>16:00</td></tr>
+                    <tr><td>道孚入住</td><td>住宿</td><td>17:00+</td></tr>
+                </table>
+            </div>
+        </details>
+    </div>
+
+    <!-- D11 -->
+    <div class="day-card" id="day-11" data-phase="plateau">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D11</span>
+                <span class="day-text">道孚周边 · 玉科草原/卡玛村/灵雀寺</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>活动范围：</strong>道孚县城及周边</p>
+                <p><strong>重点体验：</strong>玉科草原"康巴阿勒泰"、卡玛村拍墨石同款地貌、灵雀寺</p>
+
+                <div class="reason"><strong>📋 推荐路线</strong>上午玉科草原（立体草原+野花，7月最佳）→ 午餐道孚 → 下午卡玛村（免费替代墨石公园，导航"卡玛桥"）→ 傍晚灵雀寺（县城免费寺庙）</div>
+
+                <h3>📍 关键节点</h3>
+                <table>
+                    <tr><th>节点</th><th>类型</th><th>时间</th></tr>
+                    <tr><td>玉科草原</td><td><span class="tag tag-alt">备选</span></td><td>10:00</td></tr>
+                    <tr><td>卡玛村</td><td><span class="tag tag-must">必去</span></td><td>14:00</td></tr>
+                    <tr><td>灵雀寺</td><td><span class="tag tag-alt">备选</span></td><td>16:00</td></tr>
+                </table>
+            </div>
+        </details>
+    </div>
+
+    <!-- D12 -->
+    <div class="day-card" id="day-12" data-phase="travel">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D12</span>
+                <span class="day-text">道孚 → 金川 → 金小路S451 → 四姑娘山</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>出发时间：</strong>08:00 · 预计到达：19:00</p>
+                <p><strong>总里程：</strong>~343km</p>
+                <p><strong>路线：</strong>道孚 → G248 → 金川 → S451金小路 → 小金 → 巴朗山隧道 → 四姑娘山</p>
+
+                <div class="reason"><strong>📋 当日亮点</strong>金小路S451是2026年新通车景观公路，88km雪山画廊串联金川与小金，被称为"川西小独库"。傍晚翻越巴朗山进入四姑娘山景区。</div>
+
+                <h3>📍 关键节点</h3>
+                <table>
+                    <tr><th>节点</th><th>类型</th><th>时间</th></tr>
+                    <tr><td>金川</td><td>补给</td><td>10:00</td></tr>
+                    <tr><td>金小路S451</td><td><span class="tag tag-must">必去</span></td><td>11:30-14:30</td></tr>
+                    <tr><td>小金县</td><td>经过</td><td>15:00</td></tr>
+                    <tr><td>巴朗山隧道</td><td>翻越</td><td>17:00</td></tr>
+                    <tr><td>四姑娘山镇</td><td>住宿</td><td>19:00+</td></tr>
+                </table>
+            </div>
+        </details>
+    </div>
+
+    <!-- D13 -->
+    <div class="day-card" id="day-13" data-phase="travel">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D13</span>
+                <span class="day-text">四姑娘山 → 猫鼻梁 → 映秀 → 重庆</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>出发时间：</strong>08:00 · 预计到达：20:00</p>
+                <p><strong>总里程：</strong>~510km</p>
+                <p><strong>路线：</strong>四姑娘山 → 猫鼻梁观景台 → G350 → 映秀 → 重庆</p>
+
+                <div class="reason"><strong>📋 当日亮点</strong>猫鼻梁观景台是免费拍摄四姑娘山全景最佳机位。之后一路向东经映秀前往重庆，为次日重庆休整做准备。</div>
+
+                <h3>📍 关键节点</h3>
+                <table>
+                    <tr><th>节点</th><th>类型</th><th>时间</th></tr>
+                    <tr><td>猫鼻梁观景台</td><td><span class="tag tag-must">必去</span></td><td>10:00-11:00</td></tr>
+                    <tr><td>映秀地震遗址</td><td>路过</td><td>13:00</td></tr>
+                    <tr><td>重庆入住</td><td>住宿</td><td>20:00+</td></tr>
+                </table>
+            </div>
+        </details>
+    </div>
+
+    <!-- D14 -->
+    <div class="day-card" id="day-14" data-phase="rest">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D14</span>
+                <span class="day-text">重庆休整 · 洪崖洞/李子坝/磁器口</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>活动范围：</strong>重庆市中心</p>
+                <p><strong>重点体验：</strong>洪崖洞夜景、李子坝轻轨穿楼、磁器口古镇、重庆火锅</p>
+
+                <div class="reason"><strong>📋 推荐理由</strong>经过前几天高强度驾驶，今天在重庆市内轻松游玩。洪崖洞千与千寻既视感，磁器口吃小吃逛古镇。</div>
+
+                <h3>📍 关键节点</h3>
+                <table>
+                    <tr><th>节点</th><th>类型</th><th>时间</th></tr>
+                    <tr><td>李子坝轻轨穿楼</td><td><span class="tag tag-alt">备选</span></td><td>10:00</td></tr>
+                    <tr><td>磁器口古镇</td><td><span class="tag tag-alt">备选</span></td><td>14:00</td></tr>
+                    <tr><td>重庆火锅</td><td><span class="tag tag-must">推荐</span></td><td>18:00</td></tr>
+                    <tr><td>洪崖洞夜景</td><td><span class="tag tag-must">必去</span></td><td>20:00</td></tr>
+                </table>
+            </div>
+        </details>
+    </div>
+
+    <!-- D15 -->
+    <div class="day-card" id="day-15" data-phase="travel">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D15</span>
+                <span class="day-text">重庆 → 武汉</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>出发时间：</strong>08:00 · 预计到达：20:00</p>
+                <p><strong>总里程：</strong>~800km（全程高速）</p>
+                <p><strong>路线：</strong>重庆 → G50沪渝高速 → 武汉</p>
+
+                <div class="reason"><strong>📋 当日说明</strong>纯高速赶路日，无景点。建议两人轮流开，每2小时休息一次。</div>
+            </div>
+        </details>
+    </div>
+
+    <!-- D16 -->
+    <div class="day-card" id="day-16" data-phase="travel">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D16</span>
+                <span class="day-text">武汉 → 上海</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>出发时间：</strong>09:00 · 预计到达：18:00</p>
+                <p><strong>总里程：</strong>~750km（G42沪蓉高速）</p>
+                <p><strong>路线：</strong>武汉 → 合肥 → 南京 → 上海</p>
+
+                <div class="reason"><strong>📋 当日说明</strong>最后一天赶路回家，预计傍晚到上海。晚上整理行李、洗车。</div>
+            </div>
+        </details>
+    </div>
+
+    <!-- D17 -->
+    <div class="day-card" id="day-17" data-phase="rest">
+        <details>
+            <summary class="day-title">
+                <span class="day-num">D17</span>
+                <span class="day-text">缓冲备用日</span>
+                <span class="day-date">08/XX</span>
+                <span>▶</span>
+            </summary>
+            <div class="day-content">
+                <p><strong>用途：</strong>应对前几日延误或临时增加景点</p>
+                <p><strong>备选方案：</strong>重庆多玩一天 / 武汉多玩一天 / 在家休息</p>
+            </div>
+        </details>
+    </div>
+
+    <!-- 五、住宿预订快捷入口 -->
+    <div class="card card-info">
+        <details>
+            <summary>
+                <h2>📋 住宿预订清单</h2>
+                <span class="arrow">▶</span>
+            </summary>
+            <table>
+                <tr><th>日期</th><th>城市</th><th>酒店</th><th>状态</th></tr>
+                <tr><td>D1</td><td>武汉</td><td>待定</td><td>-</td></tr>
+                <tr><td>D2</td><td>宜昌</td><td>桔子酒店(宜昌城东大道长江广场店)</td><td><span class="tag tag-must">已订</span></td></tr>
+                <tr><td>D3</td><td>成都</td><td>成都天府皇冠假日酒店</td><td><span class="tag tag-must">已订</span></td></tr>
+                <tr><td>D4-D6</td><td>康定</td><td>情歌广场城际酒店</td><td><span class="tag tag-must">已订</span></td></tr>
+                <tr><td>D7-D9</td><td>甲根坝</td><td>宗宫民宿/共梦林/木雅首府等</td><td><span class="tag tag-must">已订</span></td></tr>
+                <tr><td>D10-D11</td><td>道孚</td><td>待定</td><td>-</td></tr>
+                <tr><td>D12</td><td>四姑娘山</td><td>新四姑娘山庄</td><td><span class="tag tag-must">已订</span></td></tr>
+                <tr><td>D13-D14</td><td>重庆</td><td>汉庭酒店/亚朵酒店(观鱼桥步行街店)</td><td><span class="tag tag-must">已订</span></td></tr>
+            </table>
+        </details>
+    </div>
+
+    <!-- 六、国道风景指南 -->
+    <div class="card card-info">
+        <details>
+            <summary>
+                <h2>🛣️ 国道风景指南</h2>
+                <span class="arrow">▶</span>
+            </summary>
+            <table>
+                <tr><th>国道</th><th>路段</th><th>风景评分</th><th>驾驶难度</th></tr>
+                <tr><td>G318</td><td>康定→新都桥</td><td>⭐⭐⭐⭐</td><td>⭐</td></tr>
+                <tr><td>S434</td><td>康定北线</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐</td></tr>
+                <tr><td>G548</td><td>八美→道孚</td><td>⭐⭐⭐⭐</td><td>⭐</td></tr>
+                <tr><td>G248</td><td>道孚→金川</td><td>⭐⭐⭐</td><td>⭐</td></tr>
+                <tr><td>S451</td><td>金小路</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
+                <tr><td>G350</td><td>四姑娘山→映秀</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
+            </table>
+        </details>
+    </div>
+
+    <!-- 七、安全守则 -->
+    <div class="card card-info">
+        <details>
+            <summary>
+                <h2>🛡️ 安全守则</h2>
+                <span class="arrow">▶</span>
+            </summary>
+            <ul>
+                <li><strong>雨季不进山、不走碎石路、不赶夜路</strong></li>
+                <li>每天出发前检查胎压和油量</li>
+                <li>高海拔地区避免剧烈运动，注意保暖</li>
+                <li>车辆故障联系保险公司救援</li>
+                <li>宠物全程安置在车内或笼内</li>
+                <li>备好防晒霜、墨镜、帽子</li>
+            </ul>
+        </details>
+    </div>
+
+    <!-- 八、高反手册 -->
+    <div class="card card-info">
+        <details>
+            <summary>
+                <h2>🏥 高反预防手册</h2>
+                <span class="arrow">▶</span>
+            </summary>
+            <table>
+                <tr><th>症状</th><th>轻度</th><th>中度</th><th>重度</th></tr>
+                <tr><td>头痛</td><td>太阳穴胀痛</td><td>持续剧痛</td><td>意识模糊</td></tr>
+                <tr><td>恶心</td><td>轻微食欲不振</td><td>频繁呕吐</td><td>无法进食</td></tr>
+                <tr><td>呼吸困难</td><td>爬楼气喘</td><td>静息也喘</td><td>肺水肿</td></tr>
+            </table>
+            <div class="tip-box"><h4>⚠️ 重要提醒</h4>出现严重高反立即下撤到低海拔地区！不要硬撑。</div>
+        </details>
+    </div>
+
+    <!-- 九、宠物方案 -->
+    <div class="card card-info">
+        <details>
+            <summary>
+                <h2>🐕 宠物出行方案</h2>
+                <span class="arrow">▶</span>
+            </summary>
+            <ul>
+                <li><strong>锐界2.7T V6四驱 + 2只中华田园犬</strong></li>
+                <li><strong>理想L6纯电SUV + 2只中华田园犬</strong></li>
+                <li>车上备足狗粮、零食、饮水器</li>
+                <li>优先选带停车场的住宿，宠物可安置车内</li>
+                <li>三峡大坝时4狗全部安置在理想L6内开空调</li>
+                <li>高海拔地区注意宠物保暖</li>
+            </ul>
+        </details>
+    </div>
+
+    <!-- 十、检查清单 -->
+    <div class="card card-info">
+        <details>
+            <summary>
+                <h2>✅ 出行检查清单</h2>
+                <span class="arrow">▶</span>
+            </summary>
+            <ul class="checklist" id="checklist">
+                <li><label><input type="checkbox" onchange="saveCheck()"> 🚗 车辆保养：机油、刹车、轮胎</label></li>
+                <li><label><input type="checkbox" onchange="saveCheck()"> 📄 证件：身份证、驾驶证、行驶证</label></li>
+                <li><label><input type="checkbox" onchange="saveCheck()"> 🏨 酒店预订确认</label></li>
+                <li><label><input type="checkbox" onchange="saveCheck()"> 🎒 行李打包</label></li>
+                <li><label><input type="checkbox" onchange="saveCheck()"> 🐕 宠物用品：狗粮、水碗、牵引绳</label></li>
+                <li><label><input type="checkbox" onchange="saveCheck()"> 💊 药品：感冒药、肠胃药、创可贴</label></li>
+                <li><label><input type="checkbox" onchange="saveCheck()"> 🧴 防晒：防晒霜、墨镜、帽子</label></li>
+                <li><label><input type="checkbox" onchange="saveCheck()"> 🌂 雨具：雨衣、雨伞</label></li>
+                <li><label><input type="checkbox" onchange="saveCheck()"> 🍫 零食：巧克力、牛肉干、能量棒</label></li>
+                <li><label><input type="checkbox" onchange="saveCheck()"> 📱 下载离线地图</label></li>
+            </ul>
+        </details>
+    </div>
+
+    <!-- 十一、日历与提醒 -->
+    <div class="card card-info">
+        <details>
+            <summary>
+                <h2>📆 日历与出发日期</h2>
+                <span class="arrow">▶</span>
+            </summary>
+            <div class="date-picker-row">
+                <label for="startDate">选择出发日期：</label>
+                <input type="date" id="startDate" value="2026-08-05" onchange="renderCalendar()">
+            </div>
+            <div id="calendarContainer"></div>
+        </details>
+    </div>
+
+    <!-- 底部固定操作栏 -->
+    <div class="fixed-bar">
+        <button class="btn btn-outline" onclick="window.history.back()">← 返回主页</button>
+        <button class="btn btn-green" onclick="downloadICS()">📥 下载日历</button>
+        <button class="btn btn-outline" onclick="copyItinerary()">📋 复制行程</button>
+    </div>
+
+    <!-- 页脚 -->
+    <div style="text-align:center;padding:16px;font-size:11px;color:#9CA3AF;border-top:1px solid #E5E7EB;margin-top:20px;line-height:1.8;">
+        v7 · 川西17天自驾慢游攻略<br>
+        © 2026 All Rights Reserved
+    </div>
+</div>
+
+<script>
+// Calendar rendering
+function renderCalendar() {
+    const container = document.getElementById('calendarContainer');
+    if (!container) return;
+    
+    const startDate = new Date(document.getElementById('startDate').value);
+    const tripDays = 17;
+    const endDate = new Date(startDate.getTime() + (tripDays - 1) * 24 * 60 * 60 * 1000);
+    
+    let html = '<div class="cal-month-wrap">';
+    html += '<div class="cal-month-title">2026年' + (startDate.getMonth()+1) + '月 · 17天行程</div>';
+    
+    // Simplified calendar display
+    html += '<div style="background:var(--primary-bg);padding:12px;border-radius:8px;margin:12px 0;font-size:13px;">';
+    html += '<strong>📅 关键日期：</strong><br>';
+    html += '出发：' + startDate.toISOString().slice(0,10) + '<br>';
+    html += '结束：' + endDate.toISOString().slice(0,10) + '<br>';
+    html += '<br><strong>💡</strong>点击上方"下载日历"按钮可将行程添加到手机日历';
+    html += '</div>';
+    
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+// ICS download
+function downloadICS() {
+    const startDate = new Date(document.getElementById('startDate').value);
+    let ics = 'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//TravelPlan//CN\n';
+    ics += 'BEGIN:VEVENT\n';
+    ics += 'DTSTART:' + startDate.toISOString().slice(0,10).replace(/-/g, '') + '\n';
+    ics += 'SUMMARY:川西17天自驾\n';
+    ics += 'DESCRIPTION:成都-康定-甲根坝-道孚-金川-四姑娘山-重庆-武汉-上海\n';
+    ics += 'END:VEVENT\nEND:VCALENDAR\n';
+    
+    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = '川西17天自驾.ics';
+    link.click();
+}
+
+// Copy itinerary
+function copyItinerary() {
+    const text = '川西17天自驾行程概览\nD1: 上海→武汉\nD2: 武汉→宜昌\nD3: 成都休整\nD4-D6: 康定大本营\nD7-D9: 甲根坝大本营\nD10-D11: 道孚大本营\nD12: 金小路S451\nD13-D17: 返程';
+    navigator.clipboard.writeText(text).then(() => alert('行程已复制'));
+}
+
+// Checklist localStorage
+function saveCheck() {
+    const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+    checkboxes.forEach((cb, index) => {
+        localStorage.setItem('check_' + index, cb.checked);
+    });
+}
+
+function loadCheck() {
+    const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+    checkboxes.forEach((cb, index) => {
+        cb.checked = localStorage.getItem('check_' + index) === 'true';
+    });
+}
+
+// Day nav click handler
+document.querySelectorAll('.day-nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+    renderCalendar();
+    loadCheck();
+});
+</script>
+</body>
+</html>
