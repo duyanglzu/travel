@@ -544,11 +544,6 @@
     <div class="top-bar">
         <div class="brand">Kevin's Travel</div>
         <div class="theme-bar" id="themeBar">
-            <button class="theme-btn active" data-theme="default">默认蓝调</button>
-            <button class="theme-btn" data-theme="magazine">杂志风</button>
-            <button class="theme-btn" data-theme="minimal">极简风</button>
-            <button class="theme-btn" data-theme="journal">手账风</button>
-            <button class="theme-btn" data-theme="plateau">高原风</button>
             <button class="dark-toggle-btn" id="darkToggle">深色</button>
         </div>
     </div>
@@ -657,16 +652,13 @@
         function setupThemeSystem() {
             const themeLink = document.getElementById('themeCSS');
             const darkBtn = document.getElementById('darkToggle');
-            const themeBar = document.getElementById('themeBar');
             const html = document.documentElement;
-            const themeBtns = themeBar.querySelectorAll('.theme-btn');
 
             const savedTheme = localStorage.getItem('colorTheme') || 'default';
             const savedDark = localStorage.getItem('theme');
 
             function applyTheme(name) {
                 themeLink.href = 'themes/' + name + '.css';
-                themeBtns.forEach(function(b) { b.classList.toggle('active', b.dataset.theme === name); });
                 localStorage.setItem('colorTheme', name);
             }
 
@@ -680,10 +672,6 @@
             if (savedDark === 'dark' || (!savedDark && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 applyDark(true);
             }
-
-            themeBtns.forEach(function(btn) {
-                btn.addEventListener('click', function() { applyTheme(btn.dataset.theme); });
-            });
 
             darkBtn.addEventListener('click', function() {
                 applyDark(!html.classList.contains('dark'));
@@ -708,7 +696,6 @@
                 });
             });
         }
-    }
     </script>
 </body>
 </html>

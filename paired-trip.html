@@ -162,11 +162,6 @@
     <div style="display:flex;justify-content:space-between;align-items:center;margin:-4px 0 14px;">
         <div style="font-size:11px;color:#9CA3AF;">Kevin's Travel Plans</div>
         <div class="theme-bar">
-            <button class="theme-btn active" data-theme="default">默认蓝调</button>
-            <button class="theme-btn" data-theme="magazine">杂志风</button>
-            <button class="theme-btn" data-theme="minimal">极简风</button>
-            <button class="theme-btn" data-theme="journal">手账风</button>
-            <button class="theme-btn" data-theme="plateau">高原风</button>
             <button class="dark-toggle-btn" id="darkToggle">🌙 深色</button>
         </div>
     </div>
@@ -668,7 +663,6 @@ function setupThemeSystem() {
     const savedDark = localStorage.getItem('theme');
     function applyTheme(name) {
         themeLink.href = 'themes/' + name + '.css';
-        document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === name));
         localStorage.setItem('colorTheme', name);
     }
     function applyDark(isDark) {
@@ -678,7 +672,6 @@ function setupThemeSystem() {
     }
     applyTheme(savedTheme);
     if (savedDark === 'dark' || (!savedDark && window.matchMedia('(prefers-color-scheme: dark)').matches)) applyDark(true);
-    document.querySelectorAll('.theme-btn').forEach(b => b.addEventListener('click', () => applyTheme(b.dataset.theme)));
     darkBtn.addEventListener('click', () => applyDark(!html.classList.contains('dark')));
 }
 document.addEventListener('DOMContentLoaded', setupThemeSystem);
