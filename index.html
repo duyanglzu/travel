@@ -913,9 +913,11 @@
             const darkBtn = document.getElementById('darkToggle');
             const html = document.documentElement;
 
-            // 配色风格固定为手账 journal（深浅由 .dark class 控制，不在此切换）
-            themeLink.href = 'themes/journal.css';
-            localStorage.removeItem('colorTheme'); // 清掉旧版可能写入的干扰值
+            // 配色主题：每次加载随机挑选一个（山野蓝调 default / 手账 journal / 杂志 magazine / 极简 minimal / 高原 plateau），明暗由下方 auto 单独控制
+            const COLOR_THEMES = ['default', 'journal', 'magazine', 'minimal', 'plateau'];
+            const randomTheme = COLOR_THEMES[Math.floor(Math.random() * COLOR_THEMES.length)];
+            themeLink.href = 'themes/' + randomTheme + '.css';
+            localStorage.setItem('colorTheme', randomTheme);
 
             // 明暗模式：auto 跟随系统 / light / dark，默认 auto（浅）
             const mq = window.matchMedia('(prefers-color-scheme: dark)');
