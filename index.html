@@ -440,7 +440,7 @@
             display: block;
             padding: 0;
             margin: 0;
-            padding-bottom: 45vh;
+            padding-bottom: 70vh;
         }
 
         .dest-grid::-webkit-scrollbar { display: none; }
@@ -450,10 +450,10 @@
             top: 88px;
             margin-bottom: 0;
             width: 100%;
-            transform-origin: center top;
         }
 
-        /* 层叠滚动：后一张略下移，露出上一张顶边形成堆叠层次 */
+        /* 层叠滚动：后一张（DOM 靠后）粘在略低位置（露 14px 顶边），滚上来时盖住前一张；
+           前一张内容缩小 + 上移 + 淡出，让标题从露出区露出来，形成两张卡叠在一起的层次感。 */
         .dest-grid > .route-card + .route-card {
             top: 102px;
         }
@@ -504,7 +504,7 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border);
             border-radius: 16px;
-            overflow: hidden;
+            overflow: visible;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
         }
@@ -525,6 +525,8 @@
             text-decoration: none;
             color: var(--text);
             padding: 16px 18px;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            transform-origin: center center;
         }
 
         @media (min-width: 769px) {
@@ -987,22 +989,34 @@
             if (!grid) return;
             var cards = Array.prototype.slice.call(grid.querySelectorAll(':scope > .route-card'));
             if (cards.length < 2) return;
-            var stickyTop = 88;
-            var offset = 14;
+            var firstTop = 88;
+            var secondTop = 102;
+            var offset = 24;
 
             function update() {
                 for (var i = 0; i < cards.length; i++) {
                     var card = cards[i];
-                    var rect = card.getBoundingClientRect();
+                    var inner = card.querySelector('a');
                     var progress = 0;
-                    if (cards[i + 1]) {
+                    if (i === 0 && cards[i + 1]) {
+                        // 第一张卡：根据第二张卡接近其 sticky 位置的程度缩小/上移/淡出
                         var nextTop = cards[i + 1].getBoundingClientRect().top;
-                        progress = Math.min(1, Math.max(0, (stickyTop + offset - nextTop) / offset));
-                    } else {
-                        progress = Math.min(1, Math.max(0, (stickyTop - rect.top) / 80));
+                        progress = Math.min(1, Math.max(0, (secondTop + offset - nextTop) / offset));
+                    } else if (i === cards.length - 1) {
+                        // 最后一张卡：根据它是否快被滚走做轻微淡出
+                        progress = Math.min(1, Math.max(0, (firstTop - card.getBoundingClientRect().top) / 80));
                     }
-                    var opacity = (1 - progress * 0.4).toFixed(3);
-                    card.style.opacity = opacity;
+                    var opacity = (1 - progress * 0.5).toFixed(3);
+                    var scale = (1 - progress * 0.1).toFixed(3);
+                    var translateY = (-progress * 16).toFixed(1);
+                    var ringAlpha = (progress * 0.6).toFixed(3);
+                    if (inner) {
+                        inner.style.opacity = opacity;
+                        inner.style.transform = 'scale(' + scale + ') translateY(' + translateY + 'px)';
+                    }
+                    // 蓝色 outline 加在 sticky 外层，不会被 overflow:hidden 裁掉
+                    card.style.outline = '3px solid rgba(2, 132, 199, ' + ringAlpha + ')';
+                    card.style.outlineOffset = '4px';
                     card.style.zIndex = String(i + 1);
                 }
             }
