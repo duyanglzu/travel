@@ -322,8 +322,6 @@
         /* ===== Destination Card ===== */
         .dest-card {
             background: var(--bg-card);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             border-radius: 24px;
             padding: 24px;
             margin-bottom: 20px;
@@ -501,6 +499,8 @@
         /* ===== Route Card ===== */
         .route-card {
             background: var(--bg-highlight);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border);
             border-radius: 16px;
             overflow: hidden;
@@ -515,7 +515,6 @@
         .route-card:hover {
             border-color: var(--primary-border);
             box-shadow: var(--shadow-primary);
-            transform: translateY(-3px);
         }
 
         .route-card a {
@@ -1001,9 +1000,7 @@
                     } else {
                         progress = Math.min(1, Math.max(0, (stickyTop - rect.top) / 80));
                     }
-                    var scale = (1 - progress * 0.05).toFixed(3);
                     var opacity = (1 - progress * 0.4).toFixed(3);
-                    card.style.transform = 'scale(' + scale + ')';
                     card.style.opacity = opacity;
                     card.style.zIndex = String(i + 1);
                 }
