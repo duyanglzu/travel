@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link id="themeCSS" rel="stylesheet" href="themes/default.css">
+    <link id="themeCSS" rel="stylesheet" href="themes/journal.css">
     <style>
         /* ===== Reset & Base ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -786,8 +786,8 @@
         .content-area > *:nth-child(3) { animation-delay: 0.2s; }
 
         @keyframes sectionFadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to   { opacity: 1; }
         }
     </style>
 </head>
@@ -982,7 +982,7 @@
                     var opacity = (1 - progress * 0.4).toFixed(3);
                     card.style.transform = 'scale(' + scale + ')';
                     card.style.opacity = opacity;
-                    card.style.zIndex = String(cards.length - i);
+                    card.style.zIndex = String(i + 1);
                 }
             }
 
