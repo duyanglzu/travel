@@ -69,6 +69,7 @@
 - **花生壳 Drop**：https://console-hsk-ng.oray.com/console/file-hosting
   - 打包所有 HTML + assets + themes + 图片为 ZIP
   - 拖拽上传即可生成远程访问链接，适合临时分享给同行人员
+  - 分享链接（最新发布）：https://drop.ficp.fun/
 
 ## 注意
 

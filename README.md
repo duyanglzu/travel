@@ -23,6 +23,7 @@
 
 - Gitee Pages: https://kevinduyang.gitee.io/travel/
 - GitHub Pages: https://duyanglzu.github.io/travel/
+- 花生壳 Drop 分享: https://drop.ficp.fun/
 
 ## 使用
 

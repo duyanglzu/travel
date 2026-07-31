@@ -23,6 +23,7 @@
 - Gitee Pages: https://kevinduyang.gitee.io/travel/
 - GitHub Pages: https://duyanglzu.github.io/travel/
 - CloudBase: https://travel2-travel-d4gh9ixryba74cde5.webapps.tcloudbase.com/
+- 花生壳 Drop: https://drop.ficp.fun/
 
 ## v5.0 (2026-07-05)
 ### 页面布局重构
