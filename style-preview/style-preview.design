@@ -60,6 +60,7 @@
   "config": {
     "autoLayout": true,
     "deviceType": "freeSize",
-    "projectName": "川西攻略 — 设计风格样图"
+    "projectName": "川西攻略 — 设计风格样图",
+    "visualEditorEnabled": true
   }
 }
