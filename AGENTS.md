@@ -82,3 +82,20 @@
 - 主文件是 `index.html`
 - 修改后 `git add "index.html" && git commit -m "msg" && git push`
 - 所有住宿推荐需高德/百度可搜到，小红书验证后加入出处表
+
+## 版本号同步（每次发版必做）
+
+版本号出现在 4 处，**漏改一处就是旧版**：
+
+| 位置 | 格式 | 说明 |
+|---|---|---|
+| `index.html` 页脚 versionTop | vX.Y | 主页面 |
+| `west-sichuan.html` 页脚 VER + 版本历史表首行 | vX | JS 变量 + 表格变更描述 |
+| `paired-trip.html` 页脚 | vX.Y | 对方视角版 |
+| `CHANGELOG.md` 顶部 | vX (日期) | 变更描述 |
+
+流程：
+1. `./bump-version.sh vX.Y` — 自动替换上述版本号（west-sichuan.html 自动取主版本 vX）
+2. 手动补充：west-sichuan.html 版本历史表首行 + CHANGELOG.md 顶部 + AGENTS.md 架构变更记录（描述变更内容）
+3. `git add -A && git commit && git push` 三远程
+4. 同步部署：`sudo cp index.html west-sichuan.html paired-trip.html /opt/1panel/www/sites/test2.lzush.cn/index/duyang/travel/1d33d85d/` + curl 验证 HTTP 200
