@@ -49,10 +49,11 @@
 
 - origin → git@gitee.com:kevinduyang/travel.git (Gitee)
 - github → git@github.com:duyanglzu/travel.git (GitHub)
-- gitcode → git@gitcode.com:duyanglzu/travel.git (GitCode)
+- atomgit → git@atomgit.com:duyanglzu/travel.git (AtomGit)
 
 ## 架构变更记录
 
+- **v9 (2026.08.11)**：D5 改 S434 环线方案（机场观景台野餐→机场路→G318→折多山→康定，实测 52.5km 比原路返近），塔公/姑弄村留给 D10 承接；部署迁移至 test2.lzush.cn 静态站
 - **v8 (2026.07.29)**：备份版功能补全(日历/Toast/动画/主题)、返回栏、手账主题默认、去主题按钮留深浅开关、花生壳Drop部署
 - **v5.0 (2026.07.05)**：页面布局三段式重构（概览→每日行程→出行准备）、安全+高反合并为单卡、酒店预订快捷入口、4项代码bug修复
 - **v4.0 (2026.07.02)**：路线重构：丹巴→金小路替换（D12 道孚→金川→金小路→小金）、D11卡玛村替代墨石公园、总览表/景点表同步更新、国道G350修正
@@ -66,7 +67,12 @@
 
 ## 部署
 
-- **花生壳 Drop**：https://console-hsk-ng.oray.com/console/file-hosting
+- **test2.lzush.cn 静态站（主）**：https://test2.lzush.cn/duyang/travel/1d33d85d/west-sichuan.html
+  - VPS：中国 VPS（Debian 13），1Panel 面板建站，站点路径含随机串目录防扫描
+  - 线上根目录：`/opt/1panel/www/sites/test2.lzush.cn/index/duyang/travel/1d33d85d/`（完整站点文件：HTML + themes/ + assets/ + 图片）
+  - 更新：`sudo cp <本地文件> /opt/1panel/www/sites/test2.lzush.cn/index/duyang/travel/1d33d85d/`（目录 root 属主需 sudo，静态文件直接生效无需重载 nginx）
+  - 验证：`curl -s -o /dev/null -w "%{http_code}" https://test2.lzush.cn/duyang/travel/1d33d85d/west-sichuan.html` 应返回 200
+- **花生壳 Drop（备选）**：https://console-hsk-ng.oray.com/console/file-hosting
   - 打包所有 HTML + assets + themes + 图片为 ZIP
   - 拖拽上传即可生成远程访问链接，适合临时分享给同行人员
   - 分享链接（最新发布）：https://drop.ficp.fun/
